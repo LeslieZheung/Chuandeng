@@ -1,5 +1,29 @@
+<!doctype html>
+<html lang="zh-Hant">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="三十三幕互動故事：從東晉亂世山中的一盞油燈，到南京城破時不閉的山門、二十一世紀台灣的禪堂。看漢傳八宗興起、斷絕、渡海、回家，走完看看你最像哪一位祖師。">
+<meta name="theme-color" content="#F1ECE2">
+<meta name="color-scheme" content="light">
+<meta name="format-detection" content="telephone=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="傳燈">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="傳燈">
+<meta property="og:title" content="傳燈：漢傳八宗一千五百年">
+<meta property="og:description" content="三十三幕互動故事：從東晉亂世山中的一盞油燈，到南京城破時不閉的山門、二十一世紀台灣的禪堂。看漢傳八宗興起、斷絕、渡海、回家，走完看看你最像哪一位祖師。">
+<meta property="og:url" content="https://lesliezheung.github.io/Chuandeng/">
+<meta property="og:image" content="https://lesliezheung.github.io/Chuandeng/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
 <title>傳燈一千五百年</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap">
@@ -191,6 +215,22 @@ select{font:inherit;color:var(--ink);background:var(--paper);border:1px solid va
 @media (prefers-reduced-motion:no-preference){
   .scene.fresh,.after.fresh,.ending.fresh{animation:rise .38s ease-out}
   @keyframes rise{from{transform:translateY(8px)}to{transform:none}}
+}
+
+/* mobile */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+button,summary,select,a{-webkit-tap-highlight-color:transparent}
+button,summary,select{touch-action:manipulation}
+.wrap{padding-bottom:calc(72px + env(safe-area-inset-bottom,0px))}
+@media (max-width:600px){
+  h1{letter-spacing:.16em}
+  .bar-row .tiny{padding:10px 2px;margin-block:-10px}
+  .pickers select{min-height:40px}
+  .fold>summary,details.lead>summary,.foot>details>summary{padding-block:9px}
+  .next,.resume,.ghost{min-height:44px}
+  .next{width:100%;justify-self:stretch}
+  .four>div{grid-template-columns:4.2em 1fr;gap:8px}
+  .chip{font-size:.86rem}
 }
 </style>
 
@@ -552,3 +592,10 @@ if (window.claude && window.claude.hot && window.claude.hot.ready) window.claude
 else start((window.claude && window.claude.hot && window.claude.hot.data) || {});
 })();
 </script>
+
+<script>
+if ('serviceWorker' in navigator && location.protocol === 'https:') {
+  window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+}
+</script>
+</html>

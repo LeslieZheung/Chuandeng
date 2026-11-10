@@ -1,0 +1,16 @@
+{
+  "name": "傳燈：漢傳八宗一千五百年",
+  "short_name": "傳燈",
+  "description": "三十三幕互動故事：看漢傳八宗興起、斷絕、渡海、回家，走完看看你最像哪一位祖師。",
+  "lang": "zh-Hant",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F1ECE2",
+  "theme_color": "#F1ECE2",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
