@@ -224,6 +224,17 @@ details.lead p{margin:8px 0 0}
 .mbody{overflow:hidden;padding:0 14px 0 calc(14px + 2em + 6px)}
 .mbody>:last-child{margin-bottom:12px}
 .mi .mbody p{margin:4px 0 0;font-size:.93rem;line-height:1.8}
+.rfold>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr 22px;row-gap:10px;align-items:center}
+.rfold>summary::-webkit-details-marker{display:none}
+.rfold>summary .label,.rfold>summary .big,.rfold>summary .hint{grid-column:1}
+.rfold .chev{grid-column:2;grid-row:1/3;justify-self:end;width:10px;height:10px;border-right:1.8px solid var(--ink-2);border-bottom:1.8px solid var(--ink-2);transform:translateY(-3px) rotate(45deg);transition:transform .32s cubic-bezier(.3,.7,.3,1),border-color .2s}
+.rfold>summary:hover .chev{transform:translateY(0) rotate(45deg);border-color:var(--lamp-ink)}
+.rfold[open]:not(.closing) .chev{transform:translateY(3px) rotate(225deg)}
+.rfold[open]:not(.closing)>summary:hover .chev{transform:translateY(0) rotate(225deg)}
+.rfold .hint{font-size:.8rem;color:var(--ink-2);margin-top:-4px}
+.rfold[open]:not(.closing) .hint{display:none}
+.rfold .mbody{overflow:hidden;padding:0}
+.rfold .mbody>p{margin:10px 0 0}
 @media (max-width:520px){.mbody{padding-left:14px}}
 .roster p{margin:0}
 .fold{border-top:1px solid var(--rule);padding-top:14px}
@@ -547,7 +558,7 @@ function masterHTML(mm){
     '<div class="mcards">' + mm.top.map((m, i) => '<div class="mcard' + (i === 0 ? ' first' : '') + '"><h4>' + m.name + '<small>' + (i === 0 ? '最像' : '也很像') + '</small></h4>' +
       '<div class="txt">' + masterText(m.text) + '</div></div>').join('') + '</div>' +
     '<div class="also"><b>也有幾分像</b>' + mm.also.map(m => '<p><strong>' + m.name + '</strong>　' + m.id + '</p>').join('') + '</div>' +
-    '<p class="src">' + D.mastersSrc + '</p></section>';
+    '<details class="lead"><summary><b style="display:inline">出處</b></summary><p class="src">' + D.mastersSrc + '</p></details></section>';
 }
 function allMastersHTML(mm){
   const tops = mm.top.map(m => m.name), near = mm.also.map(m => m.name);
@@ -625,13 +636,15 @@ function endingHTML(fresh){
     return '<li><span class="no">第' + s.num + '幕</span><span><b>' + s.title + '</b>　' + o.k + '．' + o.t + '</span></li>';
   }).join('');
   return '<article class="ending' + (fresh ? ' fresh' : '') + '" id="ending" tabindex="-1">' +
-    '<div class="head"><p class="no">終章</p><h2>你這一盞燈</h2><p class="era">' + cnum(N) + '幕走完了。下面是你的思想、法脈、兩者交會的解讀，你在人群裡的角色，以及你最像的祖師' + (hid.length ? '；還有你解開的隱藏結局' : '') + '。</p></div>' +
+    '<div class="head"><p class="no">終章</p><h2>你這一盞燈</h2><p class="era">' + cnum(N) + '幕走完了。下面是你的思想、和你最像的祖師大德、你的法脈、兩者交會的解讀，以及你在人群裡的角色' + (hid.length ? '；還有你解開的隱藏結局' : '') + '。</p></div>' +
     '<section class="res"><p class="label">你的思想</p><p class="big">' + r.school + '宗</p><p class="tagline">' + sc.tag + '</p>' +
       '<p class="txt">' + sc.text + '</p>' + (sc.modern ? '<p class="modern"><b>近代知音</b>' + sc.modern + '</p>' : '') + '</section>' +
-    '<section class="res"><p class="label">你的法脈</p><p class="big">' + fa.name + '</p><p class="txt">' + fa.text + '</p></section>' +
+    masterHTML(mm) +
+    '<section class="res"><details class="rfold"><summary><span class="label">你的法脈</span><span class="big">' + fa.name + '</span><span class="chev" aria-hidden="true"></span>' +
+      '<span class="hint">點一下展開</span></summary><div class="mbody"><p class="txt">' + fa.text + '</p></div></details></section>' +
     '<section class="res"><p class="label">兩者交會</p><p class="big sm">' + r.school + '宗 × ' + fa.name + '</p>' +
       comboHTML(D.combos[r.school][fa.name]) + '<details class="lead"><summary><b style="display:inline">三十六種組合的共同線索</b></summary><p>' + D.combosLead + '</p></details></section>' +
-    rolesHTML(roles) + masterHTML(mm) + hidHTML + ((D.places && D.places.length) ? journeySectionHTML() : '') +
+    rolesHTML(roles) + hidHTML + ((D.places && D.places.length) ? journeySectionHTML() : '') +
     '<section class="scores"><div><p class="label">九宗得分</p>' + barsHTML(r.order, r.s, r.school, k => k) + '</div>' +
       '<div><p class="label">法脈數值</p>' + barsHTML(FATES, r.f, r.fate, k => k + '<small style="color:var(--ink-2);font-weight:400">・' + FLABEL[k] + '</small>') + '</div></section>' +
     '<details class="fold"><summary>回顧你的' + cnum(N) + '個選擇</summary><ol class="recap">' + recap + '</ol></details>' +
@@ -989,7 +1002,7 @@ function restart(btn){
 document.addEventListener('click', e => {
   const h = e.target.closest('.tl-hit');
   if (h){ const seg = D.timeline[+h.dataset.tl]; const cap = $('#tl-cap'); if (seg && cap) cap.innerHTML = '<b>' + seg.s + '　' + seg.a + '–' + seg.b + '　' + seg.st + '</b>　' + seg.t; return; }
-  const ms = e.target.closest('.mi>summary');
+  const ms = e.target.closest('.mi>summary, .rfold>summary');
   if (ms){ e.preventDefault(); const d = ms.parentElement, want = !d.open || d.classList.contains('closing'); toggleCard(d, want, true);
     const sec = d.closest('.allm, #sutras'); if (sec){ const btn = sec.querySelector('[data-act="allm"], [data-act="allsut"]');
       if (btn) btn.textContent = [...sec.querySelectorAll('.mi')].some(x => x === d ? !want : (!x.open || x.classList.contains('closing'))) ? '全部展開' : '全部收起'; }
