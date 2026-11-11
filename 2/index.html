@@ -1,0 +1,1260 @@
+<!doctype html>
+<html lang="zh-Hant">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="三十七幕互動故事：從第二次結集到 1956 年佛紀二五〇〇年，看佛法分成上座部、藏傳、漢傳三道流向遠方。走完看看你最接近哪一種思潮、你的法脈流向何方。">
+<meta name="theme-color" content="#F7F4EF">
+<meta name="color-scheme" content="light">
+<meta name="format-detection" content="telephone=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="傳燈">
+<link rel="icon" type="image/png" sizes="192x192" href="../icon-192.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="傳燈">
+<meta property="og:title" content="傳燈：法流三道">
+<meta property="og:description" content="三十七幕互動故事：從第二次結集到 1956 年佛紀二五〇〇年，看佛法分成上座部、藏傳、漢傳三道流向遠方。走完看看你最接近哪一種思潮、你的法脈流向何方。">
+<meta property="og:url" content="https://lesliezheung.github.io/Chuandeng/2/">
+<meta property="og:image" content="https://lesliezheung.github.io/Chuandeng/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<title>傳燈：法流三道</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap">
+<style>
+/* Layout: one reading column like a sutra scroll on rice paper. Scenes stack as leaves, finished leaves fold shut,
+   a row of small lamps tracks the journey. Single light theme by request: 米白紙、墨褐字、低彩度的燈色。 */
+:root{
+  --paper:#F7F4EF;      /* 主底：羊皮紙白 */
+  --leaf:#FCFAF6;       /* 幕卡 */
+  --well:#ECE6DC;       /* 凹面：軌道、輸入 */
+  --ink:#2B2623;        /* 主文字與線條：古木墨棕 */
+  --ink-2:#5E534B;      /* 次要文字 */
+  --rule:#DCD2C4;       /* 細線 */
+  --lamp:#9A6A4A;       /* 泥磚赭褐：裝飾與填色 */
+  --lamp-ink:#7A4A2F;   /* 泥磚赭褐：文字與按鈕 */
+  --lamp-wash:#F1E6DA;  /* 選中底色 */
+  --cinnabar:#A64A3D;   /* 敦煌朱砂紅（低飽和） */
+  --cinnabar-wash:#F4E3DE;
+  --lapis:#3D5A80;      /* 青金石藍 */
+  --lapis-wash:#E5EBF2;
+  --dai:#3D5A80;        /* 連結：青金石藍 */
+  --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.85;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  -webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.wrap{max-width:680px;margin:0 auto;padding-block:36px 72px}
+h1,h2,h3{font-family:var(--serif);text-wrap:balance;margin:0;line-height:1.35;color:var(--ink)}
+p{margin:0}
+/* line breaking: no lone character on a last line; keep dashes, ranges and short phrases together */
+h4,.big,.tagline,.fbox h3,#sutras .mi .nm{text-wrap:balance}
+.nb{white-space:nowrap}
+.seg{display:inline-block}
+a{color:var(--dai);text-underline-offset:2px}
+button{font:inherit}
+:focus-visible{outline:2px solid var(--dai);outline-offset:2px}
+
+/* header */
+.eyebrow{font-size:.8rem;letter-spacing:.18em;color:var(--lamp-ink);font-weight:500}
+h1{font-size:2.7rem;font-weight:700;letter-spacing:.22em;margin-top:4px}
+.sub{color:var(--ink-2);margin-top:8px;font-family:var(--serif);font-size:1.02rem}
+.intro{margin:22px 0 0;padding:16px 18px;background:var(--leaf);border:1px solid var(--rule);border-radius:10px;display:grid;gap:10px;font-size:.95rem}
+.intro strong{color:var(--lamp-ink)}
+.resume{justify-self:start;background:transparent;color:var(--lamp-ink);border:1px solid var(--lamp-ink);border-radius:8px;padding:6px 14px;font-weight:500;cursor:pointer}
+.resume:hover{background:var(--lamp-wash)}
+
+/* progress bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);padding-block:12px 10px;margin-top:20px;border-bottom:1px solid var(--rule);display:grid;gap:8px}
+.bar-row{display:flex;align-items:center;gap:12px;font-size:.85rem;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.bar-row .where{font-weight:500;color:var(--ink)}
+.bar-row .tiny{margin-left:auto;background:transparent;border:0;color:var(--ink-2);text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:2px 0;font-size:.85rem}
+.bar-row .tiny[data-armed]{color:var(--lamp-ink);font-weight:500}
+.lamps{display:grid;grid-template-columns:repeat(37,1fr);gap:3px}
+.lamps i{display:block;height:6px;border-radius:3px;background:var(--well)}
+.lamps i.v{margin-left:5px}
+.lamps i.lit{background:var(--lamp)}
+.lamps i.now{background:var(--lamp-wash);box-shadow:inset 0 0 0 1.5px var(--lamp)}
+
+/* story */
+#story{display:grid;gap:14px;margin-top:18px}
+.vol{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;margin-top:22px;padding:4px 2px}
+.vol .slip{writing-mode:vertical-rl;font-family:var(--serif);font-weight:700;font-size:1.05rem;letter-spacing:.25em;color:var(--lamp-ink);
+  border:1px solid var(--lamp);border-radius:3px;padding:10px 5px;background:var(--leaf)}
+.vol h3{font-size:1.2rem;font-weight:700}
+.vol p{color:var(--ink-2);font-size:.93rem;margin-top:6px}
+
+.scene{background:var(--leaf);border:1px solid var(--rule);border-radius:10px;padding:22px 20px;display:grid;gap:16px;scroll-margin-top:84px}
+.no{font-size:.8rem;letter-spacing:.14em;color:var(--lamp-ink);font-weight:500}
+.scene h2{font-size:1.5rem;font-weight:700;margin-top:2px}
+.era{font-size:.84rem;color:var(--ink-2);margin-top:4px}
+.narr{font-family:var(--serif);font-size:1.04rem;line-height:1.95;display:grid;gap:12px}
+.narr ul{margin:0;padding-left:1.2em;display:grid;gap:8px}
+.choices{display:grid;gap:10px}
+.choice{display:grid;grid-template-columns:1.9em 1fr;gap:12px;align-items:start;text-align:left;color:var(--ink);background:var(--paper);
+  border:1px solid var(--rule);border-radius:9px;padding:12px 14px;cursor:pointer;line-height:1.75}
+.choice .k{font-family:var(--serif);font-weight:700;color:var(--lamp-ink);border:1px solid var(--rule);border-radius:6px;text-align:center;line-height:1.75;background:var(--leaf)}
+.choice:hover:not(:disabled){border-color:var(--lamp);background:var(--lamp-wash)}
+.choice.picked{border-color:var(--lamp);background:var(--lamp-wash);cursor:default}
+.choice.picked .k{background:var(--lamp-ink);border-color:var(--lamp-ink);color:var(--leaf)}
+.choice:disabled:not(.picked){opacity:.5;cursor:default}
+.memory{font-family:var(--serif);background:var(--paper);border:1px dashed var(--lamp);border-radius:8px;padding:10px 14px 12px;display:grid;gap:4px}
+.memory b{font-family:var(--sans);font-size:.75rem;letter-spacing:.18em;color:var(--lamp-ink);font-weight:500}
+.choice.extra{border-style:dashed;border-color:var(--lamp)}
+.choice.extra .k{color:var(--leaf);background:var(--lamp);border-color:var(--lamp)}
+.hidden-end{display:grid;gap:12px;padding-bottom:22px;border-bottom:1px solid var(--rule)}
+.hcard{background:var(--paper);border:1px dashed var(--lamp);border-radius:8px;padding:12px 14px;display:grid;gap:6px}
+.hcard h4{margin:0;font-family:var(--serif);font-size:1.12rem;color:var(--lamp-ink)}
+.hcard p{font-family:var(--serif);font-size:.98rem;line-height:1.9}
+.hint{font-size:.85rem;color:var(--ink-2)}
+.after{display:grid;gap:12px;border-top:1px dashed var(--rule);padding-top:16px}
+.after-label{font-family:var(--serif);font-weight:700;color:var(--lamp-ink);letter-spacing:.2em}
+.hist{display:grid;gap:10px;font-size:.98rem}
+.src{font-size:.82rem;color:var(--ink-2);line-height:1.75}
+.src em{font-style:normal}
+.srcf{margin:0}
+.srcf>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;font-size:.84rem;color:var(--ink-2);padding:6px 0;min-height:32px}
+.srcf>summary::-webkit-details-marker{display:none}
+.srcf>summary::before{content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-1px) rotate(-45deg);transition:transform .22s cubic-bezier(.3,.7,.3,1)}
+.srcf[open]>summary::before{transform:translateY(-2px) rotate(45deg)}
+.srcf>summary:hover{color:var(--lamp-ink)}
+.srcf>.src{margin:2px 0 0}
+.fdrow{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;margin:0}
+.fdi{display:inline-flex;align-items:baseline;gap:8px}
+.fdl{font-size:.76rem;letter-spacing:.1em;color:var(--ink-2)}
+.fd{font:inherit;font-family:var(--serif);font-weight:600;font-size:1.02rem;color:var(--lamp-ink);background:none;border:0;border-bottom:1px dashed var(--lamp-ink);padding:2px 0;cursor:pointer}
+.fd small{font-family:var(--sans);font-weight:400;font-size:.76rem;color:var(--ink-2);margin-left:6px}
+.fd:hover{border-bottom-style:solid}
+.fd:focus-visible,.fx:focus-visible{outline:2px solid var(--lamp-ink);outline-offset:3px}
+body.modal-open{overflow:hidden}
+.fmask{position:fixed;inset:0;z-index:1000;background:rgba(43,33,24,.45);display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(16px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
+.fmask[hidden]{display:none}
+.fbox{position:relative;display:flex;flex-direction:column;background:#fff;color:var(--ink);border-radius:14px;box-shadow:0 20px 60px rgba(40,28,15,.3);width:100%;max-width:560px;max-height:min(86vh,700px);max-height:min(86dvh,700px);overflow:hidden;animation:fpop .22s cubic-bezier(.3,.7,.3,1)}
+.fin{overflow:auto;overscroll-behavior:contain;padding:26px 24px 18px}
+@keyframes fpop{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.fbox{animation:none}}
+.fx{position:absolute;z-index:1;top:8px;right:8px;width:44px;height:44px;background:#fff;border:0;border-radius:50%;color:var(--ink-2);font-size:1.7rem;line-height:1;cursor:pointer}
+.fx:hover{background:var(--leaf);color:var(--ink)}
+.fbox .frole{margin:0;font-size:.78rem;letter-spacing:.16em;color:var(--ink-2)}
+.fbox h3{margin:4px 46px 2px 0;font-family:var(--serif);font-size:1.65rem;line-height:1.3;color:var(--lamp-ink)}
+.fbox .fmeta{margin:0 0 12px;font-size:.9rem;color:var(--ink-2)}
+.fbox .ftext{margin:0 0 10px;font-family:var(--serif);font-size:1.02rem;line-height:1.95}
+.next{justify-self:start;font-weight:500;background:var(--lamp-ink);color:#FCFAF6;border:0;border-radius:8px;padding:10px 20px;cursor:pointer}
+.next:hover{background:var(--ink)}
+
+.done{border:1px solid var(--rule);border-radius:10px;background:transparent}
+.done>summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;padding:10px 14px}
+.done>summary::-webkit-details-marker{display:none}
+.done>summary .no{min-width:4.6em}
+.done>summary .st{font-family:var(--serif);font-weight:600}
+.done>summary .mine{margin-left:auto;font-size:.82rem;color:var(--ink-2)}
+.done>summary:hover .st{color:var(--lamp-ink)}
+.done[open]{background:var(--leaf)}
+.done[open]>summary{border-bottom:1px solid var(--rule)}
+.done .body{padding:16px 18px 18px;display:grid;gap:14px}
+
+/* ending */
+.ending{background:var(--leaf);border:1.5px solid var(--lamp);border-radius:12px;padding:24px 20px;display:grid;gap:22px;scroll-margin-top:84px}
+.ending .head h2{font-size:1.5rem}
+.res{display:grid;gap:10px;padding-bottom:22px;border-bottom:1px solid var(--rule)}
+.label{font-size:.78rem;letter-spacing:.16em;color:var(--ink-2);font-weight:500}
+.big{font-family:var(--serif);font-weight:700;font-size:2rem;line-height:1.3;color:var(--lamp-ink)}
+.big.sm{font-size:1.4rem}
+.tagline{font-family:var(--serif);font-weight:600;font-size:1.08rem}
+.res .txt{font-family:var(--serif);font-size:1.03rem;line-height:1.95}
+.modern{background:var(--paper);border-radius:8px;padding:12px 14px;font-size:.94rem;display:grid;gap:2px}
+.modern b{font-size:.78rem;letter-spacing:.14em;color:var(--lamp-ink);font-weight:500}
+.lead{font-size:.88rem;color:var(--ink-2);background:var(--paper);border-radius:8px;padding:12px 14px}
+details.lead>summary{cursor:pointer}
+details.lead p{margin:8px 0 0}
+.lead b{display:block;font-size:.78rem;letter-spacing:.14em;color:var(--lamp-ink);font-weight:500;margin-bottom:2px}
+.scores{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.bars{display:grid;gap:7px;margin-top:10px}
+.brow{display:grid;grid-template-columns:minmax(4.2em,max-content) 1fr 2em;gap:10px;align-items:center;font-size:.9rem;font-variant-numeric:tabular-nums}
+.brow .n{text-align:right;color:var(--ink-2)}
+.brow>span:first-child{white-space:nowrap}
+.track{height:8px;background:var(--well);border-radius:4px;overflow:hidden}
+.fill{height:100%;background:#A08C7C;border-radius:4px}
+.brow.top .fill{background:var(--lamp)}
+.brow.top span:first-child{color:var(--lamp-ink);font-weight:700}
+.four{display:grid;gap:10px;margin:4px 0 0}
+.four>div{display:grid;grid-template-columns:4.8em 1fr;gap:10px;align-items:baseline}
+.four dt{font-family:var(--serif);font-weight:700;color:var(--lamp-ink);letter-spacing:.04em}
+.four dd{margin:0;line-height:1.85}
+.four .ctx{border-top:1px dashed var(--rule);padding-top:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;gap:6px;align-items:baseline;border:1px solid var(--rule);background:var(--paper);border-radius:999px;padding:5px 12px;font-size:.9rem}
+.chip small{color:var(--ink-2);font-size:.78rem}
+.chip.main{border-color:var(--lamp);background:var(--lamp-wash)}
+.chip.main b{color:var(--lamp-ink)}
+.mixcard{background:var(--paper);border-left:3px solid var(--dai);border-radius:0 8px 8px 0;padding:12px 14px;display:grid;gap:4px}
+.mixcard h4,.rcard h4{margin:0;font-family:var(--serif);font-size:1.05rem}
+.mixcard h4{color:var(--dai)}
+.rcards{display:grid;gap:12px}
+.rcard{border:1px solid var(--rule);border-radius:10px;padding:12px 14px;display:grid;gap:4px;background:var(--leaf)}
+.rcard h4 small{font-family:var(--sans);font-weight:400;font-size:.8rem;color:var(--ink-2);margin-left:6px}
+.rcard p,.mixcard p{margin:0;line-height:1.85}
+.master p{margin:0}
+.master .txt b{color:var(--lamp-ink);font-weight:600}
+.also{display:grid;gap:6px;background:var(--paper);border-radius:8px;padding:12px 14px;font-size:.94rem}
+.also>b{font-size:.78rem;letter-spacing:.14em;color:var(--lamp-ink);font-weight:500}
+.also p{margin:0}
+.roster{display:grid;gap:8px;font-size:.92rem;margin-top:10px}
+.allm .note{margin:0;color:var(--ink-2);font-size:.9rem}
+.allm .tbar,.sut .tbar{display:flex;justify-content:flex-end}
+.allm .tbar .ghost,.sut .tbar .ghost{padding:6px 14px;font-size:.88rem}
+.mlist{display:grid;gap:8px}
+.mcards{display:grid;gap:10px}
+.mcard{background:var(--leaf);border:1px solid var(--rule);border-radius:10px;padding:12px 14px;display:grid;gap:4px}
+.mcard.first{border-color:var(--lamp-ink)}
+.mcard h4{margin:0;font-family:var(--serif);font-size:1.12rem;color:var(--lamp-ink)}
+.md{font-family:var(--sans);font-weight:400;font-size:.78rem;letter-spacing:.02em;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.mcard .md{display:block;margin-top:-2px}
+.also .md{margin-left:8px}
+.mi .nm .md{display:block;margin-top:2px;line-height:1.5}
+.mi .nm em{white-space:nowrap;display:inline-block}
+.mcard h4 small{font-family:var(--sans);font-weight:400;font-size:.76rem;letter-spacing:.08em;color:var(--ink-2);margin-left:8px}
+.mcard .txt p{margin:0;line-height:1.85}
+.mcard .txt b{color:var(--lamp-ink);font-weight:600}
+.sut .note{margin:0;color:var(--ink-2);font-size:.9rem}
+.sut .gnav{display:flex;flex-wrap:wrap;gap:6px}
+.sut .gnav button{font:inherit;font-size:.86rem;color:var(--lamp-ink);background:var(--leaf);border:1px solid var(--rule);border-radius:999px;padding:4px 12px;cursor:pointer}
+.sut .gnav button:hover{border-color:var(--lamp-ink);background:var(--lamp-wash)}
+.sut .gnav small{color:var(--ink-2);margin-left:4px;font-size:.74rem}
+.sgroup{display:grid;gap:6px;scroll-margin-top:16px}
+.sgroup h4:focus{outline:none}
+.sgroup h4{margin:10px 0 0;font-family:var(--serif);font-size:1.08rem;color:var(--ink)}
+.sgroup h4 small{font-family:var(--sans);font-weight:400;font-size:.76rem;color:var(--ink-2);margin-left:8px}
+.sgroup .gintro{margin:0;font-size:.88rem;color:var(--ink-2);line-height:1.75}
+.mi.su .sid{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:baseline;font-variant-numeric:tabular-nums}
+.mi.su[open]:not(.closing) .sid{display:flex}
+.mi .tg{display:inline-flex;flex-wrap:wrap;gap:4px}
+.mi .tg span{font-size:.72rem;line-height:1.6;border:1px solid var(--rule);border-radius:999px;padding:0 7px;color:var(--ink-2);background:var(--leaf)}
+.mi .mbody p.cat{font-size:.84rem;color:var(--ink-2);line-height:1.7}
+.mi .mbody p b{color:var(--lamp-ink);font-weight:600}
+.mi .mbody p.lk{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 12px}
+.lk a{font-size:.85rem;line-height:1.5;padding:6px 12px;border-radius:999px;border:1px solid var(--rule);background:var(--leaf);text-decoration:none;color:var(--dai)}
+.lk a:hover{border-color:var(--dai)}
+.lk a.pri{background:var(--lamp-ink);border-color:var(--lamp-ink);color:var(--paper)}
+.lk a.pri:hover{background:#5E3A24}
+.mi{background:var(--paper);border-radius:8px;border:1px solid transparent}
+.mi.me{border-color:var(--lamp-ink)}
+.mi.near{border-color:var(--rule)}
+.mi>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:2em 1fr 18px;column-gap:6px;align-items:baseline;padding:11px 14px}
+.mi>summary::-webkit-details-marker{display:none}
+.mi .n{font-size:.74rem;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.mi .nm{font-family:var(--serif);font-weight:600;font-size:1.02rem}
+.mi .nm em{font-style:normal;font-family:inherit;font-size:.74rem;letter-spacing:.08em;color:var(--lamp-ink);font-weight:500;margin-left:8px}
+.mi .sid{grid-column:2/3;font-size:.86rem;color:var(--ink-2);line-height:1.6;margin-top:2px}
+.mi .chev{grid-column:3;grid-row:1;justify-self:end;align-self:center;width:8px;height:8px;border-right:1.6px solid var(--ink-2);border-bottom:1.6px solid var(--ink-2);transform:translateY(-2px) rotate(45deg);transition:transform .32s cubic-bezier(.3,.7,.3,1),border-color .2s}
+.mi>summary:hover .chev{transform:translateY(1px) rotate(45deg);border-color:var(--lamp-ink)}
+.mi[open]:not(.closing) .chev{transform:translateY(2px) rotate(225deg)}
+.mi[open]:not(.closing)>summary:hover .chev{transform:translateY(-1px) rotate(225deg)}
+.mi[open]:not(.closing) .sid{display:none}
+.mi>summary:hover .nm{color:var(--lamp-ink)}
+.mbody{overflow:hidden;padding:0 14px 0 calc(14px + 2em + 6px)}
+.mbody>:last-child{margin-bottom:12px}
+.mi .mbody p{margin:4px 0 0;font-size:.93rem;line-height:1.8}
+.rfold>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr 22px;row-gap:10px;align-items:center}
+.rfold>summary::-webkit-details-marker{display:none}
+.rfold>summary .label,.rfold>summary .big,.rfold>summary .hint{grid-column:1}
+.rfold>summary .chev{grid-column:2;grid-row:1/3;justify-self:end;width:10px;height:10px;border-right:1.8px solid var(--ink-2);border-bottom:1.8px solid var(--ink-2);transform:translateY(-3px) rotate(45deg);transition:transform .32s cubic-bezier(.3,.7,.3,1),border-color .2s}
+.rfold>summary:hover .chev{transform:translateY(0) rotate(45deg);border-color:var(--lamp-ink)}
+.rfold[open]:not(.closing)>summary .chev{transform:translateY(3px) rotate(225deg)}
+.rfold[open]:not(.closing)>summary:hover .chev{transform:translateY(0) rotate(225deg)}
+.rfold>summary .hint{font-size:.8rem;color:var(--ink-2);margin-top:-4px}
+.rfold[open]:not(.closing)>summary .hint{display:none}
+.rfold>.mbody{overflow:hidden;padding:0}
+.rfold>.mbody>p{margin:10px 0 0}
+.fin2{display:grid;gap:10px;padding-top:14px}
+/* back to top */
+.totop{position:fixed;z-index:20;right:calc(10px + env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));width:40px;height:40px;border-radius:50%;
+  border:1px solid var(--rule);background:var(--leaf);color:var(--lamp-ink);box-shadow:0 4px 14px rgba(60,45,25,.16);cursor:pointer;display:grid;place-items:center;padding:0;
+  opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .25s,transform .25s}
+.totop.show{opacity:1;transform:none;pointer-events:auto}
+.totop:hover{border-color:var(--lamp-ink);background:var(--lamp-wash)}
+.totop svg{width:18px;height:18px}
+body.modal-open .totop{display:none}
+@media (max-width:520px){.mbody{padding-left:14px}}
+.roster p{margin:0}
+.fold{border-top:1px solid var(--rule);padding-top:14px}
+.fold>summary{cursor:pointer;font-weight:500;color:var(--ink)}
+.fold>summary:hover{color:var(--lamp-ink)}
+.recap{margin:12px 0 0;padding-left:0;list-style:none;display:grid;gap:8px;font-size:.9rem}
+.recap li{display:grid;grid-template-columns:5.6em 1fr;gap:8px}
+.recap .no,.done>summary .no{white-space:nowrap}
+.recap .no{letter-spacing:.06em}
+.recap b{font-family:var(--serif);font-weight:600}
+.explore{display:grid;gap:12px;margin-top:12px}
+.pickers{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;font-size:.9rem}
+.pickers label{display:flex;gap:8px;align-items:center}
+select{font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:5px 8px}
+.exout{display:grid;gap:10px;font-size:.95rem}
+.exout h4{font-family:var(--serif);margin:6px 0 0;font-size:1.08rem;color:var(--lamp-ink)}
+.actions{display:flex;flex-wrap:wrap;gap:10px}
+.ghost{background:transparent;color:var(--lamp-ink);border:1px solid var(--lamp-ink);border-radius:8px;padding:9px 18px;font-weight:500;cursor:pointer}
+.ghost:hover{background:var(--lamp-wash)}
+.ghost[data-armed]{background:var(--lamp-wash)}
+
+/* footer */
+.foot{margin-top:36px;font-size:.86rem;color:var(--ink-2);display:grid;gap:12px}
+.foot>details>summary{cursor:pointer;font-weight:500;color:var(--ink)}
+.notes{display:grid;gap:10px;margin-top:12px}
+.notes h4{margin:8px 0 0;font-family:var(--serif);color:var(--ink);font-size:.98rem}
+.notes .ref{padding-left:1em;text-indent:-1em}
+.tblwrap{overflow-x:auto;border:1px solid var(--rule);border-radius:8px;background:var(--leaf)}
+.tblwrap table{border-collapse:collapse;width:100%;min-width:480px;font-size:.83rem;line-height:1.65}
+.tblwrap th,.tblwrap td{text-align:left;vertical-align:top;padding:7px 10px;border-bottom:1px solid var(--rule)}
+.tblwrap th{background:var(--well);color:var(--ink);font-weight:500}
+.tblwrap tr:last-child td{border-bottom:0}
+.tblwrap td:first-child{white-space:nowrap;font-variant-numeric:tabular-nums}
+
+@media (max-width:440px){
+  h1{font-size:2.2rem}
+  .scene,.ending{padding:18px 15px}
+  .big{font-size:1.7rem}
+  .lamps{gap:2px}.lamps i.v{margin-left:3px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .scene.fresh,.after.fresh,.ending.fresh{animation:rise .38s ease-out}
+  @keyframes rise{from{transform:translateY(8px)}to{transform:none}}
+}
+
+/* map: transition, journey, timeline (ink lines) */
+.tr{position:fixed;inset:0;z-index:50;display:grid;place-items:center;
+  padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));
+  background:var(--paper);opacity:0;visibility:hidden;transition:opacity .32s ease,visibility 0s linear .34s;touch-action:none;overscroll-behavior:contain}
+.tr.on{opacity:1;visibility:visible;transition:opacity .32s ease}
+.tr-card{width:min(720px,100%);display:grid;gap:10px;transform:translateY(8px);transition:transform .6s ease}
+.tr.on .tr-card{transform:none}
+.tr-head{display:grid;gap:2px}
+.tr-no{font-size:.82rem;letter-spacing:.14em;color:var(--lamp-ink)}
+.tr-place{font-family:var(--serif);font-size:1.7rem;font-weight:700;line-height:1.3;color:var(--ink)}
+.tr-now{font-size:.9rem;color:var(--ink-2)}
+.mapbox{border:1px solid var(--rule);border-radius:10px;background:var(--leaf);overflow:hidden}
+.mapbox svg{display:block;width:100%;height:auto}
+.tr .mapbox svg{aspect-ratio:16/10}
+.m-land{fill:none;stroke:#2B2623;stroke-width:1.1;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.m-river,.m-lake{fill:none;stroke:#2B2623;stroke-width:.8;opacity:.42;vector-effect:non-scaling-stroke}
+.m-trail{fill:none;stroke:#2B2623;stroke-width:1;opacity:.22;vector-effect:non-scaling-stroke}
+.m-go{fill:none;stroke:#2B2623;stroke-width:2.2;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.m-go.end{stroke-width:1.3;opacity:.8}
+.m-path{fill:none;stroke:#2B2623;stroke-width:1.4;opacity:.75;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.m-sea{fill:none;stroke:#2B2623;stroke-width:1.4;stroke-dasharray:5 5;vector-effect:non-scaling-stroke}
+.m-dot{fill:#2B2623}
+.m-old{fill:#2B2623;opacity:.32}
+.m-ring{fill:none;stroke:#2B2623;stroke-width:1.2;vector-effect:non-scaling-stroke}
+.m-label{fill:#2B2623;font-family:var(--serif);font-weight:700;paint-order:stroke;stroke:var(--leaf);stroke-linejoin:round}
+.m-small{fill:#2B2623;font-family:var(--sans);paint-order:stroke;stroke:var(--leaf);stroke-linejoin:round}
+.m-faint{opacity:.55}
+.m-riverlabel{fill:#2B2623;opacity:.45;font-family:var(--serif)}
+.tl{position:relative;height:38px;margin:4px 6px 0}
+.tl-line{position:absolute;left:0;right:0;top:9px;border-top:1px solid #2B2623}
+.tl-tick{position:absolute;top:5px;transform:translateX(-50%);display:grid;justify-items:center;gap:2px}
+.tl-tick i{display:block;width:1px;height:9px;background:#2B2623;opacity:.55}
+.tl-tick b{font-weight:400;font-size:.72rem;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.tl-seen{position:absolute;top:6px;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:#2B2623;opacity:.3}
+.tl-now{position:absolute;top:3px;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:var(--leaf);border:2.5px solid #2B2623}
+.mapscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.journey .mapbox,.tlbox{min-width:600px}
+.tlbox svg{display:block;width:100%;height:auto}
+.maplegend,.tl-cap{font-size:.84rem;color:var(--ink-2)}
+.swipe{display:none;font-size:.8rem;color:var(--ink-2)}
+@media (max-width:640px){.swipe{display:block}}
+.tl-grid{stroke:#2B2623;stroke-width:1;opacity:.12;vector-effect:non-scaling-stroke}
+.tl-axis{stroke:#2B2623;stroke-width:1;vector-effect:non-scaling-stroke}
+.tl-yr{fill:var(--ink-2);font-size:15px;font-family:var(--sans)}
+.tl-name{fill:var(--ink);font-size:17px;font-family:var(--serif);font-weight:600}
+.tl-name.lost{fill:#9A8F86}
+.tl-seg{stroke:#2B2623;stroke-linecap:butt;vector-effect:non-scaling-stroke}
+.tl-seg.lost{stroke:#9A8F86}
+.tl-s{stroke-width:7}.tl-m{stroke-width:3.6}.tl-w{stroke-width:1.4}
+.tl-b{stroke-width:2.4;stroke-dasharray:1.5 4;stroke-linecap:round}
+.tl-d{stroke-width:2;stroke-dasharray:7 5}
+.tl-hit{stroke:transparent;stroke-width:18;cursor:pointer}
+.tl-you{fill:#2B2623;opacity:.55}
+.tl-key{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.8rem;color:var(--ink-2)}
+.tl-key span{display:inline-flex;align-items:center;gap:6px}
+.tl-key .k{display:inline-block;width:26px;height:0;border-top:3.6px solid #2B2623}
+.tl-key .k.tl-s{border-top-width:7px}.tl-key .k.tl-w{border-top-width:1.4px}
+.tl-key .k.tl-b{border-top:2.4px dotted #2B2623}.tl-key .k.tl-d{border-top:2px dashed #2B2623}
+.tl-key .k.you{width:0;height:0;border:5px solid transparent;border-top:8px solid #2B2623;opacity:.55;border-bottom:0}
+@media (max-width:600px){ .tr .mapbox svg{aspect-ratio:4/3} .tr-place{font-size:1.4rem} }
+
+/* mobile */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+button,summary,select,a{-webkit-tap-highlight-color:transparent}
+button,summary,select{touch-action:manipulation}
+.wrap{padding-bottom:calc(72px + env(safe-area-inset-bottom,0px))}
+@media (max-width:600px){
+  h1{letter-spacing:.16em}
+  .bar-row .tiny{padding:10px 2px;margin-block:-10px}
+  .pickers select{min-height:40px}
+  .fold>summary,details.lead>summary,.foot>details>summary{padding-block:9px}
+  .next,.resume,.ghost{min-height:44px}
+  .next{width:100%;justify-self:stretch}
+  .four>div{grid-template-columns:4.2em 1fr;gap:8px}
+  .chip{font-size:.86rem}
+}
+/* accents: 朱砂 marks where you are, 青金 marks what comes from another life */
+.eyebrow{color:var(--cinnabar)}
+.no{color:var(--cinnabar)}
+.vol .slip{border-color:var(--cinnabar);color:var(--cinnabar)}
+.lamps i.now{background:var(--cinnabar-wash);box-shadow:inset 0 0 0 1.5px var(--cinnabar)}
+.memory{border-color:var(--lapis);background:var(--lapis-wash)}
+.memory b{color:var(--lapis)}
+.choice.extra{border-color:var(--lapis)}
+.choice.extra .k{background:var(--lapis);border-color:var(--lapis)}
+.m-go{stroke:var(--cinnabar)}
+.m-ring{stroke:var(--cinnabar)}
+.m-sea{stroke:var(--lapis)}
+.tl-now{border-color:var(--cinnabar)}
+.home{display:inline-flex;align-items:center;gap:6px;font-size:.84rem;color:var(--ink-2);text-decoration:none;margin-bottom:14px}
+.home:hover{color:var(--cinnabar)}
+.home::before{content:"";width:6px;height:6px;border-left:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg)}
+.parts{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.parts a{font-size:.9rem;color:var(--lapis)}
+</style>
+
+<div class="wrap">
+  <header>
+    <a class="home" href="../">傳燈三部曲</a>
+    <p class="eyebrow">二部曲・法流三道</p>
+    <h1>傳燈</h1>
+    <p class="sub">佛陀入滅百年後，僧團第一次分裂；此後兩千多年，佛法從恆河兩岸出發，往南成為上座部，往北越過雪山成為藏傳，沿著陸上與海上的絲路東來成為漢傳。三十七幕，你一世接一世，走過這三條路。</p>
+    <div class="intro" id="intro"></div>
+  </header>
+
+  <div class="bar" aria-label="進度">
+    <div class="bar-row">
+      <span class="where" id="where" aria-live="polite"></span>
+      <span id="vol-now"></span>
+      <button type="button" class="tiny" data-act="restart" id="bar-restart">重新開始</button>
+    </div>
+    <div class="lamps" id="lamps" aria-hidden="true"></div>
+  </div>
+
+  <main id="story"></main>
+  <button type="button" class="totop" data-act="top" aria-label="回到頁首" title="回到頁首" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg></button>
+
+  <footer class="foot">
+    <details>
+      <summary>史料依據與爭議說明</summary>
+      <div class="notes" id="notes"></div>
+    </details>
+    <p>「你」是虛構的角色；各幕人物、引文與年代依 CBETA 原典、元亨寺版漢譯巴利三藏、印順導師、聖嚴法師、星雲大師的著作與平川彰《印度佛教史》核對。學界仍有爭議之處，見上方說明。</p>
+  </footer>
+</div>
+
+<script type="application/json" id="data">{"hidden":[],"hiddenLead":"","hiddenSrc":"","intro":["這是「傳燈」三部曲的第二部。佛陀入滅百年後，僧團第一次分裂；此後兩千多年，佛法從恆河兩岸出發，分成三道流向遠方：往南到獅子洲與東南亞，成為上座部；往北越過雪山，成為藏傳；沿著陸上與海上的絲路東來，成為漢傳。","你一世接一世轉生，三十七幕都是真實發生過的轉折。每一幕選一個選項，選項沒有對錯，只有你這一世的方向；前世的選擇，會在後來的某一世回來找你。如果你玩過一部曲，你在世尊身邊的那一生，也會在這裡留下回音。","上座部、藏傳、漢傳各依自己傳統的史料來寫，各家記載不同的地方兩說並列，不替任何一方下結論。「你」是虛構的，其他人物都有史料記載；出處以 CBETA、印順導師、聖嚴法師、星雲大師的著作與平川彰《印度佛教史》為主。","走完三十七幕，你會知道自己最接近哪一種思潮、你的法脈流向何方，以及哪幾位祖師大德和你最像。進度只存在你自己的瀏覽器裡。"],"volumes":[{"label":"卷一","title":"部派：百年之後","intro":"佛陀入滅了，他的話靠弟子們一代代背誦下來。可是時代在變，對戒律與法義的理解也開始不同。","first":1},{"label":"卷二","title":"新經與譯者","intro":"西元前後，一批講「般若波羅蜜」的新經典開始流傳；同一時期，佛經也第一次被翻譯成漢文。","first":8},{"label":"卷三","title":"佛性與心識","intro":"初期大乘講「空」。中期大乘的論師們，問的是另一些問題：如果一切皆空，眾生為什麼能成佛？心識是怎麼運作的？","first":15},{"label":"卷四","title":"雪域與南海","intro":"七世紀，佛法越過喜馬拉雅山進入吐蕃；同一時期，漢地的求法僧從海路往返南海與印度。","first":22},{"label":"卷五","title":"師承","intro":"印度後期佛教的大師們，把法傳給了雪域的弟子；上座部也在東南亞找到了新的家。","first":28},{"label":"卷六","title":"存續","intro":"十二、十三世紀，佛教在印度本地衰微；上座部在東南亞整合，藏傳在雪域與元朝宮廷之間開出新局。","first":32},{"label":"卷七","title":"三道會合","intro":"","first":37}],"scenes":[{"n":1,"num":"一","title":"十事與分裂","era":"佛滅後約百年・毘舍離、華氏城","body":[{"h":"一百年前，你在王舍城看過一次結集：小小戒該捨哪些，大家說法不一，大迦葉說「佛所不制，不應妄制」。如今爭的，又是戒律能不能隨地變通。","kind":"宿緣","c":{"t":"xpick","p":1,"n":37,"k":null}},{"h":"這一世，你是毘舍離的一位比丘。這裡的跋闍子比丘們行「十事」，說這些都清淨、是佛所允許的，其中一件是：布薩日檀越布施的金銀，比丘可以收下來分。"},{"h":"長老耶舍迦那子從遠方來，看見了，當眾說：「沙門釋子不應受取金銀。」跋闍子比丘們很不高興，要他向在家人道歉。耶舍不肯，四處去找長老評理。最後七百位比丘在毘舍離集會，逐條評斷十事。"},{"h":"你見過僧團在拘舍彌吵到世尊獨自離開，也見過伽耶山的五百人被帶回來。那兩次都合回來了。","kind":"宿緣","c":{"t":"or","items":[{"t":"xpick","p":1,"n":22,"k":null},{"t":"xpick","p":1,"n":26,"k":null}]}}],"options":[{"k":"A","t":"我站在耶舍這邊。戒律是佛定的，不能因為方便就改。","s":{"上座":2},"f":"島"},{"k":"B","t":"時代不同了，有些規矩確實可以變通。我想聽聽跋闍子比丘怎麼說。","s":{"大眾":2},"f":"恆"},{"k":"C","t":"我不急著站邊。我要先把佛當年為什麼制這一條弄清楚。","s":{"有部":1,"經量":1},"f":"恆"},{"k":"D","t":"我只希望僧團不要分裂。不管結論是什麼，大家都要能留下來。","s":{"大眾":1,"如來藏":1},"f":"漢"}],"after":["四分律記載，七百比丘評定十事都不合法，這就是「第二次結集」。此後不久，僧團分成上座部與大眾部兩部。分裂的原因各家記載不同：上座部的史料說起於十事；說一切有部的《異部宗輪論》與《大毘婆沙論》則說起於大天提出的「五事」，地點在摩竭陀國的俱蘇摩城（華氏城）。兩說並列，學界至今沒有定論。"],"source":"<em>出處：《四分律》卷五十四〈七百集法毘尼〉（T22, 968c–971c）；《異部宗輪論》（T49, 15a–b）；《大毘婆沙論》卷九十九（T27）；元亨寺版《島王統史》；印順《印度佛教思想史》<\/em>","vol":0},{"n":2,"num":"二","title":"法敕","era":"約西元前 250 年・華氏城","body":[{"h":"阿育王統一了大半個印度。他在征服羯陵伽之後深深後悔，從此宣揚「法」，把勸人行善、不殺生、尊重各教的敕令刻在石柱與岩壁上，立遍全國。"},{"h":"你記得拘尸那羅城外那一天：七國的軍隊為了舍利對峙，香姓婆羅門把舍利平分成八份。如今，阿育王打開了那些塔。","kind":"宿緣","c":{"t":"xpick","p":1,"n":35,"k":null}},{"h":"《阿育王傳》說，國王取出阿闍世王所埋的舍利，又取出其餘各處所埋的舍利，造了八萬四千寶篋，分送各地建塔。上座部的傳統還說，這時目犍連子帝須在華氏城主持了第三次結集，並派出傳法者到四方。"},{"h":"這一世，你是華氏城寺院裡的比丘，國王的供養多得像河水一樣。"}],"options":[{"k":"A","t":"國王護法是好事，但僧團要和王宮保持距離。","s":{"上座":1,"有部":1},"f":"恆"},{"k":"B","t":"我要報名，跟著傳法者到遠方去。","s":{"上座":2},"f":"島"},{"k":"C","t":"國王把「法」刻在石頭上，我要把法刻在自己心上。我回林中修行。","s":{"經量":1,"大眾":1},"f":"恆"},{"k":"D","t":"八萬四千座塔，讓每個地方的人都能親近佛。我要去守其中一座。","s":{"大眾":1,"如來藏":1},"f":"漢"}],"after":["阿育王的石刻至今仍立在印度各地，是佛教史上最早可以確定年代的文物。第三次結集只見於上座部的傳統記載，北傳的史料沒有提到，學界看法不一。"],"source":"<em>出處：《阿育王傳》卷一（T50, 99c–102a）；《善見律毘婆沙》卷一至卷二（T24）；元亨寺版《阿育王刻文》；星雲〈轉輪聖王阿育王〉；平川彰《印度佛教史》<\/em>","vol":0},{"n":3,"num":"三","title":"芒果樹之問","era":"約西元前 247 年・獅子洲（斯里蘭卡）眉沙迦山","body":[{"h":"這一世，你是跟隨長老摩哂陀出海的比丘。摩哂陀是阿育王的兒子，受第三次結集之後的派遣，帶著幾位比丘來到獅子洲。"},{"h":"那天島上的國王天愛帝須正在山上打獵，追一頭鹿追到你們面前。摩哂陀叫住他。為了看看國王能不能聽懂法，摩哂陀問他：這棵是什麼樹？國王說是芒果樹。除了這棵，還有別的芒果樹嗎？有很多。除了這棵和那些，還有別的樹嗎？有很多不是芒果的樹。除了那些不是芒果的樹，還有嗎？國王說：還有這棵芒果樹。"},{"h":"摩哂陀知道，這位國王能聽懂法。"}],"options":[{"k":"A","t":"我在山下為隨行的人說法。國王聽懂了，百姓也要聽懂。","s":{"上座":2},"f":"島"},{"k":"B","t":"我想知道摩哂陀為什麼要這樣考國王。說法之前，要先懂得聽的人。","s":{"經量":1,"上座":1},"f":"島"},{"k":"C","t":"我會留在這座島上，一輩子不回去了。","s":{"上座":1,"大眾":1},"f":"島"},{"k":"D","t":"我要回華氏城報告：法已經渡過大海了。","s":{"有部":1,"上座":1},"f":"恆"}],"after":["上座部的史書記載，天愛帝須王當天就歸依了，在首都阿努拉德普勒為摩哂陀建了大寺。這一天被斯里蘭卡視為佛法入島的開始，至今每年都有紀念。"],"source":"<em>出處：《善見律毘婆沙》卷二（T24）；元亨寺版《島王統史》《大王統史》；聖嚴《印度佛教史》；平川彰《印度佛教史》<\/em>","vol":0},{"n":4,"num":"四","title":"菩提樹的枝","era":"約西元前 245 年・阿努拉德普勒","body":[{"h":"你記得那摩提精舍外，大愛道和釋迦族的婦女赤著腳站在門口。那天，阿難替她們向世尊請求。","kind":"宿緣","c":{"t":"xpick","p":1,"n":14,"k":null}},{"h":"島上的王妃阿奴羅和許多婦女想出家，可是比丘不能為女人授戒，要有比丘尼才行。摩哂陀請國王派人去華氏城，請他的妹妹僧伽蜜多比丘尼來。"},{"h":"僧伽蜜多帶著菩提伽耶那棵菩提樹的南枝，乘船渡海而來。樹枝種在阿努拉德普勒，她為王妃和婦女們授戒，島上有了比丘尼僧團。"},{"h":"這一世，你是島上等著出家的女子之一。"}],"options":[{"k":"A","t":"我第一個上前受戒。我等這一天已經很久了。","s":{"上座":2},"f":"島"},{"k":"B","t":"我要照顧這棵樹。只要它活著，就提醒大家佛陀是在什麼樣的樹下成道的。","s":{"上座":1,"如來藏":1},"f":"島"},{"k":"C","t":"我想跟僧伽蜜多學律。比丘尼的戒，要有人好好傳下去。","s":{"上座":1,"有部":1},"f":"島"},{"k":"D","t":"我想知道，海的另一邊還有沒有等著出家的女人。","s":{"大眾":1,"上座":1},"f":"漢"}],"after":["阿努拉德普勒的那棵菩提樹（Jaya Sri Maha Bodhi）至今仍在，被認為是世界上有確切種植年代記載的最古老的樹之一。島上的比丘尼僧團延續了一千多年，西元五世紀時，還渡海到了中國。"],"source":"<em>出處：元亨寺版《島王統史》《大王統史》；《善見律毘婆沙》卷三（T24）；聖嚴《印度佛教史》<\/em>","vol":0},{"n":5,"num":"五","title":"石欄上的前生","era":"約西元前 2 至前 1 世紀・中印度巴爾胡特與山奇的佛塔","body":[{"h":"你在世尊身邊時，只聽他說過這一生的事：三時殿、閻浮樹下、尼連禪河邊。如今塔上刻的，是他的前生。","kind":"宿緣","c":{"t":"or","items":[{"t":"xpick","p":1,"n":6,"k":null},{"t":"xpick","p":1,"n":7,"k":null},{"t":"xpick","p":1,"n":8,"k":null}]}},{"h":"這一世，你是為佛塔雕刻石欄的工匠。"},{"h":"塔的欄楯與門上，刻滿了佛陀過去世的故事：他曾是猴王，用自己的身體搭成橋，讓猴群逃過河；曾是象王，把自己的象牙給了獵人；曾是一位把一切都布施出去的太子。這些故事叫做「本生」，在各部派之間流傳，後來上座部的巴利三藏把五百多則本生收在小部，名為《本生經》；漢地也譯出了《六度集經》等。"},{"h":"佛陀過去生中的「菩薩大行」，就是從這些故事流傳開來的。"}],"options":[{"k":"A","t":"這些故事是佛陀親口說的前生，我照經裡的樣子一刀一刀刻。","s":{"上座":2},"f":"島"},{"k":"B","t":"我不在乎它們是不是真的發生過，它們讓每個看見的人都想做好人。","s":{"大眾":1,"如來藏":1},"f":"漢"},{"k":"C","t":"佛陀能一世一世修過來，我也可以。我要發願，像他一樣行菩薩道。","s":{"中觀":1,"如來藏":1},"f":"漢"},{"k":"D","t":"我想知道，哪些故事最早，哪些是後來加的。","s":{"有部":1,"經量":1},"f":"恆"}],"after":["印順導師指出，佛陀入滅後，弟子們對佛的懷念，使「釋尊過去生中——菩薩的大行，也從『本生』、『譬喻』、『因緣』中流傳出來」，這成為後來大乘佛法興起的一個源頭。他也指出，巴爾胡特塔西元前二世紀的雕刻銘文中，對成佛以前的釋尊還沒有稱為「菩薩」。學者對本生與大乘起源的關係，看法不一。"],"source":"<em>出處：元亨寺版《本生經》（N31–N42）；《六度集經》（T03）；印順《初期大乘佛教之起源與開展》（Y37, pp. 114a、126a）、《印度佛教思想史》自序（Y34, p. a2）；平川彰《印度佛教史》；聖嚴《印度佛教史》<\/em>","vol":0},{"n":6,"num":"六","title":"那先","era":"約西元前 2 世紀・印度西北舍竭國","body":[{"h":"舍竭國的國王彌蘭陀是希臘人，聰明好辯，常找各派的修行人來辯論，很少有人答得上來。"},{"h":"這一天，他遇見了比丘那先。國王問：你叫什麼名字？那先說：大家叫我那先，但這只是一個名字，裡面沒有一個「那先」。"},{"h":"國王笑了：那跟我說話的是誰？那先反問：大王是坐車來的嗎？車是什麼？是車軸嗎？是車輪嗎？是車轅嗎？都不是。那車在哪裡？國王答：是這些合在一起，才叫車。那先說：那先也是這樣。"},{"h":"這一世，你是國王的護衛，站在宮殿門口。"}],"options":[{"k":"A","t":"我想去找那先，問問那個「沒有」的我，怎麼修行。","s":{"上座":1,"經量":1},"f":"恆"},{"k":"B","t":"我把這段對話記下來。這比任何戰爭都值得留下。","s":{"有部":1,"上座":1},"f":"島"},{"k":"C","t":"國王輸了辯論，還很高興。我想學他這種輸得起的心。","s":{"大眾":1,"中觀":1},"f":"恆"},{"k":"D","t":"我想跟著那先出家。","s":{"上座":2},"f":"島"}],"after":["這段問答在漢譯稱為《那先比丘經》，在巴利稱為《彌蘭王問經》，兩者內容大致相同而詳略有別。彌蘭陀王在希臘與印度的錢幣上都有記載，是佛典中少數可以和外國史料互相印證的國王。"],"source":"<em>出處：《那先比丘經》（T32, 694a–703c）；元亨寺版《彌蘭王問經》（N63）；平川彰《印度佛教史》<\/em>","vol":0},{"n":7,"num":"七","title":"寫下三藏","era":"約西元前 1 世紀・獅子洲阿盧寺","body":[{"h":"這一世，你在獅子洲出家，負責背誦經典的一部分。三藏從來都是口口相傳：一群比丘背長部，一群背中部，代代相傳。"},{"h":"可是這些年島上饑荒、戰亂不斷，很多比丘餓死或離散。長老們擔心：再這樣下去，有些經典會沒有人記得了。"},{"h":"於是，在阿盧寺，比丘們第一次把巴利三藏（經、律、論）與注釋，一字一字寫在貝葉上。同一時期，國王建了無畏山寺，島上的僧團也分成了大寺與無畏山寺兩派。"}],"options":[{"k":"A","t":"該寫下來了。記憶會出錯，人會死，貝葉卻可以留很久。","s":{"上座":2},"f":"島"},{"k":"B","t":"我還是會背。寫下來的經，要有人懂才有用。","s":{"上座":1,"經量":1},"f":"島"},{"k":"C","t":"我想知道無畏山寺的比丘在想什麼。不同的看法，也許能讓法更活。","s":{"大眾":1,"中觀":1},"f":"島"},{"k":"D","t":"我要把一份抄本帶到海的另一邊。","s":{"上座":1,"大眾":1},"f":"漢"}],"after":["上座部的史書記載，這是在婆多伽摩尼王時代的事；傳統認為地點在阿盧寺。寫在貝葉上的巴利三藏，後來成為上座部傳承的根本，傳到緬甸、泰國、柬埔寨與寮國。"],"source":"<em>出處：元亨寺版《島王統史》《大王統史》；聖嚴《印度佛教史》；平川彰《印度佛教史》<\/em>","vol":0},{"n":8,"num":"八","title":"新來的經","era":"約西元前 1 世紀至 1 世紀・南印度與西北印度","body":[{"h":"你記得伽藍人說：每個沙門都說自己對、別人錯，我們該信誰？世尊說：「汝等自無淨智。」先看清自己心裡的貪、恚、癡。","kind":"宿緣","c":{"t":"xpick","p":1,"n":18,"k":null}},{"h":"這一世，你是一座精舍裡的比丘。有人帶來一部新的經，講「般若波羅蜜」：菩薩要學一切法空，不執著任何相，為了度一切眾生而修行。"},{"h":"精舍裡吵了起來。有的比丘說這是佛說的深法，以前只是沒有傳開；有的說這不在三藏裡，不能算佛說。"}],"options":[{"k":"A","t":"我要先讀，讀懂了再判斷。不讀就反對，和不讀就相信一樣。","s":{"中觀":1,"經量":1},"f":"恆"},{"k":"B","t":"三藏裡沒有的，我不接受。結集時大迦葉說過：佛所不制，不應妄制。","s":{"上座":1,"有部":1},"f":"島"},{"k":"C","t":"經裡說菩薩為一切眾生修行。這正是我想走的路。","s":{"中觀":2},"f":"漢"},{"k":"D","t":"我把它抄下來，帶給遠方的人，讓他們自己判斷。","s":{"大眾":1,"中觀":1},"f":"漢"}],"after":["這就是後來被稱為「初期大乘」的思想興起。大乘經典從哪裡來，各家說法不同：大乘傳統認為是佛說而後世才流傳；平川彰認為與在家信眾的佛塔信仰有關；印順導師則認為是佛弟子對佛的永恆懷念，加上部派中大眾系的思想，逐漸發展而成。最早的般若經典之一，就是後來在洛陽譯出的《道行般若經》。"],"source":"<em>出處：《道行般若經》（T08）；印順《初期大乘佛教之起源與開展》、《印度佛教思想史》自序（Y34）；聖嚴《印度佛教史》；平川彰《印度佛教史》<\/em>","vol":1},{"n":9,"num":"九","title":"洛陽的譯者","era":"約 148–179 年・洛陽","body":[{"h":"東漢桓帝初年，一位從安息國來的僧人安世高到了洛陽。他原本是安息國的太子，把王位讓給叔父，出家修行。他譯出了講禪數、講五陰十二因緣的經典。"},{"h":"二十多年後，月支國的支婁迦讖也來到洛陽，譯出了《道行般若經》等大乘經典。"},{"h":"這一世，你是洛陽城裡一個識字的漢人，被請來當「筆受」，把譯師口述的意思寫成漢文。很多名詞，漢語裡根本沒有。"}],"options":[{"k":"A","t":"我跟著安世高，學數息、觀五陰。先把心安下來。","s":{"上座":1,"有部":1},"f":"漢"},{"k":"B","t":"我跟著支婁迦讖，學「般若波羅蜜」。這是漢地從來沒聽過的道理。","s":{"中觀":2},"f":"漢"},{"k":"C","t":"我先把每一個新名詞抄成表，弄清楚它們到底是什麼意思。","s":{"有部":1,"經量":1},"f":"漢"},{"k":"D","t":"我把譯好的經帶回家鄉，讓更多人讀到。","s":{"大眾":1,"中觀":1},"f":"漢"}],"after":["安世高譯出了數十部講禪數的經典；支婁迦讖於光和二年（179）譯出《般若道行品經》。佛經從此有了漢文，但早期譯本文字艱澀，兩百年後的人讀來仍覺得隔了一層，只好借用老莊的名詞來比附，這就是「格義」。"],"source":"<em>出處：《出三藏記集》卷十三〈安世高傳〉〈支讖傳〉（T55）；《高僧傳》卷一（T50）；印順〈中國佛教史略〉（Y22）<\/em>","vol":1},{"n":10,"num":"十","title":"毘婆沙","era":"約 2 世紀・迦濕彌羅","body":[{"h":"這一世，你在北印度的迦濕彌羅出家，屬於說一切有部。"},{"h":"有部的論師們花了很多年，把阿毘達磨的種種問題逐條討論，各家論師的意見都記下來，再一一評斷，編成一部兩百卷的大論：《大毘婆沙論》。玄奘後來記下的傳說說，這次集論是迦膩色迦王護持的。"},{"h":"你被分配去整理其中幾卷。每一個法的定義、分類、因果，都要說得一清二楚。"}],"options":[{"k":"A","t":"我願意一輩子做這件事。把法分析清楚，修行才不會走錯路。","s":{"有部":2},"f":"恆"},{"k":"B","t":"分析得再細，也要回到修行。我每天抄完論，還要坐禪。","s":{"有部":1,"經量":1},"f":"恆"},{"k":"C","t":"有些論師說「三世實有」說得太過了。我比較相信經上本來的意思。","s":{"經量":2},"f":"恆"},{"k":"D","t":"這部論要是能傳到別的國家就好了。","s":{"有部":1,"大眾":1},"f":"漢"}],"after":["《大毘婆沙論》成為說一切有部教義的集大成。後來從有部分出、主張「以經為量」的一派，稱為經量部。玄奘在七世紀把這部兩百卷的大論譯成漢文。"],"source":"<em>出處：《大毘婆沙論》（T27）；《大唐西域記》卷三〈迦濕彌羅國〉（T51）；印順《說一切有部為主的論書與論師之研究》；平川彰《印度佛教史》<\/em>","vol":1},{"n":11,"num":"十一","title":"緣起性空","era":"約 2–3 世紀・南印度","body":[{"h":"這一世，你在南印度出家，先學了說一切有部的阿毘達磨，背得滾瓜爛熟。"},{"h":"有一位叫龍樹的論師，寫了一部《中論》。他說：「眾因緣生法，我說即是空，亦為是假名，亦是中道義。」一切法都是因緣生的，所以沒有自性，所以是空；正因為空，才能有因緣、有生滅、有修行。"},{"h":"你讀了，心裡很亂。你花了好多年背的那些法相，龍樹說它們都沒有自性。"}],"options":[{"k":"A","t":"我願意重新學。如果龍樹說得對，我背的那些也不會白費，只是要換個方式看。","s":{"中觀":2},"f":"恆"},{"k":"B","t":"我還是相信阿毘達磨。不先把法說清楚，怎麼說空？","s":{"有部":2},"f":"恆"},{"k":"C","t":"我去找龍樹的弟子提婆，聽他和外道辯論。","s":{"中觀":1,"大眾":1},"f":"恆"},{"k":"D","t":"空與有，也許只是兩種說法。我想找出它們相通的地方。","s":{"中觀":1,"唯識":1},"f":"漢"}],"after":["龍樹被後世大乘各宗尊為祖師，漢傳稱他為「八宗共祖」。《提婆菩薩傳》說，他的弟子提婆以辯才破斥外道，後來被一位外道弟子所害。"],"source":"<em>出處：《中論》卷四〈觀四諦品〉（T30, 33b）；《龍樹菩薩傳》《提婆菩薩傳》（T50）；印順《中觀今論》（Y09）；星雲〈八宗共祖龍樹菩薩〉<\/em>","vol":1},{"n":12,"num":"十二","title":"西行求經","era":"260 年・于闐","body":[{"h":"這一世，你是洛陽的一位漢人比丘。你的同學朱士行講《道行般若經》，常常講到一半就講不下去：譯本文字不全，前後意思接不起來。"},{"h":"他說：我要自己去西方找原本。曹魏甘露五年，他從雍州出發，越過流沙，到了于闐，在那裡找到了九十章的般若梵本。"},{"h":"他派弟子把經本送回洛陽。可是于闐有一群學者向國王說：這是外道的書，不能讓它流出去，會讓漢地的人走錯路。"}],"options":[{"k":"A","t":"我跟著弟子護送經本，再遠也要送到洛陽。","s":{"中觀":2},"f":"漢"},{"k":"B","t":"我留在于闐陪朱士行。他年紀大了，需要有人照顧。","s":{"大眾":1,"如來藏":1},"f":"漢"},{"k":"C","t":"我去和于闐的學者談。他們反對，總有他們的理由。","s":{"有部":1,"經量":1},"f":"恆"},{"k":"D","t":"我在于闐學梵文，以後自己翻譯。","s":{"中觀":1,"有部":1},"f":"漢"}],"after":["《出三藏記集》記載，朱士行以經投火，誓言若是佛法就不會燒毀，結果經本完好。經本終於送到洛陽，譯出了《放光般若經》。朱士行自己留在于闐，八十歲在那裡去世。他被認為是漢地第一位西行求法的僧人。"],"source":"<em>出處：《出三藏記集》卷十三〈朱士行傳〉（T55）；《高僧傳》卷四〈朱士行傳〉（T50）<\/em>","vol":1},{"n":13,"num":"十三","title":"敦煌菩薩","era":"約 266–308 年・敦煌與長安","body":[{"h":"這一世，你出生在敦煌。這裡是絲路的入口，各國的商人、僧人在這裡來來去去。"},{"h":"有一位月支後裔的僧人竺法護，世居敦煌。他跟著師父遊歷西域諸國，學會了許多國的語言，帶回了大量的梵本。他在長安、洛陽之間譯經四十多年，譯出了《正法華經》等一百多部經典，人稱「敦煌菩薩」。"},{"h":"你在他的譯場裡當寫經人。"}],"options":[{"k":"A","t":"我專心抄寫。每一個字都要寫對，這是給後人的。","s":{"大眾":1,"有部":1},"f":"漢"},{"k":"B","t":"《正法華經》說一切眾生都能成佛。我想把這句話講給敦煌的每一個人聽。","s":{"如來藏":2},"f":"漢"},{"k":"C","t":"我想學他學過的那些語言。","s":{"中觀":1,"經量":1},"f":"漢"},{"k":"D","t":"我想跟著他去西域，走他走過的路。","s":{"中觀":1,"大眾":1},"f":"恆"}],"after":["竺法護的譯本為漢地帶來了大量大乘經典。一百多年後，鳩摩羅什在長安重譯《法華經》，稱為《妙法蓮華經》，成為後世最通行的譯本。"],"source":"<em>出處：《出三藏記集》卷十三〈竺法護傳〉（T55）；《高僧傳》卷一（T50）<\/em>","vol":1},{"n":14,"num":"十四","title":"從有到空","era":"約 4 世紀中・龜茲與沙勒","body":[{"h":"這一世，你在西域的龜茲國出家，和一位少年同學一起學說一切有部的論典。他叫鳩摩羅什，母親是龜茲王的妹妹，七歲就跟著母親出家，記性好得驚人。"},{"h":"後來他隨母親到沙勒，遇見了莎車的王子須耶利蘇摩。須耶利蘇摩專學大乘，對他說：一切法都是空的。鳩摩羅什起初不信，後來細讀了大乘論典，嘆道：我從前學小乘，就像不認識金子的人，把黃銅當成寶貝。"},{"h":"你記得南印度那一世，第一次讀到「眾因緣生法，我說即是空」時心裡的亂。如今羅什要走的，是你走過的路。","kind":"宿緣","c":{"t":"or","items":[{"t":"pick","n":11,"k":["A"]},{"t":"pick","n":11,"k":["C"]}]}}],"options":[{"k":"A","t":"我跟他一起轉學大乘。","s":{"中觀":2},"f":"漢"},{"k":"B","t":"我留在有部。不同的路，總要有人守著。","s":{"有部":2},"f":"恆"},{"k":"C","t":"我想知道須耶利蘇摩到底說了什麼，讓羅什改變。","s":{"中觀":1,"經量":1},"f":"恆"},{"k":"D","t":"他將來一定會去很遠的地方。我要跟著他。","s":{"中觀":1,"大眾":1},"f":"漢"}],"after":["數十年後，前秦的大將呂光攻下龜茲，把鳩摩羅什帶到涼州，滯留了十多年。後秦姚興迎他到長安，他譯出《中論》《百論》《十二門論》與大批大乘經典，那是三部曲的故事了。"],"source":"<em>出處：《出三藏記集》卷十四〈鳩摩羅什傳〉（T55）；《高僧傳》卷二〈鳩摩羅什傳〉（T50）；星雲〈譯經聖手鳩摩羅什大師〉<\/em>","vol":1},{"n":15,"num":"十五","title":"一切眾生悉有佛性","era":"約 4 世紀・中印度","body":[{"h":"這一世，你在中印度出家。這時流傳著一批新的經典：《勝鬘經》說眾生身中本有「如來藏」，被煩惱遮住了；《大般涅槃經》說「一切眾生悉有佛性」。"},{"h":"精舍裡又吵了起來。有人問：那麼斷盡善根的一闡提呢？也能成佛嗎？有的經本說不能，有的說能。"}],"options":[{"k":"A","t":"我相信人人都有佛性。否則修行有什麼意義？","s":{"如來藏":2},"f":"漢"},{"k":"B","t":"說「本有」，會不會讓人以為有一個不變的我？我要小心。","s":{"中觀":1,"經量":1},"f":"恆"},{"k":"C","t":"一闡提能不能成佛，我不急著下結論。我先照顧好眼前每一個人。","s":{"如來藏":1,"大眾":1},"f":"漢"},{"k":"D","t":"如來藏和般若的空，也許說的是同一件事的兩面。","s":{"如來藏":1,"唯識":1},"f":"雪"}],"after":["如來藏思想後來對漢傳與藏傳都影響很深。印順導師把它歸入「真常唯心」一系，並指出它與梵我思想表面相似，要特別小心分辨；其他學者與傳統則有不同理解。法顯帶回的《大般泥洹經》說一闡提不能成佛，後來在建康引起道生的爭論，那是三部曲的故事。"],"source":"<em>出處：《勝鬘經》（T12）；《究竟一乘寶性論》（T31）；印順《如來藏之研究》（Y39）；聖嚴《印度佛教史》；平川彰《印度佛教史》<\/em>","vol":2},{"n":16,"num":"十六","title":"阿賴耶識","era":"約 4–5 世紀・阿踰陀國","body":[{"h":"這一世，你在北印度出家，和一位叫世親的比丘是說一切有部的同學。他聰明絕頂，寫了一部《俱舍論》，總結了有部的教義，又常用經量部的看法批評有部。"},{"h":"世親的哥哥無著早已轉學大乘。無著派人告訴世親：我病得很重，你快來。世親趕到時，無著為他講大乘的道理。世親聽了，悔恨自己從前毀謗大乘，說要割掉自己的舌頭。無著說：你從前用這舌頭毀謗大乘，以後就用它來讚歎大乘吧。"},{"h":"後來世親作了《唯識三十頌》，說一切都是「識」所變現，講八識與阿賴耶識。"}],"options":[{"k":"A","t":"我跟著世親轉學唯識。","s":{"唯識":2},"f":"恆"},{"k":"B","t":"我還是留在有部。《俱舍論》已經說得很好了。","s":{"有部":1,"經量":1},"f":"恆"},{"k":"C","t":"一個人能在最得意的時候承認自己錯了，這比任何論都難。我要學他這一點。","s":{"唯識":1,"如來藏":1},"f":"漢"},{"k":"D","t":"阿賴耶識和如來藏，一個說染、一個說淨，它們是什麼關係？","s":{"唯識":1,"如來藏":1},"f":"雪"}],"after":["無著、世親兄弟被尊為瑜伽行派（唯識學派）的祖師。世親的故事見於真諦譯的《婆藪槃豆法師傳》；學界對世親的年代，甚至《俱舍論》的作者與唯識的世親是否同一人，都有不同看法。"],"source":"<em>出處：《婆藪槃豆法師傳》（T50, 188a–191a）；《大唐西域記》卷五〈阿踰陀國〉（T51）；印順《唯識學探源》（Y10）；星雲〈開創法相宗的無著與世親〉<\/em>","vol":2},{"n":17,"num":"十七","title":"扇子","era":"410–412 年・獅子洲與耶婆提","body":[{"h":"這一世，你是獅子洲無畏山寺的比丘。寺裡來了一位漢地的老比丘法顯。他年近六十才從長安出發，越過沙漠與雪山，走遍印度，現在要從海路回國。"},{"h":"有一天，你看見他站在一尊青玉佛像前，忽然流下淚來。佛像旁有一把商人供養的白絹扇，是從他的故鄉晉地來的。他離開漢地已經很多年了，同行的人有的死在路上，有的留在印度，只剩下他一個人。"},{"h":"他帶著在巴連弗邑得到的《摩訶僧祇律》、《大般泥洹經》等經律，搭上了商人的大船。"}],"options":[{"k":"A","t":"我跟他一起上船。總要有人幫他看著這些經。","s":{"大眾":1,"如來藏":1},"f":"漢"},{"k":"B","t":"我送他一部獅子洲的經律，讓漢地也知道上座部的傳承。","s":{"上座":2},"f":"島"},{"k":"C","t":"我陪他坐一會兒。那把扇子讓他想家，我什麼都不說，只是陪著。","s":{"如來藏":1,"上座":1},"f":"島"},{"k":"D","t":"我想知道，他走了這麼遠，最想帶回去的是什麼。","s":{"大眾":1,"經量":1},"f":"漢"}],"after":["《高僧法顯傳》記載，船在海上遇到大風，漏水，商人們把貨物丟下海，法顯怕他們把經像也丟掉，一心念觀世音。船漂到耶婆提國，停了五個月，再搭船往廣州，又遇風暴，最後在青州的長廣郡上岸。他帶回的《大般泥洹經》在建康譯出。"],"source":"<em>出處：《高僧法顯傳》（T51, 857a–866c）；《出三藏記集》卷十五〈法顯傳〉（T55）<\/em>","vol":2},{"n":18,"num":"十八","title":"清淨道","era":"約 5 世紀・阿努拉德普勒大寺","body":[{"h":"這一世，你是阿努拉德普勒大寺的比丘。有一位從印度來的學僧覺音（元亨寺版譯作佛音），想把島上用僧伽羅文寫的注釋，譯回巴利語，讓各國的比丘都能讀。"},{"h":"大寺的長老們先出了一個題目考他。他寫出了一部《清淨道論》，把戒、定、慧三學說得有條有理。長老們讀了，把所有的注釋都交給他。"}],"options":[{"k":"A","t":"我做他的助手，幫他找每一段注釋的出處。","s":{"上座":2},"f":"島"},{"k":"B","t":"我要把《清淨道論》裡的禪修方法一個一個試過。","s":{"上座":1,"經量":1},"f":"島"},{"k":"C","t":"大寺的傳承要守住，但無畏山寺的看法我也想聽聽。","s":{"上座":1,"大眾":1},"f":"島"},{"k":"D","t":"這些巴利注釋，應該傳到更遠的地方去。","s":{"上座":1,"有部":1},"f":"漢"}],"after":["《清淨道論》成為上座部最重要的論書之一，至今仍是上座部禪修與教理的根本依據。覺音整理的巴利注釋，奠定了大寺派的教學傳統。"],"source":"<em>出處：元亨寺版《清淨道論》（N67–N69）、《小王統史》（N66）；聖嚴《印度佛教史》<\/em>","vol":2},{"n":19,"num":"十九","title":"二部僧授戒","era":"434 年・建康","body":[{"h":"這一世，你是獅子洲的比丘尼。幾年前，已經有幾位獅子洲的比丘尼搭商船到了建康，可是受戒要比丘尼十人以上，人數不夠。你和鐵索羅等十一位比丘尼，隨船渡海前來。"},{"h":"在建康，有一位從印度來的僧人僧伽跋摩。你們和他一起，在南林寺的戒壇上，為漢地的三百多位比丘尼依「二部僧」授具足戒：先在比丘尼僧中受，再到比丘僧中受。"},{"h":"漢地的比丘尼說：我們等這一天，已經等了好幾十年。"}],"options":[{"k":"A","t":"我留下來，教她們比丘尼律。","s":{"上座":2},"f":"漢"},{"k":"B","t":"授完戒我就回獅子洲。那裡的比丘尼也需要我。","s":{"上座":2},"f":"島"},{"k":"C","t":"我想知道，漢地第一位比丘尼淨檢是怎麼等到受戒的。","s":{"上座":1,"如來藏":1},"f":"漢"},{"k":"D","t":"兩個國家的女人，隔著大海一起完成了這件事。我要把它記下來。","s":{"上座":1,"大眾":1},"f":"漢"}],"after":["《比丘尼傳》記載了這次授戒。漢地的比丘尼戒，從此有了完整的二部僧傳承，一直延續到今天的台灣。"],"source":"<em>出處：《比丘尼傳》卷二〈僧果尼傳〉（T50, 939c）；《高僧傳》卷三〈僧伽跋摩傳〉（T50, 342b）<\/em>","vol":2},{"n":20,"num":"二十","title":"空與有","era":"約 6 世紀・南印度與那爛陀","body":[{"h":"這一世，你在南印度出家，跟隨中觀論師清辨學法。清辨想見那爛陀的唯識論師護法，當面討論空與有的問題。"},{"h":"他走到護法所在的地方，護法卻讓人回話說：人世如幻，身命如浮雲，我每天忙於修行，沒有時間談論。清辨見不到他，只好回去。"},{"h":"那爛陀這時已經是五印度最大的學府，有上千位學僧。中觀與唯識的辯論，就在這裡一代一代延續。"}],"options":[{"k":"A","t":"我要替清辨把他的書信送到護法手上。","s":{"中觀":1,"唯識":1},"f":"恆"},{"k":"B","t":"我站在清辨這邊：空才是究竟的。","s":{"中觀":2},"f":"恆"},{"k":"C","t":"護法說得也有道理：與其辯論，不如修行。","s":{"唯識":2},"f":"恆"},{"k":"D","t":"我想去那爛陀，兩邊都聽聽。","s":{"中觀":1,"唯識":1},"f":"雪"}],"after":["玄奘在《大唐西域記》記下了清辨想見護法的事。印順導師在《印度之佛教》中，把這一時期稱為空有之爭。一百年後，玄奘本人也在那爛陀遇上了同樣的爭論，那是三部曲的故事了。"],"source":"<em>出處：《大唐西域記》卷十〈馱那羯磔迦國〉（T51）；印順《印度之佛教》（Y33, p. 289a）<\/em>","vol":2},{"n":21,"num":"二十一","title":"漂流的譯者","era":"546 年・南海與建康","body":[{"h":"這一世，你是建康的一位比丘。從西印度來的僧人真諦，乘船到了南海，又北上建康，被梁武帝迎請。"},{"h":"可是他到建康不久，侯景之亂爆發，京城大亂。他帶著經本四處漂泊，在富春、豫章、始興、廣州之間輾轉，一邊逃難一邊譯經，譯出了《攝大乘論》等唯識論典。"},{"h":"好幾次，他想搭船回天竺，都因為風浪或被人挽留而沒走成。"}],"options":[{"k":"A","t":"我勸他留下。他譯的論還有很多人沒聽過。","s":{"唯識":2},"f":"漢"},{"k":"B","t":"我幫他把經本收好。兵荒馬亂，經本比人更容易散失。","s":{"唯識":1,"有部":1},"f":"漢"},{"k":"C","t":"他想回家，我不攔他。","s":{"如來藏":1,"唯識":1},"f":"恆"},{"k":"D","t":"我跟他學《攝大乘論》，把它講給還沒聽過的人。","s":{"唯識":1,"如來藏":1},"f":"漢"}],"after":["《續高僧傳》說真諦「雖廣出眾經，偏宗攝論」，他晚年在廣州去世，所譯經論多達數十部。他傳下的攝論學，後來在金陵等地流傳，影響了隋唐的唯識學。"],"source":"<em>出處：《續高僧傳》卷一〈拘那羅陀傳〉（T50, 429c–431a）<\/em>","vol":2},{"n":22,"num":"二十二","title":"兩位公主","era":"約 641 年・拉薩","body":[{"h":"這一世，你是護送佛像的人。"},{"h":"吐蕃的贊普松贊干布統一了高原，向唐朝求婚。唐太宗把宗室女文成公主嫁給他，她帶著佛像、經典與工匠，從長安走了幾千里路來到拉薩。"},{"h":"藏傳的史書還記載，松贊干布也迎娶了尼泊爾的尺尊公主，她同樣帶來了佛像。兩位公主各自建了佛寺，供奉帶來的佛像。"}],"options":[{"k":"A","t":"佛像要有人照顧，也要有人說明它是誰、為什麼值得禮拜。我留在拉薩。","s":{"中觀":1,"密乘":1},"f":"雪"},{"k":"B","t":"我要記住這條路。以後會有更多經典沿著它上來。","s":{"大眾":1,"中觀":1},"f":"雪"},{"k":"C","t":"兩位公主來自不同的地方，帶來的佛像卻一樣莊嚴。我想看看兩邊的寺院。","s":{"如來藏":1,"中觀":1},"f":"雪"},{"k":"D","t":"我送完佛像就回長安。","s":{"大眾":1,"如來藏":1},"f":"漢"}],"after":["《舊唐書・吐蕃傳》記載了文成公主入藏的事；尺尊公主與兩位公主帶佛像入藏的事，見於藏文史料，屬傳統記載。這時的吐蕃還沒有出家人，佛法正式扎根，要再等一百多年。"],"source":"<em>出處：聖嚴《西藏佛教史》；星雲大師全集；印順《印度佛教思想史》<\/em>","vol":3},{"n":23,"num":"二十三","title":"室利佛逝","era":"671–695 年・室利佛逝（今印尼蘇門答臘巨港一帶）與那爛陀","body":[{"h":"這一世，你是南海室利佛逝國的僧人。這裡是海上絲路的大港，寺院裡有上千位僧人，講的經論和中天竺一樣。"},{"h":"漢地的僧人義淨從廣州搭波斯商船來到這裡，先住了六個月學梵語聲明，再往印度去。十多年後，他從那爛陀回來，又在室利佛逝住下，把印度僧團的生活規矩一條條寫下來，寫成《南海寄歸內法傳》，託人送回漢地。"},{"h":"他問你：要不要跟我回中國？"}],"options":[{"k":"A","t":"我跟他去。漢地需要懂梵文的人。","s":{"有部":1,"唯識":1},"f":"漢"},{"k":"B","t":"我留在這裡。往來的僧人總要有一個地方歇腳、學語言。","s":{"有部":1,"大眾":1},"f":"島"},{"k":"C","t":"我幫他把律典一卷一卷抄好。","s":{"有部":2},"f":"漢"},{"k":"D","t":"我想去那爛陀，看看他說的那座大寺。","s":{"唯識":1,"中觀":1},"f":"恆"}],"after":["義淨在證聖元年（695）回到洛陽，武則天親自到上東門外迎接。他帶回梵本經律論近四百部，《宋高僧傳》說他「初與于闐三藏實叉難陀飜《華嚴經》」，後來又自己譯出許多經律，特別是根本說一切有部的律典。"],"source":"<em>出處：《南海寄歸內法傳》（T54）；《大唐西域求法高僧傳》（T51）；《宋高僧傳》卷一〈義淨傳〉（T50, 710b）<\/em>","vol":3},{"n":24,"num":"二十四","title":"航向廣州","era":"719–746 年・獅子洲、室利佛逝、廣州","body":[{"h":"這一世，你在一艘從獅子洲開往廣州的大船上。船上有一位南印度來的密教大師金剛智，帶著他的弟子不空。"},{"h":"船過室利佛逝之後，遇上了大風暴，船差點翻覆。開元七年，他們終於到了廣州。"},{"h":"二十多年後，金剛智去世，不空又遵師命，從海路回到獅子洲，求得了大量密教經論，再回到長安。"}],"options":[{"k":"A","t":"風暴裡，我先護住那些經本。","s":{"密乘":2},"f":"漢"},{"k":"B","t":"我照顧金剛智大師。他年紀大了，經不起這樣的海。","s":{"密乘":1,"如來藏":1},"f":"漢"},{"k":"C","t":"我想跟著不空學密法。","s":{"密乘":2},"f":"漢"},{"k":"D","t":"我在獅子洲下船。這條海路，要有人在兩頭接應。","s":{"上座":1,"密乘":1},"f":"島"}],"after":["《宋高僧傳》記載了金剛智與不空從海路東來的經過。他們與善無畏在唐朝弘傳的密法，後世稱為唐密，又經惠果傳到日本，那是三部曲的故事了。"],"source":"<em>出處：《宋高僧傳》卷一〈金剛智傳〉〈不空傳〉（T50, 711a–714a）<\/em>","vol":3},{"n":25,"num":"二十五","title":"桑耶","era":"約 8 世紀後半・吐蕃山南桑耶","body":[{"h":"這一世，你生在吐蕃。贊普赤松德贊想在吐蕃弘揚佛法，從印度迎請了那爛陀的大學者寂護。"},{"h":"寂護到了吐蕃，傳統記載說遇到了許多障礙，他推薦贊普迎請以咒術聞名的蓮花生大士入藏。後來他們在山南建了桑耶寺，這是吐蕃第一座有出家僧團的寺院。"},{"h":"寂護為七位吐蕃人剃度、授戒，他們是第一批出家的吐蕃人。"}],"options":[{"k":"A","t":"我要成為第一批出家的吐蕃人。","s":{"中觀":1,"唯識":1},"f":"雪"},{"k":"B","t":"我跟隨蓮花生大士修行。","s":{"密乘":2},"f":"雪"},{"k":"C","t":"我跟著寂護學經論。佛法要有人懂，才能傳下去。","s":{"中觀":2},"f":"雪"},{"k":"D","t":"我想學梵文，把經典譯成我們的文字。","s":{"中觀":1,"有部":1},"f":"雪"}],"after":["桑耶寺的建立，被視為吐蕃佛教「前弘期」的高峰。蓮花生大士降伏神魔等神奇事蹟，多來自後世的伏藏傳記，屬於傳說；藏傳佛教尊他為「第二佛」，寧瑪派奉他為祖師。"],"source":"<em>出處：聖嚴《西藏佛教史》；星雲大師全集；印順《印度佛教思想史》<\/em>","vol":3},{"n":26,"num":"二十六","title":"頓與漸","era":"約 792–794 年・桑耶","body":[{"h":"六十年前，你在滑臺的無遮大會上，聽神會說「頓悟」才是達摩的正宗。如今，頓門的禪法翻過雪山，來到了吐蕃。","kind":"宿緣","c":{"t":"xpick","p":3,"n":19,"k":null}},{"h":"這一世，你是桑耶寺的僧人。漢地的禪師摩訶衍在吐蕃傳禪，教人「不思不觀」，頓悟本性，很多吐蕃人跟他學。寂護的弟子蓮花戒從印度來，主張要循序漸修，以智慧觀察，才能證悟。"},{"h":"兩派的爭論越來越激烈，贊普召集雙方，當面辯論。"}],"options":[{"k":"A","t":"我跟著摩訶衍。心本清淨，直下就是。","s":{"如來藏":2},"f":"漢"},{"k":"B","t":"我跟著蓮花戒。沒有觀察，怎麼知道自己悟的是不是真的？","s":{"中觀":2},"f":"雪"},{"k":"C","t":"我兩位師父都跟過。頓與漸，也許只是起點不同。","s":{"中觀":1,"如來藏":1},"f":"雪"},{"k":"D","t":"我把雙方的論點都記下來，留給後人判斷。","s":{"中觀":1,"唯識":1},"f":"恆"}],"after":["這場論辯的勝負，兩邊的史料說法相反：藏文史料《拔協》等說蓮花戒獲勝，摩訶衍返回漢地；敦煌出土的漢文寫本《頓悟大乘正理決》則說摩訶衍獲勝。此後吐蕃佛教以印度的漸修傳統為主。兩說並列。蓮花戒的《修習次第》至今仍是藏傳佛教重要的禪修論典。"],"source":"<em>出處：聖嚴《西藏佛教史》；印順《中國禪宗史》（Y40）；平川彰《印度佛教史》<\/em>","vol":3},{"n":27,"num":"二十七","title":"滅法之後","era":"約 842 年起・拉薩與多康","body":[{"h":"你記得億耳在阿槃提等了三年，才湊齊受戒的比丘。世尊說，邊地「持律五人」就可以授戒。","kind":"宿緣","c":{"t":"xpick","p":1,"n":23,"k":null}},{"h":"這一世，你是吐蕃的僧人。藏文史料記載，贊普朗達瑪下令滅佛，寺院被封閉，僧人被迫還俗。不久，朗達瑪被一位僧人刺殺，吐蕃王朝也分崩離析。"},{"h":"衛藏一帶的佛法幾乎斷絕。有幾位僧人帶著律典逃到東邊的多康。"}],"options":[{"k":"A","t":"我跟著他們逃到多康，守著傳戒的法脈。","s":{"有部":1,"中觀":1},"f":"雪"},{"k":"B","t":"我留在拉薩，偷偷保存經典。","s":{"中觀":1,"密乘":1},"f":"雪"},{"k":"C","t":"我往南走，到印度去。","s":{"密乘":1,"唯識":1},"f":"恆"},{"k":"D","t":"寺院沒了，我在山裡修行。只要心裡有法，就不算斷絕。","s":{"密乘":1,"如來藏":1},"f":"雪"}],"after":["藏文史料說，佛法在衛藏中斷了一百多年；後來從多康重新傳戒，加上阿里的古格王迎請印度高僧，開啟了「後弘期」。藏文史料也記載，多康重新傳戒時人數不足，以兩位漢地僧人補足。學界對朗達瑪滅佛的程度與中斷的年數，看法不一。同一時期，唐朝也發生了會昌法難，那是三部曲的故事。"],"source":"<em>出處：聖嚴《西藏佛教史》；印順《印度佛教思想史》<\/em>","vol":3},{"n":28,"num":"二十八","title":"師徒","era":"約 11 世紀初・那爛陀與孟加拉","body":[{"h":"這一世，你是那爛陀的學僧，跟隨一位名滿天下的學者那洛巴。他是那爛陀的大論師之一，辯論從未輸過。"},{"h":"有一天，那洛巴忽然離開了那爛陀。他說，他要去找一位叫帝洛巴的瑜伽士為師。後來的傳記說，帝洛巴對他百般考驗，他經歷了十二次大苦，才得到傳承。"}],"options":[{"k":"A","t":"我跟著他去找帝洛巴。","s":{"密乘":2},"f":"恆"},{"k":"B","t":"我留在那爛陀。經論的傳承也需要有人守。","s":{"中觀":1,"唯識":1},"f":"恆"},{"k":"C","t":"一個學者肯放下一切去拜師，我想知道他在找什麼。","s":{"密乘":1,"如來藏":1},"f":"雪"},{"k":"D","t":"我把他留下的論著整理好，帶到雪域去。","s":{"密乘":1,"中觀":1},"f":"雪"}],"after":["那洛巴的傳承經馬爾巴傳入西藏，成為噶舉派的源頭。帝洛巴、那洛巴的種種考驗故事，出自噶舉派較晚的傳記，屬於傳說。印度後期佛教，密乘的修行特別重視師徒傳承。"],"source":"<em>出處：印順《印度佛教思想史》（Y34）；聖嚴《西藏佛教史》<\/em>","vol":4},{"n":29,"num":"二十九","title":"菩提道燈","era":"1042 年・阿里古格","body":[{"h":"你記得那爛陀的經藏，記得那洛巴離開的那一天。如今那爛陀與超戒寺的學者，又要翻過雪山了。","kind":"宿緣","c":{"t":"or","items":[{"t":"pick","n":28,"k":["B"]},{"t":"pick","n":28,"k":["D"]}]}},{"h":"這一世，你是超戒寺的學僧，跟隨大學者阿底峽。西藏阿里的古格王一再派人來迎請，阿底峽終於答應，帶著你們翻過喜馬拉雅山。"},{"h":"在古格，他寫了一部《菩提道燈論》，把顯教與密教、從皈依到成佛的修行次第，說得清清楚楚。"},{"h":"他的西藏弟子仲敦巴，後來開創了噶當派。"}],"options":[{"k":"A","t":"我留在西藏，幫他教導弟子。","s":{"中觀":1,"密乘":1},"f":"雪"},{"k":"B","t":"我要把《菩提道燈論》背熟，照著次第一步一步修。","s":{"中觀":2},"f":"雪"},{"k":"C","t":"我回超戒寺。印度的寺院也需要有人。","s":{"中觀":1,"唯識":1},"f":"恆"},{"k":"D","t":"我跟著仲敦巴，去建一座新的道場。","s":{"中觀":1,"密乘":1},"f":"雪"}],"after":["阿底峽在西藏住了十多年，在聶塘去世。《菩提道燈論》開啟了藏傳佛教的「道次第」傳統，三百多年後宗喀巴的《菩提道次第廣論》就是依此寫成。"],"source":"<em>出處：聖嚴《西藏佛教史》；印順《印度佛教思想史》（Y34）<\/em>","vol":4},{"n":30,"num":"三十","title":"蒲甘","era":"約 1057 年・緬甸蒲甘","body":[{"h":"這一世，你是蒲甘王國的人。國王阿奴律陀受一位上座部比丘信阿羅漢的教導，皈依了上座部佛教。"},{"h":"信阿羅漢說，南方的直通國有完整的三藏與持戒的比丘。阿奴律陀派人去求，直通國王不肯給。阿奴律陀發兵攻下直通，把三藏、比丘與工匠都帶回蒲甘。"},{"h":"上座部從此在緬甸立足。"}],"options":[{"k":"A","t":"經典是用戰爭換來的。我心裡很不安，要好好讀它，才對得起那些死去的人。","s":{"上座":2},"f":"島"},{"k":"B","t":"我跟著信阿羅漢出家。","s":{"上座":2},"f":"島"},{"k":"C","t":"我去當刻經的工匠，讓這些經典不再被搶走。","s":{"上座":1,"有部":1},"f":"島"},{"k":"D","t":"我想去獅子洲，看看這些經典最初是從哪裡來的。","s":{"上座":1,"大眾":1},"f":"島"}],"after":["這件事見於緬甸的王統史《琉璃宮史》，細節學界仍有討論。蒲甘王朝後來建造了數千座佛塔，至今仍立在伊洛瓦底江畔。"],"source":"<em>出處：聖嚴《印度佛教史》；平川彰《印度佛教史》<\/em>","vol":4},{"n":31,"num":"三十一","title":"十萬歌","era":"約 11 世紀末至 12 世紀初・洛扎與拉齊雪山","body":[{"h":"這一世，你是住在雪山腳下的獵人。"},{"h":"山洞裡住著一位苦行者，叫密勒日巴。聽說他年輕時為了替母親報仇，學咒術害死了很多人，後來悔恨不已，去找譯師馬爾巴求法。馬爾巴讓他一個人蓋房子、拆房子，蓋了又拆，拆了又蓋，吃盡苦頭，才把法傳給他。"},{"h":"如今他在山洞裡修行，只吃蕁麻，身體都綠了。他用唱歌的方式說法，留下了很多道歌。"}],"options":[{"k":"A","t":"我放下弓箭，跟他學。","s":{"密乘":2},"f":"雪"},{"k":"B","t":"我常送食物給他，聽他唱歌。","s":{"密乘":1,"如來藏":1},"f":"雪"},{"k":"C","t":"一個殺過很多人的人，也能成就。我相信人可以改變。","s":{"如來藏":1,"密乘":1},"f":"雪"},{"k":"D","t":"我把他的歌記下來，讓更多人聽到。","s":{"密乘":1,"中觀":1},"f":"雪"}],"after":["密勒日巴的弟子岡波巴融合了噶當派的教法與密勒日巴的大手印，噶舉派由此成形。密勒日巴的生平主要見於後世的《密勒日巴尊者傳》與《十萬歌集》，傳記中的神奇情節屬於傳說。"],"source":"<em>出處：聖嚴《西藏佛教史》<\/em>","vol":4},{"n":32,"num":"三十二","title":"統一僧團","era":"1165 年・獅子洲波隆納魯瓦","body":[{"h":"這一世，你是獅子洲的比丘。島上的僧團分成大寺、無畏山寺、祇多林寺三派，彼此不和，戒律也鬆弛了。"},{"h":"國王波羅迦摩巴忽一世召集三派，在大寺長老的主持下整頓僧團，統一以大寺的傳承為準。"},{"h":"你屬於被整併的那一派。"}],"options":[{"k":"A","t":"我接受整併。僧團和合，比我們這一派的名字重要。","s":{"上座":2},"f":"島"},{"k":"B","t":"我心裡不服，但我會守好戒律，讓大家看到我們這一派也是清淨的。","s":{"上座":1,"大眾":1},"f":"島"},{"k":"C","t":"我把我們這一派的論書整理好，就算不再用，也要留下來。","s":{"上座":1,"經量":1},"f":"島"},{"k":"D","t":"我去緬甸。那裡的比丘想來獅子洲受戒，需要有人帶路。","s":{"上座":2},"f":"島"}],"after":["統一後的獅子洲大寺傳承，後來傳向緬甸、泰國等地，成為今日東南亞上座部的主流。"],"source":"<em>出處：元亨寺版《小王統史》（N66）；聖嚴《印度佛教史》<\/em>","vol":5},{"n":33,"num":"三十三","title":"火中的寺","era":"約 1200 年・超戒寺與那爛陀","body":[{"h":"這一世，你是超戒寺的學僧。"},{"h":"北方來的軍隊攻入恆河流域，超戒寺、那爛陀先後被毀，經書被燒，僧人被殺或逃散。活下來的僧人，有的往北逃到西藏、尼泊爾，有的往南方去。"},{"h":"你只能帶幾部經走。"}],"options":[{"k":"A","t":"我往北，把經帶到西藏。","s":{"密乘":1,"中觀":1},"f":"雪"},{"k":"B","t":"我往南，去還有寺院的地方。","s":{"上座":1,"大眾":1},"f":"島"},{"k":"C","t":"我留下來，在廢墟裡教還願意聽的人。","s":{"如來藏":1,"唯識":1},"f":"恆"},{"k":"D","t":"我帶最少的經，背最多的經。書會燒掉，記在心裡的燒不掉。","s":{"有部":1,"中觀":1},"f":"恆"}],"after":["超戒寺與那爛陀被毀，常被視為印度佛教衰亡的象徵。但學界也指出，印度佛教的衰微有多重原因，包括印度教的興盛、佛教與印度教的融合、寺院經濟依賴王室等，不只是外來的軍事破壞。佛教在印度本地，要到七百多年後才重新興起。"],"source":"<em>出處：印順《印度佛教思想史》（Y34）；聖嚴《印度佛教史》；平川彰《印度佛教史》<\/em>","vol":5},{"n":34,"num":"三十四","title":"帝師","era":"1260 年・開平與薩迦","body":[{"h":"這一世，你是薩迦寺的僧人，跟隨年輕的八思巴。他是薩迦派的領袖，從小就有神童之名。"},{"h":"忽必烈即位，封八思巴為國師，後來又封為帝師，讓他領總制院，掌管全國的佛教與吐蕃事務。八思巴還奉命創制了「蒙古新字」。"},{"h":"他問你：要不要跟我進宮？"}],"options":[{"k":"A","t":"我跟他進宮。在宮裡，可以讓更多人親近佛法。","s":{"密乘":2},"f":"漢"},{"k":"B","t":"我留在薩迦，守著寺院。","s":{"密乘":1,"中觀":1},"f":"雪"},{"k":"C","t":"宮裡離修行太遠了。我回山裡。","s":{"密乘":1,"如來藏":1},"f":"雪"},{"k":"D","t":"我跟去，但我會常常提醒他：國師也是出家人。","s":{"中觀":1,"密乘":1},"f":"漢"}],"after":["《元史・釋老傳》與《佛祖歷代通載》記載了八思巴的事蹟。元朝的帝師制度，使藏傳佛教在宮廷中有很大的影響。一百多年後，明太祖設僧錄司管理僧人，把寺院分為禪、講、教三等，那是三部曲的故事。"],"source":"<em>出處：《佛祖歷代通載》卷二十一、二十二（T49）；聖嚴《西藏佛教史》<\/em>","vol":5},{"n":35,"num":"三十五","title":"甘丹","era":"1409 年・拉薩","body":[{"h":"你記得在古格，阿底峽寫下《菩提道燈論》的那些夜晚。三百多年過去，有人要把它重新講一遍。","kind":"宿緣","c":{"t":"or","items":[{"t":"pick","n":29,"k":["A"]},{"t":"pick","n":29,"k":["B"]}]}},{"h":"這一世，你是拉薩的僧人。學者宗喀巴寫了《菩提道次第廣論》，依阿底峽的《菩提道燈論》，把修行的次第說得更完整，也特別重視戒律。"},{"h":"這一年正月，他在拉薩舉行了盛大的祈願法會，同年在拉薩東邊建了甘丹寺。"},{"h":"你在法會上聽他講經。"}],"options":[{"k":"A","t":"我要依他的次第，從皈依、持戒開始，一步一步修。","s":{"中觀":2},"f":"雪"},{"k":"B","t":"我想跟他學密法。他說，顯教的基礎打好了，密法才不會走偏。","s":{"密乘":1,"中觀":1},"f":"雪"},{"k":"C","t":"我最佩服的是他重新重視戒律。","s":{"有部":1,"中觀":1},"f":"雪"},{"k":"D","t":"我把《廣論》抄下來，帶到更遠的地方。","s":{"中觀":1,"密乘":1},"f":"漢"}],"after":["宗喀巴的傳承後來稱為格魯派。拉薩的祈願大法會從此每年舉行。《菩提道次第廣論》在二十世紀由法尊法師譯成漢文，在漢地與台灣都有很多人研讀。"],"source":"<em>出處：《菩提道次第廣論》（法尊譯）；聖嚴《西藏佛教史》<\/em>","vol":5},{"n":36,"num":"三十六","title":"回流的戒","era":"1753 年・獅子洲康提","body":[{"h":"你記得那條從獅子洲出發的路：戒法從這座島傳到緬甸、暹羅。如今，它要回來了。","kind":"宿緣","c":{"t":"or","items":[{"t":"pick","n":32,"k":["D"]},{"t":"pick","n":30,"k":["D"]}]}},{"h":"這一世，你是獅子洲的沙彌。島上經過長年的戰亂與殖民，比丘的具足戒傳承竟然中斷了，沒有足夠的比丘可以授戒。"},{"h":"國王派使者到暹羅求戒。暹羅國王派出以優波離長老為首的比丘僧團，渡海來到康提，為島上的沙彌們重新授具足戒。"}],"options":[{"k":"A","t":"我要第一批受戒。","s":{"上座":2},"f":"島"},{"k":"B","t":"當年是這座島把戒傳出去的，如今又從外面傳回來。我要記住這件事。","s":{"上座":1,"大眾":1},"f":"島"},{"k":"C","t":"我跟優波離長老學律。","s":{"上座":1,"有部":1},"f":"島"},{"k":"D","t":"傳承會斷，也會接上。我想把這個故事說給其他國家的人聽。","s":{"上座":1,"如來藏":1},"f":"漢"}],"after":["由此重建的傳承稱為「暹羅派」，至今仍是斯里蘭卡最大的僧團派別。"],"source":"<em>出處：元亨寺版《小王統史》（N66）；聖嚴《印度佛教史》<\/em>","vol":5},{"n":37,"num":"三十七","title":"佛紀二五〇〇年","era":"1956 年・仰光與印度","body":[{"h":"兩千五百年前，你在七葉窟外，看著五百位比丘第一次誦出佛語。","kind":"宿緣","c":{"t":"xpick","p":1,"n":37,"k":null}},{"h":"這一年，依上座部的傳統，是佛陀入滅二千五百年。"},{"h":"在仰光，來自緬甸、斯里蘭卡、泰國、柬埔寨、寮國的兩千五百位比丘，從 1954 年起把巴利三藏從頭誦了一遍，這一年完成。上座部的傳統稱為「第六次結集」。"},{"h":"在印度的那格浦爾，出身賤民的憲法起草人安貝卡，帶著數十萬人一起皈依佛教，佛法在印度本地重新興起。"},{"h":"這年年底，西藏的達賴喇嘛也來到印度，參加佛陀二五〇〇年的紀念。"},{"h":"這一生，你要去哪一個現場？"}],"options":[{"k":"A","t":"仰光。我要聽兩千五百位比丘把三藏誦完。","s":{"上座":2},"f":"島"},{"k":"B","t":"那格浦爾。佛法回到印度，回到最需要它的人身邊。","s":{"大眾":1,"如來藏":1},"f":"恆"},{"k":"C","t":"和雪域來的僧人一起，到菩提伽耶朝聖。","s":{"密乘":1,"中觀":1},"f":"雪"},{"k":"D","t":"我回到海的另一邊，去那個漢傳、藏傳與上座部都在的小島。","s":{"如來藏":1,"中觀":1},"f":"漢"}],"after":["三道從恆河兩岸出發，兩千五百年後，又在這一年以不同的方式相遇。漢傳這一道的故事，從東晉亂世的一盞油燈說起，那是三部曲。"],"source":"<em>出處：聖嚴《印度佛教史》；星雲大師全集<\/em>","vol":6}],"schools":{"上座":{"tag":"守住最早的傳承","text":"上座部（分別說系）重視佛陀親說的經律，以巴利三藏與覺音的注釋為依據，從獅子洲傳到東南亞。你常選擇守住傳承、照經律行事（第 1、7、18 幕）。你的長處是穩重可靠；要提醒自己的是，守住傳承，是為了讓它活下去，不是讓它凍結。","modern":""},"有部":{"tag":"把法分析清楚","text":"說一切有部以阿毘達磨著稱，《大毘婆沙論》把每一個法的定義與因果都說得一清二楚（第 10 幕）。你常想先把概念弄清楚，再談修行。你的長處是嚴謹；要提醒自己的是，分析是為了解脫，不是為了分析本身。","modern":""},"經量":{"tag":"以經為量","text":"經量部從有部分出，主張以佛說的經為準，不全依論師的論。你常想回到經典本來的意思（第 10、11 幕）。你的長處是獨立思考；要提醒自己的是，質疑別人之後，也要質疑自己。","modern":""},"大眾":{"tag":"隨順時代與眾生","text":"大眾部在根本分裂時與上座部分開，對戒律與佛陀觀都較寬，後來與大乘思想的興起有密切關係。你常選擇體諒變通、照顧眾人（第 1、5 幕）。你的長處是包容；要提醒自己的是，變通之前，先弄清楚什麼不能變。","modern":""},"中觀":{"tag":"緣起性空","text":"龍樹說「眾因緣生法，我說即是空」，一切法因緣生，所以沒有自性（第 11 幕）。你常願意放下執著，重新看事情。你的長處是不被概念綁住；要提醒自己的是，空不是什麼都沒有，正因為空，才要好好對待每一個因緣。","modern":""},"唯識":{"tag":"觀察心識","text":"無著、世親的瑜伽行派，探討心識的結構，說一切都是識所變現，講八識與阿賴耶識（第 16 幕）。你常想弄清楚自己的心是怎麼運作的。你的長處是細膩；要提醒自己的是，看清了心的運作，還要讓它真的轉變。","modern":""},"如來藏":{"tag":"一切眾生悉有佛性","text":"如來藏思想說，眾生本有成佛的可能，被煩惱遮住了（第 15 幕）。你常相信每個人都能變好。你的長處是給人希望；要提醒自己的是，「本有」不是一個不變的我，修行仍然要一步一步來。","modern":""},"密乘":{"tag":"重視師承與實修","text":"印度後期的密乘重視師徒傳承、儀軌與身心的實修，經寂護、蓮花生、阿底峽、那洛巴等人傳入雪域（第 25、28、29 幕）。你常願意跟隨一位老師，全心投入。你的長處是專注；要提醒自己的是，師承是為了修行，也要以經論檢驗。","modern":""}},"fates":{"島":{"name":"獅子洲與金地","text":"你的法脈往南流去，渡海到獅子洲，再到緬甸、暹羅與東南亞，成為今日的上座部。這一道最重視巴利三藏與戒律的傳承，雖然幾度中斷，又從彼此之間接了回來（第 36 幕）。"},"雪":{"name":"雪域","text":"你的法脈越過喜馬拉雅山，到了吐蕃。這一道保存了大量印度後期的經論與密法，從寂護、蓮花生，到阿底峽、宗喀巴，在雪域裡開出了寧瑪、噶當、噶舉、薩迦、格魯等宗派。"},"漢":{"name":"漢地","text":"你的法脈沿著陸上與海上的絲路東來，到了漢地。從安世高、支婁迦讖、鳩摩羅什，到法顯、真諦、義淨、金剛智，一代代譯者把經典譯成漢文，後來在漢地開出八宗，那是三部曲的故事。"},"恆":{"name":"恆河兩岸","text":"你的法脈留在佛陀出生的土地上。印度本地的部派、中觀、唯識與密乘，在那爛陀與超戒寺達到高峰，又在十二世紀後衰微；直到 1956 年，佛法才在這片土地上重新興起。"}},"combosLead":"","combos":{},"roles":{},"rolesLead":[],"mix":{},"masters":[{"name":"摩哂陀","s":{"上座":3,"大眾":1},"f":{"島":2},"k":[[3,"A"],[3,"C"]],"bal":false,"text":"阿育王的兒子，出家後受派渡海到獅子洲，以一棵芒果樹的問答考驗國王，把佛法帶進了這座島。你像他：你願意把法帶到很遠的地方，也懂得先看清楚聽的人。他會提醒你：說法之前，先問一個好問題。","id":"阿育王的兒子，出家後受派渡海到獅子洲，以一棵芒果樹的問答考驗國王，把佛法帶進了這座島。","era":"約前 3 世紀","yrs":"生卒年不詳","b":-0.0771},{"name":"僧伽蜜多","s":{"上座":3,"如來藏":1},"f":{"島":2},"k":[[4,"A"],[4,"B"]],"bal":false,"text":"阿育王的女兒、摩哂陀的妹妹，帶著菩提樹的南枝渡海，為獅子洲的婦女授戒，建立了島上的比丘尼僧團。你像她：你願意為了別人能走上修行的路，親自走一趟遠路。她會提醒你：一棵樹要種下去，還要有人一代代照顧。","id":"阿育王的女兒、摩哂陀的妹妹，帶著菩提樹的南枝渡海，為獅子洲的婦女授戒，建立了島上的比丘尼僧團。","era":"約前 3 世紀","yrs":"生卒年不詳","b":-0.0989},{"name":"那先","s":{"上座":2,"經量":1,"中觀":1},"f":{"恆":1,"島":1},"k":[[6,"A"],[6,"D"]],"bal":false,"text":"以車子的比喻回答希臘國王彌蘭陀，說明「我」只是假名。漢譯《那先比丘經》與巴利《彌蘭王問經》都記下了這段問答。你像他：你擅長用簡單的比喻說深的道理。他會提醒你：辯論的目的是讓對方看清楚，不是讓自己贏。","id":"以車子的比喻回答希臘國王彌蘭陀，說明「我」只是假名。","era":"約前 2 世紀","yrs":"生卒年不詳","b":-0.039},{"name":"世友","s":{"有部":3,"經量":1},"f":{"恆":2},"k":[[10,"A"],[1,"C"]],"bal":false,"text":"說一切有部的大論師，傳說是《大毘婆沙論》的重要評家，《異部宗輪論》也題為他所作。你像他：你喜歡把問題分析透徹，也願意把不同的說法一一記下。他會提醒你：記下別人的說法，是對真理的尊重。","id":"說一切有部的大論師，傳說是《大毘婆沙論》的重要評家，《異部宗輪論》也題為他所作。","era":"約 1–2 世紀","yrs":"生卒年不詳","b":-0.12},{"name":"童受（鳩摩邏多）","s":{"經量":3,"有部":1},"f":{"恆":2},"k":[[10,"C"],[8,"A"]],"bal":false,"text":"《大唐西域記》說他是「經部本師」，經量部的開創者。你像他：你相信經典勝過權威，願意從頭思考。他會提醒你：以經為量，也要讀懂經。","id":"《大唐西域記》說他是「經部本師」，經量部的開創者。","era":"約 2–3 世紀","yrs":"生卒年不詳","b":-0.12},{"name":"龍樹","s":{"中觀":3,"大眾":1},"f":{"恆":1,"漢":1},"k":[[11,"A"],[8,"C"]],"bal":false,"text":"中觀學派的開創者，作《中論》，說「眾因緣生法，我說即是空」。漢傳尊他為「八宗共祖」，藏傳也奉他為根本論師。你像他：你能看穿概念背後的執著。他會提醒你：空不是否定一切，是讓一切能夠成立。","id":"中觀學派的開創者，作《中論》，說「眾因緣生法，我說即是空」。","era":"約 2–3 世紀","yrs":"生卒年不詳","b":0.0876},{"name":"提婆","s":{"中觀":2,"大眾":1},"f":{"恆":2},"k":[[11,"C"],[20,"B"]],"bal":false,"text":"龍樹的弟子，以辯才破斥外道，作《百論》，最後被外道弟子所害，臨終還勸弟子不要報仇。你像他：你為了真理敢於直言。他會提醒你：辯論可以犀利，心不可以有恨。","id":"龍樹的弟子，以辯才破斥外道，作《百論》，最後被外道弟子所害，臨終還勸弟子不要報仇。","era":"約 3 世紀","yrs":"生卒年不詳","b":0.0166},{"name":"無著","s":{"唯識":3,"如來藏":1},"f":{"恆":1,"漢":1},"k":[[16,"C"],[16,"D"]],"bal":false,"text":"瑜伽行派的開創者，傳說他長年修行，得彌勒菩薩傳授《瑜伽師地論》，後來又勸弟弟世親轉學大乘。你像他：你有耐心，相信長久的修行與真誠的勸說。他會提醒你：要讓人改變，先等他準備好。","id":"瑜伽行派的開創者，傳說他長年修行，得彌勒菩薩傳授《瑜伽師地論》，後來又勸弟弟世親轉學大乘。","era":"約 4–5 世紀","yrs":"生卒年不詳","b":0.0855},{"name":"世親","s":{"唯識":2,"有部":1,"經量":1},"f":{"恆":2},"k":[[16,"A"],[10,"B"]],"bal":false,"text":"先學有部、作《俱舍論》，後聽兄長無著勸說轉學大乘，作《唯識三十頌》，被稱為「千部論主」。你像他：你聰明，也肯承認自己錯了。他會提醒你：改變想法，不是背叛，是誠實。","id":"先學有部、作《俱舍論》，後聽兄長無著勸說轉學大乘，作《唯識三十頌》，被稱為「千部論主」。","era":"約 4–5 世紀","yrs":"生卒年不詳","b":0.0477},{"name":"覺音（佛音）","s":{"上座":3,"經量":1},"f":{"島":2},"k":[[18,"A"],[18,"B"]],"bal":false,"text":"從印度來到獅子洲大寺，作《清淨道論》，把僧伽羅文的注釋譯回巴利語。你像他：你能把龐雜的傳統整理得有條有理。他會提醒你：整理傳承，是為了讓後人走得更順。","id":"從印度來到獅子洲大寺，作《清淨道論》，把僧伽羅文的注釋譯回巴利語。","era":"約 5 世紀","yrs":"生卒年不詳","b":-0.0789},{"name":"法顯","s":{"大眾":2,"如來藏":1,"上座":1},"f":{"漢":2},"k":[[17,"A"],[17,"D"]],"bal":false,"text":"年近六十從長安出發，走遍印度，帶回《摩訶僧祇律》與《大般泥洹經》，從海路歸國。你像他：你為了求法，年紀與路途都不是理由。他會提醒你：找到經典之後，還要平安帶回去。","id":"年近六十從長安出發，走遍印度，帶回《摩訶僧祇律》與《大般泥洹經》，從海路歸國。","era":"東晉","yrs":"約 337–約 422","b":-0.12},{"name":"鳩摩羅什","s":{"中觀":3,"有部":1},"f":{"漢":2},"k":[[14,"A"],[14,"D"]],"bal":false,"text":"龜茲人，少年從有部轉學大乘，後來在長安譯出《中論》《妙法蓮華經》等，影響漢傳佛教一千多年。你像他：你肯放下舊的所學，走向更深的地方。他會提醒你：翻譯是把一個世界交給另一個世界，要對兩邊都誠實。","id":"龜茲人，少年從有部轉學大乘，後來在長安譯出《中論》《妙法蓮華經》等，影響漢傳佛教一千多年。","era":"後秦","yrs":"約 344–約 413","b":0.0762},{"name":"真諦","s":{"唯識":2,"如來藏":2},"f":{"漢":2},"k":[[21,"A"],[21,"D"]],"bal":false,"text":"西印度人，從海路來到梁朝，遇上侯景之亂，一生漂泊，仍譯出《攝大乘論》等數十部經論。你像他：你在動盪中也不放棄手上的工作。他會提醒你：時局不由人，能做的是把該做的事做完。","id":"西印度人，從海路來到梁朝，遇上侯景之亂，一生漂泊，仍譯出《攝大乘論》等數十部經論。","era":"南朝梁、陳","yrs":"499–569","b":-0.0975},{"name":"義淨","s":{"有部":3,"唯識":1},"f":{"漢":1,"島":1},"k":[[23,"A"],[23,"C"]],"bal":false,"text":"從廣州搭船赴印度，在室利佛逝學梵語，在那爛陀求學十年，寫成《南海寄歸內法傳》，帶回大量律典。你像他：你重視規矩，也重視規矩在生活中的樣子。他會提醒你：學法要學到細節，因為細節是修行的地方。","id":"從廣州搭船赴印度，在室利佛逝學梵語，在那爛陀求學十年，寫成《南海寄歸內法傳》，帶回大量律典。","era":"唐","yrs":"635–713","b":0.1056},{"name":"寂護","s":{"中觀":2,"唯識":1},"f":{"雪":2},"k":[[25,"C"],[25,"A"]],"bal":false,"text":"那爛陀的大學者，應赤松德贊之請入藏，建桑耶寺，為第一批吐蕃人剃度授戒。你像他：你相信經論與戒律是佛法的地基。他會提醒你：自己做不到的，就請更適合的人來。","id":"那爛陀的大學者，應赤松德贊之請入藏，建桑耶寺，為第一批吐蕃人剃度授戒。","era":"約 8 世紀","yrs":"生卒年不詳","b":0.12},{"name":"那洛巴","s":{"密乘":2,"唯識":1},"f":{"恆":1,"雪":1},"k":[[28,"A"],[28,"C"]],"bal":false,"text":"那爛陀的大學者，傳說放下一切去追隨帝洛巴，他的傳承經馬爾巴傳入西藏，成為噶舉派的源頭。你像他：你肯放下已經擁有的成就，重新開始。他會提醒你：放下學問，不是丟掉它，是讓它真的變成自己的。","id":"那爛陀的大學者，傳說放下一切去追隨帝洛巴，他的傳承經馬爾巴傳入西藏，成為噶舉派的源頭。","era":"約 11 世紀","yrs":"生卒年不詳","b":0.12},{"name":"阿底峽","s":{"中觀":2,"密乘":1},"f":{"雪":2},"k":[[29,"A"],[29,"B"]],"bal":false,"text":"超戒寺的大學者，晚年應邀入藏，作《菩提道燈論》，開啟了藏傳佛教的道次第傳統。你像他：你重視次第，也願意在晚年去遙遠的地方。他會提醒你：先打好基礎，修行才不會走偏。","id":"超戒寺的大學者，晚年應邀入藏，作《菩提道燈論》，開啟了藏傳佛教的道次第傳統。","era":"11 世紀","yrs":"982–1054","b":0.1146},{"name":"密勒日巴","s":{"密乘":3,"如來藏":1},"f":{"雪":2},"k":[[31,"A"],[31,"C"]],"bal":false,"text":"年輕時以咒術報仇，後來悔改，追隨馬爾巴，歷經苦行，在山洞修行，以道歌說法。你像他：你相信人可以徹底改變。他會提醒你：真正的修行，是在沒有人看見的地方。","id":"年輕時以咒術報仇，後來悔改，追隨馬爾巴，歷經苦行，在山洞修行，以道歌說法。","era":"11–12 世紀","yrs":"約 1040–約 1123","b":0.1045},{"name":"宗喀巴","s":{"中觀":2,"密乘":1,"有部":1},"f":{"雪":2},"k":[[35,"A"],[35,"C"]],"bal":false,"text":"依阿底峽的《菩提道燈論》作《菩提道次第廣論》，重視戒律，創甘丹寺與拉薩祈願大法會，後世稱為格魯派之祖。你像他：你喜歡把道理說得完整、做得扎實。他會提醒你：顯教的基礎打好，密法才不會走偏。","id":"依阿底峽的《菩提道燈論》作《菩提道次第廣論》，重視戒律，創甘丹寺與拉薩祈願大法會，後世稱為格魯派之祖。","era":"14–15 世紀","yrs":"1357–1419","b":0.12}],"mastersLead":["下面是三道中，各個思潮的代表人物。系統比對你三十七幕的選擇，找出和你最接近的三位。"],"mastersSrc":"<em>出處：各人事蹟見各幕出處；年代依印順《印度佛教思想史》、聖嚴《印度佛教史》《西藏佛教史》與平川彰《印度佛教史》，說法不一或只是推算的，標「約」或「?」<\/em>","places":[{"n":1,"year":-380,"name":"毘舍離","now":"印度比哈爾邦毘舍離","ll":[85.13,25.99],"xy":[362.6,314.8]},{"n":2,"year":-250,"name":"華氏城","now":"印度巴特那","ll":[85.14,25.61],"xy":[362.4,321]},{"n":3,"year":-247,"name":"眉沙迦山","now":"斯里蘭卡米欣特萊","ll":[80.5,8.35],"xy":[271.9,596.1]},{"n":4,"year":-245,"name":"阿努拉德普勒","now":"斯里蘭卡阿努拉德普勒","ll":[80.4,8.35],"xy":[270.4,595.9]},{"n":5,"year":-150,"name":"巴爾胡特","now":"印度中央邦巴爾胡特","ll":[80.87,24.43],"also":[{"t":"山奇","ll":[77.74,23.48]}],"xy":[301.2,335.8],"alsoXY":[{"t":"山奇","ll":[77.74,23.48],"xy":[255.6,346.9]}]},{"n":6,"year":-140,"name":"舍竭國","now":"巴基斯坦錫亞爾科特","ll":[74.53,32.49],"xy":[229.4,195.5]},{"n":7,"year":-29,"name":"阿盧寺","now":"斯里蘭卡馬特萊","ll":[80.62,7.5],"xy":[272.6,609.7]},{"n":8,"year":0,"name":"南印度","now":"印度安得拉邦一帶","ll":[80.3,16.5],"xy":[281.1,464.5]},{"n":9,"year":148,"name":"洛陽","now":"中國河南洛陽","ll":[112.45,34.62],"xy":[727,166.2]},{"n":10,"year":150,"name":"迦濕彌羅","now":"喀什米爾","ll":[74.8,34.08],"xy":[236.3,170.5]},{"n":11,"year":200,"name":"南印度","now":"印度安得拉邦一帶","ll":[79.8,16.2],"xy":[273.2,468.7]},{"n":12,"year":260,"name":"于闐","now":"中國新疆和田","ll":[79.92,37.11],"xy":[307.5,129.8]},{"n":13,"year":286,"name":"敦煌","now":"中國甘肅敦煌","ll":[94.66,40.14],"also":[{"t":"長安","ll":[108.94,34.34]}],"xy":[495.8,91.4],"alsoXY":[{"t":"長安","ll":[108.94,34.34],"xy":[681.9,175.2]}]},{"n":14,"year":355,"name":"龜茲","now":"中國新疆庫車","ll":[82.96,41.72],"also":[{"t":"沙勒","ll":[75.99,39.47]}],"xy":[351.7,61.3],"alsoXY":[{"t":"沙勒","ll":[75.99,39.47],"xy":[262,87.5]}]},{"n":15,"year":380,"name":"中印度","now":"印度北方邦一帶","ll":[81.5,26.8],"xy":[313.3,297.8]},{"n":16,"year":400,"name":"阿踰陀","now":"印度阿約提亞","ll":[82.2,26.8],"xy":[323,298.6]},{"n":17,"year":411,"name":"獅子洲無畏山寺","now":"斯里蘭卡阿努拉德普勒","ll":[80.4,8.37],"route":{"t":"耶婆提","dir":"to","ll":[110,-7]},"xy":[270.4,595.6],"routeXY":{"t":"耶婆提","dir":"to","xy":[758.3,830]}},{"n":18,"year":430,"name":"阿努拉德普勒大寺","now":"斯里蘭卡阿努拉德普勒","ll":[80.39,8.34],"xy":[270.2,596.1]},{"n":19,"year":434,"name":"建康","now":"中國江蘇南京","ll":[118.78,32.06],"route":{"t":"獅子洲","dir":"from","ll":[80.4,8.35]},"xy":[815.1,196.2],"routeXY":{"t":"獅子洲","dir":"from","xy":[270.4,595.9]}},{"n":20,"year":530,"name":"那爛陀","now":"印度比哈爾邦那爛陀","ll":[85.44,25.14],"xy":[366.1,328.9]},{"n":21,"year":546,"name":"南海（廣州）","now":"中國廣東廣州","ll":[113.26,23.13],"xy":[759.2,351]},{"n":22,"year":641,"name":"拉薩","now":"中國西藏拉薩","ll":[91.13,29.65],"xy":[447.6,258.5]},{"n":23,"year":685,"name":"室利佛逝","now":"印尼蘇門答臘巨港","ll":[104.75,-2.99],"route":{"t":"廣州","dir":"from","ll":[113.26,23.13]},"xy":[664.4,777.7],"routeXY":{"t":"廣州","dir":"from","xy":[759.2,351]}},{"n":24,"year":719,"name":"廣州","now":"中國廣東廣州","ll":[113.26,23.13],"route":{"t":"獅子洲","dir":"from","ll":[80.4,8.35]},"via":[{"t":"室利佛逝","ll":[104.75,-2.99]}],"xy":[759.2,351],"viaXY":[{"t":"室利佛逝","ll":[104.75,-2.99],"xy":[664.4,777.7]}],"routeXY":{"t":"獅子洲","dir":"from","xy":[270.4,595.9]}},{"n":25,"year":779,"name":"桑耶","now":"中國西藏山南桑耶","ll":[91.5,29.33],"xy":[452.5,263.9]},{"n":26,"year":793,"name":"桑耶","now":"中國西藏山南桑耶","ll":[91.5,29.33],"xy":[452.5,263.9]},{"n":27,"year":842,"name":"多康","now":"中國青海東部一帶","ll":[101.8,36.3],"xy":[587.5,150]},{"n":28,"year":1010,"name":"那爛陀","now":"印度比哈爾邦那爛陀","ll":[85.44,25.14],"xy":[366.1,328.9]},{"n":29,"year":1042,"name":"阿里古格","now":"中國西藏札達","ll":[79.8,31.48],"xy":[297.3,219.6]},{"n":30,"year":1057,"name":"蒲甘","now":"緬甸蒲甘","ll":[94.86,21.17],"xy":[498,398.2]},{"n":31,"year":1100,"name":"拉齊雪山","now":"中國西藏聶拉木一帶","ll":[86,28.2],"xy":[376.8,279.3]},{"n":32,"year":1165,"name":"波隆納魯瓦","now":"斯里蘭卡波隆納魯瓦","ll":[81,7.94],"xy":[279.2,603.3]},{"n":33,"year":1200,"name":"超戒寺","now":"印度比哈爾邦安提恰克","ll":[87.28,25.32],"xy":[392,327.4]},{"n":34,"year":1260,"name":"開平","now":"中國內蒙古正藍旗","ll":[116.18,42.36],"xy":[759,39.7]},{"n":35,"year":1409,"name":"拉薩","now":"中國西藏拉薩","ll":[91.13,29.65],"xy":[447.6,258.5]},{"n":36,"year":1753,"name":"康提","now":"斯里蘭卡康提","ll":[80.63,7.29],"xy":[272.4,613.1]},{"n":37,"year":1956,"name":"仰光","now":"緬甸仰光","ll":[96.2,16.8],"also":[{"t":"那格浦爾","ll":[79.09,21.15]}],"xy":[517.9,469.8],"alsoXY":[{"t":"那格浦爾","ll":[79.09,21.15],"xy":[270.8,387]}]}],"timeline":[],"mapLead":[],"baseline":{"s":[0.2094,0.1113,0.0645,0.1078,0.206,0.078,0.1147,0.1082],"f":[0.2429,0.2094,0.3102,0.2375],"balance":0.984,"wS":0.65,"wF":0.35,"wK":0.08},"notesHtml":"<p>本部依 CBETA 收錄的律藏、論書、史傳與元亨寺版《漢譯南傳大藏經》寫成，並對照印順導師、聖嚴法師、星雲大師的著作與平川彰《印度佛教史》。藏傳與緬甸的部分史事，主要見於藏文、緬文史料，這裡以聖嚴法師《西藏佛教史》等著作為據；較晚傳記中的神奇情節，一律標明傳說。<\/p><h4>學界有爭議或屬傳說的內容<\/h4><div class=\"tblwrap\"><table><tr><th>幕<\/th><th>爭議點<\/th><th>說明<\/th><\/tr><tr><td>1<\/td><td>根本分裂的原因與地點<\/td><td>上座部史料說起於十事；說一切有部的《異部宗輪論》《大毘婆沙論》說起於大天五事，地點在俱蘇摩城。兩說並列。<\/td><\/tr><tr><td>2–4<\/td><td>阿育王與摩哂陀入島的年代<\/td><td>依佛滅年代的不同推算，前後相差可達百年；這裡採常見的約前三世紀中葉。<\/td><\/tr><tr><td>2<\/td><td>第三次結集<\/td><td>只見於上座部傳統，北傳史料沒有記載。<\/td><\/tr><tr><td>5<\/td><td>本生與大乘的關係<\/td><td>印順導師、平川彰等學者都指出本生故事與菩薩思想的關係，但對大乘起源的看法不同。<\/td><\/tr><tr><td>8<\/td><td>大乘經典的起源<\/td><td>大乘傳統、平川彰的佛塔起源說、印順導師的看法各有不同，並列不評。<\/td><\/tr><tr><td>16<\/td><td>世親的年代與是否一人<\/td><td>學界有一人說與二人說。<\/td><\/tr><tr><td>22<\/td><td>尺尊公主<\/td><td>見於藏文史料，漢文史料沒有記載。<\/td><\/tr><tr><td>25<\/td><td>蓮花生大士的事蹟<\/td><td>神奇事蹟多出於較晚的伏藏傳記，屬傳說。<\/td><\/tr><tr><td>26<\/td><td>桑耶論諍的勝負<\/td><td>藏文史料與敦煌漢文寫本說法相反，並列不評。<\/td><\/tr><tr><td>27<\/td><td>朗達瑪滅佛的程度<\/td><td>藏文史料記載中斷百餘年，學界對程度與年數看法不一。<\/td><\/tr><tr><td>28、31<\/td><td>那洛巴、密勒日巴的事蹟<\/td><td>主要見於噶舉派較晚的傳記，屬傳說。<\/td><\/tr><tr><td>30<\/td><td>阿奴律陀攻直通<\/td><td>見於緬甸王統史，細節學界有討論。<\/td><\/tr><tr><td>33<\/td><td>印度佛教衰微的原因<\/td><td>學界指出有多重原因，不只是外來的軍事破壞。<\/td><\/tr><\/table><\/div><h4>主要參考<\/h4><p class=\"ref\">CBETA：《四分律》《五分律》（T22）、《善見律毘婆沙》（T24）、《大毘婆沙論》（T27）、《中論》（T30）、《那先比丘經》（T32）、《異部宗輪論》（T49）、《佛祖歷代通載》（T49）、《阿育王傳》《高僧傳》《續高僧傳》《宋高僧傳》《比丘尼傳》《龍樹菩薩傳》《提婆菩薩傳》《婆藪槃豆法師傳》（T50）、《高僧法顯傳》《大唐西域記》《大唐西域求法高僧傳》（T51）、《南海寄歸內法傳》（T54）、《出三藏記集》（T55）。<\/p><p class=\"ref\">元亨寺版《漢譯南傳大藏經》：《本生經》《彌蘭王問經》《島王統史》《大王統史》《小王統史》《清淨道論》《阿育王刻文》。<\/p><p class=\"ref\">印順導師《印度之佛教》《印度佛教思想史》《原始佛教聖典之集成》《初期大乘佛教之起源與開展》《如來藏之研究》《唯識學探源》《中觀今論》。<\/p><p class=\"ref\">聖嚴法師《印度佛教史》《西藏佛教史》；星雲大師全集；平川彰《印度佛教史》（莊崑木譯）。<\/p>","cfg":{"key":"chuandeng-p2-v1","dims":["上座","有部","經量","大眾","中觀","唯識","如來藏","密乘"],"fates":["島","雪","漢","恆"],"tie":["恆","島","雪","漢"],"flabel":{"島":"上座部之地","雪":"雪域","漢":"漢地","恆":"印度本地"},"years":[-400,2000],"ticks":[-400,2000,400],"trEnd":"兩千五百年的行腳","mapLegend":"實線：一幕一幕走過的路；虛線：海上絲路。海岸與河道依今日地形，只示方位。","mapAria":"三十七幕的地點地圖","endTitle":"法流三道","endLead":"三十七幕走完了。下面是和你最像的祖師大德、你最接近的思潮，以及你的法脈流向何方。","masterLabel":"和你最像的祖師大德","dimLabel":"你最接近的思潮","dimSuffix":"","fateLabel":"你的法脈流向","journeyLabel":"兩千五百年的行腳","journeyBig":"從恆河到三道的地圖","scoreBig":"八種思潮與四種流向","dimBarLabel":"思潮","fateBarLabel":"法脈流向","exploreBig":"八種思潮 × 四種流向","allLabel":"祖師大德總覽","allUnit":"位論師、譯師與祖師","allNote":"依年代先後排列，名字旁是年代與生卒年：說法不一或只是推算的寫「約」，不詳的寫「生卒年不詳」。","memLabel":"宿緣","links":[{"t":"回到三部曲首頁","u":"../"},{"t":"一部曲：如是我聞","u":"../1/"},{"t":"三部曲：漢傳八宗一千五百年","u":"../3/"}]},"map":{"w":1000,"h":857,"land":"M939.5 -0.0L939.6 3.5L938.1 2.0L935.6 3.7L934.6 3.4L936.1 2.7L934.2 3.1L934.5 2.4L932.6 3.4L935.7 4.8L934.4 8.7L933.3 9.5L932.0 8.6L930.8 9.1L931.0 10.4L930.1 11.5L929.7 10.7L928.8 13.5L927.6 13.7L926.9 16.7L926.1 16.8L926.0 19.0L925.1 19.3L924.3 22.8L924.7 24.0L926.8 25.0L926.5 29.0L927.7 31.6L927.5 33.4L925.7 33.7L923.1 36.9L922.1 36.6L921.0 40.6L916.2 44.1L916.5 46.1L913.5 48.2L913.3 49.3L912.4 48.7L911.2 49.9L909.4 49.9L908.2 52.5L905.3 54.1L904.2 56.2L905.5 57.9L905.1 59.3L906.2 62.2L905.0 60.5L903.8 61.7L905.0 61.9L904.1 62.2L904.5 64.3L909.3 64.7L913.3 68.0L917.9 69.6L923.5 77.6L930.2 83.4L934.9 88.8L936.9 91.9L938.6 96.9L939.8 107.9L940.8 108.4L941.8 106.7L942.5 107.7L942.5 115.9L942.1 116.6L941.4 115.8L941.9 118.6L940.8 119.5L939.8 123.3L938.9 123.1L938.4 124.5L937.5 123.2L937.2 124.1L936.8 123.6L935.2 124.6L933.2 124.0L932.8 122.9L933.9 125.2L932.0 124.9L930.6 126.3L932.1 126.3L931.2 127.1L932.2 128.4L931.6 129.3L930.3 128.8L930.3 127.8L930.0 128.5L928.9 128.3L928.8 129.1L926.8 128.8L926.4 126.4L924.6 129.0L922.3 128.8L921.6 130.5L920.8 129.9L921.9 131.8L923.5 130.9L923.5 132.7L922.0 133.7L922.5 134.9L921.4 134.4L920.1 130.9L918.3 132.4L920.9 135.7L918.9 136.2L920.2 136.6L919.3 138.4L917.4 137.1L916.2 137.5L916.8 135.8L917.0 136.8L917.8 136.2L917.5 134.5L918.2 135.2L918.6 134.4L917.0 133.6L914.5 136.6L913.7 140.0L912.4 139.7L911.6 137.7L911.7 139.4L910.4 141.0L910.3 142.6L909.3 142.9L908.5 142.2L908.8 141.1L908.0 139.9L908.6 138.7L906.8 139.5L904.9 138.1L905.0 136.3L906.5 138.4L907.6 138.2L906.4 137.9L906.1 136.7L909.5 137.4L905.8 136.2L908.0 135.8L907.9 135.0L909.5 134.5L908.3 134.5L907.9 133.2L907.6 135.3L905.8 135.5L906.0 132.3L904.6 133.3L904.9 131.6L903.2 130.6L904.2 129.8L905.7 131.8L905.8 130.4L904.2 128.5L903.6 128.7L904.4 128.2L904.4 126.3L905.1 126.6L904.4 125.9L905.0 123.7L906.7 122.5L907.5 123.0L906.8 122.1L905.1 122.8L904.3 121.9L906.3 119.0L907.9 119.3L906.6 118.1L908.2 117.0L905.3 117.7L903.9 116.6L906.7 115.8L908.0 114.3L906.0 115.7L904.3 113.9L903.1 114.2L904.3 113.3L903.3 112.7L903.7 111.4L902.7 111.2L903.5 110.5L902.2 109.7L903.6 108.5L902.1 109.2L900.9 104.6L900.7 106.9L899.2 105.1L899.1 107.7L898.4 105.6L897.4 106.5L897.6 105.6L896.9 105.2L896.7 106.2L896.5 105.3L896.8 104.3L897.7 104.3L896.9 103.2L898.0 103.2L898.1 101.6L898.2 104.1L899.3 104.3L898.7 103.5L899.7 103.1L899.7 102.0L898.6 101.0L899.7 100.7L900.7 103.1L900.8 101.4L901.8 102.0L900.2 99.8L902.0 100.4L902.3 101.7L902.7 100.3L904.2 100.6L905.6 103.6L906.0 102.4L905.3 101.8L907.2 99.3L905.8 100.7L904.5 99.8L905.5 99.4L905.0 98.2L904.7 99.2L903.3 98.9L904.5 97.0L902.5 98.2L902.0 97.7L902.5 96.8L901.7 96.1L903.2 96.5L904.2 95.5L901.7 95.0L901.9 94.1L900.7 94.5L900.6 92.4L898.4 88.8L899.8 88.4L900.3 89.8L901.6 90.1L900.5 89.5L900.3 87.3L898.9 88.4L896.3 87.1L893.5 88.6L893.9 90.0L893.2 90.1L892.2 88.2L890.8 87.8L891.4 89.2L890.5 89.0L888.5 87.0L885.9 86.9L888.0 88.2L886.7 88.4L887.0 90.9L885.8 90.7L883.9 93.0L883.8 91.7L884.8 91.2L884.1 91.0L885.7 90.4L885.3 89.2L884.1 89.2L883.7 89.6L884.6 90.2L883.3 90.1L883.0 91.0L882.1 91.0L882.8 90.0L882.0 89.2L881.2 90.5L878.6 90.0L880.7 89.0L879.8 88.0L881.6 87.9L881.7 87.0L878.6 87.8L876.8 87.1L874.1 87.7L876.1 85.7L877.0 86.1L877.8 85.3L876.2 85.2L876.1 83.8L877.3 81.1L876.6 79.7L878.4 79.6L878.1 78.2L878.6 78.7L882.2 76.8L884.9 77.5L881.8 75.7L880.0 77.3L879.4 76.1L878.7 77.0L877.9 76.1L878.1 73.1L879.5 71.3L878.7 70.4L880.1 69.1L879.5 66.8L880.1 66.4L878.8 66.4L878.5 65.5L879.4 63.3L877.6 64.7L876.6 63.8L875.4 64.4L870.2 61.9L870.5 64.1L869.2 65.1L869.2 63.5L867.8 61.9L866.0 62.1L864.6 60.9L865.3 59.0L866.4 58.9L864.6 58.0L864.2 60.6L862.3 62.7L858.1 63.6L856.3 63.0L856.4 62.4L856.0 64.6L854.9 64.6L854.1 65.9L853.7 64.4L852.6 65.3L851.7 64.8L852.0 65.8L851.3 66.2L852.2 66.6L849.1 67.5L848.7 68.7L847.3 68.8L841.1 74.1L838.8 79.2L837.1 79.6L837.5 80.2L836.2 80.0L837.2 80.7L836.8 81.3L835.0 80.3L833.4 82.0L835.0 82.9L829.5 84.9L828.6 86.2L827.6 82.9L834.2 79.5L832.6 77.0L836.7 74.1L831.6 75.6L829.9 73.4L827.4 73.7L830.1 71.3L831.0 71.6L829.7 68.8L834.2 65.2L833.6 64.8L835.4 62.9L835.2 61.9L836.3 61.1L838.1 56.4L836.0 55.2L835.8 53.7L831.8 52.4L831.5 49.8L830.4 52.3L828.3 52.8L825.5 51.7L823.2 52.4L822.0 54.6L821.1 54.2L820.8 55.6L821.9 55.8L819.6 56.9L816.8 61.6L817.5 62.1L816.5 62.9L816.4 64.6L805.6 71.5L805.8 72.6L804.6 73.1L802.4 77.1L802.7 77.5L803.3 76.8L803.7 79.8L799.9 84.4L800.3 83.3L799.3 83.8L799.1 83.2L798.2 84.3L794.9 84.9L792.7 87.1L788.5 84.7L784.9 86.9L785.9 88.8L785.0 88.8L783.8 94.8L786.5 98.3L791.7 101.4L797.6 101.6L798.9 100.2L801.1 99.7L802.7 100.4L803.6 102.4L807.5 105.7L807.0 106.5L805.0 105.7L804.1 108.2L804.7 112.9L807.3 114.3L811.2 114.7L815.3 113.5L816.7 111.8L815.9 110.1L820.8 105.5L820.8 104.4L819.5 104.3L825.8 100.9L828.2 100.8L829.7 102.3L831.1 102.2L831.9 104.0L834.5 102.9L834.5 103.8L837.3 105.5L838.6 105.1L837.4 105.1L837.9 104.5L842.5 104.6L842.7 103.0L843.8 102.2L845.0 104.3L845.6 103.5L846.4 104.1L851.3 103.4L850.1 104.5L850.5 105.4L849.9 105.1L851.2 106.9L849.5 108.5L849.1 107.9L848.8 110.0L850.5 109.6L850.7 111.2L849.1 111.6L849.6 112.4L848.8 113.2L846.6 113.2L847.4 112.3L846.0 111.7L845.9 110.7L844.5 112.8L844.5 111.5L842.9 111.5L843.3 112.3L839.7 114.7L839.8 116.1L838.1 115.9L839.0 114.5L837.5 115.1L837.0 117.1L834.1 118.3L832.6 119.9L830.2 119.2L829.0 119.9L829.2 121.1L830.3 119.9L832.0 120.8L831.2 123.4L829.7 122.3L828.8 123.7L829.4 124.5L828.5 124.6L829.6 127.5L825.5 129.8L824.7 129.6L825.2 127.4L824.3 126.2L824.3 127.8L821.7 127.5L823.3 130.9L824.7 130.4L825.0 131.0L823.6 132.5L823.6 131.6L822.5 132.5L821.8 135.5L820.6 135.4L820.8 137.3L820.3 137.7L819.9 136.9L818.9 138.4L818.6 137.7L817.6 138.4L816.9 141.9L815.4 143.2L815.1 146.7L813.4 147.5L813.2 148.6L813.9 153.0L815.8 151.7L817.1 152.1L820.2 155.0L828.7 157.3L831.7 164.0L833.4 165.9L833.3 167.3L837.8 172.8L839.4 176.5L840.2 176.4L841.0 179.8L840.3 181.8L844.4 184.4L847.9 185.1L849.2 187.6L848.5 188.0L849.9 189.7L852.8 190.1L855.3 191.5L857.3 194.8L856.6 195.5L854.0 195.4L848.4 193.6L846.4 195.5L844.6 195.5L841.8 192.6L839.4 192.1L837.5 192.3L834.9 194.9L833.1 195.3L831.1 194.4L828.4 190.2L825.3 189.8L826.4 190.6L825.6 192.3L826.6 191.5L827.8 191.9L827.9 193.1L831.4 195.5L834.5 195.6L837.3 193.3L841.2 193.4L842.5 195.6L841.0 195.4L841.3 196.1L847.1 197.3L849.9 199.8L855.9 202.4L859.6 206.7L860.1 208.4L854.7 210.3L848.2 215.6L846.7 220.0L844.2 218.9L841.7 219.2L840.7 221.5L839.0 221.4L837.8 223.2L839.3 221.7L840.7 222.1L841.4 219.8L843.7 219.4L845.5 221.4L844.5 223.4L846.8 224.0L844.7 223.3L845.8 221.5L847.8 222.1L852.2 218.4L854.6 218.9L859.4 223.6L862.5 224.3L865.0 223.6L862.1 226.4L860.1 230.1L856.9 231.2L857.2 233.0L857.9 231.8L857.8 233.3L860.5 230.4L861.9 230.9L862.1 230.0L860.9 230.2L861.4 229.2L862.9 228.3L863.8 228.9L863.1 230.2L864.2 231.4L863.6 233.8L865.0 234.3L864.5 235.4L862.4 236.2L862.8 233.6L861.9 232.8L861.6 236.1L860.7 236.2L860.1 234.3L860.3 236.2L859.3 234.4L858.6 236.6L857.4 237.2L858.1 237.5L857.5 238.0L860.4 237.4L859.5 239.1L861.6 238.8L861.8 240.5L860.3 239.9L859.2 240.7L861.8 242.0L861.5 243.5L857.9 244.5L854.7 242.8L857.1 244.5L856.7 245.3L860.2 245.0L861.6 247.3L860.6 247.7L862.0 247.7L863.0 249.8L862.3 251.3L860.9 250.3L859.8 250.9L859.3 253.7L857.5 252.4L856.9 251.0L857.7 250.3L856.3 250.2L856.0 251.6L854.6 251.8L855.9 251.9L856.1 252.7L854.6 257.1L849.6 257.0L848.8 256.0L849.4 257.3L853.0 257.9L853.6 259.0L852.1 262.0L850.8 261.4L851.6 263.0L850.7 264.6L852.1 265.9L851.8 267.6L850.5 267.4L850.1 268.5L850.7 268.7L850.6 270.8L849.3 270.6L849.2 271.3L847.5 270.5L847.5 269.3L846.0 269.9L846.0 271.3L848.2 270.5L848.4 271.5L849.5 271.9L849.0 272.7L847.1 272.5L847.6 274.6L846.2 275.1L847.4 275.2L847.4 276.0L844.8 276.7L844.9 277.7L846.4 278.2L846.9 280.6L844.6 281.5L843.2 283.2L843.2 282.0L844.8 280.8L845.7 278.3L843.6 278.7L843.4 281.0L842.5 280.1L842.1 280.7L842.4 277.9L841.5 279.9L840.3 278.9L841.1 280.6L839.2 279.3L838.6 280.2L839.7 283.0L840.6 282.0L842.3 282.5L842.8 285.1L840.6 284.0L839.6 284.7L840.8 285.0L841.5 286.9L843.2 284.8L843.5 285.6L845.1 285.6L841.2 287.7L841.6 288.5L839.3 292.8L833.9 290.9L835.4 291.7L836.4 293.5L837.6 293.7L840.0 291.7L842.5 292.0L841.6 294.7L841.1 294.4L841.9 297.3L839.9 297.6L840.8 299.5L842.0 299.0L843.6 302.5L842.6 302.9L842.2 300.9L842.0 302.4L841.2 302.7L841.3 300.9L840.5 301.6L840.4 300.6L839.1 300.4L839.2 299.3L838.1 299.3L837.5 301.4L835.8 302.7L837.0 304.1L837.3 303.5L837.5 305.0L838.5 303.8L839.7 304.8L838.6 305.4L838.9 306.2L836.5 306.0L837.2 307.1L836.5 307.7L835.5 307.4L835.9 306.1L834.4 306.1L835.1 305.1L833.1 306.0L834.6 306.8L833.2 308.8L834.8 309.8L835.4 308.9L835.8 310.3L834.3 310.7L835.1 311.9L832.8 311.9L831.9 312.9L830.9 311.2L831.2 312.5L829.8 312.5L831.0 314.2L831.8 313.4L832.7 314.1L831.2 315.7L831.3 317.9L830.4 318.5L830.7 317.7L828.4 316.9L828.3 315.8L828.1 317.4L825.7 318.8L824.5 316.5L824.1 318.3L823.1 317.9L823.1 318.9L822.3 319.1L823.5 319.6L823.2 320.8L819.9 320.9L821.7 322.0L823.6 321.3L823.4 322.7L824.4 322.3L825.1 323.5L823.3 325.5L822.6 324.7L822.2 325.2L822.4 327.8L820.6 330.1L821.1 328.1L820.5 327.4L819.1 327.7L819.8 329.4L818.9 333.2L818.2 330.5L815.9 330.1L817.2 331.8L816.6 332.8L814.3 333.1L814.5 335.8L813.9 334.6L813.9 335.7L812.2 337.2L811.7 335.6L810.1 336.5L809.6 335.7L809.3 339.3L808.2 341.1L804.6 340.5L805.5 341.9L807.9 341.5L809.0 342.9L806.9 342.4L807.7 342.9L806.9 344.4L806.2 343.2L804.8 343.5L806.2 343.7L805.3 348.3L801.2 348.2L802.2 348.4L799.9 350.9L800.1 349.8L798.9 349.3L799.5 350.3L796.0 352.8L795.8 351.7L794.2 351.3L794.4 349.8L792.2 351.6L792.0 350.8L789.9 350.6L791.1 350.8L791.0 351.7L793.0 351.2L791.9 352.9L792.5 353.8L792.9 353.3L792.8 354.5L789.9 354.4L789.4 353.8L790.3 352.8L787.7 353.2L788.9 352.0L788.5 351.1L787.0 353.3L785.4 353.3L784.5 355.2L782.5 354.2L784.2 355.5L783.5 357.7L782.9 356.8L781.2 357.0L780.9 354.9L781.9 353.7L780.1 354.0L777.9 355.8L777.8 356.8L779.0 356.6L777.7 358.2L779.6 358.7L778.3 359.9L776.4 357.5L773.8 359.1L775.6 359.4L773.3 360.6L774.0 361.3L775.5 359.8L775.9 360.7L776.1 360.0L776.7 360.4L776.3 362.1L774.9 361.5L775.6 363.5L775.0 362.6L773.8 363.2L772.6 362.0L769.9 362.2L769.6 361.7L772.0 359.4L770.3 359.5L769.4 361.0L767.0 356.3L765.7 356.5L764.6 355.0L764.7 351.9L764.3 353.9L764.4 352.0L764.0 353.6L763.2 351.6L765.3 350.2L767.3 350.2L765.4 349.8L762.8 351.7L761.5 351.3L762.8 352.4L762.8 354.0L758.9 354.8L760.9 354.8L763.1 356.4L761.5 356.7L765.1 359.5L764.6 361.8L765.6 362.8L765.5 365.0L764.2 366.5L758.9 360.2L759.1 361.8L763.0 366.3L761.6 366.4L761.0 368.6L759.8 369.2L758.5 366.3L758.2 367.8L757.7 367.5L758.1 370.7L756.6 372.4L755.2 370.7L751.6 374.3L749.7 373.3L749.4 372.4L750.4 371.2L749.0 371.6L748.9 369.7L748.5 371.2L749.5 373.9L748.0 375.8L746.4 375.2L746.4 373.7L744.1 374.7L744.2 373.3L743.2 374.4L741.9 372.8L742.3 374.6L743.7 375.1L742.1 376.9L741.4 375.5L739.2 375.5L740.4 376.3L741.0 378.1L739.9 378.1L738.9 379.7L738.1 378.9L738.4 379.7L736.7 380.2L736.0 378.8L736.1 379.9L735.0 379.9L735.7 380.1L733.9 381.7L734.2 380.7L733.6 380.4L732.1 380.6L733.1 380.8L732.0 381.5L730.2 380.4L729.7 382.0L731.0 381.5L730.0 382.4L726.8 383.1L725.3 385.6L725.0 383.8L726.6 382.4L724.9 383.6L725.2 386.1L722.3 387.0L722.0 385.4L722.8 385.6L722.3 385.1L722.8 384.5L722.1 385.1L722.0 383.6L720.8 383.1L721.5 384.8L720.6 384.8L721.9 387.3L719.5 389.9L719.1 389.3L718.4 390.6L718.9 393.0L721.9 392.7L722.5 394.8L721.6 393.2L721.2 395.9L724.0 397.1L724.9 398.5L723.4 401.5L721.6 402.5L719.4 402.8L718.0 402.1L716.4 403.2L715.3 400.5L715.9 400.1L717.1 401.3L717.5 400.2L716.2 398.9L716.1 399.9L714.6 398.9L714.8 397.5L714.5 398.2L713.3 396.6L714.8 395.5L713.8 396.1L713.1 393.4L712.6 394.2L711.6 392.4L712.2 390.6L711.4 389.1L712.8 387.5L712.5 385.2L714.7 384.9L714.8 382.7L713.3 382.6L713.0 383.5L712.2 381.5L712.4 383.1L710.5 382.7L710.8 381.0L709.9 381.8L709.0 378.9L708.0 380.0L708.5 380.5L707.7 380.6L709.3 381.8L708.9 383.3L704.9 384.7L704.7 383.8L704.5 384.9L703.5 384.7L703.4 385.3L701.9 384.6L703.3 383.5L703.1 382.0L701.8 382.1L702.0 381.4L700.1 382.1L698.9 381.0L699.8 379.6L698.0 378.9L698.7 380.1L697.8 380.4L699.0 381.7L697.5 382.5L697.0 380.2L695.9 380.5L696.2 379.1L695.6 380.3L694.7 379.6L695.5 377.9L694.4 378.0L694.2 377.0L693.1 378.6L693.2 377.2L692.9 378.6L693.8 379.8L693.2 380.6L694.0 381.7L694.2 380.9L694.1 381.7L694.8 381.5L693.6 383.5L692.4 383.4L693.4 381.7L691.5 381.0L691.3 383.4L690.0 384.8L690.1 382.4L689.3 383.6L686.7 384.3L688.1 385.2L686.6 386.2L686.8 385.3L686.0 386.1L685.4 384.7L684.6 385.5L684.4 384.9L683.3 385.2L683.9 386.0L682.3 386.9L681.4 388.9L680.3 388.1L680.4 388.9L678.8 388.6L679.2 389.2L678.1 389.5L678.5 393.5L676.2 394.3L676.1 395.2L674.2 395.0L675.3 393.6L673.9 394.4L673.5 393.8L673.3 395.2L671.1 394.7L672.5 395.9L671.5 395.6L671.5 396.5L670.0 395.4L670.7 395.0L670.2 394.2L668.0 394.5L669.7 395.7L669.0 396.7L670.8 399.9L668.7 399.7L669.3 400.3L668.4 400.9L667.7 400.4L668.3 401.4L666.8 402.5L667.7 402.3L667.0 404.1L668.0 403.9L668.2 406.7L666.8 406.3L667.9 407.5L665.2 408.0L662.5 411.8L661.5 412.3L661.4 411.2L661.2 412.3L660.3 411.8L659.4 413.1L659.1 415.3L658.3 415.7L659.2 415.5L657.4 418.6L658.0 423.8L655.4 428.8L657.7 432.0L657.8 434.0L658.2 432.6L659.0 435.0L663.4 440.4L666.0 441.0L667.3 443.2L668.5 442.1L670.0 444.8L668.8 446.0L669.9 448.8L666.7 448.0L668.9 448.5L668.2 448.8L668.6 449.3L670.0 449.2L674.3 454.6L679.7 458.2L681.3 460.9L680.5 461.8L681.5 461.0L688.1 465.8L685.2 465.0L688.6 466.3L688.7 467.2L689.1 466.8L691.5 468.9L690.8 468.8L691.1 470.0L692.4 470.5L692.8 469.3L694.5 469.2L695.4 470.9L694.8 471.0L697.1 471.1L696.3 472.3L697.7 473.2L697.3 474.6L698.2 474.4L697.8 472.0L699.2 472.1L698.2 472.8L698.5 474.6L700.6 476.3L704.2 481.8L705.2 481.9L704.5 483.0L705.5 482.3L706.8 484.9L707.5 483.1L709.6 485.9L708.4 487.6L709.1 487.6L710.7 492.5L712.4 494.4L712.3 496.8L717.0 507.7L717.1 509.6L716.1 507.5L715.8 508.9L717.3 513.3L715.8 511.8L718.0 514.6L717.2 515.1L716.7 514.0L716.5 515.6L717.7 516.1L717.1 517.1L717.7 518.0L718.1 517.3L718.1 519.7L720.8 523.0L720.8 524.0L719.4 524.6L721.3 527.1L720.9 528.6L720.2 526.7L719.3 527.3L719.9 526.4L719.4 525.0L717.2 527.7L717.4 529.2L718.0 528.6L717.9 529.6L719.7 531.5L719.1 532.3L716.7 531.1L718.3 533.1L717.3 533.7L718.2 534.8L717.6 535.0L719.7 540.0L718.6 540.0L717.3 536.3L718.3 538.5L717.2 540.4L717.8 541.0L718.4 540.2L719.1 542.3L717.7 545.1L715.9 544.2L716.2 548.7L715.3 549.5L713.2 549.5L712.0 551.9L709.0 552.6L705.8 556.8L705.1 556.2L702.8 556.9L701.4 560.6L698.7 560.9L690.6 566.6L689.3 566.3L688.9 565.2L686.1 565.3L686.7 564.4L685.7 561.8L686.6 564.4L685.9 563.0L686.4 564.6L685.7 565.6L685.2 563.5L682.1 562.5L682.0 565.0L679.8 566.3L682.2 565.8L683.2 568.7L677.5 568.6L683.5 570.7L681.4 573.8L679.0 573.0L675.5 569.6L678.8 573.4L682.2 575.0L681.8 575.9L681.7 575.3L680.6 576.3L672.8 570.3L680.5 577.7L680.2 580.2L677.8 581.0L668.4 574.2L672.7 578.1L674.8 581.3L675.0 584.1L665.1 588.6L661.9 593.9L658.7 596.9L654.5 598.3L652.7 597.6L656.5 595.7L654.7 595.9L655.9 595.3L655.7 594.3L654.1 595.0L653.4 594.3L653.8 579.5L654.2 577.7L657.0 576.0L657.6 577.4L656.4 574.3L653.5 573.5L652.0 571.8L649.6 573.3L647.7 570.0L647.9 568.9L646.9 569.6L643.6 566.8L638.8 566.8L637.5 565.0L637.1 567.4L635.0 567.4L635.8 568.2L633.9 568.4L631.9 566.4L632.8 564.9L634.7 564.5L635.1 562.0L634.2 559.3L632.3 558.0L630.9 558.1L630.3 562.3L629.3 562.7L628.1 561.8L625.9 562.7L625.5 558.4L624.5 557.3L625.9 555.7L624.4 553.7L626.2 553.9L625.5 552.6L625.2 553.3L624.4 552.8L623.9 551.1L623.8 552.1L622.7 552.0L623.4 552.0L623.2 550.7L623.9 550.8L623.1 550.1L622.8 550.7L623.0 549.6L624.5 549.1L622.9 549.4L621.5 547.6L622.8 549.4L622.6 551.8L621.5 548.6L619.6 546.5L619.4 544.8L616.8 541.5L616.0 542.2L616.5 544.3L615.3 543.0L611.9 542.2L611.5 540.7L612.9 539.7L612.5 539.2L611.9 540.2L612.0 538.4L611.5 539.0L611.5 538.2L610.4 538.4L611.6 540.1L610.9 540.1L608.4 537.6L609.0 536.8L607.3 536.4L608.1 537.9L606.4 535.8L606.4 537.0L603.6 534.3L598.3 536.3L593.2 535.1L591.5 536.5L590.6 535.5L589.7 535.7L589.5 534.1L590.6 533.1L589.6 531.4L590.6 530.0L589.7 528.5L590.7 526.8L590.1 525.3L591.2 524.2L591.3 522.0L586.5 521.9L585.1 521.2L585.1 520.3L584.9 521.8L581.3 522.5L580.3 522.0L577.0 523.8L575.7 525.5L577.9 529.6L576.0 535.2L577.1 543.6L574.3 548.0L574.2 551.0L572.0 553.7L570.6 557.6L570.9 559.9L569.5 561.2L569.9 565.2L568.8 565.2L567.9 568.2L565.9 570.6L566.7 573.1L564.5 573.6L566.2 575.5L564.6 577.6L564.7 583.0L567.6 589.0L566.3 590.8L568.6 592.1L573.4 590.0L576.0 590.3L578.1 601.3L581.0 604.6L581.7 604.5L580.7 602.6L582.1 603.6L586.1 619.0L588.5 623.2L586.0 622.3L585.3 617.6L583.4 618.1L584.3 616.2L583.6 614.1L581.3 615.3L581.6 616.9L583.6 620.9L586.1 622.7L585.5 623.1L586.3 624.0L588.1 624.2L588.6 622.9L591.6 626.7L595.3 628.5L600.9 628.0L600.0 626.8L604.3 628.4L608.5 634.2L614.2 638.1L614.9 637.6L617.1 638.4L620.3 643.1L628.7 648.8L632.0 652.7L636.0 659.1L637.2 666.4L635.7 669.9L636.5 672.5L635.1 675.6L637.6 679.3L636.9 681.6L637.5 688.5L640.9 692.2L643.0 692.5L646.3 697.1L651.9 707.7L652.7 710.6L651.6 712.2L649.8 712.0L648.9 710.8L650.2 709.2L648.7 709.9L647.2 707.8L648.0 710.8L642.9 711.1L641.4 712.7L640.4 712.4L640.1 714.0L637.4 710.0L630.1 707.2L628.5 705.7L626.2 705.6L623.2 702.5L617.0 700.2L614.2 697.9L612.2 698.0L610.6 695.1L606.7 694.0L604.3 691.7L602.4 691.3L603.7 688.9L602.3 684.7L598.0 679.4L594.2 677.0L594.7 676.0L592.5 675.5L592.3 674.0L595.0 673.3L593.5 673.3L593.3 672.1L591.1 671.3L589.9 668.8L591.0 665.0L590.2 664.2L591.3 663.2L590.3 663.3L590.7 661.7L587.8 659.6L586.2 656.9L587.2 653.6L585.7 649.0L585.6 647.7L586.3 647.7L585.5 642.3L582.2 637.3L581.3 634.1L580.1 634.2L577.4 630.6L574.5 628.9L574.3 626.5L575.4 624.9L574.2 625.0L574.1 624.3L573.2 624.8L572.3 623.9L573.0 621.0L572.1 622.2L571.4 620.9L570.9 622.6L569.4 622.0L567.9 617.3L565.3 615.0L564.7 616.2L563.8 615.8L563.4 614.3L564.3 612.5L563.6 612.9L561.8 610.6L559.5 611.1L558.4 606.7L557.1 607.0L557.6 605.4L554.0 606.5L554.6 608.1L554.0 609.2L551.7 608.0L550.3 602.8L551.1 603.4L550.6 600.1L553.2 595.0L552.3 595.2L553.0 594.5L552.0 592.3L552.8 592.0L554.0 586.8L555.2 586.5L554.1 585.9L555.9 582.0L554.8 582.2L556.6 580.2L556.1 579.6L558.3 574.2L555.2 579.7L553.7 568.1L554.7 568.4L556.3 565.8L555.5 565.3L557.4 564.8L557.6 562.6L556.6 561.3L557.6 560.8L558.1 559.1L557.1 557.1L558.3 556.0L557.4 554.8L557.6 552.6L560.0 552.1L558.3 551.2L558.6 549.6L556.9 552.3L556.2 552.1L555.5 550.5L557.1 549.2L554.6 549.3L557.2 547.8L557.0 546.2L555.7 545.2L557.0 543.6L555.2 544.2L554.3 543.4L556.9 541.6L555.3 540.5L555.5 539.4L556.9 539.0L555.5 538.2L556.5 535.5L555.3 534.9L554.6 528.1L553.0 526.4L552.9 524.5L552.6 525.0L550.2 519.8L549.3 519.6L548.4 514.0L548.5 522.4L547.9 522.5L548.2 520.2L546.8 518.8L547.2 516.6L546.5 514.9L547.1 512.3L545.3 509.7L545.4 507.5L544.9 507.8L543.6 504.4L544.5 503.4L545.7 504.5L544.5 502.1L543.0 503.3L542.1 500.8L542.5 495.4L541.0 493.3L542.0 492.2L540.9 485.1L538.4 481.6L539.6 478.3L539.4 474.8L540.8 473.3L535.4 474.8L534.7 471.6L533.6 471.3L533.3 468.4L532.9 469.1L532.5 467.6L532.0 464.9L533.6 464.6L532.4 464.2L531.7 465.1L530.7 462.3L528.2 460.3L527.9 458.9L527.0 460.0L528.3 461.2L527.5 463.0L528.4 466.0L527.6 468.0L526.9 467.9L527.5 469.0L525.1 473.4L521.4 475.0L518.9 473.1L518.3 470.4L519.2 469.6L517.4 470.3L519.7 476.1L516.7 477.6L515.0 476.5L516.0 477.8L514.4 479.4L514.2 478.7L513.2 479.5L513.3 478.9L511.9 480.5L510.8 479.3L510.0 483.7L506.3 487.4L504.3 487.2L505.4 480.5L505.1 483.2L503.8 485.1L504.1 482.9L503.2 486.4L501.9 485.9L501.4 482.5L502.0 481.3L503.4 481.0L502.0 480.5L501.1 481.7L500.5 486.1L499.6 486.8L497.7 486.3L498.4 485.4L497.8 485.5L497.5 483.8L498.9 482.3L498.3 482.7L497.9 480.8L499.9 478.8L497.8 480.3L498.1 482.3L495.8 485.3L494.0 484.2L496.0 482.6L496.9 480.3L495.6 482.6L493.5 484.0L495.2 480.9L496.0 474.3L495.2 474.2L494.5 478.7L493.8 478.9L494.5 477.3L493.6 478.5L492.8 478.1L491.9 481.2L490.1 483.0L488.6 483.3L489.1 474.3L490.2 473.9L490.8 468.2L492.0 467.4L491.9 463.6L493.2 463.5L493.3 461.3L494.0 461.8L493.5 457.1L494.3 457.7L491.8 450.4L492.6 449.4L492.0 447.7L491.5 446.2L490.1 446.0L490.1 445.2L491.4 445.1L487.5 438.2L489.4 438.1L488.4 438.0L487.5 436.0L487.1 436.8L485.9 436.1L486.8 432.4L485.8 432.2L486.5 427.7L485.3 431.2L484.0 430.6L485.1 434.3L484.5 435.9L480.6 433.4L478.0 427.0L479.7 427.1L479.8 428.3L482.4 429.9L485.2 427.4L485.2 426.2L481.6 423.6L482.6 421.5L481.9 422.7L481.2 422.1L481.8 421.2L479.6 422.0L479.7 420.7L481.8 418.7L479.1 419.2L478.6 417.4L477.0 417.9L476.5 415.9L476.2 416.9L475.9 415.6L474.9 416.5L472.8 415.7L474.3 420.2L472.8 417.2L472.4 418.4L473.3 420.4L470.5 415.1L472.3 414.8L472.7 413.8L470.8 414.7L472.3 411.0L472.4 410.2L471.8 411.3L471.4 410.5L472.1 408.2L471.2 411.9L469.0 415.2L467.7 413.4L470.2 412.0L468.8 411.0L468.3 408.9L467.6 409.7L466.2 406.0L467.1 413.0L463.9 407.1L462.1 405.6L460.5 399.7L460.9 404.6L457.4 398.1L457.5 396.0L456.1 393.3L457.1 392.5L457.4 389.6L457.3 388.9L456.6 389.9L456.2 389.1L456.8 387.5L455.5 387.6L456.2 386.1L455.7 386.4L455.1 381.9L454.4 381.2L454.3 379.1L455.8 377.2L454.0 380.2L452.5 375.3L449.5 371.5L450.0 369.2L448.9 371.6L447.1 371.8L447.4 372.5L445.6 372.0L445.3 372.7L446.7 373.4L445.7 375.0L444.1 374.9L443.2 372.6L443.4 374.2L442.1 374.2L440.0 371.6L437.8 366.2L438.5 362.9L437.6 359.9L439.2 358.5L437.7 359.2L438.0 357.4L435.9 357.7L437.3 358.4L436.9 360.9L432.6 359.5L437.6 363.2L437.0 365.9L435.2 366.3L436.4 369.1L434.0 371.1L435.5 371.6L435.9 373.1L434.9 375.5L435.3 374.2L436.6 374.5L437.3 377.9L434.6 382.4L433.9 381.9L434.1 378.9L434.3 380.7L431.3 386.6L429.5 386.3L430.1 384.6L428.6 385.7L431.8 380.3L429.1 383.7L428.2 383.4L429.5 380.8L427.8 383.9L427.1 382.6L426.7 378.9L428.7 375.4L427.4 377.0L426.7 376.5L426.1 379.0L426.5 381.9L425.4 382.2L426.5 385.3L424.0 386.1L423.2 384.5L422.7 385.4L423.9 386.8L422.4 387.2L422.2 388.2L421.4 386.3L423.1 377.8L421.9 379.9L421.6 383.5L421.0 378.4L421.4 383.8L419.6 387.8L419.0 383.6L417.9 386.0L418.0 388.4L416.8 388.7L416.6 386.1L415.4 386.0L414.7 380.7L414.8 384.0L414.0 384.5L412.6 383.4L414.1 385.4L414.9 389.3L412.2 388.6L411.8 386.7L411.7 388.8L411.0 389.0L411.1 387.9L410.7 389.9L409.8 390.0L409.3 387.7L410.6 382.5L409.9 381.6L410.7 380.7L409.7 381.4L410.1 382.2L409.5 383.7L408.6 383.6L409.2 379.4L407.6 385.2L407.6 386.5L408.5 386.9L407.6 390.0L406.3 389.9L407.1 386.1L406.7 383.4L406.1 388.5L405.0 389.2L405.1 387.5L404.2 387.2L403.8 388.9L403.2 385.8L403.7 389.6L402.9 389.8L402.0 388.0L402.5 386.0L401.7 383.1L402.8 381.2L402.6 379.7L399.9 378.4L398.6 375.3L399.3 378.3L401.7 379.5L402.0 381.0L400.3 382.1L399.3 384.7L397.1 386.7L394.8 387.9L387.8 389.2L383.6 392.7L382.3 396.6L383.8 401.2L382.5 401.6L384.2 402.3L383.3 403.0L384.8 403.1L380.5 406.3L379.9 408.2L381.2 407.5L379.5 409.4L380.4 409.1L376.5 411.1L374.8 413.7L375.3 414.1L372.2 412.8L371.5 411.5L371.5 412.5L374.5 414.6L372.9 415.4L361.2 418.7L360.5 418.0L362.7 417.5L362.8 415.4L360.9 414.9L358.3 416.7L355.6 420.6L355.9 421.5L357.5 420.3L357.0 419.9L357.8 418.7L360.0 418.2L359.6 419.6L358.3 419.6L358.9 420.1L362.7 418.4L356.6 421.6L350.6 427.0L349.9 426.5L349.6 427.3L350.4 427.5L349.8 428.5L344.9 434.4L342.0 436.2L343.6 435.9L339.8 439.8L329.6 445.2L327.8 448.5L326.3 448.4L327.1 449.3L325.7 449.7L326.1 450.4L318.1 453.8L312.6 457.3L310.6 460.1L311.4 461.5L312.2 461.4L312.1 459.7L312.3 460.6L311.0 465.9L302.5 469.4L299.6 468.3L297.4 468.6L297.4 467.9L295.1 468.6L292.9 474.3L290.5 476.1L290.6 477.2L289.2 475.9L289.3 473.0L287.5 478.0L287.2 475.2L285.7 474.7L279.5 477.5L276.1 483.7L275.2 487.0L275.5 493.4L276.4 495.1L275.8 495.6L276.6 495.9L275.9 499.3L273.7 501.4L275.1 501.2L276.7 514.2L274.5 509.3L274.2 511.0L273.7 509.8L272.9 510.9L273.8 512.9L276.8 514.4L276.6 518.1L272.8 529.5L269.1 533.4L270.1 533.1L267.6 536.4L266.0 540.3L265.2 544.0L266.0 546.5L263.6 547.8L265.2 546.9L266.1 547.3L264.8 564.1L261.2 563.3L263.3 564.5L260.2 563.6L260.7 562.9L257.8 562.9L255.9 563.9L255.0 565.2L255.5 567.4L250.2 572.8L248.9 575.8L251.1 578.8L255.3 578.9L256.8 581.6L254.4 579.9L249.8 579.0L240.4 580.9L236.5 584.1L236.0 586.0L236.8 585.9L235.1 587.4L235.0 590.2L233.6 592.0L224.6 595.7L221.5 594.4L217.1 590.1L211.0 580.6L212.2 580.6L211.7 580.0L213.1 579.4L210.8 580.1L210.5 576.4L209.6 575.1L209.8 576.7L209.0 573.7L208.2 563.5L208.7 565.3L209.2 564.8L209.3 567.7L209.3 565.1L209.9 566.1L209.3 570.6L211.5 570.7L210.1 569.9L210.4 565.2L208.2 560.5L208.4 563.0L207.6 561.0L208.8 559.1L208.2 558.4L208.1 559.5L207.4 559.1L203.2 539.9L201.5 537.9L200.4 533.8L198.0 530.7L197.8 530.1L199.2 530.5L199.2 529.6L198.0 529.7L198.0 528.3L197.4 529.5L196.2 528.5L195.9 524.7L195.3 525.1L192.3 514.8L194.1 514.2L192.2 514.2L191.4 505.6L191.6 501.5L192.6 501.3L192.0 500.3L191.5 501.1L189.8 494.8L189.3 491.3L190.5 491.3L189.2 490.3L188.7 486.9L189.8 487.5L188.9 485.8L187.9 486.4L188.7 485.1L187.7 485.0L187.6 483.2L185.5 481.7L187.7 480.6L185.8 480.9L184.9 478.3L183.4 476.7L184.2 475.6L183.6 472.4L182.1 471.2L184.8 472.1L182.4 470.5L183.6 469.2L182.1 469.7L181.8 468.2L183.5 467.2L181.6 467.5L178.6 459.8L179.5 457.9L178.7 459.1L177.5 452.0L178.6 452.4L177.8 450.9L178.7 450.9L177.8 450.1L178.3 443.1L177.5 439.2L178.4 439.7L177.2 435.0L178.4 434.7L177.3 433.9L176.5 427.6L177.1 426.6L176.5 426.8L175.8 423.8L176.1 422.8L177.6 424.7L178.0 423.3L176.7 422.8L175.7 420.2L176.5 418.7L177.6 420.0L175.8 416.8L176.0 414.6L177.2 414.0L178.0 415.7L178.1 413.4L176.9 412.9L179.5 411.2L178.5 411.4L178.5 408.7L175.8 412.6L175.2 411.7L176.2 410.3L176.2 405.8L178.9 406.5L179.9 407.9L179.2 406.5L176.1 404.7L176.2 403.0L178.1 402.5L176.2 401.4L175.8 402.1L175.8 399.0L176.3 399.3L176.6 398.2L175.7 398.6L175.5 397.0L177.9 390.1L181.9 382.5L181.1 381.8L181.4 380.8L180.5 381.2L181.6 378.9L180.0 378.0L181.1 377.8L180.8 376.4L179.1 377.1L179.5 375.6L177.9 376.4L179.8 375.1L178.3 374.0L178.1 372.5L179.0 372.3L177.9 371.7L180.6 371.0L178.2 371.2L182.2 368.0L186.8 366.8L183.7 367.6L178.3 367.1L179.0 364.2L181.7 362.2L178.8 363.1L178.4 361.7L180.1 358.4L182.3 359.4L183.4 358.4L184.8 358.8L184.9 358.0L182.6 358.1L180.1 357.1L178.5 357.7L177.4 357.2L177.8 355.4L176.5 357.0L174.1 356.4L175.4 356.4L175.2 357.1L176.1 357.5L175.8 359.9L173.7 361.3L172.7 360.6L172.6 361.7L171.5 361.6L173.3 362.1L173.3 363.5L171.8 362.3L172.4 363.5L171.0 362.9L170.7 363.8L173.2 364.3L174.6 367.3L171.1 371.9L170.7 373.9L156.1 378.8L153.5 379.3L150.2 378.7L144.9 374.4L141.6 370.1L138.8 364.4L133.9 357.8L134.0 356.8L133.1 356.9L131.5 354.7L128.8 348.6L131.1 346.3L130.9 347.6L132.7 347.7L132.0 349.0L132.5 350.0L136.5 349.5L137.2 347.8L138.4 349.6L140.4 347.8L141.1 349.0L143.9 347.4L146.9 347.5L150.6 342.4L152.6 341.5L153.0 339.7L152.4 338.9L151.5 339.5L150.8 341.9L148.8 340.5L147.7 341.2L147.3 340.4L147.2 341.4L142.8 341.9L140.9 343.4L133.9 340.6L129.7 337.1L127.0 334.3L126.9 332.5L125.8 332.1L126.8 331.5L125.7 330.4L126.0 329.7L124.6 329.1L125.6 328.0L124.5 328.0L124.9 326.2L126.0 326.5L125.9 325.8L131.3 323.0L125.4 324.8L123.5 326.6L121.1 325.8L123.3 324.9L122.3 324.5L122.4 323.3L121.9 323.6L122.2 321.0L121.5 324.4L120.4 323.8L121.2 322.3L120.3 320.1L120.5 322.0L119.8 322.9L118.0 321.2L118.0 320.2L117.3 321.8L115.9 321.0L115.7 321.8L114.5 321.4L115.2 319.4L114.4 320.6L112.6 319.6L113.7 319.0L112.6 318.0L113.9 316.9L111.3 316.1L111.0 312.8L112.3 312.0L111.2 311.4L111.6 310.3L110.6 308.3L110.5 307.6L111.5 307.8L110.2 307.1L111.9 305.0L110.6 304.0L109.7 304.4L108.3 303.0L103.9 302.2L106.1 296.9L104.1 293.5L104.8 293.0L104.3 291.0L102.5 288.8L100.0 288.9L98.1 290.6L101.7 289.9L103.6 291.5L103.5 292.8L100.3 291.0L91.7 291.5L88.3 290.1L86.0 290.0L84.7 291.0L79.1 289.5L77.7 290.8L78.2 291.7L77.4 291.8L76.7 291.5L76.9 290.1L74.6 290.1L70.2 287.5L70.4 286.0L71.4 285.9L69.9 285.5L68.9 286.0L69.9 286.1L69.8 287.3L62.9 285.7L61.5 286.6L61.6 288.2L56.9 286.1L55.2 286.4L47.8 284.3L47.8 285.0L45.6 285.5L45.9 286.7L44.2 286.2L45.1 285.8L45.1 284.9L43.1 283.9L41.7 284.6L42.1 285.6L39.1 285.0L37.0 286.1L38.0 283.3L35.4 282.6L35.2 281.6L32.5 284.3L27.8 280.8L22.6 278.5L22.1 275.5L19.7 276.2L20.4 277.8L18.0 275.8L16.9 275.8L17.0 276.5L15.4 275.4L12.8 275.4L11.3 274.1L8.1 273.2L7.2 271.9L1.4 271.6L0.0 269.3M0.0 18.2L1.4 17.9L0.1 17.5M0.0 14.8L1.3 14.7L2.3 16.7L4.4 16.8L6.3 15.3L5.8 13.4L6.7 14.2L0.2 5.3M0.5 319.7L1.3 319.9L1.6 321.0L0.0 325.1M757.9 842.3L749.5 842.1L748.4 841.4L743.7 841.4L742.3 842.2L740.1 841.6L739.8 840.6L736.4 842.5L734.1 842.3L732.8 844.3L722.5 844.1L714.4 841.1L696.8 840.7L696.3 838.8L698.9 835.8L698.3 834.5L695.0 835.2L689.0 833.0L676.9 834.3L675.9 833.1L678.3 831.5L680.6 833.5L682.7 830.7L682.9 828.5L685.3 828.8L686.4 822.8L689.3 819.2L691.3 821.0L693.6 819.9L696.6 821.0L700.3 820.4L702.2 821.6L705.8 820.8L706.3 818.5L708.5 819.3L711.1 818.8L713.9 821.3L717.5 822.4L721.0 821.3L724.7 823.1L726.3 822.5L726.4 821.5L729.2 821.5L729.6 822.9L732.6 824.8L734.0 828.7L740.0 829.5L741.2 828.5L747.0 829.2L749.3 827.9L757.2 829.0L761.2 827.6L764.8 829.0L767.9 826.6L769.1 821.6L773.3 819.7L775.6 820.3L777.6 823.6L782.4 823.2L783.4 821.9L787.8 823.8L791.9 823.4L794.3 825.0L799.9 823.8L801.8 824.3L802.4 823.5L802.7 825.4L804.1 826.0L803.3 826.7L804.6 827.7L803.3 828.2L805.1 828.9L806.1 827.9L807.2 828.7L806.6 832.7L813.3 834.9L816.2 835.4L820.0 833.7L824.5 833.5L828.8 831.3L830.5 832.4L836.0 833.1L836.0 843.7L836.5 842.6L837.4 844.7L839.9 845.3L840.7 846.3L836.3 846.9L836.5 845.8L834.9 845.2L829.4 846.0L829.0 845.2L826.6 845.4L826.2 844.6L824.8 845.2L816.0 842.6L812.4 843.4L810.4 845.1L809.2 844.8L806.5 846.1L800.6 845.1L791.0 845.1L790.8 846.0L789.8 845.7L789.5 846.9L784.7 845.9L780.2 846.6L779.0 845.6L777.6 846.4L768.1 845.3L757.9 842.3M912.4 718.2L912.1 715.8L909.9 712.3L909.8 707.0L907.7 706.9L906.8 705.4L910.3 706.3L910.8 703.8L908.7 701.5L909.9 700.6L910.1 697.8L912.0 696.7L911.7 693.3L914.5 691.6L914.9 688.8L915.9 688.8L916.4 690.7L920.1 691.2L921.2 688.1L923.2 686.7L923.1 682.2L927.1 681.5L930.4 682.5L933.2 681.0L933.5 683.0L935.3 684.1L941.5 682.7L942.6 683.7L943.8 682.8L950.2 682.4L957.2 684.3L958.7 681.8L962.2 681.8L962.2 681.0L964.1 681.6L974.7 680.9L980.0 677.0L980.9 674.3L984.4 673.4L984.6 672.4L983.2 672.1L983.2 671.0L987.5 668.5L987.0 666.9L989.1 664.0L992.4 664.2L992.5 665.7L993.9 666.4L992.2 668.9L990.0 675.7L986.6 679.1L984.5 685.1L982.3 686.3L971.4 690.4L965.0 690.7L961.6 688.2L944.9 691.7L941.2 693.2L937.5 691.9L936.0 693.2L932.2 693.9L929.8 695.5L926.1 695.8L922.6 694.7L919.7 695.2L916.9 697.3L914.4 701.5L913.2 707.7L915.8 714.3L919.2 717.5L920.4 717.9L921.8 717.1L923.6 718.1L927.3 723.8L929.7 722.5L930.1 723.2L934.4 722.8L935.4 719.5L939.5 713.5L941.4 712.2L943.1 714.0L946.8 713.7L950.0 712.5L950.9 710.0L962.7 707.9L963.2 707.4L959.2 706.8L964.4 704.5L967.9 704.2L971.0 705.6L970.4 710.8L968.5 710.9L965.7 708.5L961.6 710.3L960.2 713.7L955.5 720.5L952.7 722.9L947.6 724.6L945.4 728.6L943.1 729.4L941.0 727.9L938.6 728.4L939.4 728.6L939.8 730.9L940.6 729.5L944.1 732.8L946.2 732.7L948.5 733.9L952.4 737.9L952.7 739.4L956.2 741.5L957.8 741.5L958.0 743.8L961.5 744.9L961.0 746.4L959.8 746.2L959.0 747.8L960.5 748.4L960.7 749.4L958.4 748.9L959.3 750.1L958.1 751.7L958.8 752.9L962.5 753.5L964.6 755.4L966.6 755.3L964.9 756.8L966.8 757.0L967.7 758.8L970.2 758.2L968.9 757.2L969.4 757.0L971.1 758.2L971.9 761.6L971.0 762.8L967.8 761.4L969.9 763.6L968.5 763.9L966.8 762.9L959.0 766.1L958.2 768.4L960.0 770.2L959.5 770.8L953.0 771.9L948.8 769.9L948.6 763.6L949.5 763.5L949.8 761.1L943.1 759.5L942.9 758.2L941.3 758.2L936.2 755.1L935.8 752.9L938.2 749.5L937.9 745.2L936.7 744.0L935.9 744.3L937.4 743.0L936.1 741.8L932.0 741.7L929.0 743.3L923.3 748.4L924.7 751.0L927.7 752.2L927.8 755.9L929.2 759.2L928.1 761.8L928.5 764.9L929.3 769.1L931.4 772.8L930.8 775.5L929.6 776.3L929.5 780.5L932.1 783.2L934.0 786.9L931.3 785.6L927.8 787.5L924.6 787.6L922.5 789.9L920.9 790.1L919.5 789.0L919.0 789.8L917.8 788.5L916.5 789.2L914.6 786.0L916.5 778.6L915.6 776.8L916.8 773.8L916.4 765.0L915.6 765.8L912.6 761.6L913.2 759.2L912.6 758.1L909.2 757.7L903.4 760.8L899.6 754.1L901.0 753.6L901.2 750.7L899.2 750.7L898.7 749.4L899.3 747.2L901.1 747.2L904.3 743.7L903.7 739.9L904.9 736.4L906.7 735.8L904.5 725.1L906.4 722.5L907.1 718.8L910.0 714.8L912.4 718.2M597.5 707.4L594.9 701.5L596.2 700.1L599.0 700.1L599.2 701.2L603.5 704.1L605.4 708.9L610.8 709.4L617.0 713.4L618.7 718.9L622.5 722.1L624.3 723.0L630.0 723.0L631.3 723.7L633.6 726.0L633.5 727.2L625.5 731.6L623.0 730.7L624.9 731.8L630.5 730.1L638.2 725.5L641.2 726.9L642.4 728.7L643.0 728.2L644.7 729.1L645.9 733.4L642.0 733.8L642.4 735.0L637.2 737.7L640.9 736.8L640.1 738.8L638.6 739.3L642.9 740.2L639.9 741.6L639.1 740.5L640.0 742.4L638.9 744.3L647.3 749.6L649.3 748.1L653.6 749.3L656.3 748.5L659.6 759.4L659.1 762.1L660.2 760.8L661.5 761.7L660.8 763.2L661.8 762.4L662.5 763.5L664.5 762.9L665.8 764.5L663.7 767.9L661.4 769.0L663.1 768.4L663.3 771.2L661.0 772.9L660.5 774.6L663.7 771.7L664.2 769.0L665.9 766.9L666.8 768.3L667.6 767.5L669.9 768.1L672.1 767.4L678.5 767.9L678.7 771.1L681.4 772.1L682.1 775.2L685.9 776.2L686.9 780.2L684.2 782.7L683.1 786.7L685.6 789.5L683.6 795.2L685.4 798.5L685.1 803.8L685.9 805.5L685.2 816.1L683.8 819.8L683.5 818.9L681.3 818.4L680.8 816.8L679.4 816.6L675.7 813.7L675.1 815.5L674.1 815.8L674.8 817.5L673.8 818.0L674.9 818.4L674.0 818.8L665.5 815.3L663.3 815.4L663.0 816.2L666.5 821.3L663.8 821.6L663.5 820.3L653.6 813.1L653.5 812.1L652.0 811.8L651.7 810.1L648.8 808.9L648.6 808.1L643.3 807.1L639.0 803.5L634.7 801.9L624.0 794.9L622.5 790.0L611.7 784.0L606.6 776.9L602.7 774.7L599.5 771.0L597.9 768.2L598.7 766.6L598.2 764.4L594.6 760.3L592.9 755.9L590.3 755.1L590.6 754.0L589.6 753.2L590.4 751.8L588.3 748.4L580.1 740.9L578.7 736.6L571.9 732.7L568.5 732.4L567.7 727.2L566.7 726.5L566.7 724.6L565.7 723.8L563.2 715.7L561.0 712.6L561.7 713.0L562.8 711.5L561.7 709.5L561.1 709.0L560.5 709.9L557.9 706.9L553.5 705.4L548.3 701.9L544.9 701.8L543.5 700.1L542.4 692.7L539.2 691.6L536.9 687.4L535.3 686.8L530.5 680.2L528.5 679.1L524.0 678.7L519.4 673.4L516.3 671.8L509.1 665.4L503.2 655.1L504.1 653.2L503.4 650.6L506.6 649.4L512.2 650.6L514.3 651.6L516.9 654.7L521.9 656.0L531.7 655.2L535.8 657.1L540.6 655.5L546.8 661.0L548.5 665.1L548.3 666.2L550.6 666.5L552.9 668.2L552.8 671.6L551.5 672.2L551.4 673.2L552.8 672.0L553.5 673.6L556.0 673.9L559.5 676.0L561.6 678.9L567.8 681.6L574.1 686.1L577.3 687.0L579.1 689.6L581.1 690.5L581.5 693.1L580.8 694.5L581.7 695.9L581.2 694.4L582.4 693.9L583.7 697.0L583.7 694.6L585.0 694.2L588.9 700.8L595.2 704.2L597.5 707.4M888.2 624.3L888.4 626.5L886.8 628.3L880.0 631.9L877.9 631.8L876.8 632.6L874.3 631.3L871.2 634.2L873.8 636.8L877.2 637.8L877.9 639.3L879.4 638.8L880.3 640.0L879.1 641.3L875.8 641.8L870.2 644.7L864.5 642.5L863.8 643.3L864.9 644.8L864.1 645.9L864.6 646.4L863.0 647.5L860.6 647.1L861.1 648.1L866.2 650.2L863.5 650.5L867.9 651.9L866.7 652.4L868.9 653.0L868.0 654.3L864.5 654.5L862.9 652.7L864.0 655.5L857.2 655.8L856.4 656.8L859.0 656.1L860.0 657.9L863.4 658.3L862.4 661.4L861.0 661.8L864.1 662.3L864.7 663.4L866.9 663.3L866.3 665.0L868.3 665.0L866.1 666.0L869.3 665.9L867.5 667.3L870.3 668.0L871.2 670.0L876.1 673.7L876.0 675.6L874.4 676.4L873.9 677.9L872.5 677.9L873.8 678.6L871.2 679.0L873.5 679.6L873.4 681.0L874.7 682.0L876.8 682.3L878.4 684.1L883.6 685.9L883.3 686.5L884.3 687.2L886.9 687.5L891.6 691.4L893.7 691.1L894.3 692.3L891.3 695.4L889.3 695.1L884.5 696.4L879.6 695.5L877.4 693.2L875.8 692.9L878.8 697.3L876.6 697.1L874.2 699.0L871.1 709.2L872.4 711.3L871.3 714.6L872.5 715.9L872.0 718.9L874.8 716.8L873.8 718.3L874.6 718.4L873.6 719.9L874.4 720.1L874.1 721.1L873.0 721.4L875.3 721.6L875.5 722.3L873.4 722.9L872.8 724.2L871.7 723.8L871.1 724.8L869.9 723.6L869.7 725.1L865.5 730.8L863.3 731.4L861.5 728.0L861.3 729.6L862.8 731.2L862.6 733.1L859.5 734.8L859.4 737.5L854.5 740.7L857.8 739.9L857.8 741.2L858.8 742.0L858.9 744.0L856.3 746.3L857.6 745.6L858.4 746.5L860.2 745.7L861.7 746.4L861.0 751.5L859.6 750.9L857.4 751.6L857.4 752.9L859.0 752.1L858.6 757.5L857.3 758.9L855.1 756.6L855.1 759.2L858.0 760.6L856.3 761.3L856.8 762.8L855.6 762.8L853.9 768.5L833.1 779.9L832.0 779.2L831.3 772.6L829.5 770.3L829.6 767.7L828.6 770.1L824.9 769.0L826.2 766.0L823.6 768.9L822.2 768.6L822.1 766.2L821.1 768.9L817.4 770.8L814.4 771.2L813.6 767.0L811.4 767.3L809.6 768.7L808.3 767.4L809.4 769.0L803.5 764.4L803.4 766.1L802.2 767.3L803.6 768.0L797.7 772.5L796.1 773.1L792.6 771.7L790.2 772.0L785.6 776.2L783.9 775.8L783.5 768.7L781.4 765.0L781.7 764.0L780.6 766.5L781.2 767.2L778.8 768.6L777.5 767.5L774.8 767.6L768.7 770.7L765.4 770.0L768.5 767.5L765.9 768.8L763.9 771.0L762.4 768.1L757.7 770.4L756.6 770.1L756.0 769.0L756.5 767.3L755.7 765.3L754.7 765.0L756.7 763.2L755.7 763.5L754.5 762.2L752.4 754.6L749.4 753.4L751.3 750.5L751.3 745.9L748.9 744.3L748.9 742.6L746.1 741.4L745.2 740.1L745.7 739.2L744.4 741.0L741.7 739.4L740.1 739.3L739.6 740.4L737.5 739.7L737.1 736.9L741.3 737.4L738.6 736.4L739.7 735.9L739.3 735.6L735.2 735.2L733.8 730.9L732.9 730.8L734.1 730.0L735.8 730.4L734.4 726.5L736.8 726.5L734.4 725.1L733.2 723.2L730.1 722.0L729.9 717.7L728.3 714.5L730.2 712.5L729.0 709.3L732.5 707.7L734.3 705.3L732.4 707.5L730.0 708.0L730.9 703.4L735.1 698.8L734.1 699.4L734.8 696.8L738.6 695.5L739.5 694.1L740.6 697.3L744.7 699.7L750.7 699.4L751.1 697.4L752.2 698.9L754.1 698.0L753.6 700.0L758.0 700.7L757.3 702.3L758.7 701.6L759.0 700.2L765.2 702.7L769.0 702.6L766.9 701.7L765.2 702.1L763.3 701.2L762.4 699.5L762.8 698.2L763.8 697.9L766.7 698.5L765.1 698.2L763.6 696.5L765.0 691.8L767.6 690.1L764.4 690.6L765.3 689.5L764.3 689.0L764.7 686.4L767.1 687.4L769.2 687.1L767.5 685.1L769.4 684.8L767.6 684.0L767.9 681.8L771.3 679.1L776.7 677.8L792.4 671.8L798.2 661.8L802.6 657.4L805.4 652.7L805.3 647.6L810.9 646.8L821.7 638.3L822.5 638.5L820.9 641.1L821.3 640.6L822.1 642.3L824.3 639.5L827.0 639.9L829.5 637.3L830.1 634.7L826.1 633.7L826.3 632.0L829.3 628.1L829.5 629.9L829.6 629.1L832.0 629.5L833.3 628.8L834.1 625.4L835.9 623.9L836.9 620.1L836.2 619.4L837.8 617.4L838.9 617.3L838.8 616.6L837.9 616.8L841.7 612.7L844.6 603.8L845.8 604.5L845.7 606.3L846.6 606.9L845.9 610.6L848.6 608.4L849.6 606.2L849.0 604.7L850.8 603.3L852.5 604.1L852.4 606.1L853.8 608.8L856.7 609.8L857.6 608.5L858.2 609.7L861.0 610.6L861.5 613.5L859.7 614.9L861.3 618.1L858.3 620.4L863.0 619.1L866.6 616.1L868.7 619.0L867.8 620.0L865.6 620.3L866.5 622.1L869.2 621.7L869.7 619.7L872.6 619.2L876.6 620.7L876.5 623.2L877.6 621.3L880.6 623.3L882.2 623.5L882.6 624.4L886.5 622.9L888.2 624.3M997.2 573.3L998.1 573.5L996.5 578.6L994.8 578.7L994.3 579.6L995.4 581.9L993.4 580.3L992.3 580.8L994.2 583.0L994.7 590.3L992.5 587.4L991.1 582.0L989.4 581.1L985.8 574.8L983.4 576.8L983.5 579.5L981.7 581.1L980.6 586.8L981.3 588.0L981.6 587.5L984.5 588.8L987.6 595.6L983.9 603.9L982.9 604.0L982.1 602.1L980.2 601.0L981.2 597.9L980.4 596.2L978.9 596.2L978.3 600.3L976.6 600.7L970.6 599.7L963.3 597.1L960.3 593.7L959.3 588.8L958.1 588.5L958.3 583.9L960.4 581.7L960.8 578.8L959.7 578.8L957.4 576.2L952.9 575.3L951.2 574.0L947.2 574.9L948.2 576.9L946.4 578.7L948.3 580.3L948.2 581.7L945.4 579.7L943.3 580.2L942.9 579.3L943.7 578.3L942.3 576.7L941.3 581.2L939.7 580.3L938.2 581.9L937.5 577.5L934.4 577.6L932.1 580.7L932.7 581.9L931.2 583.0L931.7 584.6L930.5 586.0L929.5 592.1L927.7 592.6L925.1 590.8L925.3 588.2L926.8 586.5L926.5 583.2L927.6 581.8L926.4 579.0L928.1 575.4L933.2 572.7L934.3 571.3L935.3 571.9L938.4 570.6L939.3 569.3L938.2 568.3L938.9 565.2L943.1 563.7L944.6 561.6L943.8 560.5L945.6 560.6L947.0 562.2L947.3 560.7L949.8 561.3L951.5 563.5L952.9 567.9L950.2 570.5L950.3 571.6L954.3 567.6L958.2 566.2L958.7 561.2L959.7 559.5L960.7 559.0L963.9 560.2L963.8 561.5L965.4 560.1L964.7 552.0L966.4 551.9L970.0 553.9L971.0 552.9L970.7 549.6L972.5 550.7L975.6 549.7L975.5 546.9L971.8 539.6L972.3 537.2L974.5 537.9L975.7 540.0L981.2 541.1L980.5 542.4L981.8 542.3L983.2 544.5L985.7 543.3L985.6 546.5L988.9 549.7L987.5 552.0L988.0 552.7L986.1 554.3L987.0 555.4L990.3 554.6L991.0 555.2L990.3 557.7L991.3 558.4L990.8 559.8L992.7 559.1L993.3 563.1L992.5 564.8L994.6 566.6L996.1 566.8L997.2 573.3M899.8 408.9L900.3 411.4L898.7 414.1L900.1 422.3L902.0 425.8L904.5 426.1L905.0 428.9L906.8 429.5L903.9 440.9L904.5 444.1L902.0 447.9L903.5 444.4L903.0 443.9L902.6 445.2L898.3 447.8L896.0 450.9L897.6 454.8L894.8 459.9L895.1 461.7L896.7 462.9L899.2 467.8L901.6 469.5L900.2 470.2L900.1 471.4L903.4 477.2L903.2 478.2L906.7 480.7L911.4 481.4L910.5 480.2L912.2 480.2L912.3 479.4L909.6 477.4L910.9 475.9L911.9 478.3L913.0 474.2L914.6 473.5L916.5 474.3L917.2 474.0L916.9 473.1L920.0 473.9L923.0 476.2L924.2 479.2L924.0 481.3L925.1 482.0L927.8 480.4L927.1 478.6L927.7 477.2L927.1 478.1L925.9 477.4L927.3 475.4L929.1 478.2L929.4 477.3L933.1 477.9L933.5 477.0L937.2 478.7L937.9 479.8L931.9 480.7L931.6 482.7L937.7 487.8L936.4 488.2L936.5 490.8L938.3 489.1L941.7 490.7L942.1 489.6L943.1 489.7L942.5 492.1L943.5 495.9L942.7 498.3L939.8 497.1L937.9 494.3L940.9 493.0L941.1 491.7L939.0 491.8L938.4 493.3L936.8 494.3L936.2 493.0L935.1 493.9L932.0 492.1L929.9 492.7L929.3 489.3L926.8 486.2L921.7 484.5L920.8 483.9L921.5 483.1L915.8 479.7L914.0 480.3L915.8 482.0L916.1 484.8L918.5 486.2L917.4 486.0L919.5 488.7L920.2 491.0L918.8 492.2L917.4 491.4L916.9 489.3L914.5 486.7L911.6 486.0L909.1 483.5L903.7 481.7L900.4 484.2L899.8 485.2L900.5 486.8L898.0 488.8L894.4 488.9L894.3 487.4L893.2 486.5L891.9 488.2L892.3 486.7L891.1 484.7L888.5 484.9L888.3 487.5L885.9 481.3L886.5 479.6L891.1 474.8L890.0 472.5L888.3 471.2L885.3 471.3L884.8 470.0L884.5 470.9L884.1 469.6L884.0 472.9L885.4 475.9L885.0 477.0L883.6 477.6L882.2 476.9L881.7 474.6L879.7 473.7L880.0 471.5L878.6 470.8L878.4 472.9L876.9 472.4L874.6 465.1L872.4 462.8L873.3 461.2L871.3 457.8L871.4 455.6L870.6 454.5L869.2 454.8L868.5 450.4L868.7 448.0L870.0 447.3L870.5 449.5L873.5 450.6L874.2 452.1L876.8 451.7L877.0 452.3L877.9 451.4L877.2 451.5L877.9 448.7L876.8 447.8L875.1 442.8L875.2 439.4L876.4 436.4L875.3 432.6L875.5 429.9L874.6 427.8L873.5 427.4L875.0 414.4L874.3 411.8L877.2 410.1L877.5 408.7L879.2 409.7L881.8 408.0L890.6 412.0L890.4 411.1L895.4 411.6L897.1 409.6L897.3 407.4L898.5 407.3L899.8 408.9M981.6 157.0L982.2 157.8L981.1 167.1L982.0 168.2L982.2 171.1L981.5 175.4L980.3 175.4L979.6 174.5L977.8 175.0L977.4 176.6L979.2 177.5L977.3 180.6L974.0 183.3L974.7 177.8L972.5 174.6L971.0 174.3L972.2 173.5L973.3 174.2L973.0 171.8L971.2 172.1L970.5 175.6L971.6 178.4L973.1 179.1L972.5 181.1L970.5 180.0L967.5 180.8L965.5 178.5L967.1 178.6L967.8 175.5L967.4 174.2L964.8 172.3L965.6 171.7L963.9 167.5L965.6 166.7L967.3 162.6L967.8 159.8L967.2 159.2L968.2 157.3L965.4 158.4L967.4 156.6L967.0 155.4L964.3 153.6L963.4 151.1L960.7 150.1L959.5 151.5L961.3 153.5L960.1 155.4L963.2 155.0L964.0 157.6L961.9 159.7L961.1 158.3L961.9 157.0L960.2 156.7L958.5 157.7L956.5 161.3L957.5 158.5L953.9 155.9L953.9 153.2L954.9 153.6L955.0 154.6L956.1 154.6L956.1 156.3L958.9 156.2L957.7 155.0L957.5 153.6L954.8 153.4L954.0 152.0L953.7 153.1L953.0 151.6L951.9 151.7L951.6 149.1L952.7 148.4L955.4 149.7L955.2 147.9L953.9 147.2L954.3 146.6L955.1 147.1L954.4 145.5L956.9 146.7L958.6 144.8L957.5 144.5L958.6 142.7L960.0 143.8L961.2 143.1L961.0 142.0L959.6 142.2L961.5 141.1L961.5 138.9L964.6 136.7L966.8 137.0L967.7 135.6L967.7 138.1L970.2 140.7L973.8 140.7L975.4 138.6L977.3 138.3L978.8 140.9L977.6 143.5L976.3 143.5L976.7 144.9L981.8 143.9L981.1 146.3L982.4 146.1L982.2 146.9L983.6 146.3L982.8 148.3L985.3 148.4L981.8 155.1L981.7 156.2L982.6 156.5L981.6 157.0M1000.0 118.6L997.3 120.9L997.8 119.8L996.5 120.4L995.4 123.1L995.6 122.3L994.5 121.6L994.3 124.0L993.0 124.7L992.7 123.8L993.8 122.9L992.7 122.6L992.5 123.6L989.7 124.7L987.9 127.0L986.4 127.2L985.5 125.0L983.8 125.2L982.2 127.7L983.0 131.6L982.2 132.6L982.9 134.1L981.8 135.4L982.2 133.9L978.4 132.6L977.6 133.2L977.9 132.2L976.8 132.0L975.0 132.7L974.9 133.6L973.6 133.1L973.3 134.1L972.3 133.3L971.1 135.5L967.8 134.2L966.8 136.7L966.2 136.4L966.2 134.5L965.4 133.7L965.9 132.4L964.9 131.1L964.9 129.8L966.5 129.0L965.3 129.1L965.6 128.3L968.4 128.8L968.2 127.9L969.6 127.9L968.8 128.7L971.2 127.2L972.7 123.0L975.8 121.4L981.0 112.5L983.5 109.9L982.9 107.7L986.8 105.5L988.0 103.8L991.1 103.6L990.6 104.9L992.5 105.1L994.4 103.3L1000.0 102.0M439.9 375.6L440.8 376.7L440.4 380.9L437.6 383.8L438.1 382.1L437.0 383.0L438.3 376.4L436.6 373.8L436.9 371.3L438.0 370.8L439.9 375.6M967.9 529.9L967.9 530.9L966.0 531.0L966.4 532.4L963.4 529.8L965.1 535.4L960.8 534.0L960.5 531.3L959.4 529.9L959.6 525.7L958.8 523.5L955.9 521.1L954.8 521.6L954.7 523.4L952.7 522.8L951.7 516.9L950.8 516.6L949.4 513.4L952.6 515.4L952.6 514.4L953.3 514.7L955.1 516.3L956.7 515.5L958.0 513.6L960.1 513.9L962.5 519.7L962.6 523.8L965.8 525.7L966.4 528.4L967.9 529.9M972.0 515.5L973.1 517.4L971.1 515.7L969.4 516.1L969.4 517.0L966.0 516.7L965.1 517.8L963.4 515.3L960.8 515.4L960.4 513.2L957.5 512.4L959.5 510.7L960.0 507.9L957.7 508.2L955.9 507.0L956.2 506.2L955.1 506.3L953.6 504.6L950.7 504.1L948.7 502.4L946.2 497.0L952.2 496.9L955.0 496.1L954.9 495.1L957.7 495.6L959.3 494.5L961.2 495.4L962.6 496.8L962.4 498.5L964.6 498.5L966.2 499.7L965.1 501.1L966.3 501.7L965.5 503.7L966.7 506.0L966.1 506.5L967.1 507.4L966.8 508.9L968.1 511.2L970.2 512.3L969.5 515.0L970.2 515.2L970.5 514.4L972.0 515.5M829.3 192.9L829.7 193.7L828.2 193.1L828.3 191.8L826.8 190.9L828.1 190.6L829.3 192.9M928.4 832.2L929.5 832.1L928.2 833.5L928.3 834.8L926.6 834.6L927.4 833.3L926.7 832.1L928.0 832.9L928.4 832.2M864.4 657.5L860.4 657.7L859.5 656.9L862.3 656.4L864.4 657.5M856.3 606.3L857.1 607.7L854.6 608.3L856.3 606.3M946.8 704.1L947.4 704.6L946.7 705.3L944.2 705.2L945.1 704.0L946.8 704.1M986.5 819.5L986.9 820.1L984.8 820.7L983.3 822.7L982.4 822.5L984.1 820.3L986.5 819.5M892.0 830.8L892.5 831.2L890.7 834.1L889.4 834.3L888.9 831.7L892.0 830.8M942.4 807.2L942.8 807.9L941.1 808.5L939.0 807.7L940.0 807.5L939.9 806.4L942.4 807.2M986.2 581.3L986.1 582.1L984.1 579.7L984.3 577.6L985.6 578.4L986.2 581.3M941.0 582.7L939.2 584.5L938.5 584.2L938.6 582.4L941.0 582.7M969.3 535.4L969.1 536.3L966.7 534.2L966.3 532.8L967.8 533.2L969.3 535.4M953.9 512.2L954.3 513.4L952.1 514.0L949.7 511.1L952.3 510.5L953.9 512.2M755.8 373.8L755.0 377.1L754.9 375.3L754.0 375.4L755.8 373.8M858.1 253.9L858.6 254.8L857.0 255.8L856.4 254.2L857.6 252.7L858.1 253.9M856.5 843.2L857.9 844.1L857.5 845.2L855.3 844.3L856.5 843.2M925.3 831.2L925.6 832.2L923.7 832.5L924.2 834.6L922.6 834.7L922.6 830.5L925.3 831.2M989.6 816.6L988.9 818.7L984.3 819.4L986.2 816.8L989.6 816.6M916.3 826.9L917.3 827.6L916.0 828.9L915.3 827.9L916.3 826.9M853.6 817.8L850.4 818.3L849.8 818.8L850.8 819.2L849.4 819.1L849.2 819.9L847.5 818.9L848.4 817.4L853.6 817.8M802.5 806.6L803.0 808.2L801.1 808.5L800.6 807.8L802.5 806.6M626.6 815.8L626.4 816.9L624.5 817.3L621.3 815.1L622.5 814.2L626.6 815.8M860.7 764.3L861.3 764.5L861.0 768.0L859.8 766.6L860.7 764.3M587.6 776.9L587.9 777.8L586.6 778.8L584.5 779.1L583.7 774.0L587.6 776.9M581.0 771.0L581.4 772.3L577.3 770.7L576.0 769.0L576.6 767.2L578.8 767.7L581.0 771.0M733.4 751.0L733.2 751.9L731.7 752.6L730.5 751.4L732.2 750.5L733.4 751.0M637.0 724.2L636.8 725.5L634.5 725.6L635.0 723.2L637.0 724.2M640.0 721.7L640.0 723.1L638.9 723.6L637.7 722.0L637.8 720.3L640.0 721.7M639.1 718.1L637.4 718.1L637.3 716.5L638.1 716.3L639.1 718.1M650.6 715.2L649.8 717.9L646.7 716.8L648.6 714.8L649.6 715.6L649.6 714.8L650.6 715.2M538.1 704.0L538.0 705.8L536.5 703.8L534.4 703.0L537.3 702.7L538.1 704.0M767.8 686.5L767.2 687.1L766.1 686.1L765.6 680.6L766.8 681.8L767.8 686.5M650.3 689.9L650.2 691.0L648.8 690.6L649.4 688.3L650.3 689.9M675.8 685.0L676.6 685.2L676.0 686.4L674.5 687.5L673.9 684.2L674.8 685.2L675.8 685.0M866.3 657.8L867.2 658.1L867.0 660.7L864.8 658.6L866.3 657.8M585.2 651.1L585.7 651.6L584.9 654.1L583.2 654.1L583.1 651.1L585.2 651.1M505.5 645.5L506.1 646.9L505.4 647.4L503.4 645.4L504.5 646.1L505.5 645.5M578.1 636.9L577.7 638.1L577.0 637.6L575.5 638.6L574.0 635.9L576.3 636.1L577.2 635.3L578.1 636.9M574.4 634.6L573.3 633.6L574.1 631.3L574.9 633.9L574.4 634.6M850.3 597.9L851.8 597.6L852.1 599.9L849.3 601.9L848.8 599.3L850.3 597.9M479.9 622.1L478.1 623.8L478.1 622.1L479.3 620.9L479.9 622.1M475.2 612.7L475.6 614.1L474.0 613.9L473.2 612.8L474.3 611.7L475.2 612.7M554.0 613.1L553.7 614.5L551.9 614.9L551.8 608.6L554.2 610.2L554.0 613.1M476.8 611.5L476.1 612.2L476.6 611.0L475.5 609.6L476.4 608.4L476.8 611.5M579.2 585.5L579.1 587.5L577.4 588.3L577.1 585.7L579.2 585.5M551.4 578.8L548.9 582.1L548.8 580.3L551.4 578.8M641.1 570.1L640.9 576.0L637.4 570.3L638.8 570.3L639.8 568.9L641.1 570.1M550.7 566.1L551.1 567.8L550.4 568.5L549.6 565.5L548.9 564.8L547.7 565.4L549.1 563.9L550.7 566.1M550.5 550.6L551.2 551.7L550.5 555.8L549.9 555.5L549.2 556.4L550.5 550.6M554.4 550.5L554.5 554.9L553.0 554.3L552.1 552.4L552.6 551.0L551.9 550.8L554.4 550.5M555.4 547.8L556.3 548.3L553.5 549.1L552.8 545.5L555.4 547.8M613.7 544.5L614.4 545.7L612.1 545.7L611.3 542.9L613.7 544.5M547.0 541.5L546.1 543.1L545.2 542.5L546.1 541.0L546.7 541.7L547.4 540.6L547.0 541.5M553.1 537.9L553.0 539.9L551.4 542.1L550.6 541.9L550.7 536.3L552.1 537.0L552.5 538.8L553.1 537.9M494.9 479.3L494.4 481.7L491.0 485.5L490.9 482.9L494.9 479.3M538.6 475.8L538.1 479.3L536.7 477.7L536.6 475.3L537.6 474.3L538.9 474.7L538.6 475.8M481.6 437.0L481.4 438.8L480.1 439.0L477.8 435.8L479.8 435.2L481.6 435.9L481.6 437.0M484.9 426.9L483.9 428.8L482.4 429.2L480.3 425.3L481.5 424.7L484.9 426.9M478.2 420.5L478.3 421.5L477.5 420.8L476.7 418.1L478.1 419.2L478.2 420.5M674.6 397.6L673.9 397.9L674.2 399.2L672.1 397.2L673.7 396.6L674.6 397.6M724.2 389.3L723.9 391.0L722.7 390.0L719.9 390.6L721.1 389.1L720.4 389.1L721.8 388.6L722.3 389.5L723.8 388.6L724.2 389.3M681.3 390.3L678.5 393.0L679.4 389.4L680.6 390.6L681.3 390.3M456.0 388.1L456.4 392.0L455.1 392.7L454.8 388.6L455.4 388.4L455.3 389.3L455.5 387.8L456.0 388.1M444.9 378.0L445.4 380.2L443.0 382.3L443.9 377.5L444.9 378.0M449.6 374.4L450.7 377.5L449.2 376.6L449.6 374.4M903.8 308.3L905.6 308.4L905.0 310.3L902.1 310.2L903.1 309.6L903.2 308.0L903.8 308.3M828.2 318.8L829.4 320.1L827.0 321.0L826.7 319.7L828.1 319.6L828.2 318.8M910.4 303.9L909.9 307.6L908.5 308.3L907.4 306.9L909.1 306.5L910.4 303.9M924.4 297.9L925.3 298.4L922.8 299.0L922.3 296.5L924.4 297.9M845.8 299.2L845.2 299.6L846.0 300.4L844.1 301.3L843.4 300.4L844.9 299.6L843.5 298.6L843.9 297.7L844.6 297.4L845.8 299.2M963.3 239.1L964.0 239.6L963.2 241.3L962.2 240.5L961.8 238.1L962.4 237.5L963.3 239.1M867.3 221.2L867.1 222.7L864.3 221.8L863.3 222.3L862.1 220.1L864.0 219.8L867.3 221.2M976.6 193.2L976.1 195.4L974.6 196.2L972.6 193.8L973.9 192.3L976.6 193.2M979.7 184.7L980.7 188.3L980.3 192.4L979.2 193.1L978.5 191.2L979.7 184.7M965.3 160.2L966.1 160.0L965.2 162.5L964.9 161.8L963.6 162.6L963.1 161.7L965.3 160.2M962.0 160.4L963.3 163.6L961.1 166.5L961.1 165.5L960.4 165.6L961.6 164.5L960.3 164.0L960.0 161.1L962.0 160.4M945.0 162.1L945.3 162.5L943.8 162.8L943.9 164.0L941.6 163.8L941.8 161.0L942.4 161.5L943.6 160.3L945.0 162.1M946.7 156.5L947.8 156.3L946.9 159.3L945.3 157.3L946.4 156.0L946.3 153.7L946.7 156.5M951.1 148.5L950.5 152.2L949.2 152.8L949.9 152.5L949.9 149.9L951.1 148.5M952.7 142.2L952.3 143.6L951.3 143.0L951.2 140.9L952.3 141.1L952.7 142.2M983.8 133.4L983.0 132.7L983.4 132.1L984.8 132.7L986.5 131.6L985.7 133.4L983.8 133.4M945.0 135.6L945.0 138.1L943.8 138.7L943.5 135.1L945.0 135.6M906.8 140.1L906.6 141.6L905.0 142.7L903.6 142.3L905.3 140.0L904.9 139.2L906.8 140.1M945.6 129.9L945.2 133.7L945.6 133.3L946.0 134.2L945.1 135.2L944.6 133.9L943.7 134.6L944.4 132.7L943.7 131.1L945.0 128.8L945.8 128.9L945.6 129.9M927.3 130.6L927.5 132.5L926.5 132.7L925.8 131.8L925.4 132.7L924.1 130.4L924.8 129.1L925.3 130.7L927.3 130.6M988.9 92.5L988.8 94.4L987.0 94.1L986.8 93.0L987.7 91.7L988.9 92.5M898.6 91.4L896.8 91.2L896.7 88.1L898.2 88.7L898.6 91.4M970.8 851.5L971.8 851.5L971.9 852.6L970.2 854.0L966.8 854.1L970.8 851.5M676.4 829.6L675.6 831.8L675.0 830.5L674.1 831.3L676.4 829.6M936.1 791.3L936.3 799.3L934.8 795.3L934.3 790.2L934.9 789.0L936.1 791.3M700.6 774.3L700.0 775.8L697.5 775.1L698.9 773.8L700.6 774.3M944.1 705.6L945.4 706.5L945.1 707.1L942.4 707.1L941.1 708.3L942.5 705.9L944.1 705.6M644.6 737.5L645.4 738.6L640.6 739.2L642.0 736.9L644.6 737.5M660.5 731.3L659.1 731.1L657.0 728.9L660.5 731.3M652.1 719.4L652.7 720.0L651.3 720.7L649.9 718.7L652.1 719.4M994.7 635.4L994.3 636.7L992.4 636.0L992.3 634.2L990.4 633.1L990.5 632.0L992.2 632.5L994.7 635.4M903.8 623.1L903.7 625.5L902.9 624.2L901.9 624.1L899.6 626.8L897.5 627.4L897.2 626.4L902.0 622.4L902.9 621.9L903.8 623.1M847.4 586.8L847.8 589.8L846.8 591.1L845.5 587.1L847.4 586.8M963.8 549.0L964.0 551.0L961.6 549.7L962.5 548.5L963.8 549.0M947.2 552.7L946.3 554.0L943.6 553.0L945.9 550.8L947.2 552.7M983.0 535.0L983.4 535.6L981.5 536.5L979.9 535.3L980.6 534.9L980.1 534.4L980.9 531.6L982.1 534.7L983.0 535.0M885.7 539.9L886.7 540.3L886.4 540.9L885.1 540.7L885.4 541.9L883.6 542.6L882.8 541.3L883.8 539.6L885.7 539.9M927.6 530.6L927.8 534.4L925.6 536.1L924.7 534.9L925.7 534.0L925.2 533.1L926.8 530.3L927.6 530.6M883.5 519.1L884.5 519.5L883.9 520.3L884.6 520.7L883.2 522.9L883.5 521.0L882.4 521.3L880.8 518.6L881.7 518.0L883.5 519.1M922.5 504.2L921.7 506.4L918.3 504.0L921.4 503.1L922.5 504.2M939.2 501.6L935.4 498.2L935.6 497.2L937.7 498.4L939.2 501.6M930.1 495.2L932.0 497.7L924.6 493.3L924.3 492.2L925.4 491.5L928.1 494.4L930.1 495.2M882.4 489.5L880.0 488.8L879.4 487.5L881.8 488.0L882.4 489.5M909.0 478.6L910.3 479.5L909.7 479.8L906.0 477.1L909.0 478.6M905.0 464.3L905.8 464.6L905.0 464.6L904.7 466.1L906.1 468.8L905.0 470.4L902.3 464.7L903.7 463.8L905.0 464.3M893.4 400.3L892.1 403.2L892.0 400.8L893.4 400.3M886.0 396.0L885.8 397.1L883.3 395.7L885.7 394.9L886.0 396.0M976.1 718.5L976.3 720.0L974.6 720.4L973.9 718.3L974.4 716.9L976.1 718.5M769.3 365.2L769.8 363.6L771.9 362.5L771.4 364.7L769.3 365.2M817.1 333.1L817.9 333.2L816.7 335.0L817.0 336.0L815.4 336.3L816.2 334.5L815.4 334.4L815.7 333.1L817.1 333.1M684.3 565.8L683.4 565.8L683.8 566.7L682.5 565.5L682.2 562.6L683.7 563.4L684.3 565.8M400.2 387.2L401.6 384.6L401.3 388.5L400.1 388.3L400.2 387.2M437.9 369.8L438.4 370.5L437.1 370.3L436.1 372.0L435.2 371.0L435.7 369.4L437.9 369.8M996.4 842.8L997.2 843.2L995.5 844.2L996.0 845.6L994.4 846.0L995.2 843.4L996.4 842.8M984.9 772.4L986.3 772.5L986.8 773.9L985.5 773.9L984.9 772.4M764.6 356.1L764.1 356.6L761.5 354.6L762.6 354.4L764.6 356.1M465.7 592.2L466.0 593.6L464.4 593.8L464.8 591.8L465.7 592.2M935.8 127.9L936.0 129.2L935.2 129.0L935.5 130.2L934.5 130.9L933.7 130.0L934.1 128.8L933.2 129.5L932.5 128.6L934.4 127.9L933.7 127.0L934.6 125.5L935.8 127.9M708.7 772.7L710.6 772.4L709.1 773.9L707.8 773.1L708.7 772.7M833.3 823.1L833.9 824.3L831.7 823.2L833.3 823.1M558.8 734.3L563.0 734.1L563.8 734.9L558.6 735.3L558.8 734.3M796.4 85.8L796.2 87.5L794.8 88.3L794.6 86.6L795.6 87.0L796.4 85.8M874.5 835.1L876.6 836.5L873.2 843.0L873.5 843.7L874.9 843.6L874.5 844.1L872.5 844.8L872.8 843.6L872.0 843.6L871.8 845.4L865.8 844.8L865.1 845.6L861.9 844.7L861.8 843.4L866.0 843.0L864.4 839.0L868.1 835.6L870.2 834.6L874.5 835.1M591.2 784.1L592.6 786.1L590.8 785.5L590.0 784.6L590.2 783.3L587.8 781.4L587.4 778.3L588.4 778.2L592.2 781.6L592.2 783.3L590.9 783.5L591.2 784.1M745.9 742.7L746.3 743.2L742.0 746.0L740.5 745.5L741.0 741.2L745.2 741.0L745.9 742.7M571.5 761.3L571.6 762.9L570.3 761.3L571.3 763.4L569.0 764.0L565.0 762.2L560.0 755.0L561.0 751.4L565.0 750.6L565.7 752.8L569.6 758.0L569.1 758.6L571.5 761.3M558.2 743.8L558.2 745.4L557.1 744.9L557.0 745.7L554.5 744.8L555.5 744.7L557.0 740.5L558.1 741.8L558.2 743.8M557.8 739.2L559.1 741.0L558.9 742.5L554.7 736.9L556.5 736.9L557.8 739.2M633.9 719.7L634.7 720.7L633.3 721.0L628.3 718.3L625.6 718.6L627.0 716.5L628.4 716.3L632.4 717.9L633.9 719.7M659.0 715.6L659.2 718.1L657.8 719.8L655.2 718.0L656.2 716.8L652.7 717.5L652.0 716.4L653.7 714.7L657.5 713.7L659.0 715.6M623.0 715.4L623.1 719.5L621.5 720.1L619.1 717.7L618.5 713.1L619.8 713.0L623.0 715.4M647.3 711.8L648.0 712.0L647.6 712.6L645.2 713.9L642.1 713.1L643.1 711.4L645.1 711.0L647.3 711.8M623.2 713.5L623.1 714.9L620.5 712.8L616.6 712.0L615.1 709.9L622.6 711.1L623.2 713.5M524.2 700.0L523.2 701.1L521.6 700.8L517.0 697.3L512.8 696.3L511.4 693.6L512.7 693.4L512.9 691.9L514.8 692.4L514.4 693.4L518.4 695.1L518.0 696.3L518.9 695.9L522.5 699.1L523.3 698.5L524.2 700.0M865.9 647.3L866.9 648.0L865.7 649.3L864.3 648.2L865.2 646.7L865.9 647.3M716.7 668.1L715.7 671.2L713.6 671.9L712.1 671.3L713.5 669.7L715.1 670.5L714.7 669.6L711.2 668.8L709.9 666.5L713.5 662.6L714.4 664.6L716.6 666.3L716.7 668.1M868.1 645.6L869.8 647.5L868.9 648.1L864.7 645.6L865.9 644.8L868.1 645.6M482.8 627.6L482.6 630.9L481.4 632.0L479.6 628.1L478.5 627.8L478.6 625.9L481.4 624.2L482.8 627.6M462.5 567.4L461.8 571.4L459.4 571.3L459.9 569.7L459.3 567.2L460.2 566.1L461.7 565.4L462.5 567.4M470.3 526.9L470.0 530.5L469.1 531.1L468.5 530.4L468.7 532.0L468.0 531.8L467.5 532.9L468.9 533.7L469.2 539.3L468.4 540.9L467.0 540.7L468.0 542.2L467.6 544.4L465.5 546.4L466.1 547.1L465.2 549.6L465.5 548.6L466.1 549.3L465.5 552.4L464.3 553.5L465.5 552.9L464.8 555.8L461.9 549.8L462.6 548.7L463.4 549.7L464.2 544.4L466.1 544.3L466.1 542.9L465.0 542.2L465.1 538.0L466.0 536.9L465.4 534.6L466.9 531.5L467.2 525.9L468.8 522.7L470.2 522.3L470.7 525.1L469.2 525.9L470.3 526.9M958.1 257.2L958.0 258.8L956.2 261.7L952.7 264.3L954.0 266.2L952.8 266.4L953.0 269.3L951.2 270.6L950.6 268.6L951.6 267.1L951.0 264.9L953.8 262.0L952.2 260.2L954.8 260.5L956.7 256.0L958.1 257.2M970.6 226.6L967.8 230.1L968.3 231.2L967.0 232.4L967.4 233.0L965.6 231.6L963.9 231.6L965.6 231.1L965.1 230.1L967.7 227.9L968.3 228.2L969.5 226.5L969.7 227.2L970.0 225.9L970.6 226.6M856.5 196.9L858.7 198.3L856.6 199.6L849.9 197.5L847.2 195.6L848.3 194.5L849.6 194.6L856.5 196.9M917.3 154.7L916.5 157.6L913.7 159.3L909.5 160.9L908.0 160.0L908.7 157.1L911.3 155.2L915.1 153.7L917.3 154.7M996.3 849.3L996.8 850.5L994.1 851.8L993.7 852.9L989.8 855.0L987.2 855.3L986.8 853.7L990.6 852.0L995.8 847.1L995.7 849.2L996.3 849.3M999.4 814.2L999.6 814.8L997.2 815.6L995.8 817.9L995.2 817.6L994.0 818.8L994.4 820.1L992.9 819.7L991.7 821.0L988.2 820.7L992.2 817.4L990.1 817.2L990.7 816.4L993.3 815.6L992.6 817.1L993.6 817.4L994.6 815.0L995.6 815.3L997.1 813.9L999.4 814.2M827.6 821.2L829.0 822.0L825.4 823.4L825.0 824.7L820.5 825.2L819.0 827.2L813.0 827.4L812.1 826.4L812.4 827.7L805.3 827.4L804.6 826.3L807.4 823.3L825.4 820.8L827.6 821.2M960.1 776.4L960.1 780.2L957.3 779.5L955.7 777.8L956.7 775.9L956.1 775.4L957.1 774.5L960.1 776.4M975.9 755.1L977.0 756.4L975.5 759.0L973.8 758.8L971.8 756.7L973.0 755.4L975.9 755.1M723.8 771.2L722.5 773.7L722.8 775.6L720.8 776.2L720.6 777.2L719.0 777.5L718.7 776.2L716.9 774.9L716.2 776.7L712.7 777.9L713.2 776.3L712.0 774.6L712.4 773.2L711.3 773.3L712.2 772.5L713.0 767.8L715.7 767.0L718.6 767.6L719.1 768.5L719.7 767.7L722.0 768.8L723.8 771.2M1000.0 719.3L997.1 719.1L990.8 722.1L988.7 719.6L989.2 717.1L994.0 715.7L999.8 715.9M697.9 768.9L699.0 769.1L697.1 770.0L695.5 774.4L697.9 775.6L698.2 776.7L694.5 777.4L692.7 775.5L685.0 773.8L683.4 771.0L683.9 769.0L681.9 767.6L680.9 763.9L677.2 762.9L672.9 764.2L671.6 763.3L670.2 763.6L669.9 761.8L674.2 758.8L673.1 756.8L676.6 754.8L679.0 756.5L678.5 757.9L681.0 758.5L678.8 754.7L682.4 753.8L684.6 755.1L684.6 756.5L687.2 759.4L687.9 763.9L690.2 767.5L697.9 768.9M973.5 713.7L974.5 714.2L974.4 716.2L972.6 717.8L970.4 716.7L970.2 720.0L967.8 719.4L968.9 718.0L967.8 715.3L964.4 720.4L962.7 718.5L962.6 715.9L963.6 714.2L968.3 713.0L969.2 713.9L968.5 714.7L969.4 716.5L971.0 713.7L973.5 713.7M658.6 738.7L659.5 739.6L658.2 742.0L656.6 741.5L655.6 742.9L655.0 740.9L653.8 740.1L654.2 739.0L655.1 738.1L655.3 739.3L657.3 737.7L658.6 738.7M664.7 735.8L666.2 736.4L664.6 736.6L665.0 737.3L661.5 735.7L658.3 736.7L656.5 735.6L658.5 732.1L662.0 735.2L663.3 734.4L664.7 735.8M548.3 721.6L547.5 727.4L546.6 728.4L544.7 728.2L543.1 724.4L540.9 722.6L539.5 722.6L537.1 717.7L533.9 715.4L537.1 715.2L538.6 713.3L539.9 713.7L544.3 718.8L548.3 721.6M932.5 596.3L933.2 596.7L931.7 597.5L931.3 599.5L927.9 600.8L924.8 597.9L928.6 595.3L932.5 596.3M958.4 539.1L959.5 540.0L959.3 541.1L957.7 540.9L955.0 544.1L949.5 544.9L947.0 543.1L947.9 540.4L950.2 538.9L952.3 535.7L954.0 535.2L954.5 535.9L955.0 535.1L958.1 536.5L958.4 539.1M976.0 535.0L975.5 535.7L974.1 534.5L973.5 532.6L972.5 533.3L972.0 532.7L971.7 529.2L973.2 526.6L973.9 527.4L973.7 530.0L976.0 535.0M888.1 516.2L886.5 517.1L885.0 516.7L884.7 517.7L883.2 517.5L881.0 514.6L880.1 515.2L881.0 513.3L880.4 513.5L880.3 512.6L885.6 515.2L885.8 513.4L888.1 516.2M944.9 510.0L945.1 511.2L941.6 508.8L939.8 508.9L939.4 507.6L935.1 505.0L931.0 510.6L931.3 507.1L932.2 505.5L931.0 505.6L931.3 502.3L930.2 499.7L932.2 500.0L932.0 501.9L933.6 500.4L935.4 501.0L936.2 502.6L937.9 502.6L939.8 504.6L939.7 503.7L941.2 504.0L944.4 507.3L943.4 506.9L944.9 510.0M913.1 501.5L913.8 502.0L913.1 510.8L912.1 509.7L912.6 508.5L911.1 507.2L911.9 505.4L911.5 503.0L913.1 501.5M910.8 489.6L911.2 490.5L909.8 493.3L906.7 491.4L907.0 487.7L907.7 488.4L909.1 487.8L910.9 488.8L910.8 489.6M944.2 476.0L944.6 479.3L943.9 479.6L943.9 481.3L942.5 480.8L941.8 482.2L939.4 481.3L938.9 480.3L940.1 477.7L939.4 473.5L940.5 473.1L942.4 475.8L944.2 476.0M919.8 608.6L920.6 609.4L918.8 611.1L917.6 610.0L913.1 611.7L911.9 610.6L914.2 608.1L916.2 608.1L917.3 609.1L919.8 608.6M291.9 617.9L289.6 625.4L287.4 628.1L282.5 630.9L269.9 634.6L263.8 632.4L262.3 630.6L259.6 619.6L260.0 606.0L259.1 597.0L260.6 595.0L259.4 600.3L260.9 600.6L260.8 597.0L263.9 589.0L263.7 585.8L265.9 584.6L267.0 582.1L267.4 580.3L266.5 578.8L268.9 577.7L266.8 575.6L269.8 577.0L270.2 578.2L272.5 577.6L275.3 578.8L268.9 574.9L268.8 575.9L265.5 574.0L264.8 572.6L265.8 572.0L268.2 572.1L272.9 576.4L268.4 572.4L270.2 572.2L272.4 575.7L278.3 581.9L279.1 583.9L278.3 583.9L280.1 586.1L278.8 585.6L279.3 587.2L280.3 586.7L283.8 592.3L283.3 592.9L284.0 594.0L283.4 593.5L283.3 594.6L282.1 594.6L285.7 595.2L285.4 597.1L286.5 600.9L285.9 599.8L285.7 600.7L288.1 603.2L288.3 605.4L290.1 607.6L288.3 607.5L290.6 609.5L291.1 612.8L291.7 612.0L291.9 617.9M733.1 410.8L733.5 411.4L731.4 413.3L730.6 412.9L730.8 412.0L730.1 412.4L730.3 414.3L728.7 416.2L727.7 420.0L726.2 419.9L727.5 421.2L727.7 420.1L727.1 424.3L726.1 425.5L727.0 426.1L727.1 424.6L727.6 426.1L726.7 426.4L725.9 428.3L724.9 428.2L725.9 427.7L724.0 428.4L721.6 431.4L720.7 431.3L721.5 431.8L721.1 433.4L720.0 433.4L720.6 432.3L716.7 433.6L716.7 435.6L715.8 435.7L716.8 435.8L716.5 436.7L715.9 436.1L714.4 437.5L714.2 436.1L713.1 437.3L713.4 436.3L712.4 435.7L708.3 436.1L707.8 435.0L705.7 435.0L701.0 433.0L699.1 423.6L700.1 422.6L699.1 420.7L699.8 418.9L703.4 416.8L704.2 414.9L706.9 412.6L708.3 412.7L707.7 411.4L706.2 412.7L706.1 411.3L708.0 409.3L710.4 410.5L712.1 410.0L711.1 409.6L711.1 408.5L713.9 407.3L713.9 408.1L715.2 408.1L715.3 407.4L715.7 408.4L717.1 407.3L717.9 408.6L718.2 407.7L719.8 407.3L720.1 406.7L719.0 407.2L720.1 405.7L722.9 405.6L724.1 407.7L723.4 405.2L726.3 406.3L726.8 407.5L726.0 405.1L727.5 403.4L729.4 405.8L731.5 405.8L733.1 410.8M875.8 304.0L874.9 307.0L875.4 309.1L876.4 309.7L875.7 314.7L874.1 318.8L873.7 334.4L871.6 340.8L869.1 345.5L869.2 355.8L868.1 355.1L867.4 355.6L865.1 350.0L859.6 346.2L856.8 339.1L855.2 339.2L855.8 333.7L854.9 331.3L855.1 327.0L860.0 312.5L861.6 311.1L863.8 304.3L867.9 301.8L868.7 302.2L868.5 300.4L870.4 299.3L872.5 301.1L875.4 301.4L875.8 302.8L877.1 302.9L875.8 304.0M919.4 833.4L918.8 835.5L915.7 836.1L914.3 835.4L911.0 836.7L915.0 836.8L915.5 837.3L914.8 837.7L911.3 837.4L906.3 839.0L905.7 835.1L905.6 836.5L901.9 839.8L899.6 839.9L897.5 841.5L894.6 841.5L889.0 844.4L885.6 844.5L882.6 846.1L877.5 844.7L877.4 843.4L878.8 842.2L877.2 840.4L878.4 838.0L881.0 837.4L884.3 834.9L888.7 836.1L888.7 835.1L890.6 834.7L891.5 836.2L891.6 835.0L892.5 836.6L894.2 836.6L895.6 838.6L898.4 838.6L900.1 837.0L903.6 836.3L903.2 835.4L899.7 834.2L897.5 834.4L892.9 832.0L893.2 830.6L896.1 829.3L900.3 829.4L900.9 830.7L903.6 832.3L905.9 830.2L909.1 830.3L910.1 831.4L910.0 833.9L911.0 830.6L914.7 829.6L916.4 831.8L916.8 834.3L918.2 834.0L918.6 832.8L919.4 833.4M984.1 817.9L982.2 819.3L982.3 820.7L980.7 820.7L981.8 822.2L981.2 823.2L975.4 826.0L969.6 827.0L964.3 830.2L962.6 829.9L962.0 830.8L960.7 829.7L957.4 830.0L956.8 831.9L950.9 833.2L947.9 831.9L946.5 832.9L943.4 832.2L938.4 833.6L936.2 833.1L932.1 835.3L930.0 833.7L930.4 828.8L932.5 829.0L932.9 828.0L934.2 828.0L936.0 826.1L939.4 824.6L940.2 825.2L942.5 824.9L942.3 824.2L945.2 825.2L949.2 824.7L959.0 826.9L960.5 825.8L960.6 824.6L961.6 825.1L965.2 824.2L967.2 822.9L967.8 824.1L972.4 825.0L975.5 823.9L975.5 822.2L981.7 818.3L982.4 816.8L979.1 817.9L980.8 815.3L983.0 816.0L984.1 817.9M1000.0 845.2L997.0 845.7L997.5 843.6L1000.0 842.0M1000.0 840.4L998.3 841.1L998.0 839.6L999.1 838.3L998.8 834.9L1000.0 833.6M940.4 526.8L936.8 543.2L937.2 547.1L937.9 547.5L937.4 548.2L940.9 551.0L941.0 552.3L940.1 554.9L936.6 556.5L934.0 552.5L929.5 551.5L927.5 549.8L925.7 547.9L925.2 545.6L926.1 543.3L929.6 542.5L931.8 540.3L929.7 533.9L931.6 530.2L931.4 527.2L935.2 525.0L939.4 525.5L940.4 526.8M947.7 525.4L948.5 532.8L943.9 538.6L942.7 547.3L940.8 549.9L940.0 540.8L944.9 527.2L945.8 521.7L945.3 520.2L946.8 518.4L946.2 521.7L947.1 521.7L947.7 525.4M881.5 541.3L882.4 541.8L880.5 544.3L878.7 544.6L876.3 546.9L875.4 550.4L869.2 553.3L869.8 556.5L868.5 556.0L869.6 557.6L866.4 563.9L864.5 566.2L861.3 567.5L860.0 571.7L856.4 575.4L853.5 576.3L853.1 578.8L850.5 579.8L848.4 582.2L848.9 577.7L854.0 569.8L855.6 569.2L857.4 566.0L859.0 566.2L860.7 564.2L863.5 558.6L865.9 556.4L868.7 550.2L869.0 551.4L869.8 550.8L869.3 549.1L871.0 548.6L871.1 547.4L872.2 546.8L871.3 546.1L871.6 545.4L872.7 545.3L873.2 543.7L873.7 545.2L875.6 543.0L875.0 542.3L875.9 541.9L876.1 539.4L873.9 537.7L873.8 536.1L878.0 539.0L877.4 537.3L875.1 536.0L875.0 534.7L875.6 534.9L874.9 533.6L876.3 534.0L875.6 531.9L876.6 528.0L878.2 530.3L877.7 532.7L878.9 534.2L878.0 534.4L878.1 536.5L878.7 537.4L879.8 537.2L880.0 539.6L880.9 539.4L881.5 541.3M932.4 517.6L932.7 522.4L928.0 526.6L928.1 529.3L926.2 530.3L925.8 531.5L920.4 533.4L916.7 537.5L916.7 534.0L915.6 531.8L916.6 528.0L915.8 517.6L915.3 516.6L911.6 516.5L911.9 514.4L912.8 513.6L919.9 515.8L924.0 518.6L925.3 516.7L926.9 516.5L928.9 517.5L928.0 518.6L928.4 519.0L932.0 515.7L931.7 517.4L932.4 517.6M1000.0 137.5L998.9 138.4L999.1 141.4L998.0 144.0L997.0 144.2L996.8 147.1L998.0 149.2L996.6 148.4L993.0 149.7L993.5 147.0L991.4 147.0L990.9 147.9L989.9 145.7L988.9 146.3L989.0 145.4L989.9 145.4L989.8 144.2L988.3 143.4L989.6 143.6L990.2 142.5L989.2 141.9L989.6 141.2L987.7 141.6L987.8 139.5L986.2 139.5L982.9 142.3L990.0 134.4L990.1 129.8L991.7 128.2L991.7 127.0L994.9 129.6L997.1 128.1L1000.0 127.6M949.8 848.2L950.9 849.4L949.2 851.7L944.7 854.1L939.4 853.7L935.8 851.0L929.4 848.7L925.5 849.6L920.0 849.4L916.8 847.6L918.1 845.7L920.5 844.6L928.4 842.7L931.4 842.8L933.9 841.1L936.6 843.1L939.0 843.2L940.1 845.2L943.6 844.6L949.8 848.2M904.1 502.5L904.7 503.9L903.3 505.6L903.3 509.4L902.4 509.1L901.2 511.0L899.1 510.7L898.7 509.5L899.4 509.7L896.6 508.3L895.4 507.0L895.2 505.4L893.1 503.9L891.7 499.6L889.9 497.4L887.5 496.6L886.0 493.7L884.3 494.4L883.9 492.9L885.0 492.1L890.5 492.2L893.6 490.6L894.7 492.2L896.2 492.8L897.2 491.5L901.3 494.4L901.5 495.6L903.3 495.6L902.6 497.6L904.1 502.5M857.1 837.7L858.8 838.7L858.7 839.3L852.5 843.1L850.7 845.2L851.3 846.3L849.7 846.8L849.0 846.4L850.3 845.2L849.8 844.0L845.4 841.8L839.2 841.0L836.6 837.8L837.5 837.3L843.7 838.0L846.6 837.3L849.3 835.3L854.8 836.2L857.1 837.7M859.8 769.4L860.2 772.1L856.9 775.0L856.1 774.4L856.6 773.0L854.7 769.0L855.9 763.9L858.2 762.0L858.4 764.8L859.6 766.1L858.9 766.4L859.8 769.4M632.8 721.7L632.1 723.3L630.2 722.0L624.0 722.3L622.1 721.1L623.6 719.8L622.9 717.4L623.9 716.9L625.6 718.9L627.9 718.7L632.8 721.7M610.1 703.3L611.0 705.0L610.1 707.6L608.3 708.8L606.5 708.4L604.8 705.8L605.1 703.7L608.8 702.3L610.1 703.3M971.3 769.9L968.9 774.0L970.2 775.9L969.5 777.8L968.6 778.1L967.7 776.1L967.2 777.9L966.1 777.4L966.7 776.7L965.5 778.1L964.0 778.0L964.2 774.3L965.3 773.2L963.5 770.2L964.1 768.6L969.3 765.7L971.3 769.9M978.2 773.3L979.4 774.5L978.6 775.7L974.3 777.6L974.1 778.3L975.2 778.4L973.8 781.1L972.3 780.5L971.1 781.4L969.2 779.2L971.3 775.0L972.6 774.2L971.6 774.3L972.0 771.7L971.1 771.7L972.2 770.0L971.7 765.2L972.3 763.1L974.2 761.4L977.5 763.9L978.4 767.2L976.9 765.9L976.3 766.8L975.3 766.6L974.7 773.2L976.3 772.4L978.2 773.3","rivers":"M421.0 378.7L420.3 375.0L418.6 372.9M418.6 372.9L417.9 375.8L419.4 382.2L418.9 387.7M406.6 366.4L405.0 372.2L401.6 375.7L401.0 378.8M406.6 366.4L410.0 367.1L411.9 368.8L414.8 378.5L414.8 381.4M430.2 357.6L430.8 362.9L433.1 365.7L434.9 371.3M416.8 350.3L423.4 359.6L423.8 362.7L428.8 372.2L428.3 375.8M416.8 350.3L422.1 352.9L425.7 353.0M407.0 343.4L410.1 349.7L413.2 352.4L411.6 357.7L414.6 361.1L416.1 368.4L418.6 372.9M407.0 343.4L410.4 344.6L412.1 347.6L414.3 347.5L416.8 350.3M400.6 335.9L400.7 338.6L404.6 345.8L403.5 354.6L405.6 357.5L405.9 362.0L407.4 364.1L406.6 366.4M400.6 335.9L403.5 341.7L405.5 341.8L407.0 343.4M296.9 229.3L296.9 232.7L295.1 234.7L291.3 234.8L287.8 238.0L281.6 238.0L279.2 240.1L274.7 240.0L270.2 249.4L270.1 259.4L273.4 271.8L287.3 282.8L289.6 288.8L292.1 290.5L300.7 307.6L307.0 310.6L311.1 316.6L314.1 319.0L317.2 319.7L317.0 320.9L318.8 322.7L325.2 325.4L326.8 324.9L330.3 326.5L334.2 323.4L334.8 320.7L339.2 322.1L340.9 320.0L344.5 321.2L349.0 318.3L358.2 318.5L362.2 319.8L365.1 322.2L371.3 323.4L377.4 326.9L382.2 324.8L383.4 327.7L385.9 327.0L391.1 328.2L394.3 326.3L398.9 329.8L401.0 333.8L400.6 335.9M211.3 158.3L211.3 164.2L209.1 166.7M118.0 320.4L119.2 318.9M115.1 319.6L116.4 317.4M119.2 318.9L120.4 319.3L120.3 321.7M119.2 318.9L119.3 318.0L116.4 317.4M116.4 317.4L115.8 316.6M297.9 204.0L294.4 198.8M294.4 198.9L289.9 192.0L284.7 190.3L279.9 186.7L271.8 174.3L264.8 170.6L256.8 162.9L256.2 159.3L252.4 152.9L248.8 151.4L245.3 147.3L240.0 144.9L238.6 142.4L236.3 147.6L234.7 148.2L231.5 148.4L221.6 145.0L219.9 145.8L217.7 149.8L213.5 152.5L214.0 155.1L211.3 158.3M209.1 166.7L203.5 168.0L201.8 170.8L199.7 170.7L195.2 176.3L192.8 182.1L189.5 184.2L186.3 192.3L179.0 203.3L175.9 215.3L174.7 228.4L171.3 235.4L171.4 238.6L169.3 243.8L157.5 250.0L152.8 254.0L144.1 257.0L142.9 259.4L143.3 261.2L141.7 261.6L139.8 259.7L134.9 261.7L133.7 265.3L132.2 265.6L131.6 267.7L127.2 271.9L125.7 281.7L130.5 291.0L128.3 301.5L123.6 305.2L120.5 312.0L117.9 314.7L115.3 317.0L112.7 317.2M425.8 345.1L425.7 352.8L432.8 359.6M425.8 345.1L426.7 347.7L432.3 352.9L432.7 355.1L437.1 358.4M505.4 286.1L506.1 288.0L505.1 289.3L497.3 294.5L493.3 301.3L488.8 304.4L482.7 306.8L475.7 307.0L462.7 310.5L457.8 314.1L453.3 315.7L446.5 314.9L441.0 315.6L438.5 314.7L431.6 316.8L428.8 319.4L425.9 326.0L424.4 334.9L425.9 339.8L425.8 345.1M400.2 265.0L403.9 261.4L433.2 262.9L437.4 264.4L442.2 263.5L460.3 264.8L465.6 265.7L468.6 267.9L474.4 267.9L476.2 269.5L478.6 267.4L485.5 267.0L491.3 264.7M529.8 175.1L526.9 173.6M535.9 170.9L535.3 173.0L533.1 174.4M529.8 175.1L533.1 174.4M535.9 170.9L538.1 171.0L544.0 175.4L543.7 178.7L546.5 181.9L548.5 182.0L549.7 180.5L552.2 181.2L554.0 189.4L556.7 192.0L557.6 191.0L561.9 191.1L568.2 194.0L569.9 191.4L575.2 188.5L578.0 190.8L580.3 189.9L585.1 192.1L587.5 192.0L593.0 197.0L598.4 194.7L594.4 188.2L582.7 182.7L576.6 176.4L570.0 174.2L566.9 164.8L567.9 160.4L576.0 153.0L581.7 154.0L587.1 152.4L592.7 157.0L602.6 157.2L607.1 155.8L606.1 154.4L608.0 151.6L615.9 152.2L618.0 148.1L624.6 142.9L623.3 140.2L619.3 138.1L619.4 134.5L627.4 129.4L635.6 127.9L638.7 125.5L644.9 113.7L649.3 102.4L646.3 87.9L651.2 81.6L652.1 78.5L658.1 74.2L662.0 73.3L666.0 73.9L672.5 77.5L690.2 76.8L695.1 79.2L700.8 79.7L704.6 82.7L705.7 89.5L702.7 92.6L703.3 95.0L701.0 99.7L700.5 106.1L696.3 113.5L700.6 121.0L699.1 127.5L696.5 131.1L701.3 154.2L698.6 160.8L698.7 168.8L705.5 168.0L709.3 165.2L715.4 162.9L718.4 159.8L732.0 162.6L738.7 159.1L745.3 159.6L752.7 158.5L757.1 156.2M515.1 170.5L522.7 171.7L526.9 173.6M757.1 156.1L758.8 150.9L762.6 147.6L763.8 144.6L768.6 140.8L771.2 136.2L776.5 130.7L778.0 127.0L781.4 124.7L784.9 119.2L787.8 116.5L794.1 113.7L796.7 109.2L804.4 104.7M620.7 271.8L627.4 272.0L632.9 268.7L637.6 269.9L644.0 266.2L646.8 266.3L647.9 267.4L647.8 264.3L651.5 262.4L652.8 259.9L656.2 257.1L656.7 254.4L659.8 254.2L663.4 250.7L664.4 251.7L667.0 251.5L668.3 249.2L670.7 248.7L678.8 236.5L680.9 231.2L694.7 227.7L704.5 226.6L716.6 228.9L722.5 237.1L726.1 234.5L728.3 235.9L732.1 236.3L731.9 238.8L734.1 240.3L735.2 244.7L739.1 243.3L742.4 243.9L742.5 247.3L745.4 248.1M560.3 283.3L563.4 294.6L569.1 303.0L572.1 294.8L572.8 288.3L574.0 287.5L576.5 296.2L575.2 298.4L574.9 304.5L575.9 313.7L582.9 313.9L588.1 310.9L591.3 307.3L593.3 307.1L594.8 307.7L596.4 310.8L595.4 316.6L597.8 316.8L604.0 310.8L605.3 310.3L606.8 312.4L610.9 309.6L611.5 307.5L609.1 299.6L608.9 294.7L609.8 293.0L612.2 292.5L616.4 286.1L617.1 284.2L615.7 282.0L616.2 280.4L617.6 278.8L620.9 277.9L620.7 271.8M547.2 225.5L551.6 231.3L550.8 232.4L548.7 232.1L548.4 233.3L553.0 241.2L556.6 274.9L557.7 279.5L560.3 283.2M745.4 248.1L752.1 239.3L755.9 237.2L756.0 236.0L754.1 234.2L756.0 233.9L760.1 226.7L766.2 227.5L767.1 229.7L769.6 230.8L776.5 237.4L781.3 238.7L786.2 237.7M786.1 238.3L786.2 237.7M786.2 237.7L793.1 231.6L794.0 226.5L797.9 223.5L798.0 221.4L802.6 219.1L804.9 213.1L805.9 213.3L810.6 208.7L811.0 203.5L813.9 196.2L817.1 193.6L826.0 191.7L832.3 195.2M653.4 549.7L654.9 552.2L656.5 561.0L660.0 566.3L668.7 574.3M653.4 549.7L658.4 553.1L658.1 560.7L660.9 564.5L666.1 568.2L673.1 570.5M597.0 451.1L599.9 447.5L604.6 444.4L611.5 448.1L613.2 450.5L618.8 446.7L619.3 444.9M619.2 444.9L619.3 444.9M619.3 444.9L619.3 444.8M619.3 444.9L621.7 442.5L621.9 440.3L631.7 441.3L639.4 451.0L644.2 454.6L645.5 457.1L644.8 464.0L646.4 470.8L650.1 475.5L655.6 478.0L655.7 480.6L659.2 482.5L659.3 485.9L658.1 488.6L660.3 489.4L664.3 494.4L664.1 507.3L666.5 510.5L667.4 514.5L666.2 519.4L668.0 522.7L668.5 537.4L663.1 537.8L659.7 543.7L656.4 544.2L653.9 545.9L653.4 549.7","lakes":"","riverLabels":[{"t":"恆河","p":[346.2,323.4]},{"t":"印度河","p":[150.4,266]},{"t":"黃河","p":[695.7,94.8]},{"t":"長江","p":[743,242]}]}}</script>
+<script>
+(function(){
+const D = JSON.parse(document.getElementById('data').textContent);
+const C = D.cfg;
+const SCH = C.dims;
+const FATES = C.fates;
+const TIE = C.tie;
+const FLABEL = C.flabel;
+const N = D.scenes.length;
+const PART = '2';
+const TKEY = 'chuandeng-trilogy-v1';
+function tload(){ try { const v = JSON.parse(localStorage.getItem(TKEY) || '{}'); return v && typeof v === 'object' ? v : {}; } catch(e) { return {}; } }
+const TS = tload();
+function tsave(res){
+  try {
+    const t = tload(), me = t[PART] || {};
+    me.l = picks.map((p, i) => { const o = D.scenes[i] && D.scenes[i].options[p]; return o ? o.k : '-'; }).join('');
+    me.pos = pos; me.n = N;
+    if (res) me.res = res; else if (pos < N) delete me.res;
+    t[PART] = me; localStorage.setItem(TKEY, JSON.stringify(t));
+  } catch(e) {}
+}
+function xpick(c){ const t = TS[String(c.p)]; if (!t || !t.l) return false; const L = t.l[c.n - 1]; if (!L || L === '-') return false; return !c.k || c.k.indexOf(L) >= 0; }
+
+const KEY = C.key;
+const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let picks = [], pos = 0;
+
+const $ = (s, r) => (r || document).querySelector(s);
+const story = $('#story');
+
+const CN = ['零','一','二','三','四','五','六','七','八','九'];
+function cnum(n){ if (n < 10) return CN[n]; const t = Math.floor(n/10), u = n%10; return (t > 1 ? CN[t] : '') + '十' + (u ? CN[u] : ''); }
+function letterOf(i){ const p = picks[i]; const o = D.scenes[i].options[p]; return o ? o.k : null; }
+function evalCond(c, upto){
+  if (!c) return true;
+  switch (c.t){
+    case 'xpick': return xpick(c);
+    case 'pick': { const i = c.n - 1; return i < upto && i < picks.length && c.k.indexOf(letterOf(i)) >= 0; }
+    case 'or': return c.items.some(x => evalCond(x, upto));
+    case 'atleast': return c.items.filter(x => evalCond(x, upto)).length >= c.v;
+    case 'fate': {
+      let n = 0; for (let i = 0; i < Math.min(upto, picks.length); i++){ const o = D.scenes[i].options[picks[i]]; if (o && o.f === c.f) n++; }
+      return c.op === '>=' ? n >= c.v : c.op === '<=' ? n <= c.v : n === c.v;
+    }
+    case 'ecount': { let n = 0; for (let i = 0; i < Math.min(upto, picks.length); i++){ const o = D.scenes[i].options[picks[i]]; if (o && o.c) n++; } return n >= c.v; }
+  }
+  return false;
+}
+function save(){ try { localStorage.setItem(KEY, JSON.stringify({picks, pos})); } catch(e) {} tsave(); }
+function load(){ try { return JSON.parse(localStorage.getItem(KEY) || 'null'); } catch(e) { return null; } }
+function valid(st){
+  if (!st || !Array.isArray(st.picks) || !Number.isInteger(st.pos)) return false;
+  if (st.pos < 0 || st.pos > N || st.picks.length > N) return false;
+  if (st.picks.length < st.pos || st.picks.length > st.pos + 1) return false;
+  return st.picks.every((p, i) => Number.isInteger(p) && p >= 0 && p < D.scenes[i].options.length);
+}
+
+/* ---------- pieces ---------- */
+function narrHTML(sc, idx){
+  let h = '', inList = false;
+  for (const b of sc.body){
+    if (b.c && !evalCond(b.c, idx)) continue;
+    if (b.h.startsWith('<li>')) { if (!inList) { h += '<ul>'; inList = true; } h += b.h; continue; }
+    if (inList) { h += '</ul>'; inList = false; }
+    if (b.kind) h += '<div class="memory"><b>' + (b.kind === '轉生' ? '上一世' : (C.memLabel || '宿緣')) + '</b><p>' + b.h + '</p></div>';
+    else h += '<p>' + b.h + '</p>';
+  }
+  if (inList) h += '</ul>';
+  return h;
+}
+function srcFold(h, extra){ return '<details class="srcf"><summary>出處資料：</summary><p class="src">' + String(h || '').replace(/^(<em>)?出處：/, '$1') + '</p>' + (extra ? '<p class="src">' + extra + '</p>' : '') + '</details>'; }
+const YRS = m => m.era ? '<span class="md"><span class="seg">' + m.era + '｜</span>' + m.yrs.split('、').map((y, i, a) => '<span class="seg">' + y + (i < a.length - 1 ? '、' : '') + '</span>').join('') + '</span>' : '';
+/* era lines break only at the ・ between phrases (a phrase longer than the line still wraps inside) */
+const ERA = t => String(t).split('・').map((x, i, a) => '<span class="seg">' + x + (i < a.length - 1 ? '・' : '') + '</span>').join('');
+/* tidy(): runs after every render. Glues the last three characters of a block (with trailing punctuation) so no
+   line ends up holding a single character; keeps 「——」 with the character before it; keeps page and year ranges whole. */
+const CLOSEP = '，。、；：？！」』）》〉…,.;:?!)', OPENP = '「『（《〈(';
+const GLUE = /[^\s—]——|(?:pp?\. ?)?(?:約|前)?\d+[a-c]?–(?:約|前)?\d+[a-c]?|pp?\. \d+[a-c]?|《[^《》]{1,7}》|〈[^〈〉]{1,7}〉|「[^「」]{1,4}」|[元正一二三四五六七八九十]{1,4}年(?:（[^（）]{1,12}）)?|[一-鿿]{2}(?= [一-鿿])|(?:[第約前]\s?)?\d[\d,]*\s[年月日歲卷冊部位人種幕次天多萬]|[第約前]\s\d[\d,]*/g;
+/* titles and headings break after ：，、； rather than mid-phrase */
+const PH = t => String(t).split(/(?<=[：，、；])/).map(x => '<span class="seg">' + x + '</span>').join('');
+function glueRanges(t){
+  const s = t.nodeValue; GLUE.lastIndex = 0; const ms = []; let m;
+  while ((m = GLUE.exec(s))) ms.push([m.index, m[0].length]);
+  for (let j = ms.length - 1; j >= 0; j--){
+    const [i, len] = ms[j]; const mid = t.splitText(i); mid.splitText(len);
+    const sp = document.createElement('span'); sp.className = 'nb'; mid.replaceWith(sp); sp.appendChild(mid);
+  }
+}
+const SKIPT = '.nb,.seg,.k,.tg,.chips,.lk,.bars,.tl-key,.tr-card,summary';
+/* word boundaries (where the browser supports it), so the glued tail does not cut a word such as 不會 in two */
+const WSEG = (() => { try { return new Intl.Segmenter('zh-Hant', {granularity: 'word'}); } catch(e) { return null; } })();
+function tidy(root){
+  if (!root) return;
+  try { tidyIn(root); } catch(e) {}
+}
+function tidyIn(root){
+  const plan = [], seen = new Set();
+  /* read phase (no DOM writes, so styles are computed once) */
+  root.querySelectorAll('p,li,dd,td,th,.choice .t,.sid,.recap li>span:last-child').forEach(el => {
+    if (el.dataset.td || el.closest(SKIPT)) return;
+    el.dataset.td = '1';
+    const all = [], ok = []; const tw = document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n;
+    while ((n = tw.nextNode())){
+      if (!/\S/.test(n.nodeValue)) continue; all.push(n);
+      if (seen.has(n)) continue; seen.add(n);
+      const pe = n.parentElement;
+      if (!pe.closest(SKIPT) && !/flex|grid/.test(getComputedStyle(pe).display)) ok.push(n);
+    }
+    let cut = null; const t = all[all.length - 1];
+    if (t && ok.indexOf(t) >= 0){
+      const s = t.nodeValue; let j = s.length;
+      while (j > 0 && (CLOSEP.includes(s[j - 1]) || /\s/.test(s[j - 1]))) j--;
+      let k = j, c = 0;
+      while (k > 0 && c < 3 && !/\s/.test(s[k - 1])){ if (!OPENP.includes(s[k - 1])) c++; k--; }
+      while (k > 0 && OPENP.includes(s[k - 1])) k--;
+      if (WSEG && k > 0 && k < j){ const from = Math.max(0, k - 6);
+        for (const g of WSEG.segment(s.slice(from, j))){ const a = from + g.index, b = a + g.segment.length;
+          if (a < k && b > k){ if (k - a <= 3 && /[\u4e00-\u9fff]/.test(g.segment)) k = a; break; } if (a >= k) break; } }
+      const ob = Math.max(s.lastIndexOf('《', k - 1), s.lastIndexOf('「', k - 1));
+      if (ob >= 0 && k - ob <= 6 && s.indexOf(s[ob] === '《' ? '》' : '」', ob) >= k) k = ob;
+      if (k > 1 && /\s/.test(s[k - 1]) && /\d/.test(s[k - 2])){ k--; while (k > 0 && /[\d,]/.test(s[k - 1])) k--; }
+      if (c >= 2 && !(k === 0 && all.length === 1)) cut = [t, k];
+    }
+    plan.push([ok, cut]);
+  });
+  /* write phase */
+  for (const [ok, cut] of plan){
+    try {
+      if (cut){ const [t, k] = cut; if (k < t.nodeValue.length){ const tail = t.splitText(k); const sp = document.createElement('span'); sp.className = 'nb'; tail.replaceWith(sp); sp.appendChild(tail); } }
+      ok.forEach(glueRanges);
+    } catch(e) {}
+  }
+}
+
+/* founders of the eight schools: a name button opens a white card */
+const FKEY = s => (s === '臨濟' || s === '曹洞') ? '禪' : String(s).replace(/宗$/, '');
+function founderRow(key){
+  const items = (D.founders && D.founders.items) || [];
+  const fs = items.map((f, i) => [f, i]).filter(x => x[0].k === key);
+  if (!fs.length) return '';
+  return '<p class="fdrow">' + fs.map(x => '<span class="fdi"><span class="fdl" aria-hidden="true">' + x[0].role + '</span><button type="button" class="fd" data-f="' + x[1] + '" aria-haspopup="dialog" aria-label="' + x[0].role + '：' + x[0].n + '（' + x[0].title + '），看介紹">' +
+    x[0].n + '<small>' + x[0].title + '</small></button></span>').join('') + '</p>';
+}
+let fdLast = null, fdInert = [], fdDown = null;
+function openFounder(i, btn){
+  const f = D.founders && D.founders.items[i]; if (!f) return;
+  let m = document.getElementById('fmask');
+  if (!m){ m = document.createElement('div'); m.id = 'fmask'; m.className = 'fmask'; m.hidden = true;
+    m.innerHTML = '<div class="fbox" role="dialog" aria-modal="true" aria-labelledby="fbox-h"><button type="button" class="fx" aria-label="關閉">×</button><div class="fin"></div></div>';
+    document.body.appendChild(m); }
+  m.querySelector('.fin').innerHTML = '<p class="frole"><span class="seg">' + f.role + '</span></p><h3 id="fbox-h">' + f.n + '</h3><p class="fmeta">' + ERA(f.title + '・' + f.dates) + '</p>' +
+    '<p class="ftext">' + f.text + '</p>' + srcFold(f.src) +
+    ((D.founders.intro && D.founders.intro.length) ? '<details class="srcf"><summary>為什麼是這幾位：</summary><p class="src">' + D.founders.intro.join('') + '</p></details>' : '');
+  tidy(m.querySelector('.fin'));
+  fdLast = btn || document.activeElement;
+  const sbw = window.innerWidth - document.documentElement.clientWidth;
+  if (sbw > 0) document.body.style.paddingRight = sbw + 'px';
+  fdInert = [...document.body.children].filter(el => el !== m && !el.inert);
+  fdInert.forEach(el => { el.inert = true; });
+  m.hidden = false; document.body.classList.add('modal-open');
+  m.querySelector('.fin').scrollTop = 0; m.querySelector('.fx').focus({preventScroll: true});
+}
+function closeFounder(){
+  const m = document.getElementById('fmask'); if (!m || m.hidden) return;
+  m.hidden = true; document.body.classList.remove('modal-open'); document.body.style.paddingRight = '';
+  fdInert.forEach(el => { el.inert = false; }); fdInert = [];
+  if (fdLast && fdLast.focus) fdLast.focus({preventScroll: true});
+}
+const fdVisible = x => x.checkVisibility ? x.checkVisibility() : x.getClientRects().length > 0;
+document.addEventListener('pointerdown', e => { fdDown = e.target; }, true);
+document.addEventListener('click', e => {
+  const fb = e.target.closest('.fd'); if (fb){ e.preventDefault(); openFounder(+fb.dataset.f, fb); return; }
+  if (e.target.closest('.fx')){ closeFounder(); return; }
+  if (e.target.id === 'fmask' && (!fdDown || fdDown.id === 'fmask')) closeFounder();
+});
+document.addEventListener('keydown', e => {
+  const m = document.getElementById('fmask'); if (!m || m.hidden) return;
+  if (e.key === 'Escape'){ e.preventDefault(); closeFounder(); return; }
+  if (e.key === 'Tab'){
+    const f = [...m.querySelectorAll('button, a[href], summary')].filter(fdVisible); if (!f.length) return;
+    const a = f[0], z = f[f.length - 1], cur = document.activeElement;
+    if (!m.contains(cur)){ e.preventDefault(); (e.shiftKey ? z : a).focus(); }
+    else if (e.shiftKey && cur === a){ e.preventDefault(); z.focus(); }
+    else if (!e.shiftKey && cur === z){ e.preventDefault(); a.focus(); }
+  }
+});
+function choicesHTML(sc, picked, idx){
+  return '<div class="choices" role="group" aria-label="你的選擇">' + sc.options.map((o, i) => (o.c && !evalCond(o.c, idx)) ? '' :
+    '<button type="button" class="choice' + (o.c ? ' extra' : '') + (picked === i ? ' picked' : '') + '" data-i="' + i + '"' + (o.c ? ' title="宿緣選項"' : '') +
+    (picked != null ? ' disabled' : '') + ' aria-pressed="' + (picked === i) + '">' +
+    '<span class="k">' + o.k + '</span><span class="t">' + o.t + '</span></button>').join('') + '</div>';
+}
+function afterHTML(sc, i, withNext, fresh){
+  let h = '<section class="after' + (fresh ? ' fresh' : '') + '" id="after-' + i + '" tabindex="-1">' +
+    '<p class="after-label">後來</p><div class="hist">' + sc.after.map(p => '<p>' + p + '</p>').join('') + '</div>' +
+    srcFold(sc.source);
+  if (withNext) h += '<button type="button" class="next" data-act="next">' + (i === N - 1 ? '看看你的結局' : '往下一幕') + '</button>';
+  return h + '</section>';
+}
+function headHTML(sc){
+  return '<div><p class="no">第' + sc.num + '幕</p><h2>' + PH(sc.title) + '</h2><p class="era">' + ERA(sc.era) + '</p></div>';
+}
+function volumeHTML(v){
+  return '<div class="vol"><span class="slip">' + v.label + '</span><div><h3>' + PH(v.title) + '</h3><p>' + v.intro + '</p></div></div>';
+}
+function activeHTML(i, fresh){
+  const sc = D.scenes[i];
+  const picked = picks.length > i ? picks[i] : null;
+  let h = '<article class="scene' + (fresh ? ' fresh' : '') + '" id="scene-' + i + '">' + headHTML(sc) +
+    '<div class="narr">' + narrHTML(sc, i) + '</div>' + choicesHTML(sc, picked, i);
+  if (picked != null) h += afterHTML(sc, i, true, false);
+  return h + '</article>';
+}
+function doneHTML(i){
+  const sc = D.scenes[i];
+  return '<details class="done" id="scene-' + i + '"><summary><span class="no">第' + sc.num + '幕</span><span class="st">' + sc.title +
+    '</span><span class="mine">你選了 ' + sc.options[picks[i]].k + '</span></summary><div class="body">' +
+    '<p class="era">' + ERA(sc.era) + '</p><div class="narr">' + narrHTML(sc, i) + '</div>' + choicesHTML(sc, picks[i], i) +
+    afterHTML(sc, i, false, false) + '</div></details>';
+}
+
+/* ---------- result ---------- */
+function compute(){
+  const s = {}, last = {};
+  SCH.forEach(k => { s[k] = 0; last[k] = -1; });
+  const f = {}; FATES.forEach(k => { f[k] = 0; });
+  picks.forEach((p, i) => {
+    const o = D.scenes[i].options[p];
+    for (const k in o.s) { s[k] += o.s[k]; last[k] = i; }
+    f[o.f] += 1;
+  });
+  const order = SCH.slice().sort((a, b) => (s[b] - s[a]) || (last[b] - last[a]));
+  const mf = Math.max.apply(null, FATES.map(k => f[k]));
+  const fate = TIE.find(k => f[k] === mf);
+  return {s, f, order, school: order[0], fate};
+}
+function normv(v){ const n = Math.sqrt(v.reduce((a, x) => a + x * x, 0)) || 1; return v.map(x => x / n); }
+function sumv(o){ let t = 0; for (const k in o) t += o[k]; return t; }
+D.masters.forEach(m => {
+  if (m.bal) return;
+  const ts = sumv(m.s), tf = sumv(m.f);
+  m.sv = normv(SCH.map((k, i) => (m.s[k] || 0) / ts - D.baseline.s[i]));
+  m.fv = normv(FATES.map((k, i) => (m.f[k] || 0) / tf - D.baseline.f[i]));
+});
+function entropy(s){
+  const t = SCH.reduce((a, k) => a + s[k], 0); let h = 0;
+  SCH.forEach(k => { if (s[k] > 0) { const p = s[k] / t; h -= p * Math.log(p); } });
+  return h / Math.log(SCH.length);
+}
+function matchMasters(r){
+  const B = D.baseline, t = SCH.reduce((a, k) => a + r.s[k], 0), tf = FATES.reduce((a, k) => a + r.f[k], 0);
+  const sv = normv(SCH.map((k, i) => r.s[k] / t - B.s[i])), fv = normv(FATES.map((k, i) => r.f[k] / tf - B.f[i]));
+  const sc = D.masters.filter(m => !m.bal).map(m => {
+    const hit = m.k.filter(x => letterOf(x[0] - 1) === x[1]).length;
+    const raw = B.wS * m.sv.reduce((a, x, i) => a + x * sv[i], 0) + B.wF * m.fv.reduce((a, x, i) => a + x * fv[i], 0) + B.wK * Math.min(hit, 3);
+    return {m, raw, v: raw + (m.b || 0)};
+  });
+  /* the calibration bias reorders, but the closest raw match is always among the three shown */
+  const best = sc.reduce((a, x) => x.raw > a.raw ? x : a, sc[0]).m;
+  const rk = sc.sort((a, b) => b.v - a.v).map(x => x.m);
+  const keep = (list) => { if (list.indexOf(best) < 0){ const i = rk.indexOf(best); rk.splice(i, 1); rk.splice(list.length - 1, 0, best); } };
+  const bal = D.masters.find(m => m.bal);
+  if (bal && entropy(r.s) >= B.balance){ keep(rk.slice(0, 2)); return {top: [bal].concat(rk.slice(0, 2)), also: rk.slice(2, 4)}; }
+  keep(rk.slice(0, 3));
+  return {top: rk.slice(0, 3), also: rk.slice(3, 5)};
+}
+function naturalRoles(r){
+  const o = r.order, out = [o[0], o[1]];
+  if (r.s[o[2]] > 0 && r.s[o[2]] >= 0.8 * r.s[o[1]]) out.push(o[2]);
+  return out;
+}
+function mixKey(roles){
+  const main = D.roles[roles[0]].cat;
+  const others = Array.from(new Set(roles.slice(1).map(k => D.roles[k].cat).filter(c => c !== main)));
+  return others.length === 0 ? main : others.length === 1 ? main + '+' + others[0] : 'all';
+}
+function comboHTML(c){
+  return '<p class="txt">' + c.lead + '</p><dl class="four">' + c.parts.map(p =>
+    '<div' + (p.k === '在人群裡' ? ' class="ctx"' : '') + '><dt>' + p.k + '</dt><dd>' + p.t + '</dd></div>').join('') + '</dl>';
+}
+function masterText(t){
+  return t.split(/(?=你像(?:他們|他|她)：)|(?=(?:他們|他|她)會提醒你：)/).map(x => {
+    const m = x.match(/^(你像(?:他們|他|她)|(?:他們|他|她)會提醒你)：(.*)$/);
+    return '<p>' + (m ? '<b>' + m[1] + '</b>　' + m[2] : x) + '</p>';
+  }).join('');
+}
+function rolesHTML(roles){
+  const mix = D.mix[mixKey(roles)];
+  const chips = roles.map((k, i) => {
+    const ro = D.roles[k];
+    return '<span class="chip' + (i === 0 ? ' main' : '') + '"><small>' + (i === 0 ? '主角色' : '副角色') + '</small><b>' + ro.name + '</b><small>' + k + '・' + ro.cat + '型</small></span>';
+  }).join('');
+  const cards = roles.map(k => { const ro = D.roles[k]; return '<div class="rcard"><h4>' + ro.name + '<small>' + k + '・' + ro.cat + '型</small></h4><p>' + ro.text + '</p></div>'; }).join('');
+  return '<section class="res"><p class="label">你在人群裡的角色</p><p class="big sm">' + roles.map(k => D.roles[k].name).join('・') + '</p>' +
+    '<div class="chips">' + chips + '</div>' +
+    '<div class="mixcard"><h4>' + mix.name + '</h4><p>' + mix.text + '</p></div>' +
+    '<div class="rcards">' + cards + '</div>' +
+    '<details class="lead"><summary><b style="display:inline">這一節怎麼讀</b></summary>' + D.rolesLead.map(p => '<p>' + p + '</p>').join('') + '</details></section>';
+}
+function masterHTML(mm){
+  return '<section class="res master"><p class="label">' + C.masterLabel + '</p><p class="big sm">' + mm.top.map(m => m.name).join('・') + '</p>' +
+    '<div class="mcards">' + mm.top.map((m, i) => '<div class="mcard' + (i === 0 ? ' first' : '') + '"><h4>' + m.name + '<small>' + (i === 0 ? '最像' : '也很像') + '</small></h4>' + YRS(m) +
+      '<div class="txt">' + masterText(m.text) + '</div></div>').join('') + '</div>' +
+    '<div class="also"><b>也有幾分像</b>' + mm.also.map(m => '<p><strong>' + m.name + '</strong>' + YRS(m) + '<br>' + m.id + '</p>').join('') + '</div>' +
+    srcFold(D.mastersSrc, D.mastersYrsSrc) + '</section>';
+}
+/* a collapsed result section: label + one-line title, opens in place */
+function foldSec(cls, id, label, big, inner){
+  return '<section class="res' + (cls ? ' ' + cls : '') + '"' + (id ? ' id="' + id + '"' : '') + '><details class="rfold"><summary><span class="label">' + label + '</span><span class="big sm">' + big +
+    '</span><span class="chev" aria-hidden="true"></span><span class="hint">點一下展開</span></summary><div class="mbody"><div class="fin2">' + inner + '</div></div></details></section>';
+}
+function allMastersHTML(mm){
+  const tops = mm.top.map(m => m.name), near = mm.also.map(m => m.name);
+  return foldSec('allm', 'all-masters', C.allLabel, cnum(D.masters.length) + C.allUnit,
+    '<p class="note">' + C.allNote + '</p>' +
+    '<div class="tbar"><button type="button" class="ghost" data-act="allm">全部展開</button></div>' +
+    '<div class="mlist">' + D.masters.map((m, i) => {
+      const me = tops.indexOf(m.name) >= 0, nr = near.indexOf(m.name) >= 0;
+      return '<details class="mi' + (me ? ' me' : nr ? ' near' : '') + '"><summary><span class="n">' + (i + 1) + '</span><span class="nm">' + m.name +
+        (me ? '<em>和你最像</em>' : nr ? '<em>也有幾分像</em>' : '') + YRS(m) + '</span><span class="chev" aria-hidden="true"></span><span class="sid">' + m.id + '</span></summary>' +
+        '<div class="mbody">' + masterText(m.text) + '</div></details>';
+    }).join('') + '</div>');
+}
+const COLL = {T: '大正藏', B: '大藏經補編', Y: '印順法師佛學著作集', X: '卍續藏'};
+function sutrasHTML(){
+  const S = D.sutras; if (!S || !S.groups) return '';
+  const total = S.groups.reduce((a, g) => a + g.items.length, 0);
+  const ext = ' target="_blank" rel="noopener"';
+  return foldSec('sut', 'sutras', '各宗修持經典', cnum(total) + '部經典，依宗派歸類',
+    S.intro.map(p => '<p class="note">' + p + '</p>').join('') +
+    '<div class="gnav" role="navigation" aria-label="經典分類">' + S.groups.map((g, i) => '<button type="button" data-act="sjump" data-g="' + i + '">' + g.name + '<small>' + g.items.length + '</small></button>').join('') + '</div>' +
+    '<div class="tbar"><button type="button" class="ghost" data-act="allsut">全部展開</button></div>' +
+    S.groups.map((g, gi) => '<div class="sgroup" id="sg-' + gi + '"><h4 tabindex="-1">' + g.name + '<small>' + g.items.length + ' 部</small></h4>' + founderRow(FKEY(g.name)) + '<p class="gintro">' + g.intro + '</p><div class="mlist">' +
+      g.items.map((it, i) => '<details class="mi su"><summary><span class="n">' + (i + 1) + '</span><span class="nm">《' + it.n + '》</span><span class="chev" aria-hidden="true"></span>' +
+        '<span class="sid">' + it.id + (it.j ? '・卷' + it.j : '') + '<span class="tg">' + it.tags.map(t => '<span>' + t + '</span>').join('') + '</span></span></summary>' +
+        '<div class="mbody"><p class="cat">CBETA ' + it.id + '｜' + (COLL[it.coll] || it.coll) + '第 ' + it.vol + ' 冊' + (it.j ? '・卷 ' + it.j : '') + '｜' + it.cat + '</p>' +
+        '<p><b>在說什麼</b>　' + it.c + '</p><p><b>怎麼修</b>　' + it.p + '</p>' +
+        '<p class="lk"><a class="pri" href="' + it.cb + '"' + ext + '>在 CBETA 開啟' + (it.j ? '（卷 ' + it.j + '）' : '') + '</a>' +
+          it.links.map(l => '<a href="' + l.u + '"' + ext + '>' + l.t + '</a>').join('') + '</p></div></details>').join('') + '</div></div>').join(''));
+}
+/* smooth open/close for the master cards; the arrow turns with it */
+function toggleCard(d, open, animate){
+  const body = d.querySelector('.mbody');
+  if (d._anim){ d._anim.cancel(); d._anim = null; d.classList.remove('closing'); }
+  if (!animate || reduce || !body.animate){ d.open = open; return; }
+  if (open){
+    d.open = true;
+    const h = body.offsetHeight;
+    d._anim = body.animate([{height: '0px', opacity: 0}, {height: h + 'px', opacity: 1}], {duration: 300, easing: 'cubic-bezier(.3,.7,.3,1)'});
+    d._anim.onfinish = () => { d._anim = null; };
+  } else {
+    const h = body.offsetHeight;
+    d.classList.add('closing');
+    d._anim = body.animate([{height: h + 'px', opacity: 1}, {height: '0px', opacity: 0}], {duration: 240, easing: 'cubic-bezier(.4,0,.7,.4)'});
+    d._anim.onfinish = () => { d.open = false; d.classList.remove('closing'); d._anim = null; };
+  }
+}
+function barsHTML(keys, vals, top, labelFn){
+  const mx = Math.max(1, Math.max.apply(null, keys.map(k => vals[k])));
+  return '<div class="bars">' + keys.map(k =>
+    '<div class="brow' + (k === top ? ' top' : '') + '"><span>' + labelFn(k) + '</span><div class="track"><div class="fill" style="width:' +
+    Math.round(vals[k] / mx * 100) + '%"></div></div><span class="n">' + vals[k] + '</span></div>').join('') + '</div>';
+}
+function comboBlock(sk, fk){
+  const sc = D.schools[sk], fa = D.fates[fk];
+  return '<h4>' + sk + '宗：' + sc.tag + '</h4>' + founderRow(FKEY(sk)) + '<p>' + sc.text + '</p>' +
+    (sc.modern ? '<p class="modern"><b>近代知音</b><span>' + sc.modern + '</span></p>' : '') +
+    '<h4>' + fa.name + '</h4><p>' + fa.text + '</p>' +
+    '<h4>' + sk + '宗 × ' + fa.name + '</h4>' + comboHTML(D.combos[sk][fa.name]);
+}
+function endingHTML(fresh){
+  const r = compute();
+  const sc = D.schools[r.school], fa = D.fates[r.fate];
+  const mm = matchMasters(r);
+  tsave({a: r.school + (C.dimSuffix || ''), b: fa.name, m: mm.top.map(m => m.name)});
+  const recap = D.scenes.map((s, i) => {
+    const o = s.options[picks[i]];
+    return '<li><span class="no">第' + s.num + '幕</span><span><b>' + s.title + '</b>　' + o.k + '．' + o.t + '</span></li>';
+  }).join('');
+  const parts = (C.links || []).map(l => '<a href="' + l.u + '">' + l.t + '</a>').join('');
+  return '<article class="ending' + (fresh ? ' fresh' : '') + '" id="ending" tabindex="-1">' +
+    '<div class="head"><p class="no">終章</p><h2>' + C.endTitle + '</h2><p class="era">' + C.endLead + '</p></div>' +
+    masterHTML(mm) +
+    '<section class="res"><p class="label">' + C.dimLabel + '</p><p class="big">' + r.school + (C.dimSuffix || '') + '</p><p class="tagline">' + sc.tag + '</p>' +
+      '<p class="txt">' + sc.text + '</p>' + (sc.modern ? '<p class="modern"><b>' + (C.modernLabel || '延伸') + '</b><span>' + sc.modern + '</span></p>' : '') + '</section>' +
+    '<section class="res"><details class="rfold"><summary><span class="label">' + C.fateLabel + '</span><span class="big">' + fa.name + '</span><span class="chev" aria-hidden="true"></span>' +
+      '<span class="hint">點一下展開</span></summary><div class="mbody"><p class="txt">' + fa.text + '</p></div></details></section>' +
+    ((D.places && D.places.length) ? foldSec('journey', '', C.journeyLabel, C.journeyBig, journeyHTML()) : '') +
+    foldSec('', '', '得分', C.scoreBig, '<div class="scores"><div><p class="label">' + C.dimBarLabel + '</p>' + barsHTML(r.order, r.s, r.school, k => k) + '</div>' +
+      '<div><p class="label">' + C.fateBarLabel + '</p>' + barsHTML(FATES, r.f, r.fate, k => k + '<small style="color:var(--ink-2);font-weight:400">・' + FLABEL[k] + '</small>') + '</div></div>') +
+    foldSec('', '', '回顧', '你的' + cnum(N) + '個選擇', '<ol class="recap">' + recap + '</ol>') +
+    foldSec('', '', '看看其他結局', C.exploreBig, '<div class="explore">' + SCH.map(k => '<h4>' + k + (C.dimSuffix || '') + '：' + D.schools[k].tag + '</h4><p>' + D.schools[k].text + '</p>').join('') +
+      FATES.map(k => '<h4>' + D.fates[k].name + '</h4><p>' + D.fates[k].text + '</p>').join('') + '</div>') +
+    allMastersHTML(mm) +
+    (parts ? '<section class="res"><p class="label">三部曲</p><p class="parts">' + parts + '</p></section>' : '') +
+    '<div class="actions"><button type="button" class="ghost" data-act="restart">重新開始</button><button type="button" class="ghost" data-act="top">回到開頭</button></div>' +
+    '</article>';
+}
+
+/* ---------- map & timeline ---------- */
+const MAP = D.map;
+const PL = {}; (D.places || []).forEach(p => { PL[p.n] = p; });
+const YEAR0 = C.years ? C.years[0] : 0, YEAR1 = C.years ? C.years[1] : 1;
+const yearPct = y => !C.years ? 0 : Math.max(0, Math.min(100, (y - YEAR0) / (YEAR1 - YEAR0) * 100));
+const shortNow = s => s.replace(/（.*?）/g, '');
+const ease = t => t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+function curve(a, b, bend){
+  const mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2, dx = b[0] - a[0], dy = b[1] - a[1];
+  const k = bend == null ? .14 : bend;
+  return 'M' + a[0] + ' ' + a[1] + 'Q' + (mx - dy * k).toFixed(1) + ' ' + (my + dx * k).toFixed(1) + ' ' + b[0] + ' ' + b[1];
+}
+function travelPath(a, b, via){
+  const pts = [a].concat((via || []).map(v => v.xy)).concat([b]);
+  let d = '';
+  for (let i = 0; i < pts.length - 1; i++){
+    const seg = curve(pts[i], pts[i + 1], .1);
+    d += i ? seg.replace(/^M[^Q]+/, '') : seg;
+  }
+  return d;
+}
+function baseMap(){
+  return '<path class="m-land" d="' + MAP.land + '"/><path class="m-river" d="' + MAP.rivers + '"/><path class="m-lake" d="' + MAP.lakes + '"/>';
+}
+function fitBox(pts, aspect, minW){
+  let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+  pts.forEach(p => { x0 = Math.min(x0, p[0]); y0 = Math.min(y0, p[1]); x1 = Math.max(x1, p[0]); y1 = Math.max(y1, p[1]); });
+  const pad = 90; x0 -= pad; y0 -= pad; x1 += pad; y1 += pad;
+  let w = x1 - x0, h = y1 - y0;
+  if (w < minW){ x0 -= (minW - w) / 2; w = minW; }
+  if (w / h < aspect){ const nw = h * aspect; x0 -= (nw - w) / 2; w = nw; } else { const nh = w / aspect; y0 -= (nh - h) / 2; h = nh; }
+  if (w >= MAP.w){ x0 = (MAP.w - w) / 2; } else { x0 = Math.max(0, Math.min(x0, MAP.w - w)); }
+  if (h >= MAP.h){ y0 = (MAP.h - h) / 2; } else { y0 = Math.max(0, Math.min(y0, MAP.h - h)); }
+  return [x0, y0, w, h];
+}
+function timeStrip(upto){
+  if (!C.years) return '';
+  let h = '<div class="tl"><div class="tl-line"></div>';
+  for (let y = C.ticks[0]; y <= C.ticks[1]; y += C.ticks[2]) h += '<span class="tl-tick" style="left:' + yearPct(y) + '%"><i></i><b>' + (y < 0 ? '前' + (-y) : y) + '</b></span>';
+  for (let i = 0; i < upto; i++){ const p = PL[i + 1]; if (p) h += '<span class="tl-seen" style="left:' + yearPct(p.year) + '%"></span>'; }
+  return h + '<span class="tl-now"></span></div>';
+}
+
+const Tr = {
+  el: null, vb: null, busy: false,
+  build(){
+    const el = document.createElement('div');
+    el.className = 'tr'; el.setAttribute('role', 'status'); el.setAttribute('aria-live', 'polite');
+    el.innerHTML = '<div class="tr-card"><div class="tr-head"><p class="tr-no"></p><p class="tr-place"></p><p class="tr-now"></p></div>' +
+      '<div class="mapbox"><svg class="tr-map" viewBox="0 0 ' + MAP.w + ' ' + MAP.h + '" preserveAspectRatio="xMidYMid meet" aria-hidden="true">' + baseMap() +
+      '<g class="m-rl"></g><path class="m-trail"/><g class="m-olds"></g><path class="m-go"/><path class="m-sea"/><g class="m-pts"></g><g class="m-lbls"></g></svg></div>' +
+      '<div class="tr-time"></div></div>';
+    const stop = e => { if (this.busy) e.preventDefault(); };
+    el.addEventListener('wheel', stop, { passive: false });
+    el.addEventListener('touchmove', stop, { passive: false });
+    document.addEventListener('keydown', e => { if (this.busy && [' ', 'PageDown', 'PageUp', 'ArrowDown', 'ArrowUp', 'Home', 'End', 'Enter', 'Tab'].indexOf(e.key) >= 0) e.preventDefault(); }, true);
+    document.body.appendChild(el);
+    this.el = el;
+  },
+  q(s){ return this.el.querySelector(s); },
+  setVB(v){ this.q('.tr-map').setAttribute('viewBox', v.map(n => n.toFixed(1)).join(' ')); },
+  unit(){ const w = this.q('.tr-map').clientWidth || 600; return this.vbW / w; },
+  label(g, xy, text, cls, px, dx, dy, anchor){
+    const k = this.unit();
+    const t = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    t.setAttribute('x', xy[0] + dx * k); t.setAttribute('y', xy[1] + dy * k);
+    t.setAttribute('font-size', px * k); t.setAttribute('stroke-width', 4 * k);
+    t.setAttribute('text-anchor', anchor || 'start'); t.setAttribute('class', cls); t.textContent = text;
+    g.appendChild(t); return t;
+  },
+  dot(g, xy, r, cls){
+    const k = this.unit();
+    const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    c.setAttribute('cx', xy[0]); c.setAttribute('cy', xy[1]); c.setAttribute('r', r * k); c.setAttribute('class', cls);
+    g.appendChild(c); return c;
+  },
+  /* from: scene index just finished (0-based); to: next index, or N for the ending */
+  play(from, to, mid){
+    if (this.busy) return;
+    if (!this.el) this.build();
+    this.busy = true;
+    const el = this.el, svg = this.q('.tr-map');
+    const A = PL[from + 1], end = to >= N, B = end ? null : PL[to + 1];
+    const sc = end ? null : D.scenes[to];
+    this.q('.tr-no').textContent = end ? '終章' : '第' + sc.num + '幕　' + sc.title;
+    this.q('.tr-place').textContent = end ? C.trEnd : B.name;
+    this.q('.tr-now').textContent = end ? cnum(N) + '幕，你走過的地方' : '今' + shortNow(B.now) + (!C.years ? '' : '・' + (B.year < 0 ? '西元前 ' + (-B.year) : '西元 ' + B.year) + ' 年');
+    this.q('.tr-time').innerHTML = timeStrip(from + 1);
+    ['.m-olds', '.m-pts', '.m-lbls', '.m-rl'].forEach(s => { this.q(s).innerHTML = ''; });
+    const go = this.q('.m-go'), sea = this.q('.m-sea'), trail = this.q('.m-trail');
+    go.setAttribute('d', ''); sea.setAttribute('d', '');
+    el.classList.add('on');
+    // geometry for the view
+    const aspect = (svg.clientWidth || 16) / (svg.clientHeight || 10);
+    let target, travel = '', route = null, pts;
+    if (end){
+      pts = D.places.map(p => p.xy);
+      target = [0, 0, MAP.w, MAP.h];
+      if (MAP.w / MAP.h < aspect){ const w = MAP.h * aspect; target = [(MAP.w - w) / 2, 0, w, MAP.h]; } else { const h = MAP.w / aspect; target = [0, (MAP.h - h) / 2, MAP.w, h]; }
+      travel = D.places.map((p, i) => i ? curve(D.places[i - 1].xy, p.xy, .1).replace(/^M[^Q]+/, '') : 'M' + p.xy[0] + ' ' + p.xy[1]).join('');
+    } else {
+      pts = [A.xy, B.xy].concat((B.viaXY || []).map(v => v.xy)).concat((B.alsoXY || []).map(v => v.xy));
+      if (B.routeXY){ pts.push(B.routeXY.xy); if (B.routeXY.fromXY) pts.push(B.routeXY.fromXY); }
+      target = fitBox(pts, aspect, 600);
+      const same = Math.hypot(A.xy[0] - B.xy[0], A.xy[1] - B.xy[1]) < 4;
+      if (!same) travel = travelPath(A.xy, B.xy, B.viaXY);
+      if (B.routeXY) route = seaPath(B);
+    }
+    const start = this.vb || target.slice();
+    this.vbW = target[2];
+    this.setVB(target);
+    // static layers drawn at the target scale
+    const seen = D.places.slice(0, end ? N : from + 1);
+    trail.setAttribute('d', '');
+    go.classList.toggle('end', end);
+    const olds = this.q('.m-olds'), pg = this.q('.m-pts'), lg = this.q('.m-lbls'), rl = this.q('.m-rl');
+    MAP.riverLabels.forEach(r => this.label(rl, r.p, r.t, 'm-riverlabel', 12, 0, 0, 'middle'));
+    seen.forEach(p => this.dot(olds, p.xy, 2.6, 'm-old'));
+    let labelB = null, ring = null, routeLbl = null;
+    if (!end){
+      const left = B.xy[0] > target[0] + target[2] * .72;
+      const sameA = Math.hypot(A.xy[0] - B.xy[0], A.xy[1] - B.xy[1]) < 4;
+      if (!sameA) this.label(lg, A.xy, A.name, 'm-small m-faint', 12, 0, 18, 'middle');
+      (B.viaXY || []).forEach(v => { this.dot(pg, v.xy, 2.6, 'm-old'); this.label(lg, v.xy, v.t, 'm-small m-faint', 12, 0, -9, 'middle'); });
+      (B.alsoXY || []).forEach(v => { this.dot(pg, v.xy, 3, 'm-dot m-fade'); this.label(lg, v.xy, v.t, 'm-small m-fade', 13, 8, 4); });
+      ring = this.dot(pg, B.xy, 9, 'm-ring');
+      this.dot(pg, B.xy, 4.2, 'm-dot');
+      labelB = this.label(lg, B.xy, B.name, 'm-label m-fade', 17, left ? -13 : 13, 6, left ? 'end' : 'start');
+      if (B.routeXY){
+        const rx = B.routeXY.xy;
+        this.dot(pg, rx, 2.6, 'm-old');
+        if (B.routeXY.fromXY){ this.dot(pg, B.routeXY.fromXY, 2.6, 'm-old'); if (B.routeXY.ft) this.label(lg, B.routeXY.fromXY, B.routeXY.ft, 'm-small m-fade', 12, 0, 18, 'middle'); }
+        if (B.routeXY.dir === 'to'){
+          // above-right of the far shore, clear of the incoming line; shift left if it would leave the view
+          const k = this.unit(), w = B.routeXY.t.length * 13 * k, right = target[0] + target[2] - 6 * k;
+          routeLbl = rx[0] + 8 * k + w < right ? this.label(lg, rx, B.routeXY.t, 'm-small m-fade', 13, 8, -10, 'start')
+            : rx[0] + w / 2 < right ? this.label(lg, rx, B.routeXY.t, 'm-small m-fade', 13, 0, -12, 'middle')
+            : this.label(lg, rx, B.routeXY.t, 'm-small m-fade', 13, -6, -12, 'end');
+        } else routeLbl = this.label(lg, rx, B.routeXY.t, 'm-small m-fade', 13, 0, -12, 'middle');
+      }
+    } else {
+      D.places.forEach(p => this.dot(pg, p.xy, 2.8, 'm-dot m-fade'));
+    }
+    go.setAttribute('d', travel);
+    sea.setAttribute('d', route || '');
+    const goLen = travel ? go.getTotalLength() : 0, seaLen = route ? sea.getTotalLength() : 0;
+    // the line keeps a fixed screen width (non-scaling stroke), so its dashes are measured in screen pixels
+    const pxLen = v => goLen * Math.min((svg.clientWidth || 600) / v[2], (svg.clientHeight || 400) / v[3]) + 4;
+    const L0 = pxLen(target);
+    go.style.strokeDasharray = L0 * 4 + ' ' + L0 * 4; go.style.strokeDashoffset = L0 * 4;
+    sea.style.opacity = 0;
+    const fades = Array.from(el.querySelectorAll('.m-fade'));
+    fades.forEach(f => { f.style.opacity = 0; });
+    if (ring) ring.style.opacity = 0;
+    const now = this.q('.tl-now') || {style: {}};
+    const y0 = end ? (PL[1] ? PL[1].year : YEAR0) : A.year, y1 = end ? PL[N].year : B.year;
+    now.style.left = yearPct(y0) + '%';
+    const T = reduce ? { inn: 150, draw: 0, hold: 1150, out: 200 } : { inn: 300, draw: end ? 1400 : (goLen ? 1000 : 450), hold: (route ? 800 : 550) + (innerWidth < 600 ? 150 : 0), out: 320 };
+    const total = T.inn + T.draw + T.hold + T.out;
+    let midDone = false; const t0 = performance.now();
+    const step = now2 => {
+      const t = now2 - t0;
+      if (!midDone && t >= T.inn){ midDone = true; try { mid(); } catch (e) {} }
+      const pd = T.draw ? Math.min(1, Math.max(0, (t - T.inn * .6) / T.draw)) : 1, e = ease(pd);
+      // camera glides from the previous view to the new one
+      const v = start.map((s, i) => s + (target[i] - s) * e);
+      this.setVB(v);
+      const L = pxLen(v); go.style.strokeDasharray = L + ' ' + L; go.style.strokeDashoffset = L * (1 - e);
+      now.style.left = yearPct(y0 + (y1 - y0) * e) + '%';
+      const pf = Math.min(1, Math.max(0, (t - T.inn - T.draw * .7) / 380));
+      fades.forEach(f => { f.style.opacity = pf; });
+      if (ring){ const pr = Math.min(1, Math.max(0, (t - T.inn - T.draw * .8) / 700)); ring.style.opacity = pr < 1 ? (1 - pr) * .9 : 0; ring.setAttribute('r', (5 + pr * 10) * this.unit()); }
+      if (route) sea.style.opacity = Math.min(1, Math.max(0, (t - T.inn - T.draw * .85) / 500));
+      if (t >= T.inn + T.draw + T.hold) el.classList.remove('on');
+      if (t < total) requestAnimationFrame(step);
+      else {
+        this.vb = target; this.busy = false;
+      }
+    };
+    requestAnimationFrame(step);
+  }
+};
+
+/* sea route: from the scene place (or a named port) to the far shore, or back */
+function seaPath(p){
+  const r = p.routeXY, a = r.fromXY || p.xy;
+  return r.dir === 'to' ? curve(a, r.xy, .22) : curve(r.xy, a, .22);
+}
+/* the full journey and the timeline, shown in the ending */
+function placeGroups(){
+  const groups = [];
+  D.places.forEach(p => {
+    const g = groups.find(g => Math.hypot(g.xy[0] - p.xy[0], g.xy[1] - p.xy[1]) < 9);
+    if (g){ if (g.names.indexOf(p.name) < 0) g.names.push(p.name); g.ns.push(p.n); g.minor = false; }
+    else groups.push({ xy: p.xy, names: [p.name], ns: [p.n] });
+    (p.alsoXY || []).concat(p.viaXY || []).forEach(v => {
+      if (!groups.find(g => Math.hypot(g.xy[0] - v.xy[0], g.xy[1] - v.xy[1]) < 9)) groups.push({ xy: v.xy, names: [v.t], ns: [], minor: true });
+    });
+  });
+  return groups;
+}
+function journeyHTML(){
+  const groups = placeGroups(), FS = 19, boxes = [];
+  const fits = b => b[0] > 2 && b[1] > 2 && b[2] < MAP.w - 2 && b[3] < MAP.h - 2 &&
+    !boxes.some(o => b[0] < o[2] && b[2] > o[0] && b[1] < o[3] && b[3] > o[1]) &&
+    !groups.some(g => g.xy[0] > b[0] - 3 && g.xy[0] < b[2] + 3 && g.xy[1] > b[1] - 3 && g.xy[1] < b[3] + 3);
+  let labels = '';
+  MAP.riverLabels.forEach(r => boxes.push([r.p[0] - 17, r.p[1] - 14, r.p[0] + 17, r.p[1] + 4]));
+  groups.slice().sort((a, b) => b.ns.length - a.ns.length || a.xy[1] - b.xy[1]).forEach(g => {
+    const text = g.names.slice(0, 2).join('・'), w = text.length * FS, h = FS;
+    const [x, y] = g.xy;
+    const cand = [[x + 8, y + 6, 'start'], [x - 8, y + 6, 'end'], [x, y - 10, 'middle'], [x, y + 24, 'middle'], [x + 7, y - 8, 'start'], [x - 7, y - 8, 'end'], [x + 7, y + 21, 'start'], [x - 7, y + 21, 'end'],
+      [x + 10, y + 26, 'start'], [x - 10, y + 26, 'end'], [x + 10, y - 13, 'start'], [x - 10, y - 13, 'end'], [x, y + 44, 'middle'], [x, y - 28, 'middle'], [x + 24, y + 6, 'start'], [x - 24, y + 6, 'end']];
+    for (const [lx, ly, an] of cand){
+      const x0 = an === 'start' ? lx : an === 'end' ? lx - w : lx - w / 2;
+      const b = [x0, ly - h * .85, x0 + w, ly + h * .2];
+      if (fits(b)){ boxes.push(b); labels += '<text class="m-small' + (g.minor ? ' m-faint' : '') + '" x="' + lx + '" y="' + ly + '" font-size="' + FS + '" stroke-width="5" text-anchor="' + an + '">' + text + '</text>'; return; }
+    }
+  });
+  const route = D.places.map((p, i) => i ? curve(D.places[i - 1].xy, p.xy, .1).replace(/^M[^Q]+/, '') : 'M' + p.xy[0] + ' ' + p.xy[1]).join('');
+  const seas = D.places.filter(p => p.routeXY).map(seaPath).join('');
+  const seaLbls = D.places.filter(p => p.routeXY).map(p => [p.routeXY.xy].concat(p.routeXY.fromXY ? [p.routeXY.fromXY] : []).map(xy => '<circle class="m-old" cx="' + xy[0] + '" cy="' + xy[1] + '" r="3"/>').join('')).join('');
+  const dots = groups.map(g => '<circle class="' + (g.minor ? 'm-old' : 'm-dot') + '" cx="' + g.xy[0] + '" cy="' + g.xy[1] + '" r="' + (g.minor ? 3 : 4.2) + '"/>').join('');
+  const rl = MAP.riverLabels.map(r => '<text class="m-riverlabel" x="' + r.p[0] + '" y="' + r.p[1] + '" font-size="15" text-anchor="middle">' + r.t + '</text>').join('');
+  return '<p class="swipe">左右滑動，看全圖</p><div class="mapscroll"><div class="mapbox"><svg viewBox="0 0 ' + MAP.w + ' ' + MAP.h + '" role="img" aria-label="' + C.mapAria + '">' + baseMap() + rl +
+    '<path class="m-path" d="' + route + '"/><path class="m-sea" d="' + seas + '"/>' + dots + seaLbls + labels + '</svg></div></div>' +
+    '<p class="maplegend">' + C.mapLegend + '</p>';
+}
+const TL_ORDER = ['三論', '法相', '天台', '華嚴', '律', '淨土', '臨濟', '曹洞', '密', '涅槃師', '地論', '攝論', '三階'];
+const TL_STYLE = { 興盛: 'tl-s', 延續: 'tl-m', 衰微: 'tl-w', 萌芽: 'tl-b', 典籍: 'tl-d' };
+function timelineHTML(){
+  const L = 118, R = 988, top = 26, rowH = 30, gap = 18;
+  const X = y => L + (y - YEAR0) / (YEAR1 - YEAR0) * (R - L);
+  const rowY = i => top + i * rowH + (i >= 9 ? gap : 0);
+  const H = rowY(TL_ORDER.length - 1) + 64;
+  let s = '<svg viewBox="0 0 1000 ' + H + '" role="img" aria-label="八宗興衰時間軸">';
+  for (let y = 400; y <= 2000; y += 200) s += '<line class="tl-grid" x1="' + X(y) + '" x2="' + X(y) + '" y1="' + (top - 14) + '" y2="' + (H - 40) + '"/><text class="tl-yr" x="' + X(y) + '" y="' + (H - 18) + '" text-anchor="middle">' + y + '</text>';
+  TL_ORDER.forEach((name, i) => {
+    const y = rowY(i), lost = i >= 9;
+    s += '<text class="tl-name' + (lost ? ' lost' : '') + '" x="' + (L - 14) + '" y="' + (y + 6) + '" text-anchor="end">' + name + '</text>';
+    (D.timeline || []).forEach((seg, j) => {
+      if (seg.s !== name) return;
+      s += '<line class="tl-seg ' + TL_STYLE[seg.st] + (lost ? ' lost' : '') + '" x1="' + X(seg.a) + '" x2="' + X(seg.b) + '" y1="' + y + '" y2="' + y + '"/>' +
+        '<line class="tl-hit" data-tl="' + j + '" x1="' + X(seg.a) + '" x2="' + X(seg.b) + '" y1="' + y + '" y2="' + y + '"><title>' + name + '　' + seg.a + '–' + seg.b + '　' + seg.st + '</title></line>';
+    });
+  });
+  const ay = H - 40;
+  s += '<line class="tl-axis" x1="' + L + '" x2="' + R + '" y1="' + ay + '" y2="' + ay + '"/>';
+  D.places.forEach(p => { const x = X(p.year); s += '<path class="tl-you" d="M' + x + ' ' + (ay - 1) + 'l-4 -7h8z"/>'; });
+  s += '</svg>';
+  const key = '<p class="tl-key"><span><i class="k tl-s"></i>興盛</span><span><i class="k tl-m"></i>延續</span><span><i class="k tl-w"></i>衰微</span><span><i class="k tl-b"></i>萌芽</span><span><i class="k tl-d"></i>只在典籍或海外</span><span><i class="k you"></i>你走過的年代</span></p>';
+  return '<p class="swipe">左右滑動，看完整的時間軸</p><div class="mapscroll"><div class="tlbox">' + s + '</div></div>' + key + '<p class="tl-cap" id="tl-cap">點一段線，看那一段的興衰。灰色四列，是後來沒有列進八宗、併入他宗或失傳的學派。</p>';
+}
+function journeySectionHTML(){
+  return foldSec('journey', '', '一千五百年的行腳', '地圖與八宗興衰', journeyHTML() +
+    '<p class="label" style="margin-top:14px">八宗興衰</p>' + timelineHTML());
+}
+
+/* ---------- render ---------- */
+function introHTML(){
+  let h = D.intro.slice(0, 4).map(p => '<p>' + p + '</p>').join('');
+  if (pos > 0 && pos < N) h += '<button type="button" class="resume" data-act="resume">接著讀第' + D.scenes[pos].num + '幕</button>';
+  else if (pos >= N) h += '<button type="button" class="resume" data-act="resume">看你的結局</button>';
+  return h;
+}
+function progress(){
+  const lamps = $('#lamps');
+  if (!lamps.children.length){
+    lamps.innerHTML = D.scenes.map((s, i) => '<i' + (i > 0 && D.volumes[s.vol].first === i + 1 ? ' class="v"' : '') + '></i>').join('');
+  }
+  Array.from(lamps.children).forEach((el, i) => {
+    el.classList.toggle('lit', i < pos || (i === pos && picks.length > pos));
+    el.classList.toggle('now', i === pos && picks.length <= pos);
+  });
+  if (pos < N){
+    const sc = D.scenes[pos];
+    $('#where').textContent = '第 ' + (pos + 1) + '／' + N + ' 幕';
+    $('#vol-now').textContent = D.volumes[sc.vol].label + '・' + D.volumes[sc.vol].title.split('：')[0];
+  } else {
+    $('#where').textContent = cnum(N) + '幕走完了';
+    $('#vol-now').textContent = '終章';
+  }
+}
+function render(freshIdx){
+  let h = '';
+  const upto = Math.min(pos, N - 1);
+  for (let i = 0; i <= upto; i++){
+    const sc = D.scenes[i];
+    if (D.volumes[sc.vol].first === i + 1) h += volumeHTML(D.volumes[sc.vol]);
+    h += (i < pos) ? doneHTML(i) : activeHTML(i, freshIdx === i);
+  }
+  if (pos >= N) h += endingHTML(freshIdx === N);
+  story.innerHTML = h;
+  $('#intro').innerHTML = introHTML();
+  tidy(story); tidy($('#intro'));
+  progress();
+}
+function goTo(el){
+  if (!el) return;
+  el.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block: 'start'});
+}
+
+/* ---------- actions ---------- */
+function choose(i){
+  if (pos >= N || picks.length > pos) return;
+  picks[pos] = i; picks.length = pos + 1;
+  save();
+  const art = $('#scene-' + pos);
+  const tmp = document.createElement('div');
+  tmp.innerHTML = activeHTML(pos, false);
+  const fresh = tmp.firstChild;
+  const after = fresh.querySelector('.after'); if (after) after.classList.add('fresh');
+  art.replaceWith(fresh); tidy(fresh);
+  progress();
+  const a = $('#after-' + pos);
+  if (a){ a.focus({preventScroll: true}); a.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block: 'nearest'}); }
+}
+function next(){
+  if (picks.length <= pos) return;
+  pos += 1; save();
+  render(pos);
+  const el = pos >= N ? $('#ending') : $('#scene-' + pos);
+  const vol = el && el.previousElementSibling && el.previousElementSibling.classList.contains('vol') ? el.previousElementSibling : el;
+  goTo(vol);
+  if (pos >= N && el) el.focus({preventScroll: true});
+}
+let armTimer = null;
+function restart(btn){
+  if (!btn.hasAttribute('data-armed')){
+    document.querySelectorAll('[data-armed]').forEach(b => { b.removeAttribute('data-armed'); b.textContent = '重新開始'; });
+    btn.setAttribute('data-armed', ''); btn.textContent = '再按一次，確定重新開始';
+    clearTimeout(armTimer);
+    armTimer = setTimeout(() => { btn.removeAttribute('data-armed'); btn.textContent = '重新開始'; }, 4000);
+    return;
+  }
+  clearTimeout(armTimer);
+  picks = []; pos = 0; save();
+  render(0);
+  const b = $('#bar-restart'); b.removeAttribute('data-armed'); b.textContent = '重新開始';
+  window.scrollTo({top: 0, behavior: reduce ? 'auto' : 'smooth'});
+}
+
+document.addEventListener('click', e => {
+  const h = e.target.closest('.tl-hit');
+  if (h){ const seg = D.timeline[+h.dataset.tl]; const cap = $('#tl-cap'); if (seg && cap) cap.innerHTML = '<b>' + seg.s + '　' + seg.a + '–' + seg.b + '　' + seg.st + '</b>　' + seg.t; return; }
+  const ms = e.target.closest('.mi>summary, .rfold>summary');
+  if (ms){ e.preventDefault(); const d = ms.parentElement, want = !d.open || d.classList.contains('closing'); toggleCard(d, want, true);
+    const sec = d.closest('.allm, #sutras'); if (sec){ const btn = sec.querySelector('[data-act="allm"], [data-act="allsut"]');
+      if (btn) btn.textContent = [...sec.querySelectorAll('.mi')].some(x => x === d ? !want : (!x.open || x.classList.contains('closing'))) ? '全部展開' : '全部收起'; }
+    return; }
+  const c = e.target.closest('.choice');
+  if (c && !c.disabled && c.closest('.scene')) { choose(+c.dataset.i); return; }
+  const b = e.target.closest('[data-act]');
+  if (!b) return;
+  const act = b.dataset.act;
+  if (act === 'next'){ if (Tr.busy || picks.length <= pos) return; if (D.places && D.places.length === N) Tr.play(pos, pos + 1, next); else next(); }
+  else if (act === 'restart') restart(b);
+  else if (act === 'allm'){ const cards = [...document.querySelectorAll('.allm .mi')]; const open = cards.some(d => !d.open);
+    cards.forEach(d => toggleCard(d, open, false)); b.textContent = open ? '全部收起' : '全部展開'; }
+  else if (act === 'allsut'){ const cards = [...document.querySelectorAll('#sutras .mi')]; const open = cards.some(d => !d.open);
+    cards.forEach(d => toggleCard(d, open, false)); b.textContent = open ? '全部收起' : '全部展開'; }
+  else if (act === 'sjump'){ const g = document.getElementById('sg-' + b.dataset.g); if (!g) return;
+    const top = document.querySelector('.bar'), off = top ? top.getBoundingClientRect().height + 8 : 12;
+    window.scrollTo({top: g.getBoundingClientRect().top + window.scrollY - off, behavior: reduce ? 'auto' : 'smooth'});
+    const h = g.querySelector('h4'); if (h) h.focus({preventScroll: true}); }
+  else if (act === 'top') window.scrollTo({top: 0, behavior: reduce ? 'auto' : 'smooth'});
+  else if (act === 'resume') goTo(pos >= N ? $('#ending') : $('#scene-' + pos));
+});
+story.addEventListener('change', e => {
+  if (e.target.id === 'ex-school' || e.target.id === 'ex-fate'){
+    $('#exout').innerHTML = comboBlock($('#ex-school').value, $('#ex-fate').value); tidy($('#exout'));
+  }
+});
+
+/* back-to-top button: shows after scrolling down about one and a half screens */
+(function(){
+  const tb = $('.totop'); if (!tb) return; let on = false, tick = false;
+  const upd = () => { tick = false; const v = window.scrollY > window.innerHeight * 1.5; if (v !== on){ on = v; tb.classList.toggle('show', v); tb.tabIndex = v ? 0 : -1; } };
+  window.addEventListener('scroll', () => { if (!tick){ tick = true; requestAnimationFrame(upd); } }, {passive: true});
+  upd();
+})();
+
+/* ---------- boot ---------- */
+$('#notes').innerHTML = D.notesHtml; tidy($('#notes'));
+function start(data){
+  const st = valid(data) ? data : load();
+  if (valid(st)) { picks = st.picks.slice(); pos = st.pos; }
+  render(-1);
+}
+try { window.claude && window.claude.hot && window.claude.hot.snapshot && window.claude.hot.snapshot(() => ({picks: picks.slice(), pos})); } catch(e) {}
+if (window.claude && window.claude.hot && window.claude.hot.ready) window.claude.hot.ready(start);
+else start((window.claude && window.claude.hot && window.claude.hot.data) || {});
+})();
+</script>
+
+<script>
+if ('serviceWorker' in navigator && location.protocol === 'https:') {
+  window.addEventListener('load', () => navigator.serviceWorker.register('../sw.js', {scope: '../'}).catch(() => {}));
+}
+</script>
+</html>

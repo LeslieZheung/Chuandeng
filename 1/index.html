@@ -1,0 +1,1260 @@
+<!doctype html>
+<html lang="zh-Hant">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="三十七幕互動故事：跟隨佛陀一生，從鹿野苑到拘尸那羅、七葉窟的第一次結集。佛陀的話全部出自阿含與律藏。走完看看你最像哪一位佛弟子。">
+<meta name="theme-color" content="#F7F4EF">
+<meta name="color-scheme" content="light">
+<meta name="format-detection" content="telephone=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="傳燈">
+<link rel="icon" type="image/png" sizes="192x192" href="../icon-192.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="傳燈">
+<meta property="og:title" content="傳燈：如是我聞">
+<meta property="og:description" content="三十七幕互動故事：跟隨佛陀一生，從鹿野苑到拘尸那羅、七葉窟的第一次結集。佛陀的話全部出自阿含與律藏。走完看看你最像哪一位佛弟子。">
+<meta property="og:url" content="https://lesliezheung.github.io/Chuandeng/1/">
+<meta property="og:image" content="https://lesliezheung.github.io/Chuandeng/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<title>傳燈：如是我聞</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap">
+<style>
+/* Layout: one reading column like a sutra scroll on rice paper. Scenes stack as leaves, finished leaves fold shut,
+   a row of small lamps tracks the journey. Single light theme by request: 米白紙、墨褐字、低彩度的燈色。 */
+:root{
+  --paper:#F7F4EF;      /* 主底：羊皮紙白 */
+  --leaf:#FCFAF6;       /* 幕卡 */
+  --well:#ECE6DC;       /* 凹面：軌道、輸入 */
+  --ink:#2B2623;        /* 主文字與線條：古木墨棕 */
+  --ink-2:#5E534B;      /* 次要文字 */
+  --rule:#DCD2C4;       /* 細線 */
+  --lamp:#9A6A4A;       /* 泥磚赭褐：裝飾與填色 */
+  --lamp-ink:#7A4A2F;   /* 泥磚赭褐：文字與按鈕 */
+  --lamp-wash:#F1E6DA;  /* 選中底色 */
+  --cinnabar:#A64A3D;   /* 敦煌朱砂紅（低飽和） */
+  --cinnabar-wash:#F4E3DE;
+  --lapis:#3D5A80;      /* 青金石藍 */
+  --lapis-wash:#E5EBF2;
+  --dai:#3D5A80;        /* 連結：青金石藍 */
+  --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.85;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  -webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.wrap{max-width:680px;margin:0 auto;padding-block:36px 72px}
+h1,h2,h3{font-family:var(--serif);text-wrap:balance;margin:0;line-height:1.35;color:var(--ink)}
+p{margin:0}
+/* line breaking: no lone character on a last line; keep dashes, ranges and short phrases together */
+h4,.big,.tagline,.fbox h3,#sutras .mi .nm{text-wrap:balance}
+.nb{white-space:nowrap}
+.seg{display:inline-block}
+a{color:var(--dai);text-underline-offset:2px}
+button{font:inherit}
+:focus-visible{outline:2px solid var(--dai);outline-offset:2px}
+
+/* header */
+.eyebrow{font-size:.8rem;letter-spacing:.18em;color:var(--lamp-ink);font-weight:500}
+h1{font-size:2.7rem;font-weight:700;letter-spacing:.22em;margin-top:4px}
+.sub{color:var(--ink-2);margin-top:8px;font-family:var(--serif);font-size:1.02rem}
+.intro{margin:22px 0 0;padding:16px 18px;background:var(--leaf);border:1px solid var(--rule);border-radius:10px;display:grid;gap:10px;font-size:.95rem}
+.intro strong{color:var(--lamp-ink)}
+.resume{justify-self:start;background:transparent;color:var(--lamp-ink);border:1px solid var(--lamp-ink);border-radius:8px;padding:6px 14px;font-weight:500;cursor:pointer}
+.resume:hover{background:var(--lamp-wash)}
+
+/* progress bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);padding-block:12px 10px;margin-top:20px;border-bottom:1px solid var(--rule);display:grid;gap:8px}
+.bar-row{display:flex;align-items:center;gap:12px;font-size:.85rem;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.bar-row .where{font-weight:500;color:var(--ink)}
+.bar-row .tiny{margin-left:auto;background:transparent;border:0;color:var(--ink-2);text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:2px 0;font-size:.85rem}
+.bar-row .tiny[data-armed]{color:var(--lamp-ink);font-weight:500}
+.lamps{display:grid;grid-template-columns:repeat(37,1fr);gap:3px}
+.lamps i{display:block;height:6px;border-radius:3px;background:var(--well)}
+.lamps i.v{margin-left:5px}
+.lamps i.lit{background:var(--lamp)}
+.lamps i.now{background:var(--lamp-wash);box-shadow:inset 0 0 0 1.5px var(--lamp)}
+
+/* story */
+#story{display:grid;gap:14px;margin-top:18px}
+.vol{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;margin-top:22px;padding:4px 2px}
+.vol .slip{writing-mode:vertical-rl;font-family:var(--serif);font-weight:700;font-size:1.05rem;letter-spacing:.25em;color:var(--lamp-ink);
+  border:1px solid var(--lamp);border-radius:3px;padding:10px 5px;background:var(--leaf)}
+.vol h3{font-size:1.2rem;font-weight:700}
+.vol p{color:var(--ink-2);font-size:.93rem;margin-top:6px}
+
+.scene{background:var(--leaf);border:1px solid var(--rule);border-radius:10px;padding:22px 20px;display:grid;gap:16px;scroll-margin-top:84px}
+.no{font-size:.8rem;letter-spacing:.14em;color:var(--lamp-ink);font-weight:500}
+.scene h2{font-size:1.5rem;font-weight:700;margin-top:2px}
+.era{font-size:.84rem;color:var(--ink-2);margin-top:4px}
+.narr{font-family:var(--serif);font-size:1.04rem;line-height:1.95;display:grid;gap:12px}
+.narr ul{margin:0;padding-left:1.2em;display:grid;gap:8px}
+.choices{display:grid;gap:10px}
+.choice{display:grid;grid-template-columns:1.9em 1fr;gap:12px;align-items:start;text-align:left;color:var(--ink);background:var(--paper);
+  border:1px solid var(--rule);border-radius:9px;padding:12px 14px;cursor:pointer;line-height:1.75}
+.choice .k{font-family:var(--serif);font-weight:700;color:var(--lamp-ink);border:1px solid var(--rule);border-radius:6px;text-align:center;line-height:1.75;background:var(--leaf)}
+.choice:hover:not(:disabled){border-color:var(--lamp);background:var(--lamp-wash)}
+.choice.picked{border-color:var(--lamp);background:var(--lamp-wash);cursor:default}
+.choice.picked .k{background:var(--lamp-ink);border-color:var(--lamp-ink);color:var(--leaf)}
+.choice:disabled:not(.picked){opacity:.5;cursor:default}
+.memory{font-family:var(--serif);background:var(--paper);border:1px dashed var(--lamp);border-radius:8px;padding:10px 14px 12px;display:grid;gap:4px}
+.memory b{font-family:var(--sans);font-size:.75rem;letter-spacing:.18em;color:var(--lamp-ink);font-weight:500}
+.choice.extra{border-style:dashed;border-color:var(--lamp)}
+.choice.extra .k{color:var(--leaf);background:var(--lamp);border-color:var(--lamp)}
+.hidden-end{display:grid;gap:12px;padding-bottom:22px;border-bottom:1px solid var(--rule)}
+.hcard{background:var(--paper);border:1px dashed var(--lamp);border-radius:8px;padding:12px 14px;display:grid;gap:6px}
+.hcard h4{margin:0;font-family:var(--serif);font-size:1.12rem;color:var(--lamp-ink)}
+.hcard p{font-family:var(--serif);font-size:.98rem;line-height:1.9}
+.hint{font-size:.85rem;color:var(--ink-2)}
+.after{display:grid;gap:12px;border-top:1px dashed var(--rule);padding-top:16px}
+.after-label{font-family:var(--serif);font-weight:700;color:var(--lamp-ink);letter-spacing:.2em}
+.hist{display:grid;gap:10px;font-size:.98rem}
+.src{font-size:.82rem;color:var(--ink-2);line-height:1.75}
+.src em{font-style:normal}
+.srcf{margin:0}
+.srcf>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;font-size:.84rem;color:var(--ink-2);padding:6px 0;min-height:32px}
+.srcf>summary::-webkit-details-marker{display:none}
+.srcf>summary::before{content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-1px) rotate(-45deg);transition:transform .22s cubic-bezier(.3,.7,.3,1)}
+.srcf[open]>summary::before{transform:translateY(-2px) rotate(45deg)}
+.srcf>summary:hover{color:var(--lamp-ink)}
+.srcf>.src{margin:2px 0 0}
+.fdrow{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;margin:0}
+.fdi{display:inline-flex;align-items:baseline;gap:8px}
+.fdl{font-size:.76rem;letter-spacing:.1em;color:var(--ink-2)}
+.fd{font:inherit;font-family:var(--serif);font-weight:600;font-size:1.02rem;color:var(--lamp-ink);background:none;border:0;border-bottom:1px dashed var(--lamp-ink);padding:2px 0;cursor:pointer}
+.fd small{font-family:var(--sans);font-weight:400;font-size:.76rem;color:var(--ink-2);margin-left:6px}
+.fd:hover{border-bottom-style:solid}
+.fd:focus-visible,.fx:focus-visible{outline:2px solid var(--lamp-ink);outline-offset:3px}
+body.modal-open{overflow:hidden}
+.fmask{position:fixed;inset:0;z-index:1000;background:rgba(43,33,24,.45);display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(16px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
+.fmask[hidden]{display:none}
+.fbox{position:relative;display:flex;flex-direction:column;background:#fff;color:var(--ink);border-radius:14px;box-shadow:0 20px 60px rgba(40,28,15,.3);width:100%;max-width:560px;max-height:min(86vh,700px);max-height:min(86dvh,700px);overflow:hidden;animation:fpop .22s cubic-bezier(.3,.7,.3,1)}
+.fin{overflow:auto;overscroll-behavior:contain;padding:26px 24px 18px}
+@keyframes fpop{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.fbox{animation:none}}
+.fx{position:absolute;z-index:1;top:8px;right:8px;width:44px;height:44px;background:#fff;border:0;border-radius:50%;color:var(--ink-2);font-size:1.7rem;line-height:1;cursor:pointer}
+.fx:hover{background:var(--leaf);color:var(--ink)}
+.fbox .frole{margin:0;font-size:.78rem;letter-spacing:.16em;color:var(--ink-2)}
+.fbox h3{margin:4px 46px 2px 0;font-family:var(--serif);font-size:1.65rem;line-height:1.3;color:var(--lamp-ink)}
+.fbox .fmeta{margin:0 0 12px;font-size:.9rem;color:var(--ink-2)}
+.fbox .ftext{margin:0 0 10px;font-family:var(--serif);font-size:1.02rem;line-height:1.95}
+.next{justify-self:start;font-weight:500;background:var(--lamp-ink);color:#FCFAF6;border:0;border-radius:8px;padding:10px 20px;cursor:pointer}
+.next:hover{background:var(--ink)}
+
+.done{border:1px solid var(--rule);border-radius:10px;background:transparent}
+.done>summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;padding:10px 14px}
+.done>summary::-webkit-details-marker{display:none}
+.done>summary .no{min-width:4.6em}
+.done>summary .st{font-family:var(--serif);font-weight:600}
+.done>summary .mine{margin-left:auto;font-size:.82rem;color:var(--ink-2)}
+.done>summary:hover .st{color:var(--lamp-ink)}
+.done[open]{background:var(--leaf)}
+.done[open]>summary{border-bottom:1px solid var(--rule)}
+.done .body{padding:16px 18px 18px;display:grid;gap:14px}
+
+/* ending */
+.ending{background:var(--leaf);border:1.5px solid var(--lamp);border-radius:12px;padding:24px 20px;display:grid;gap:22px;scroll-margin-top:84px}
+.ending .head h2{font-size:1.5rem}
+.res{display:grid;gap:10px;padding-bottom:22px;border-bottom:1px solid var(--rule)}
+.label{font-size:.78rem;letter-spacing:.16em;color:var(--ink-2);font-weight:500}
+.big{font-family:var(--serif);font-weight:700;font-size:2rem;line-height:1.3;color:var(--lamp-ink)}
+.big.sm{font-size:1.4rem}
+.tagline{font-family:var(--serif);font-weight:600;font-size:1.08rem}
+.res .txt{font-family:var(--serif);font-size:1.03rem;line-height:1.95}
+.modern{background:var(--paper);border-radius:8px;padding:12px 14px;font-size:.94rem;display:grid;gap:2px}
+.modern b{font-size:.78rem;letter-spacing:.14em;color:var(--lamp-ink);font-weight:500}
+.lead{font-size:.88rem;color:var(--ink-2);background:var(--paper);border-radius:8px;padding:12px 14px}
+details.lead>summary{cursor:pointer}
+details.lead p{margin:8px 0 0}
+.lead b{display:block;font-size:.78rem;letter-spacing:.14em;color:var(--lamp-ink);font-weight:500;margin-bottom:2px}
+.scores{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.bars{display:grid;gap:7px;margin-top:10px}
+.brow{display:grid;grid-template-columns:minmax(4.2em,max-content) 1fr 2em;gap:10px;align-items:center;font-size:.9rem;font-variant-numeric:tabular-nums}
+.brow .n{text-align:right;color:var(--ink-2)}
+.brow>span:first-child{white-space:nowrap}
+.track{height:8px;background:var(--well);border-radius:4px;overflow:hidden}
+.fill{height:100%;background:#A08C7C;border-radius:4px}
+.brow.top .fill{background:var(--lamp)}
+.brow.top span:first-child{color:var(--lamp-ink);font-weight:700}
+.four{display:grid;gap:10px;margin:4px 0 0}
+.four>div{display:grid;grid-template-columns:4.8em 1fr;gap:10px;align-items:baseline}
+.four dt{font-family:var(--serif);font-weight:700;color:var(--lamp-ink);letter-spacing:.04em}
+.four dd{margin:0;line-height:1.85}
+.four .ctx{border-top:1px dashed var(--rule);padding-top:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;gap:6px;align-items:baseline;border:1px solid var(--rule);background:var(--paper);border-radius:999px;padding:5px 12px;font-size:.9rem}
+.chip small{color:var(--ink-2);font-size:.78rem}
+.chip.main{border-color:var(--lamp);background:var(--lamp-wash)}
+.chip.main b{color:var(--lamp-ink)}
+.mixcard{background:var(--paper);border-left:3px solid var(--dai);border-radius:0 8px 8px 0;padding:12px 14px;display:grid;gap:4px}
+.mixcard h4,.rcard h4{margin:0;font-family:var(--serif);font-size:1.05rem}
+.mixcard h4{color:var(--dai)}
+.rcards{display:grid;gap:12px}
+.rcard{border:1px solid var(--rule);border-radius:10px;padding:12px 14px;display:grid;gap:4px;background:var(--leaf)}
+.rcard h4 small{font-family:var(--sans);font-weight:400;font-size:.8rem;color:var(--ink-2);margin-left:6px}
+.rcard p,.mixcard p{margin:0;line-height:1.85}
+.master p{margin:0}
+.master .txt b{color:var(--lamp-ink);font-weight:600}
+.also{display:grid;gap:6px;background:var(--paper);border-radius:8px;padding:12px 14px;font-size:.94rem}
+.also>b{font-size:.78rem;letter-spacing:.14em;color:var(--lamp-ink);font-weight:500}
+.also p{margin:0}
+.roster{display:grid;gap:8px;font-size:.92rem;margin-top:10px}
+.allm .note{margin:0;color:var(--ink-2);font-size:.9rem}
+.allm .tbar,.sut .tbar{display:flex;justify-content:flex-end}
+.allm .tbar .ghost,.sut .tbar .ghost{padding:6px 14px;font-size:.88rem}
+.mlist{display:grid;gap:8px}
+.mcards{display:grid;gap:10px}
+.mcard{background:var(--leaf);border:1px solid var(--rule);border-radius:10px;padding:12px 14px;display:grid;gap:4px}
+.mcard.first{border-color:var(--lamp-ink)}
+.mcard h4{margin:0;font-family:var(--serif);font-size:1.12rem;color:var(--lamp-ink)}
+.md{font-family:var(--sans);font-weight:400;font-size:.78rem;letter-spacing:.02em;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.mcard .md{display:block;margin-top:-2px}
+.also .md{margin-left:8px}
+.mi .nm .md{display:block;margin-top:2px;line-height:1.5}
+.mi .nm em{white-space:nowrap;display:inline-block}
+.mcard h4 small{font-family:var(--sans);font-weight:400;font-size:.76rem;letter-spacing:.08em;color:var(--ink-2);margin-left:8px}
+.mcard .txt p{margin:0;line-height:1.85}
+.mcard .txt b{color:var(--lamp-ink);font-weight:600}
+.sut .note{margin:0;color:var(--ink-2);font-size:.9rem}
+.sut .gnav{display:flex;flex-wrap:wrap;gap:6px}
+.sut .gnav button{font:inherit;font-size:.86rem;color:var(--lamp-ink);background:var(--leaf);border:1px solid var(--rule);border-radius:999px;padding:4px 12px;cursor:pointer}
+.sut .gnav button:hover{border-color:var(--lamp-ink);background:var(--lamp-wash)}
+.sut .gnav small{color:var(--ink-2);margin-left:4px;font-size:.74rem}
+.sgroup{display:grid;gap:6px;scroll-margin-top:16px}
+.sgroup h4:focus{outline:none}
+.sgroup h4{margin:10px 0 0;font-family:var(--serif);font-size:1.08rem;color:var(--ink)}
+.sgroup h4 small{font-family:var(--sans);font-weight:400;font-size:.76rem;color:var(--ink-2);margin-left:8px}
+.sgroup .gintro{margin:0;font-size:.88rem;color:var(--ink-2);line-height:1.75}
+.mi.su .sid{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:baseline;font-variant-numeric:tabular-nums}
+.mi.su[open]:not(.closing) .sid{display:flex}
+.mi .tg{display:inline-flex;flex-wrap:wrap;gap:4px}
+.mi .tg span{font-size:.72rem;line-height:1.6;border:1px solid var(--rule);border-radius:999px;padding:0 7px;color:var(--ink-2);background:var(--leaf)}
+.mi .mbody p.cat{font-size:.84rem;color:var(--ink-2);line-height:1.7}
+.mi .mbody p b{color:var(--lamp-ink);font-weight:600}
+.mi .mbody p.lk{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 12px}
+.lk a{font-size:.85rem;line-height:1.5;padding:6px 12px;border-radius:999px;border:1px solid var(--rule);background:var(--leaf);text-decoration:none;color:var(--dai)}
+.lk a:hover{border-color:var(--dai)}
+.lk a.pri{background:var(--lamp-ink);border-color:var(--lamp-ink);color:var(--paper)}
+.lk a.pri:hover{background:#5E3A24}
+.mi{background:var(--paper);border-radius:8px;border:1px solid transparent}
+.mi.me{border-color:var(--lamp-ink)}
+.mi.near{border-color:var(--rule)}
+.mi>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:2em 1fr 18px;column-gap:6px;align-items:baseline;padding:11px 14px}
+.mi>summary::-webkit-details-marker{display:none}
+.mi .n{font-size:.74rem;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.mi .nm{font-family:var(--serif);font-weight:600;font-size:1.02rem}
+.mi .nm em{font-style:normal;font-family:inherit;font-size:.74rem;letter-spacing:.08em;color:var(--lamp-ink);font-weight:500;margin-left:8px}
+.mi .sid{grid-column:2/3;font-size:.86rem;color:var(--ink-2);line-height:1.6;margin-top:2px}
+.mi .chev{grid-column:3;grid-row:1;justify-self:end;align-self:center;width:8px;height:8px;border-right:1.6px solid var(--ink-2);border-bottom:1.6px solid var(--ink-2);transform:translateY(-2px) rotate(45deg);transition:transform .32s cubic-bezier(.3,.7,.3,1),border-color .2s}
+.mi>summary:hover .chev{transform:translateY(1px) rotate(45deg);border-color:var(--lamp-ink)}
+.mi[open]:not(.closing) .chev{transform:translateY(2px) rotate(225deg)}
+.mi[open]:not(.closing)>summary:hover .chev{transform:translateY(-1px) rotate(225deg)}
+.mi[open]:not(.closing) .sid{display:none}
+.mi>summary:hover .nm{color:var(--lamp-ink)}
+.mbody{overflow:hidden;padding:0 14px 0 calc(14px + 2em + 6px)}
+.mbody>:last-child{margin-bottom:12px}
+.mi .mbody p{margin:4px 0 0;font-size:.93rem;line-height:1.8}
+.rfold>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr 22px;row-gap:10px;align-items:center}
+.rfold>summary::-webkit-details-marker{display:none}
+.rfold>summary .label,.rfold>summary .big,.rfold>summary .hint{grid-column:1}
+.rfold>summary .chev{grid-column:2;grid-row:1/3;justify-self:end;width:10px;height:10px;border-right:1.8px solid var(--ink-2);border-bottom:1.8px solid var(--ink-2);transform:translateY(-3px) rotate(45deg);transition:transform .32s cubic-bezier(.3,.7,.3,1),border-color .2s}
+.rfold>summary:hover .chev{transform:translateY(0) rotate(45deg);border-color:var(--lamp-ink)}
+.rfold[open]:not(.closing)>summary .chev{transform:translateY(3px) rotate(225deg)}
+.rfold[open]:not(.closing)>summary:hover .chev{transform:translateY(0) rotate(225deg)}
+.rfold>summary .hint{font-size:.8rem;color:var(--ink-2);margin-top:-4px}
+.rfold[open]:not(.closing)>summary .hint{display:none}
+.rfold>.mbody{overflow:hidden;padding:0}
+.rfold>.mbody>p{margin:10px 0 0}
+.fin2{display:grid;gap:10px;padding-top:14px}
+/* back to top */
+.totop{position:fixed;z-index:20;right:calc(10px + env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));width:40px;height:40px;border-radius:50%;
+  border:1px solid var(--rule);background:var(--leaf);color:var(--lamp-ink);box-shadow:0 4px 14px rgba(60,45,25,.16);cursor:pointer;display:grid;place-items:center;padding:0;
+  opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .25s,transform .25s}
+.totop.show{opacity:1;transform:none;pointer-events:auto}
+.totop:hover{border-color:var(--lamp-ink);background:var(--lamp-wash)}
+.totop svg{width:18px;height:18px}
+body.modal-open .totop{display:none}
+@media (max-width:520px){.mbody{padding-left:14px}}
+.roster p{margin:0}
+.fold{border-top:1px solid var(--rule);padding-top:14px}
+.fold>summary{cursor:pointer;font-weight:500;color:var(--ink)}
+.fold>summary:hover{color:var(--lamp-ink)}
+.recap{margin:12px 0 0;padding-left:0;list-style:none;display:grid;gap:8px;font-size:.9rem}
+.recap li{display:grid;grid-template-columns:5.6em 1fr;gap:8px}
+.recap .no,.done>summary .no{white-space:nowrap}
+.recap .no{letter-spacing:.06em}
+.recap b{font-family:var(--serif);font-weight:600}
+.explore{display:grid;gap:12px;margin-top:12px}
+.pickers{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;font-size:.9rem}
+.pickers label{display:flex;gap:8px;align-items:center}
+select{font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:5px 8px}
+.exout{display:grid;gap:10px;font-size:.95rem}
+.exout h4{font-family:var(--serif);margin:6px 0 0;font-size:1.08rem;color:var(--lamp-ink)}
+.actions{display:flex;flex-wrap:wrap;gap:10px}
+.ghost{background:transparent;color:var(--lamp-ink);border:1px solid var(--lamp-ink);border-radius:8px;padding:9px 18px;font-weight:500;cursor:pointer}
+.ghost:hover{background:var(--lamp-wash)}
+.ghost[data-armed]{background:var(--lamp-wash)}
+
+/* footer */
+.foot{margin-top:36px;font-size:.86rem;color:var(--ink-2);display:grid;gap:12px}
+.foot>details>summary{cursor:pointer;font-weight:500;color:var(--ink)}
+.notes{display:grid;gap:10px;margin-top:12px}
+.notes h4{margin:8px 0 0;font-family:var(--serif);color:var(--ink);font-size:.98rem}
+.notes .ref{padding-left:1em;text-indent:-1em}
+.tblwrap{overflow-x:auto;border:1px solid var(--rule);border-radius:8px;background:var(--leaf)}
+.tblwrap table{border-collapse:collapse;width:100%;min-width:480px;font-size:.83rem;line-height:1.65}
+.tblwrap th,.tblwrap td{text-align:left;vertical-align:top;padding:7px 10px;border-bottom:1px solid var(--rule)}
+.tblwrap th{background:var(--well);color:var(--ink);font-weight:500}
+.tblwrap tr:last-child td{border-bottom:0}
+.tblwrap td:first-child{white-space:nowrap;font-variant-numeric:tabular-nums}
+
+@media (max-width:440px){
+  h1{font-size:2.2rem}
+  .scene,.ending{padding:18px 15px}
+  .big{font-size:1.7rem}
+  .lamps{gap:2px}.lamps i.v{margin-left:3px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .scene.fresh,.after.fresh,.ending.fresh{animation:rise .38s ease-out}
+  @keyframes rise{from{transform:translateY(8px)}to{transform:none}}
+}
+
+/* map: transition, journey, timeline (ink lines) */
+.tr{position:fixed;inset:0;z-index:50;display:grid;place-items:center;
+  padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));
+  background:var(--paper);opacity:0;visibility:hidden;transition:opacity .32s ease,visibility 0s linear .34s;touch-action:none;overscroll-behavior:contain}
+.tr.on{opacity:1;visibility:visible;transition:opacity .32s ease}
+.tr-card{width:min(720px,100%);display:grid;gap:10px;transform:translateY(8px);transition:transform .6s ease}
+.tr.on .tr-card{transform:none}
+.tr-head{display:grid;gap:2px}
+.tr-no{font-size:.82rem;letter-spacing:.14em;color:var(--lamp-ink)}
+.tr-place{font-family:var(--serif);font-size:1.7rem;font-weight:700;line-height:1.3;color:var(--ink)}
+.tr-now{font-size:.9rem;color:var(--ink-2)}
+.mapbox{border:1px solid var(--rule);border-radius:10px;background:var(--leaf);overflow:hidden}
+.mapbox svg{display:block;width:100%;height:auto}
+.tr .mapbox svg{aspect-ratio:16/10}
+.m-land{fill:none;stroke:#2B2623;stroke-width:1.1;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.m-river,.m-lake{fill:none;stroke:#2B2623;stroke-width:.8;opacity:.42;vector-effect:non-scaling-stroke}
+.m-trail{fill:none;stroke:#2B2623;stroke-width:1;opacity:.22;vector-effect:non-scaling-stroke}
+.m-go{fill:none;stroke:#2B2623;stroke-width:2.2;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.m-go.end{stroke-width:1.3;opacity:.8}
+.m-path{fill:none;stroke:#2B2623;stroke-width:1.4;opacity:.75;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.m-sea{fill:none;stroke:#2B2623;stroke-width:1.4;stroke-dasharray:5 5;vector-effect:non-scaling-stroke}
+.m-dot{fill:#2B2623}
+.m-old{fill:#2B2623;opacity:.32}
+.m-ring{fill:none;stroke:#2B2623;stroke-width:1.2;vector-effect:non-scaling-stroke}
+.m-label{fill:#2B2623;font-family:var(--serif);font-weight:700;paint-order:stroke;stroke:var(--leaf);stroke-linejoin:round}
+.m-small{fill:#2B2623;font-family:var(--sans);paint-order:stroke;stroke:var(--leaf);stroke-linejoin:round}
+.m-faint{opacity:.55}
+.m-riverlabel{fill:#2B2623;opacity:.45;font-family:var(--serif)}
+.tl{position:relative;height:38px;margin:4px 6px 0}
+.tl-line{position:absolute;left:0;right:0;top:9px;border-top:1px solid #2B2623}
+.tl-tick{position:absolute;top:5px;transform:translateX(-50%);display:grid;justify-items:center;gap:2px}
+.tl-tick i{display:block;width:1px;height:9px;background:#2B2623;opacity:.55}
+.tl-tick b{font-weight:400;font-size:.72rem;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.tl-seen{position:absolute;top:6px;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:#2B2623;opacity:.3}
+.tl-now{position:absolute;top:3px;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:var(--leaf);border:2.5px solid #2B2623}
+.mapscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.journey .mapbox,.tlbox{min-width:600px}
+.tlbox svg{display:block;width:100%;height:auto}
+.maplegend,.tl-cap{font-size:.84rem;color:var(--ink-2)}
+.swipe{display:none;font-size:.8rem;color:var(--ink-2)}
+@media (max-width:640px){.swipe{display:block}}
+.tl-grid{stroke:#2B2623;stroke-width:1;opacity:.12;vector-effect:non-scaling-stroke}
+.tl-axis{stroke:#2B2623;stroke-width:1;vector-effect:non-scaling-stroke}
+.tl-yr{fill:var(--ink-2);font-size:15px;font-family:var(--sans)}
+.tl-name{fill:var(--ink);font-size:17px;font-family:var(--serif);font-weight:600}
+.tl-name.lost{fill:#9A8F86}
+.tl-seg{stroke:#2B2623;stroke-linecap:butt;vector-effect:non-scaling-stroke}
+.tl-seg.lost{stroke:#9A8F86}
+.tl-s{stroke-width:7}.tl-m{stroke-width:3.6}.tl-w{stroke-width:1.4}
+.tl-b{stroke-width:2.4;stroke-dasharray:1.5 4;stroke-linecap:round}
+.tl-d{stroke-width:2;stroke-dasharray:7 5}
+.tl-hit{stroke:transparent;stroke-width:18;cursor:pointer}
+.tl-you{fill:#2B2623;opacity:.55}
+.tl-key{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.8rem;color:var(--ink-2)}
+.tl-key span{display:inline-flex;align-items:center;gap:6px}
+.tl-key .k{display:inline-block;width:26px;height:0;border-top:3.6px solid #2B2623}
+.tl-key .k.tl-s{border-top-width:7px}.tl-key .k.tl-w{border-top-width:1.4px}
+.tl-key .k.tl-b{border-top:2.4px dotted #2B2623}.tl-key .k.tl-d{border-top:2px dashed #2B2623}
+.tl-key .k.you{width:0;height:0;border:5px solid transparent;border-top:8px solid #2B2623;opacity:.55;border-bottom:0}
+@media (max-width:600px){ .tr .mapbox svg{aspect-ratio:4/3} .tr-place{font-size:1.4rem} }
+
+/* mobile */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+button,summary,select,a{-webkit-tap-highlight-color:transparent}
+button,summary,select{touch-action:manipulation}
+.wrap{padding-bottom:calc(72px + env(safe-area-inset-bottom,0px))}
+@media (max-width:600px){
+  h1{letter-spacing:.16em}
+  .bar-row .tiny{padding:10px 2px;margin-block:-10px}
+  .pickers select{min-height:40px}
+  .fold>summary,details.lead>summary,.foot>details>summary{padding-block:9px}
+  .next,.resume,.ghost{min-height:44px}
+  .next{width:100%;justify-self:stretch}
+  .four>div{grid-template-columns:4.2em 1fr;gap:8px}
+  .chip{font-size:.86rem}
+}
+/* accents: 朱砂 marks where you are, 青金 marks what comes from another life */
+.eyebrow{color:var(--cinnabar)}
+.no{color:var(--cinnabar)}
+.vol .slip{border-color:var(--cinnabar);color:var(--cinnabar)}
+.lamps i.now{background:var(--cinnabar-wash);box-shadow:inset 0 0 0 1.5px var(--cinnabar)}
+.memory{border-color:var(--lapis);background:var(--lapis-wash)}
+.memory b{color:var(--lapis)}
+.choice.extra{border-color:var(--lapis)}
+.choice.extra .k{background:var(--lapis);border-color:var(--lapis)}
+.m-go{stroke:var(--cinnabar)}
+.m-ring{stroke:var(--cinnabar)}
+.m-sea{stroke:var(--lapis)}
+.tl-now{border-color:var(--cinnabar)}
+.home{display:inline-flex;align-items:center;gap:6px;font-size:.84rem;color:var(--ink-2);text-decoration:none;margin-bottom:14px}
+.home:hover{color:var(--cinnabar)}
+.home::before{content:"";width:6px;height:6px;border-left:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg)}
+.parts{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.parts a{font-size:.9rem;color:var(--lapis)}
+</style>
+
+<div class="wrap">
+  <header>
+    <a class="home" href="../">傳燈三部曲</a>
+    <p class="eyebrow">一部曲・如是我聞</p>
+    <h1>傳燈</h1>
+    <p class="sub">佛陀成道後不久，你在波羅㮈城外出家，從此跟隨世尊四十多年。三十七幕都是經律記載的事：鹿野苑的第一批弟子、祇園、第一條戒、拘尸那羅的最後一夜，直到七葉窟的第一次結集。</p>
+    <div class="intro" id="intro"></div>
+  </header>
+
+  <div class="bar" aria-label="進度">
+    <div class="bar-row">
+      <span class="where" id="where" aria-live="polite"></span>
+      <span id="vol-now"></span>
+      <button type="button" class="tiny" data-act="restart" id="bar-restart">重新開始</button>
+    </div>
+    <div class="lamps" id="lamps" aria-hidden="true"></div>
+  </div>
+
+  <main id="story"></main>
+  <button type="button" class="totop" data-act="top" aria-label="回到頁首" title="回到頁首" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg></button>
+
+  <footer class="foot">
+    <details>
+      <summary>史料依據與爭議說明</summary>
+      <div class="notes" id="notes"></div>
+    </details>
+    <p>「你」是虛構的角色；佛陀的話出自漢譯阿含與《四分律》，並對照巴利經典，依 CBETA 原典核對。學界仍有爭議之處，見上方說明。</p>
+  </footer>
+</div>
+
+<script type="application/json" id="data">{"hidden":[],"hiddenLead":"","hiddenSrc":"","intro":["這是「傳燈」三部曲的第一部。你只有一生：佛陀成道後不久，你在波羅㮈城外跟著兒時的朋友耶輸伽出家，從此跟隨世尊四十多年，看僧團一條條立下規矩、一次次面對分裂與戰亂，直到拘尸那羅的娑羅雙樹，再到王舍城七葉窟的第一次結集。","每一幕都是經律裡記載的一件事。讀完選一個選項，選項沒有對錯，只有你自己的修行方向。選完之後，「後來」會告訴你這件事在經律裡怎麼收尾，並附上出處。","佛陀說的每一句話，都出自漢譯阿含與《四分律》，並對照巴利經典；佛陀出家前的一生，只用他自己在經中的自述來講。「你」是虛構的，其他人物都有經律記載。","走完三十七幕，你會知道自己最像哪一位佛弟子（依《增壹阿含經》世尊親口所稱的「第一」），以及第一次結集那天，你在哪裡。進度只存在你自己的瀏覽器裡。"],"volumes":[{"label":"卷一","title":"初轉：鹿野苑的火","intro":"佛陀在菩提樹下成道後，到波羅㮈仙人鹿苑為五比丘說法。世間有了第一批出家弟子，你的一生，也從這裡開始。","first":1},{"label":"卷二","title":"世尊自述：出家之前","intro":"佛陀成道前的一生，後來的佛傳加了許多神奇的情節。這一卷只用世尊自己在經中說的話，以及阿難當著世尊的面說、經世尊印可的話。","first":6},{"label":"卷三","title":"立制：一條條的規矩","intro":"僧團大了，問題也多了。佛陀不是一開始就訂好所有的戒律，而是遇到一件事，就集合大眾，問清楚，再立一條規矩。","first":11},{"label":"卷四","title":"教誡：說給每一個人的法","intro":"世尊說法，看的是眼前的人：懷疑的村民、急著要答案的比丘、提著刀的殺人者、要去遠方的弟子。這一卷是他說給不同的人聽的話。","first":18},{"label":"卷五","title":"風波：僧團與王權","intro":"僧團越來越大，與國王的關係也越來越深。有人想分裂它，有國王來請教，也有國王帶兵來滅世尊的故國。","first":25},{"label":"卷六","title":"最後的旅程","intro":"世尊八十歲了。他從王舍城出發，一路往北，經過毘舍離，最後在拘尸那羅的娑羅雙樹間入滅。","first":31},{"label":"卷七","title":"結集：如是我聞","intro":"世尊入滅了，他說過的話還在每個弟子的記憶裡。要怎麼讓這些話傳下去？","first":36}],"scenes":[{"n":1,"num":"一","title":"此為苦哉","era":"佛陀成道後不久・波羅㮈城外仙人鹿苑","body":[{"h":"耶輸伽是波羅㮈城裡的富家子，父母只有他一個孩子，替他蓋了春、夏、冬三時殿，整天歌舞不停。你是他兒時的玩伴，住在城外。"},{"h":"這天清早，城裡亂成一團：耶輸伽不見了。聽說他半夜醒來，看見歌伎們橫七豎八睡在樂器堆裡，頭髮蓬亂、說著夢話，他走過三座殿，每一座都一樣，心裡只剩一句話：「此為苦哉！有何可貪？」他出了城門，脫下金屐，渡過婆羅河，走進了仙人鹿苑。"},{"h":"鹿苑裡的那位沙門對他說：「來此處無為，此處無厄，此處安隱。」耶輸伽當天就剃了頭，他的父親追來，聽完法，成了第一位三自歸的優婆塞。"},{"h":"現在，城外五十個和耶輸伽一起長大的朋友聚在一起，你也在其中。有人說：他一向最聰明，他會去的地方，一定不差。"}],"options":[{"k":"A","t":"我去鹿苑看看。不是因為他去了，是想知道什麼東西讓他連金屐都不要了。","s":{"智慧":1,"精進":1},"f":"聞"},{"k":"B","t":"大家一起去吧。五十個人一起出家，彼此也有個照應。","s":{"慈悲":1,"持戒":1},"f":"窟"},{"k":"C","t":"我先去問耶輸伽：那裡的修行，真的比這裡好嗎？","s":{"多聞":2},"f":"窟"},{"k":"D","t":"我其實也常在夜裡睡不著。如果真有一個「無厄、安隱」的地方，我想去。","s":{"禪定":1,"苦行":1},"f":"林"}],"after":["四分律記載，耶輸伽的五十位少小同友聽說他在大沙門處修梵行，便去問他：「此處勝耶？修梵行妙耶？」耶輸伽答：「此處勝修，梵行亦妙！」五十人一起出家。律中說，這時世間已有六十位阿羅漢弟子，加上如來是六十一。耶輸伽的母親與他的「本二」（出家前的妻子）也聽法歸依。"],"source":"<em>出處：《四分律》卷三十二〈受戒揵度〉（T22, 789b–790c）；巴利律〈大品〉<\/em>","vol":0},{"n":2,"num":"二","title":"汝等遊行","era":"不久之後・波羅㮈仙人住處鹿野苑","body":[{"h":"鹿苑裡的比丘越來越多。這一天，世尊召集大家，說了一段話："},{"h":"「我已解脫人天繩索，汝等亦復解脫人天繩索。汝等當行人間，多所過度，多所饒益，安樂人天，不須伴行，一一而去。我今亦往欝鞞羅住處人間遊行。」"},{"h":"「不須伴行，一一而去」：不要兩個人走同一條路，各自往一個方向。你出家才幾個月，連乞食的威儀都還在學。"}],"options":[{"k":"A","t":"我往最遠的地方走。既然要「多所饒益」，就去沒人去過的村落。","s":{"說法":2},"f":"遊"},{"k":"B","t":"我跟著世尊往欝鞞羅的方向走，在路上多聽幾次說法。","s":{"多聞":2},"f":"窟"},{"k":"C","t":"我照世尊說的，一個人上路，不找伴。一個人走，才知道自己學會了多少。","s":{"精進":1,"苦行":1},"f":"林"},{"k":"D","t":"我先留在鹿苑附近，照顧新來的比丘。總要有人留下。","s":{"慈悲":2},"f":"窟"}],"after":["雜阿含經記載，世尊說完這段話，魔波旬化作少年前來阻撓，說：「為大縛所縛，我今終不放。」世尊答：「我已脫一切，人天諸繩索。」魔知道被識破，便消失了。四分律也記下了同一段遣弟子四方遊行的教誡。"],"source":"<em>出處：《雜阿含經》卷三十九第 1096 經（T02, 288b）；《四分律》卷三十二（T22, 793a）；巴利《相應部》4.5<\/em>","vol":0},{"n":3,"num":"三","title":"一切燒然","era":"佛陀成道後第一年・伽耶尸利沙（象頭山）","body":[{"h":"世尊在欝鞞羅度化了事火的迦葉三兄弟。他們原本是螺髻梵志，帶著上千名弟子日夜供奉聖火；如今千人一起剃髮出家，把祭火的器具都丟進了尼連禪河。"},{"h":"在伽耶尸利沙的山上，世尊對這一千位曾經拜火的比丘說："},{"h":"「諸比丘！一切燒然。云何一切燒然？謂眼燒然，若色、眼識、眼觸、眼觸因緣生受……以何燒然？貪火燒然、恚火燒然、癡火燒然，生、老、病、死、憂、悲、惱、苦火燒然。」"},{"h":"你坐在人群邊上。身旁一位老比丘，從前在火壇前守了四十年的火。"}],"options":[{"k":"A","t":"我去問那位老比丘，聽到這段話時，他心裡在想什麼。","s":{"慈悲":1,"多聞":1},"f":"聞"},{"k":"B","t":"世尊用他們最熟悉的火來說法。我要學這種說法的方式。","s":{"說法":2},"f":"遊"},{"k":"C","t":"我回到自己身上看：眼睛看見東西的時候，心裡有沒有火在燒。","s":{"禪定":1,"智慧":1},"f":"林"},{"k":"D","t":"從前的信仰丟進河裡就算了，不要再提，免得他們難過。","s":{"持戒":1,"慈悲":1},"f":"窟"}],"after":["雜阿含經說，這一千位比丘聽完，「不起諸漏，心得解脫」。這部經在巴利經典中稱為《燃燒經》（Ādittapariyāya Sutta）。"],"source":"<em>出處：《雜阿含經》卷八第 197 經（T02, 50b）；巴利《相應部》35.28<\/em>","vol":0},{"n":4,"num":"四","title":"竹園","era":"佛陀成道後不久・王舍城","body":[{"h":"世尊帶著千人進入摩竭國的王舍城。國王瓶沙（頻婆娑羅）親自出城迎接，第二天請佛與比丘們入宮受供。"},{"h":"食後，國王手持金澡瓶，把水倒在世尊手上，說：「今羅閱城諸園中，此竹園最勝，我今施如來，願慈愍故受。」"},{"h":"世尊沒有直接收下。他對國王說：「汝今持此竹園，施佛及四方僧。」"},{"h":"一座園林從此屬於「四方僧」：屬於所有出家人，也屬於還沒出家的人。"}],"options":[{"k":"A","t":"「四方僧」這三個字我記下了：園子不屬於任何一個人，也不屬於國王。","s":{"持戒":2},"f":"窟"},{"k":"B","t":"有了住處很好，但我還是要像在鹿苑時一樣出去遊行，不能住慣了。","s":{"精進":1,"說法":1},"f":"遊"},{"k":"C","t":"國王的供養越大，僧團越要清楚自己是為什麼出家的。我想多問世尊這件事。","s":{"智慧":1,"多聞":1},"f":"聞"},{"k":"D","t":"我寧可住到竹園最偏僻的角落，安安靜靜地坐。","s":{"禪定":2},"f":"林"}],"after":["迦蘭陀竹園成為僧團在王舍城最重要的住處，許多經都在這裡說出。律中記載世尊受園時說，如來所有的園、房舍與衣鉢，「即是塔」，應當供養，所以要施給四方僧。"],"source":"<em>出處：《四分律》卷三十三〈受戒揵度〉（T22, 798b）；巴利律〈大品〉<\/em>","vol":0},{"n":5,"num":"五","title":"因緣生","era":"佛陀成道後不久・王舍城","body":[{"h":"王舍城外有兩位有名的年輕修行人，舍利弗與目犍連，各帶著一群弟子，跟隨一位懷疑論的老師。他們約定：誰先找到不死之道，就告訴對方。"},{"h":"這天，舍利弗在街上看見一位比丘乞食，威儀安詳，與眾不同。那是最早的五比丘之一，阿說示（阿濕卑）。舍利弗等他乞食完，上前問：你的老師是誰？說什麼法？"},{"h":"阿說示說自己出家不久，只能略說：世尊講的，是諸法從因緣生、也從因緣滅的道理。舍利弗一聽就開悟了。他回去告訴目犍連，兩人帶著兩百五十位同門，一起來到竹園。"},{"h":"你在竹園門口看見這一大群人。聽說世尊遠遠看見他們走來，就對比丘們說，這兩人將是弟子中的上首。"}],"options":[{"k":"A","t":"他們只聽了幾句就懂了。我要去請教舍利弗，那幾句到底怎麼聽的。","s":{"智慧":2},"f":"聞"},{"k":"B","t":"新來的人一來就當上首，有些老比丘心裡不服。我去聽聽大家怎麼說，再勸一勸。","s":{"慈悲":1,"持戒":1},"f":"窟"},{"k":"C","t":"阿說示只是安安靜靜地乞食，就讓舍利弗走上前來。我要先把自己的威儀走好。","s":{"持戒":1,"禪定":1},"f":"林"},{"k":"D","t":"一句話就能讓人開悟，那我也該把聽到的法說給別人聽。","s":{"說法":2},"f":"遊"}],"after":["舍利弗後來被稱為「智慧第一」，目犍連被稱為「神足第一」。四分律把這件事放在受戒揵度裡，說兩人與同門都在世尊座下出家受具足戒。"],"source":"<em>出處：《四分律》卷三十三〈受戒揵度〉（T22, 797a–798c）；巴利律〈大品〉<\/em>","vol":0},{"n":6,"num":"六","title":"極柔輭","era":"某年・舍衛國勝林給孤獨園","body":[{"h":"晚上，世尊對比丘們說起自己的出身。你坐在後排。"},{"h":"「我出家學道，為從優遊、從容閑樂、極柔輭來。」他說，父王悅頭檀為他造了春殿、夏殿及冬殿，殿旁有青、紅、赤、白各色蓮池；夏天四個月住在正殿，不曾下樓。"},{"h":"但他也說：有一次看人耕田，他坐在閻浮樹下，入了初禪。他想：不多聞的愚癡凡夫，自己有病、有老、有死，看見別人病、老、死卻嫌惡，不知道回頭看自己。「我自有病法，不離於病，若我見他病而憎惡薄賤，不愛不喜者，我不宜然。」這樣一想，因為年輕、健康、長壽而生的貢高，便都滅了。"}],"options":[{"k":"A","t":"原來他捨下的不是苦，是最好的日子。我想到自己放下的東西，其實少得多。","s":{"苦行":1,"精進":1},"f":"林"},{"k":"B","t":"「我亦有是法故」：別人的病，也是我的病。我要去看看今天生病的比丘。","s":{"慈悲":2},"f":"窟"},{"k":"C","t":"我把這段話一字不漏記下來，以後說給在家人聽。","s":{"多聞":1,"說法":1},"f":"遊"},{"k":"D","t":"我想知道閻浮樹下的那一次初禪，是什麼樣的感覺。","s":{"禪定":2},"f":"聞"}],"after":["這部經在中阿含稱為〈柔軟經〉，巴利《增支部》有相當的經文。經中的閻浮樹下入初禪，是世尊自述中極少數講到少年往事的段落。"],"source":"<em>出處：《中阿含經》卷二十九第 117 經〈柔軟經〉（T01, 607c–608c）；巴利《增支部》3.38–39<\/em>","vol":1},{"n":7,"num":"七","title":"聖求","era":"某年・舍衛國東園鹿子母堂","body":[{"h":"一群比丘在鹿子母堂外等著聽法，世尊從東河洗浴回來，為大家說了一段很長的自述。"},{"h":"他說，求法有兩種：一種是自己會老、會病、會死，卻去求同樣會老病死的東西，這是「非聖求」；另一種是求無病、無老、無死的無上安隱涅槃，這是「聖求」。"},{"h":"他年少時出家，先去阿羅羅伽羅摩那裡學，很快證得了「無所有處」，又去鬱陀羅羅摩子那裡證得「非有想非無想處」。兩位老師都要他留下來一起帶領徒眾，他都離開了，因為那不是他要找的。最後他在尼連禪河邊的林中成道，然後想：我該先為誰說法？兩位老師都已去世，於是他走到波羅㮈，找從前一起修行的五個人。"}],"options":[{"k":"A","t":"他連老師要分給他的位置都不要。我也不要為了位置修行。","s":{"苦行":1,"持戒":1},"f":"林"},{"k":"B","t":"學到了最高的禪定，他還是說「這不是」。我要學會分辨，不被境界綁住。","s":{"智慧":1,"禪定":1},"f":"聞"},{"k":"C","t":"他成道後第一個念頭，是要為誰說法。我也該把學到的帶給別人。","s":{"說法":1,"慈悲":1},"f":"遊"},{"k":"D","t":"我要把「聖求」與「非聖求」的分別背熟，每天檢查自己在求什麼。","s":{"多聞":1,"精進":1},"f":"窟"}],"after":["這部經在中阿含稱為〈羅摩經〉，巴利《中部》第 26 經相當。它是佛陀親口講述求道與成道經過最完整的經文之一。"],"source":"<em>出處：《中阿含經》卷五十六第 204 經〈羅摩經〉（T01, 775c–778c）；巴利《中部》26<\/em>","vol":1},{"n":8,"num":"八","title":"未曾有法","era":"某年・舍衛國勝林給孤獨園","body":[{"h":"傍晚，幾位比丘在講堂裡談論世尊的種種稀有之事，阿難也在。世尊從宴坐起來，問他們在說什麼。"},{"h":"阿難當著世尊的面，一條一條說出他從世尊那裡聽來的「未曾有法」：世尊入母胎、出生時的種種稀有，還有世尊「七年念身，常念不斷」等等，每說一條，都說「我受持是世尊未曾有法」。"},{"h":"世尊聽完，說：「阿難！汝從如來更受持此未曾有法。阿難！如來知覺生，知住、知滅，常知，無不知時。」"},{"h":"意思是：比起那些神奇的事，你更該記住的，是如來對每一個感受的生起、停留與消失，都清清楚楚。"}],"options":[{"k":"A","t":"那些神奇的事很動人，但世尊特別要阿難記住最後那一句。我也記住那一句。","s":{"禪定":1,"智慧":1},"f":"聞"},{"k":"B","t":"阿難能把這麼多事一條一條說出來，我要學他的記性。","s":{"多聞":2},"f":"窟"},{"k":"C","t":"我每天練習：一個感受生起時知道它生起，它消失時知道它消失。","s":{"禪定":1,"精進":1},"f":"林"},{"k":"D","t":"我會把兩者都說給在家人聽：先說稀有的事，再說最後那一句。","s":{"說法":2},"f":"遊"}],"after":["這部經在中阿含稱為〈未曾有法經〉，巴利《中部》第 123 經相當。經中那些入胎、出生的稀有事，是由阿難轉述、經世尊印可；世尊自己特別強調的，是對感受與思想的生、住、滅「常知，無不知時」。"],"source":"<em>出處：《中阿含經》卷八第 32 經〈未曾有法經〉（T01, 469c–471c）；巴利《中部》123<\/em>","vol":1},{"n":9,"num":"九","title":"不得度","era":"某年・迦毘羅衛","body":[{"h":"世尊回到故鄉迦毘羅衛。他的兒子羅睺羅還是個孩子，也在這時出家了。後來，釋迦族又有一些年輕人出家。"},{"h":"淨飯王來見世尊，說得很懇切：父母養育孩子多麼辛苦，世尊當年出家他已經很難過，如今連孫子也出家了。「唯願世尊，自今已去勅諸比丘，父母不聽不得度令出家。」"},{"h":"世尊默然答應。不久，他召集比丘，立下一條規矩：父母不同意的，不得為他剃度。"},{"h":"你想起自己出家那天，母親站在城門口，沒有說話。"}],"options":[{"k":"A","t":"這條規矩是對的。修行人不能踩著家人的眼淚出家。","s":{"慈悲":2},"f":"窟"},{"k":"B","t":"我要回家一趟，告訴母親我在這裡過得好，請她放心。","s":{"慈悲":1,"說法":1},"f":"遊"},{"k":"C","t":"世尊沒有爭辯，只是默然答應。我要學這種不爭。","s":{"持戒":1,"禪定":1},"f":"林"},{"k":"D","t":"我會記住這件事的前因後果。規矩背後都是一個人的心事。","s":{"多聞":1,"持戒":1},"f":"聞"}],"after":["四分律在受戒揵度裡記下了這件事，「父母不聽，不得度令出家」從此成為受戒前必須問的一項。律中記載，是舍利弗為童子羅睺羅剃度、授沙彌十戒，羅睺羅是僧團的第一位沙彌。"],"source":"<em>出處：《四分律》卷三十四〈受戒揵度〉（T22, 809c–810a）；巴利律〈大品〉<\/em>","vol":1},{"n":10,"num":"十","title":"鏡子","era":"某年・王舍城竹林迦蘭哆園","body":[{"h":"你被安排照顧年少的沙彌羅睺羅。他聰明，也頑皮，有時說話不太老實。"},{"h":"這天，世尊來看羅睺羅，問他：「於意云何？人用鏡為？」"},{"h":"羅睺羅說：「世尊！欲觀其面，見淨不淨。」"},{"h":"世尊說：做每一件事之前，先像照鏡子一樣看一看：這件身體的事、口裡的話、心裡的念頭，是淨還是不淨，是害自己還是害別人？做的時候再看，做完了還要再看。不淨的，就不要做；做錯了，就去向師長和同修說出來。"}],"options":[{"k":"A","t":"這面鏡子我也要用。每天睡前，我把今天做過的事照一遍。","s":{"持戒":1,"精進":1},"f":"林"},{"k":"B","t":"我不罵羅睺羅了。世尊沒有罵他，只給了他一面鏡子。","s":{"慈悲":2},"f":"窟"},{"k":"C","t":"世尊用孩子懂得的東西來教孩子。我要記下這個說法的方法。","s":{"說法":1,"多聞":1},"f":"遊"},{"k":"D","t":"「是害自己還是害別人」，這個問題比對錯更清楚。我要想透它。","s":{"智慧":2},"f":"聞"}],"after":["這部經在中阿含稱為〈羅云經〉，巴利《中部》第 61 經相當。《增壹阿含經》說羅睺羅是「不毀禁戒，誦讀不懈」的第一比丘。"],"source":"<em>出處：《中阿含經》卷三第 14 經〈羅云經〉（T01, 436a–437b）；《增壹阿含經》卷三（T02, 558a）；巴利《中部》61<\/em>","vol":1},{"n":11,"num":"十一","title":"祇園","era":"某年・王舍城寒林，其後舍衛城","body":[{"h":"舍衛城的富商須達長者到王舍城辦事，聽說有佛出世，天還沒亮就出城去寒林見佛。他聽完法，歸依三寶，請世尊到舍衛城安居。"},{"h":"回到舍衛城，須達看中了祇陀太子的園林。太子開玩笑說：除非你用金錢把地鋪滿。須達真的一車一車運金來鋪。太子被感動，把園中的樹林獻了出來。這座精舍後來就叫「祇樹給孤獨園」，須達也因為常施孤獨無依的人，被稱為「給孤獨」。"},{"h":"精舍落成，你和幾十位比丘一起住了進去。"}],"options":[{"k":"A","t":"有了這麼好的住處，我反而要更常出去遊行。","s":{"精進":1,"說法":1},"f":"遊"},{"k":"B","t":"我要去謝謝須達長者，也問問他：為什麼願意為不認識的人做這麼多？","s":{"慈悲":1,"多聞":1},"f":"聞"},{"k":"C","t":"住處是四方僧的。我要照顧好這裡的一草一木，讓後來的人也能安住。","s":{"持戒":2},"f":"窟"},{"k":"D","t":"我在園林最深處找一棵樹，從此在那裡坐禪。","s":{"禪定":2},"f":"林"}],"after":["雜阿含經記下須達在王舍城寒林初見世尊的經過；四分律房舍揵度記下他在舍衛城買園起精舍。用金錢鋪地等細節見於律藏與後來的傳記，各本詳略不同。祇樹給孤獨園此後成為世尊住得最久的地方之一。"],"source":"<em>出處：《雜阿含經》卷二十二第 592 經（T02, 158b）；《四分律》卷五十〈房舍揵度〉（T22, 938b）；巴利《相應部》10.8<\/em>","vol":2},{"n":12,"num":"十二","title":"第一條戒","era":"某年・毘舍離附近迦蘭陀村","body":[{"h":"迦蘭陀村有個富家子須提那，出家已經好幾年。那年遇上饑荒，乞食很難，他想：我家很富有，不如帶比丘們回村裡乞食。"},{"h":"回到家，他的母親再三求他：家裡的財產沒有人繼承，至少留下一個孩子。須提那最後答應了，與出家前的妻子行了不淨行。"},{"h":"事情傳開，比丘們都很震驚。世尊召集大眾，當面問須提那：「汝實爾不？」須提那說：「實爾。」世尊呵責了他，然後說：我要為比丘們立戒，為了十件事：攝取於僧、令僧歡喜、令僧安樂、令未信者信、已信者增長、難調者調順、慚愧者得安樂、斷現在有漏、斷未來有漏、正法得久住。"},{"h":"你和須提那同年出家，你們一起乞食過很多次。"}],"options":[{"k":"A","t":"我去找他。他做錯了，但他現在最需要的是有人陪他把錯說清楚。","s":{"慈悲":2},"f":"聞"},{"k":"B","t":"我把這「十句義」記熟。每一條戒，都是為了這十件事。","s":{"持戒":1,"多聞":1},"f":"窟"},{"k":"C","t":"我不評論他。我只問自己：如果是我的母親這樣求我，我做得到嗎？","s":{"智慧":1,"禪定":1},"f":"林"},{"k":"D","t":"在家人一定會議論這件事。我去村裡，把世尊怎麼處理說清楚。","s":{"說法":2},"f":"遊"}],"after":["四分律記載，這是佛陀為比丘制定的第一條波羅夷戒，也就是後來排在戒經第一條的「不淫戒」。須提那犯戒在制戒之前，律中說「最初未制戒」者不犯。後來第一次結集時，優波離誦律，第一條就說：「在毘舍離，須提那迦蘭陀子初犯。」"],"source":"<em>出處：《四分律》卷一（T22, 569c–570c）；同書卷五十四（T22, 968a）；巴利律〈經分別〉<\/em>","vol":2},{"n":13,"num":"十三","title":"雨安居","era":"某年・舍衛國祇樹給孤獨園","body":[{"h":"那年夏天雨下得很大，河水暴漲。六群比丘照樣一年四季在外遊行，衣鉢、坐具、針筒都被大水沖走，一路還踩死了許多剛長出來的草木。"},{"h":"居士們議論紛紛：「諸外道法尚三月安居……至於蟲鳥尚有巢窟止住處。」沙門釋子卻一年到頭在外面走，踩斷草木的生命。"},{"h":"這些話傳到世尊耳裡。他集合比丘，問明了事情，便立下規矩：每年雨季三個月，比丘要在一處安居，不得任意遊行。"}],"options":[{"k":"A","t":"居士說得對。修行人連蟲鳥都不如，就該改。","s":{"持戒":2},"f":"窟"},{"k":"B","t":"三個月不能遊行，正好可以好好坐禪。","s":{"禪定":2},"f":"林"},{"k":"C","t":"我想知道：一條規矩如果只因為別人批評才立，算不算好規矩？我去問年長的比丘。","s":{"智慧":1,"多聞":1},"f":"聞"},{"k":"D","t":"安居結束以後，我要把這三個月學到的，帶到更遠的地方。","s":{"說法":1,"精進":1},"f":"遊"}],"after":["四分律安居揵度記載，雨安居的規矩就是這樣立下的。安居結束時，比丘們要互相「自恣」，請別人指出自己的過失。「結夏安居」至今仍是上座部、藏傳與漢傳共同遵守的制度。"],"source":"<em>出處：《四分律》卷三十七〈安居揵度〉（T22, 830b）；巴利律〈大品〉<\/em>","vol":2},{"n":14,"num":"十四","title":"瞿曇彌","era":"某年・迦毘羅衛至那摩提","body":[{"h":"世尊的姨母摩訶波闍波提，也就是大愛道瞿曇彌，把世尊從小撫養長大。她向世尊請求讓女人出家，世尊沒有答應；她請了三次，世尊都沒有答應。"},{"h":"後來世尊遊行到了那摩提，她帶著釋迦族的老婦人們一路跟在後面，「塗跣污足，塵土坌體，疲極悲泣，住立門外」。阿難看見了，進去替她們向世尊請求。"},{"h":"世尊說：如果女人能遵守八尊師法，盡形壽奉持，就可以出家受戒。大愛道歡喜地接受了。"},{"h":"你剛好在精舍門口。"}],"options":[{"k":"A","t":"我去替她們端水、找地方歇腳。走了這麼遠的路，先讓她們坐下。","s":{"慈悲":2},"f":"窟"},{"k":"B","t":"我要記住阿難是怎麼替她們請求的：他沒有爭吵，只是一步一步地問。","s":{"多聞":1,"說法":1},"f":"聞"},{"k":"C","t":"世尊遲疑了三次，最後還是答應了。我想知道他在顧慮什麼。","s":{"智慧":2},"f":"聞"},{"k":"D","t":"她們赤腳走來的這段路，比我出家時走的路難多了。我要更精進。","s":{"精進":1,"苦行":1},"f":"林"}],"after":["比丘尼僧團從此成立。中阿含〈瞿曇彌經〉與四分律〈比丘尼揵度〉都記載了這件事。八尊師法（四分律稱「八不可過法」）的內容與歷史，學界與教界至今仍有不同看法；這裡只照經律原文記下。《增壹阿含經》說大愛道是「久出家學，國王所敬」的第一比丘尼。"],"source":"<em>出處：《中阿含經》卷二十八第 116 經〈瞿曇彌經〉（T01, 605a–607b）；《四分律》卷四十八〈比丘尼揵度〉（T22, 922c–923b）；《增壹阿含經》卷三（T02, 558c）；巴利《增支部》8.51<\/em>","vol":2},{"n":15,"num":"十五","title":"鹿子母","era":"某年・舍衛城東園","body":[{"h":"舍衛城的毘舍佉被稱為「鹿子母」，她在城東為僧團蓋了一座講堂，就是後來的東園鹿子母堂。"},{"h":"這天她來見世尊，提出了好幾個請求。其中一個是：她早上派婢女到僧伽藍通報用餐時間，婢女看見比丘們在雨中露身洗澡，以為是外道。她請求世尊准許她終身供給比丘「雨浴衣」，也供給比丘尼洗浴時用的衣。"},{"h":"世尊問她為什麼要這樣做。她一條一條說明，世尊都答應了。"}],"options":[{"k":"A","t":"她看見的，比我們自己看見的還多。我要謝謝她。","s":{"慈悲":1,"智慧":1},"f":"聞"},{"k":"B","t":"在家人的心意要收下，但收下之後，更要好好用、不浪費。","s":{"持戒":2},"f":"窟"},{"k":"C","t":"我還是寧可穿最粗的衣，在家人的好意，留給更需要的比丘。","s":{"苦行":2},"f":"林"},{"k":"D","t":"我去城裡，告訴其他居士：供養不只是給東西，要像她這樣先看見別人缺什麼。","s":{"說法":2},"f":"遊"}],"after":["四分律把毘舍佉的請求記在三十捨墮法中，比丘的雨浴衣制度由此而來。毘舍佉後來成為佛世最重要的女居士之一。"],"source":"<em>出處：《四分律》卷十（T22, 629b）；巴利律〈大品〉<\/em>","vol":2},{"n":16,"num":"十六","title":"當供養病人","era":"某年・某精舍","body":[{"h":"世尊巡視僧房，在一間偏僻的房裡，看見一位比丘病倒了，躺在自己的大小便中，沒有人照顧。"},{"h":"世尊問他：為什麼沒有人看你？他說：「我無病時不看他病，是故今病無人瞻視供養者。」"},{"h":"世尊親手扶他起來，替他擦去身上的污穢。然後他召集比丘們，說：「汝曹比丘自今已去，應看病比丘，不應不看……若有欲供養我者，當供養病人。」"},{"h":"那天傍晚，有一場說法會，大家都要去聽。你經過另一間房，裡面也有一位病比丘。"}],"options":[{"k":"A","t":"我留下來。世尊剛說過，供養病人就是供養他。","s":{"慈悲":2},"f":"窟"},{"k":"B","t":"我去說法會，但先請一位沙彌陪著他，聽完回來把法說給他聽。","s":{"說法":1,"多聞":1},"f":"遊"},{"k":"C","t":"我守在他身邊，同時看著自己的心：照顧別人時，我是不是在等人稱讚？","s":{"禪定":1,"智慧":1},"f":"林"},{"k":"D","t":"我去找他的和尚與同學。照顧病人要有人輪班，不能只靠一個人。","s":{"持戒":2},"f":"聞"}],"after":["四分律接著規定：病比丘的和尚、阿闍梨、同學與弟子都要照顧他；如果都沒有人，僧團要指派看病的人，不肯的要依次輪派。這段話後來成為佛教照顧病人的根本依據。"],"source":"<em>出處：《四分律》卷四十一〈衣揵度〉（T22, 861b–c）；巴利律〈大品〉<\/em>","vol":2},{"n":17,"num":"十七","title":"掃除","era":"某年・舍衛國","body":[{"h":"朱利槃特（周利槃特）出家很久，一首偈也背不起來。他的哥哥槃特覺得他丟臉，叫他還俗。他站在精舍門外哭。"},{"h":"世尊牽著他的手，帶他到靜室，教他念兩個字：「掃㨹」，也就是掃帚。他念得了「掃」，就忘了「㨹」；記得了「㨹」，又忘了「掃」。這樣念了好幾天。"},{"h":"有一天他想：掃㨹又叫「除垢」。什麼是除？什麼是垢？灰土瓦石是垢，掃乾淨是除。那我身上的垢是什麼？用什麼來除？"}],"options":[{"k":"A","t":"我也常覺得自己太笨。原來不必先背很多，只要真的想透一件事。","s":{"智慧":1,"精進":1},"f":"聞"},{"k":"B","t":"我去勸他的哥哥：每個人走的路不一樣，不要逼他。","s":{"慈悲":2},"f":"窟"},{"k":"C","t":"從今天起，我掃地時也想著這兩個字。","s":{"禪定":1,"苦行":1},"f":"林"},{"k":"D","t":"我要記住世尊教他的方法：教一個人，要從他做得到的地方開始。","s":{"說法":2},"f":"遊"}],"after":["增壹阿含經記載，朱利槃特想通了：「縛結是垢，智慧是除。」他觀察五陰的生滅，證得阿羅漢，對世尊說：「除者謂之慧，垢者謂之結。」世尊說：「善哉！」《增壹阿含經》說他「能化形體，作若干變」。"],"source":"<em>出處：《增壹阿含經》卷十一（T02, 601b–c）；同書卷三（T02, 558a）<\/em>","vol":2},{"n":18,"num":"十八","title":"伽藍","era":"某年・羇舍子村北尸攝惒林","body":[{"h":"世尊帶著比丘們到了伽藍族人的羇舍子村。村民們來聽法，聽完後站起來說："},{"h":"「瞿曇！有一沙門梵志來詣伽藍！但自稱歎己所知見，而呰毀他所知所見。」又有一位也是這樣。我們聽了，不知道誰真誰假。"},{"h":"世尊說：「伽藍！汝等莫生疑惑。所以者何？因有疑惑，便生猶豫。伽藍！汝等自無淨智，為有後世，為無後世？」接著他說：一切惡業都從貪、恚、癡生起，被貪、恚、癡覆蓋的人，會殺生、偷盜、邪淫、妄語。"}],"options":[{"k":"A","t":"世尊沒有說「信我」，而是要他們先看見自己心裡的貪、恚、癡。","s":{"智慧":2},"f":"聞"},{"k":"B","t":"我也該問問自己：我對世尊的信，是因為我自己看見了，還是因為大家都信？","s":{"禪定":1,"智慧":1},"f":"林"},{"k":"C","t":"這些村民會再遇到別的沙門。我要把世尊說的這幾句話教給他們，讓他們自己分辨。","s":{"說法":2},"f":"遊"},{"k":"D","t":"那些稱讚自己、毀謗別人的沙門，我以後絕不學他們。","s":{"持戒":1,"慈悲":1},"f":"窟"}],"after":["這部經在中阿含稱為〈伽藍經〉，世尊接著教伽藍人修習慈、悲、喜、捨四無量心。巴利《增支部》3.65 相當，經文細節與漢譯不同：巴利本列出「不要只因傳說、傳統、經典而相信」等十項，漢譯本則著重「汝等自無淨智」與貪、恚、癡三毒。"],"source":"<em>出處：《中阿含經》卷三第 16 經〈伽藍經〉（T01, 438b–439c）；巴利《增支部》3.65<\/em>","vol":3},{"n":19,"num":"十九","title":"箭","era":"某年・舍衛國勝林給孤獨園","body":[{"h":"鬘童子比丘坐在樹下，越想越不安：世界是常還是無常？有邊還是無邊？命與身是一還是異？如來死後存在還是不存在？世尊從來不回答這些問題。"},{"h":"他去找世尊，說：如果你不回答，我就捨戒還俗。"},{"h":"世尊說了一個比喻：有人中了毒箭，親友找來醫生。那人卻說：先別拔，我要知道射箭的人姓什麼、叫什麼、長什麼樣子，弓是什麼做的，箭羽是什麼鳥的毛……他還沒問完，就已經死了。"},{"h":"世尊說：這些問題我不說，因為它們無益於義，不是梵行的根本，不能帶來智慧、覺悟與涅槃。我說的是苦、苦集、苦滅、苦滅道。"}],"options":[{"k":"A","t":"我自己也有放不下的大問題。我先把箭拔出來再說。","s":{"精進":1,"禪定":1},"f":"林"},{"k":"B","t":"我去找鬘童子，陪他坐一會兒。他不是故意刁難，他是真的很不安。","s":{"慈悲":2},"f":"聞"},{"k":"C","t":"我要記住世尊為什麼不答：不是不知道，是因為那對解脫沒有幫助。","s":{"智慧":1,"多聞":1},"f":"窟"},{"k":"D","t":"以後有人拿這些問題來問我，我就說這個毒箭的比喻。","s":{"說法":2},"f":"遊"}],"after":["這部經在中阿含稱為〈箭喻經〉，巴利《中部》第 63 經相當。這十個問題後來被稱為「十四無記」或「十無記」中的幾項，是佛教史上著名的「不答」。"],"source":"<em>出處：《中阿含經》卷六十第 221 經〈箭喻經〉（T01, 804a–805c）；巴利《中部》63<\/em>","vol":3},{"n":20,"num":"二十","title":"我住汝不住","era":"某年・憍薩羅國","body":[{"h":"舍衛城附近有一個殺人無數的人，叫鴦掘魔。他把殺死的人的手指串成鬘，戴在身上。村民們不敢出門。"},{"h":"世尊一個人往他所在的方向走。鴦掘魔看見他，拔刀追上來，卻怎麼追都追不上。他大喊：「住！住！沙門！」"},{"h":"世尊回頭說：「我自住耳，汝自不住。」"},{"h":"鴦掘魔愣住了。他放下刀，跟著世尊回到精舍，出了家。"},{"h":"如今他就住在你隔壁的僧房。"}],"options":[{"k":"A","t":"我和他一起乞食。他走進村子會被人丟石頭，我站在他旁邊。","s":{"慈悲":2},"f":"遊"},{"k":"B","t":"我問他：那天聽到那句話時，你心裡發生了什麼？","s":{"智慧":1,"多聞":1},"f":"聞"},{"k":"C","t":"「我自住耳，汝自不住」，這句話我要每天拿來看自己：我停下來了嗎？","s":{"禪定":2},"f":"林"},{"k":"D","t":"我心裡還是怕他。我先守好自己的戒，慢慢再說。","s":{"持戒":2},"f":"窟"}],"after":["增壹阿含經記載，鴦掘魔出家後證得阿羅漢。《增壹阿含經》說他是「體性利根，智慧淵遠」的第一比丘。巴利《中部》第 86 經也記下了這段故事。"],"source":"<em>出處：《增壹阿含經》卷三十一（T02, 719b–720a）；同書卷三（T02, 558b）；巴利《中部》86<\/em>","vol":3},{"n":21,"num":"二十一","title":"侍者","era":"某年・王舍城","body":[{"h":"世尊召集了住在王舍城的長老們，有拘隣若、阿攝貝、舍梨子、大目乾連、大迦葉、大迦旃延，還有你的老朋友耶舍。"},{"h":"世尊說：「我今年老，體轉衰弊，壽過埀訖，宜須侍者。」"},{"h":"長老們一個一個站起來，說願意奉侍世尊。世尊都婉拒了：你們自己也老了，也需要人照顧。"},{"h":"大目乾連看出世尊屬意阿難。他去找阿難，阿難提出了幾個條件：不穿世尊的衣，不吃世尊的食物，不在不適當的時候見世尊。世尊答應了。"},{"h":"你也是被提名的人之一。"}],"options":[{"k":"A","t":"阿難最適合。我去勸他接下。","s":{"慈悲":1,"智慧":1},"f":"窟"},{"k":"B","t":"阿難開的條件，是為了不讓別人說他是為了好處。我要記住這種分寸。","s":{"持戒":2},"f":"聞"},{"k":"C","t":"我不爭這個位置。世尊身邊有阿難，遠方的村落還需要有人去。","s":{"說法":1,"精進":1},"f":"遊"},{"k":"D","t":"我繼續在林中坐我的禪。侍者是一種修行，獨坐也是。","s":{"禪定":2},"f":"林"}],"after":["這部經在中阿含稱為〈侍者經〉，阿難從此成為世尊的侍者，直到世尊入滅。《增壹阿含經》說他是「知時明物，所至無疑，所憶不忘，多聞廣遠，堪任奉上」的第一比丘。阿難何時擔任侍者，各書記載不同。"],"source":"<em>出處：《中阿含經》卷八第 33 經〈侍者經〉（T01, 471c–474a）；《增壹阿含經》卷三（T02, 558a）<\/em>","vol":3},{"n":22,"num":"二十二","title":"拘睒彌","era":"某年・拘舍彌瞿師羅園","body":[{"h":"拘舍彌的比丘們為了一件小事分成兩派，互相指責，越吵越兇。"},{"h":"世尊勸他們：「若以諍止諍，至竟不見止；唯忍能止諍，是法可尊貴。」他講了長壽王的故事：拘娑羅國的長壽王被殺，臨死前告訴兒子不要報仇，因為以怨報怨，怨永遠不會止息。"},{"h":"比丘們還是不聽。世尊一個人離開了，去了遠方的一片樹林。那裡住著阿那律陀、難提、金毘羅三位比丘，他們彼此和睦，像水和乳一樣。"},{"h":"你住在拘舍彌，兩派都有你的朋友。"}],"options":[{"k":"A","t":"我兩邊都不站。我去把長壽王的故事，一字一句講給兩邊的人聽。","s":{"說法":1,"慈悲":1},"f":"遊"},{"k":"B","t":"我跟著世尊離開，去看看阿那律陀他們是怎麼住在一起的。","s":{"禪定":1,"多聞":1},"f":"林"},{"k":"C","t":"我先弄清楚這件小事到底是誰對誰錯。不清楚的和好，以後還會再吵。","s":{"持戒":1,"智慧":1},"f":"聞"},{"k":"D","t":"我留下來，不說話，只是照常灑掃、照常乞食。等大家累了，總會想起來為什麼出家。","s":{"苦行":1,"精進":1},"f":"窟"}],"after":["律中記載，拘舍彌的在家人不再供養吵架的比丘，比丘們後來到舍衛國向世尊懺悔，僧團才和合。這部經在中阿含稱為〈長壽王本起經〉，巴利《中部》第 128 經相當。"],"source":"<em>出處：《中阿含經》卷十七第 72 經〈長壽王本起經〉（T01, 532c–536b）；巴利《中部》128<\/em>","vol":3},{"n":23,"num":"二十三","title":"邊地","era":"某年・阿槃提","body":[{"h":"大迦旃延在遙遠的阿槃提國弘法。他的在家弟子億耳想出家，可是那裡比丘太少，按規矩受具足戒要十位比丘，等了三年才湊齊。"},{"h":"後來億耳到舍衛國拜見世尊，替老師帶了幾個請求：邊地比丘少，受戒能不能少幾個人？那裡土地堅硬，能不能穿厚一點的鞋？那裡的人重視洗浴，能不能常洗浴？能不能用皮革當坐具？"},{"h":"世尊一一答應。他說：邊地可以「持律五人」授具足戒。"}],"options":[{"k":"A","t":"規矩是為了讓法傳下去，不是為了把人擋在外面。世尊放寬得對。","s":{"慈悲":1,"智慧":1},"f":"聞"},{"k":"B","t":"我要記住哪些可以放寬、哪些不可以：人數可以少，持律的人不能少。","s":{"持戒":2},"f":"窟"},{"k":"C","t":"我想去阿槃提，去那些比丘很少的地方。","s":{"說法":1,"精進":1},"f":"遊"},{"k":"D","t":"億耳等了三年。我要學他那份耐心。","s":{"苦行":1,"禪定":1},"f":"林"}],"after":["四分律皮革揵度記下了這幾項為邊地開許的規定。一千多年後，唐代的道宣律師在長安建戒壇時，引經說：「若中國十人，邊方五人，如法受戒，是名正法久住。」"],"source":"<em>出處：《四分律》卷三十九〈皮革揵度〉（T22, 845a–c）；巴利律〈大品〉<\/em>","vol":3},{"n":24,"num":"二十四","title":"輸盧那","era":"某年・舍衛國祇樹給孤獨園","body":[{"h":"富樓那比丘要去西方的輸盧那國說法。那裡的人以兇悍出名。"},{"h":"世尊問他：輸盧那人兇惡、輕躁、喜歡罵人，如果他們當面罵你，你怎麼辦？"},{"h":"富樓那說：如果他們罵我，我會想，他們還算賢善，至少沒有拿手打我。"},{"h":"世尊又問：如果他們用手打你呢？——至少沒有用石頭。用刀杖呢？——至少沒有殺我。如果他們殺了你呢？"},{"h":"富樓那說：世尊的弟子中，有人厭惡這個身體，甚至想自殺。我若被他們殺了，這個身體也就捨了，正好。"},{"h":"世尊說：善哉！你可以去了。"}],"options":[{"k":"A","t":"我要跟他一起去。他不怕，我也不該怕。","s":{"精進":1,"說法":1},"f":"遊"},{"k":"B","t":"他每一層都往好處想。我要學這種心。","s":{"慈悲":1,"禪定":1},"f":"林"},{"k":"C","t":"世尊問得這麼細，是要確定他真的準備好了。我要先準備好，再去任何地方。","s":{"智慧":1,"持戒":1},"f":"聞"},{"k":"D","t":"我把這段問答背下來，留給以後要去遠方的比丘。","s":{"多聞":2},"f":"窟"}],"after":["雜阿含經記載，富樓那到了輸盧那，在那裡度化了五百位優婆塞，建了五百座僧伽藍，後來也在那裡入滅。這部經在巴利《中部》第 145 經相當，富樓那在那裡稱為 Puṇṇa。"],"source":"<em>出處：《雜阿含經》卷十三第 311 經（T02, 89b–c）；巴利《中部》145<\/em>","vol":3},{"n":25,"num":"二十五","title":"五法","era":"某年・王舍城","body":[{"h":"提婆達多是釋迦族出身的比丘，出家多年，得到摩竭國王子阿闍世的供養與支持。這天他帶著幾位同伴來見世尊，提出五件事，要世尊定為規矩，讓比丘們終身奉行：盡形壽乞食、著糞掃衣、露坐、不食酥鹽、不食魚及肉。"},{"h":"這五件事聽起來都是苦行，都很清淨。世尊沒有答應把它們定為人人必守的規矩。"},{"h":"後來大家才知道，提婆達多私下對同伴說：沙門瞿曇一定不會答應，我們就可以拿這五法去號召人，說他不夠嚴格。"}],"options":[{"k":"A","t":"這五法我本來就在做。可是要人人都做，就是用戒律逼人了。","s":{"苦行":1,"智慧":1},"f":"林"},{"k":"B","t":"我願意終身乞食、穿糞掃衣，但不是為了跟著誰，是為了我自己。","s":{"苦行":2},"f":"聞"},{"k":"C","t":"世尊拒絕的不是苦行，是拿苦行來分裂僧團。我要把這件事說給新出家的比丘聽。","s":{"說法":1,"持戒":1},"f":"遊"},{"k":"D","t":"我去找提婆達多，請他回頭。他是世尊的親族，我不相信他真要這樣做。","s":{"慈悲":2},"f":"窟"}],"after":["四分律把這件事記在「破僧違諫戒」的因緣裡。提婆達多以五法為號召，帶走了一部分新學比丘。一千年後，漢地的梁武帝下令僧尼斷酒肉，「不食肉」才在漢傳佛教成為普遍的規矩；上座部與藏傳則至今沒有一律禁止。"],"source":"<em>出處：《四分律》卷四〈十三僧殘法〉（T22, 594b–c）；巴利律〈小品〉<\/em>","vol":4},{"n":26,"num":"二十六","title":"破僧","era":"某年・伽耶山","body":[{"h":"提婆達多帶著五百位新學比丘離開，到伽耶山另立一處，說要自己說戒。"},{"h":"世尊派舍利弗和目犍連去伽耶山。提婆達多以為他們是來投靠的，很高興，請舍利弗為大眾說法，自己說背痛，先去躺下休息。"},{"h":"舍利弗說法，目犍連以神足示現。五百位比丘聽完，都跟著他們回到了世尊身邊。"},{"h":"你的一位好朋友，當初也跟著去了伽耶山。"}],"options":[{"k":"A","t":"我去山下等他。不責備他，只問他：這一趟，你看見了什麼？","s":{"慈悲":2},"f":"聞"},{"k":"B","t":"回來的五百人一定很不好意思。我去幫他們安排住處，像什麼事都沒發生過。","s":{"慈悲":1,"持戒":1},"f":"窟"},{"k":"C","t":"我要記住舍利弗怎麼說法：他沒有罵提婆達多，只是把法說清楚。","s":{"說法":1,"智慧":1},"f":"遊"},{"k":"D","t":"僧團會分裂，是因為很多人跟著人走，不是跟著法走。我先檢查自己。","s":{"禪定":1,"智慧":1},"f":"林"}],"after":["四分律破僧揵度記載了這件事。「破和合僧」被列為五逆罪之一，提婆達多的事後來成為佛教史上分裂僧團的代表。"],"source":"<em>出處：《四分律》卷四十六〈破僧揵度〉（T22, 909b–910b）；巴利律〈小品〉<\/em>","vol":4},{"n":27,"num":"二十七","title":"沙門果","era":"某年・王舍城耆舊童子菴婆園","body":[{"h":"十五日的月夜，阿闍世王坐不住了。他為了王位，害死了父親瓶沙王。大臣們推薦了各派的老師，耆舊童子（耆婆）卻說：世尊正住在我的芒果園裡。"},{"h":"國王帶著大隊人馬來到園中，看見一千多位比丘安靜坐著，一點聲音都沒有，他反而害怕起來，以為中了埋伏。"},{"h":"他問世尊：做沙門，在這一生能得到什麼看得見的果報？世尊從一個奴僕出家後受人尊重說起，一層一層說到持戒、禪定，最後說到漏盡解脫。"},{"h":"國王聽完，當著大眾說：我害死了父親，這是我的大罪，請世尊接受我的悔過。"}],"options":[{"k":"A","t":"他做了這麼大的惡事，還能悔過。我願意相信人會改變。","s":{"慈悲":2},"f":"聞"},{"k":"B","t":"世尊回答一位殺父的國王，說的仍然是持戒、禪定、智慧。我要記住這個次第。","s":{"多聞":1,"持戒":1},"f":"窟"},{"k":"C","t":"一千多人安靜到讓國王害怕。我要先把自己的心坐得那麼安靜。","s":{"禪定":2},"f":"林"},{"k":"D","t":"國王走後，世尊對比丘們說了什麼？我去打聽清楚，說給其他人聽。","s":{"說法":2},"f":"遊"}],"after":["長阿含經記載，國王走後世尊說：如果國王沒有殺害父親，今天就能在座上得法眼淨。這部經在長阿含稱為〈沙門果經〉，巴利《長部》第 2 經相當。"],"source":"<em>出處：《長阿含經》卷十七第 27 經〈沙門果經〉（T01, 107a–109c）；巴利《長部》2<\/em>","vol":4},{"n":28,"num":"二十八","title":"流離王","era":"世尊晚年・迦毘羅衛郊外","body":[{"h":"憍薩羅國的新王毘琉璃（流離王）出兵攻打釋迦族。他年輕時在迦毘羅衛受過釋迦族的羞辱，一直記恨。"},{"h":"世尊得知後，獨自坐在大軍必經的路旁，一棵沒有枝葉的枯樹下。"},{"h":"流離王遠遠看見世尊，下車行禮，問：「更有好樹，枝葉繁茂……何故此枯樹下坐？」"},{"h":"世尊說：「親族之廕，故勝外人。」"},{"h":"流離王聽懂了，收兵回去。後來他又出兵，世尊又坐在那裡。到了第四次，世尊沒有再去。"},{"h":"你也是釋迦族出身的比丘。"}],"options":[{"k":"A","t":"我回迦毘羅衛，和族人在一起。","s":{"慈悲":2},"f":"遊"},{"k":"B","t":"世尊坐了三次，已經做了他能做的。我留在精舍，守著自己的心。","s":{"禪定":1,"苦行":1},"f":"林"},{"k":"C","t":"我想知道，世尊為什麼第四次沒有去。我去問他。","s":{"智慧":1,"多聞":1},"f":"聞"},{"k":"D","t":"我把這件事記下來，讓後世的人知道，世尊曾為了阻止一場戰爭坐在枯樹下。","s":{"多聞":1,"說法":1},"f":"窟"}],"after":["增壹阿含經記載，釋迦族最後被毘琉璃王所滅；經中把這件事說成釋迦族往昔的業報，目連曾想以神通相救，世尊說宿業難以轉移。這是經中少數記載世尊親族遭難的段落。"],"source":"<em>出處：《增壹阿含經》卷二十六（T02, 690a–693c）<\/em>","vol":4},{"n":29,"num":"二十九","title":"七不退","era":"世尊晚年・王舍城耆闍崛山","body":[{"h":"阿闍世王想攻打北方的跋祇國，派大臣禹舍來耆闍崛山問世尊。"},{"h":"世尊沒有直接回答，而是轉頭問阿難：你聽說跋祇人常常集會、商議國事嗎？君臣和順嗎？尊重老人、敬重宗廟嗎？……阿難一一答是。世尊說：只要跋祇人守住這七件事，國家就不會衰退。"},{"h":"禹舍聽懂了，說：跋祇人只要守住其中一件，就不可攻打，何況七件。他告辭回去。"},{"h":"禹舍走後，世尊召集王舍城附近的比丘，為僧團也說了七種「不退法」：常相集會、上下和同、奉法不違、敬重長老……"}],"options":[{"k":"A","t":"世尊用一個問題擋下了一場戰爭。我要學會這樣說話。","s":{"說法":1,"智慧":1},"f":"遊"},{"k":"B","t":"僧團的七不退法，我一條一條記熟。","s":{"多聞":1,"持戒":1},"f":"窟"},{"k":"C","t":"「常相集會」，我以後不再缺席布薩。","s":{"持戒":1,"精進":1},"f":"窟"},{"k":"D","t":"國家會不會衰退看七件事，人會不會退轉，也看自己每天做了什麼。我回去好好修行。","s":{"禪定":1,"精進":1},"f":"林"}],"after":["這段話是長阿含〈遊行經〉的開頭，也就是世尊最後一次遊行的起點。巴利《長部》第 16 經〈大般涅槃經〉相當。"],"source":"<em>出處：《長阿含經》卷二〈遊行經〉（T01, 11a–11c）；巴利《長部》16<\/em>","vol":4},{"n":30,"num":"三十","title":"雙賢","era":"世尊晚年・王舍城迦蘭陀竹園","body":[{"h":"舍利弗住在摩竭提的那羅聚落，病重入滅了。照顧他的純陀沙彌，收拾了他的舍利、扛著他的衣鉢，走到王舍城來找阿難。"},{"h":"阿難聽了，全身發軟，連方向都分不清了。他帶著純陀去見世尊。"},{"h":"世尊問阿難：舍利弗是帶著他的戒、定、慧、解脫入滅的嗎？阿難說不是。世尊說：那你為什麼這麼難過？一切可愛的東西都會離散，生的東西都會滅，要它不壞，是不可能的。"},{"h":"你出家時，舍利弗教過你很多。"}],"options":[{"k":"A","t":"我陪阿難坐一會兒。世尊說的道理他都懂，他只是需要有人陪。","s":{"慈悲":2},"f":"窟"},{"k":"B","t":"舍利弗帶不走他的戒定慧，那些都留在他教過的人身上。我要把他教我的再教給別人。","s":{"說法":2},"f":"遊"},{"k":"C","t":"我去那羅聚落，看看他最後住的地方，在那裡坐一夜。","s":{"禪定":1,"苦行":1},"f":"林"},{"k":"D","t":"「生的東西都會滅」，我第一次真的聽懂了這句話。","s":{"智慧":2},"f":"聞"}],"after":["雜阿含經記載的地點是王舍城；巴利註釋書則說舍利弗入滅於世尊最後一次遊行的途中。目犍連也在世尊之前入滅，世尊說：失去這兩位弟子，僧團就像大樹的大枝斷了。"],"source":"<em>出處：《雜阿含經》卷二十四第 638、639 經（T02, 176c–177c）；巴利《相應部》47.13–14<\/em>","vol":4},{"n":31,"num":"三十一","title":"自熾燃","era":"世尊最後一年・毘舍離竹林村","body":[{"h":"雨季到了，世尊在毘舍離附近的竹林村安居，讓比丘們各自去找安居的地方。"},{"h":"那年世尊生了重病，痛得很厲害，但他忍了下來。病好一點，阿難說：我看見世尊生病，心裡很慌，只想著世尊一定還會對僧團交代些什麼。"},{"h":"世尊說：我所說的法，內外都已說盡。我已經老了，就像一輛舊車，要靠修修補補才能往前走。"},{"h":"「當自熾燃，熾燃於法，勿他熾燃；當自歸依，歸依於法，勿他歸依。」"}],"options":[{"k":"A","t":"不要依靠任何人，連世尊也不要。我要學會自己照亮自己。","s":{"精進":1,"智慧":1},"f":"聞"},{"k":"B","t":"「歸依於法」，那我就把法守住，一句一句記牢。","s":{"多聞":1,"持戒":1},"f":"窟"},{"k":"C","t":"世尊說，自熾燃就是觀身、受、心、法。我現在就去坐。","s":{"禪定":2},"f":"林"},{"k":"D","t":"世尊病了，我留下來照顧他，其他的以後再說。","s":{"慈悲":2},"f":"窟"}],"after":["長阿含經接著說，所謂自熾燃、自歸依，就是比丘「內身身觀，精勤無懈……外身身觀……受、意、法觀亦復如是」，也就是四念處。巴利經典作「自洲以自依，法洲以法依」。"],"source":"<em>出處：《長阿含經》卷二〈遊行經〉（T01, 15a–15b）；巴利《長部》16<\/em>","vol":5},{"n":32,"num":"三十二","title":"周那","era":"世尊最後一年・波婆城","body":[{"h":"世尊到了波婆城，住在工匠之子周那的園林裡。周那聽法後很歡喜，第二天設齋供養，特別煮了一道珍貴的栴檀樹耳，只獻給世尊。"},{"h":"世尊告訴他：「勿以此耳與諸比丘。」"},{"h":"那天之後，世尊病重了。他一路走走停停，在一棵樹下躺下，對阿難說背痛。他問阿難：周那會不會因此悔恨？阿難說：周那設的供，恐怕沒有福報，因為世尊吃了他的供養就要入滅了。"},{"h":"世尊說：不是這樣。如來成道時吃的那一餐，和入滅前吃的這一餐，功德一樣大。你去告訴周那，不要讓他悔恨。"}],"options":[{"k":"A","t":"我去找周那，把世尊的話一字不漏告訴他。","s":{"慈悲":1,"說法":1},"f":"遊"},{"k":"B","t":"有人在私下怪周那。我當面告訴他們：世尊說了，不要怪他。","s":{"持戒":1,"慈悲":1},"f":"窟"},{"k":"C","t":"世尊病得這麼重，還在擔心一個工匠會不會難過。我要記住這件事一輩子。","s":{"多聞":1,"慈悲":1},"f":"聞"},{"k":"D","t":"我什麼都不說，只是守在世尊身邊。","s":{"禪定":1,"苦行":1},"f":"林"}],"after":["長阿含經記載，世尊要阿難轉告周那：他的供養有大功德，不要悔恨。經中說的「栴檀樹耳」究竟是什麼食物，各家解釋不同，巴利本作 sūkaramaddava，學界至今沒有定論。"],"source":"<em>出處：《長阿含經》卷三〈遊行經〉（T01, 18a–18c）；巴利《長部》16<\/em>","vol":5},{"n":33,"num":"三十三","title":"須跋","era":"世尊最後一夜・拘尸那羅娑羅雙樹間","body":[{"h":"世尊在拘尸那羅的娑羅雙樹間側身躺下，這一夜就要入滅了。"},{"h":"一位一百二十歲的外道修行人須跋，聽說佛陀今夜入滅，趕來求見。阿難擋在外面：世尊病重，請不要打擾。須跋請了三次，阿難三次都擋了下來。"},{"h":"世尊聽見了，說：讓他進來，他是來求法的，不是來為難我的。"},{"h":"須跋問：各派的老師都說自己的道是真的，誰對？世尊說：你不必管那些。有八聖道的地方，就有第一、第二、第三、第四沙門果；沒有八聖道，就沒有。"},{"h":"他還說了自己出家的年紀：「我年二十九，出家求善道。」"}],"options":[{"k":"A","t":"我守在門口。下一個來的人，我會先去問世尊。","s":{"慈悲":1,"持戒":1},"f":"窟"},{"k":"B","t":"世尊到最後一夜還在度人。我要像他一樣，不放過任何一個想聽法的人。","s":{"說法":2},"f":"遊"},{"k":"C","t":"不管誰對誰錯，只看有沒有八聖道。我要用這句話檢查自己。","s":{"智慧":2},"f":"聞"},{"k":"D","t":"二十九歲出家，求善道。我出家時多大？我求的是什麼？","s":{"禪定":1,"精進":1},"f":"林"}],"after":["須跋當夜出家，不久證得阿羅漢，成為世尊在世時親自度化的最後一位弟子。他不忍見世尊入滅，先於世尊入滅。"],"source":"<em>出處：《長阿含經》卷四〈遊行經〉（T01, 25a–25b）；巴利《長部》16<\/em>","vol":5},{"n":34,"num":"三十四","title":"不放逸","era":"世尊最後一夜・拘尸那羅娑羅雙樹間","body":[{"h":"夜深了。世尊對阿難說：不要以為我滅度後，你們就沒有依靠了。我成佛以來說的經和戒，就是你們的依靠。「自今日始，聽諸比丘捨小小戒，上下相呼，當順禮度。」"},{"h":"他又對比丘們說：如果對佛、法、僧還有疑問，現在就問，不要以後後悔。他問了三次，大家都沒有問。"},{"h":"最後他說：「比丘！無為放逸，我以不放逸故，自致正覺。」"},{"h":"說完，他入了初禪，一層一層入定，又一層一層出定，在四禪中入滅。"}],"options":[{"k":"A","t":"我心裡還有一個問題。我要問。","s":{"智慧":1,"精進":1},"f":"聞"},{"k":"B","t":"「捨小小戒」，哪些是小小戒？我記下這句話，以後一定要弄清楚。","s":{"持戒":1,"多聞":1},"f":"窟"},{"k":"C","t":"我沒有問題要問了。我只想記住最後這一句：不放逸。","s":{"精進":1,"禪定":1},"f":"林"},{"k":"D","t":"我看著身邊一起修行了四十年的人。從明天開始，我們要互相照顧了。","s":{"慈悲":2},"f":"遊"}],"after":["長阿含經記載，世尊入滅時，大地震動。阿那律知道世尊在哪一禪中入滅，告訴阿難。世尊說「捨小小戒」，卻沒有說哪些是小小戒，這件事在第一次結集時引起了爭論。"],"source":"<em>出處：《長阿含經》卷四〈遊行經〉（T01, 26a–26c）；巴利《長部》16<\/em>","vol":5},{"n":35,"num":"三十五","title":"八分舍利","era":"世尊入滅之後・拘尸那羅","body":[{"h":"末羅族人火化了世尊的遺體，把舍利迎進城裡供養。"},{"h":"消息傳開，摩竭國的阿闍世王、毘舍離的離車族、迦毘羅衛的釋迦族等七國，都派兵來，要分世尊的舍利。末羅族不肯，說世尊在我們這裡入滅，舍利應該留在這裡。兩邊各自擺出軍隊，眼看就要打起來。"},{"h":"一位叫香姓的婆羅門站出來說：世尊一生教人忍辱，我們怎麼能為了他的舍利動刀兵？不如平分成八份，各自回國起塔供養。"}],"options":[{"k":"A","t":"我站到兩軍中間，和香姓婆羅門一起勸。","s":{"慈悲":1,"說法":1},"f":"遊"},{"k":"B","t":"世尊留給我們的不是舍利，是法。我回去整理他說過的話。","s":{"多聞":2},"f":"窟"},{"k":"C","t":"這些國王爭的是舍利，我要守的是自己的心。","s":{"禪定":1,"智慧":1},"f":"林"},{"k":"D","t":"舍利分到哪一國，我就跟著到哪一國，守著那座塔。","s":{"苦行":1,"持戒":1},"f":"聞"}],"after":["長阿含經記載，舍利分為八份，香姓婆羅門得到量舍利的瓶，後到的畢鉢村人得到火化後的灰炭，各自回國起塔：八座舍利塔、一座瓶塔、一座炭塔，還有一座生時髮塔。兩百多年後，阿育王打開這些塔，把舍利分送到更多地方。"],"source":"<em>出處：《長阿含經》卷四〈遊行經〉（T01, 29b–30a）；巴利《長部》16<\/em>","vol":5},{"n":36,"num":"三十六","title":"我得自在","era":"世尊入滅七日後・波婆往拘尸那羅的路上","body":[{"h":"大迦葉帶著五百比丘，從波婆國往拘尸那羅趕路。路上遇見一個外道，手拿天上的曼陀羅花。大迦葉問他從哪裡來，他說：從拘尸城來，你們的老師已經滅度七天了。"},{"h":"比丘們聽了，有的倒在地上哭。人群中有一位釋種子拔難陀，制止大家說："},{"h":"「汝等勿憂，世尊滅度，我得自在。彼者常言：『當應行是，不應行是。』自今已後，隨我所為。」"},{"h":"大迦葉聽了，很不高興。他什麼都沒說，只是對比丘們說：趕快拿起衣鉢，趁世尊還沒火化，我們去見他。"},{"h":"你也在這五百人之中。"}],"options":[{"k":"A","t":"拔難陀這句話讓我害怕：法如果沒有人守，很快就會散了。我要跟著大迦葉。","s":{"持戒":1,"多聞":1},"f":"窟"},{"k":"B","t":"我想罵他，但我先忍下來。現在最重要的是趕到拘尸那羅。","s":{"精進":1,"禪定":1},"f":"林"},{"k":"C","t":"我去找拔難陀談談。他也是出家人，也許只是太傷心了，說錯話。","s":{"慈悲":2},"f":"聞"},{"k":"D","t":"世尊說過「歸依於法」。只要法還在，就沒有人能「隨我所為」。我要去各地，把這句話說給大家聽。","s":{"說法":2},"f":"遊"}],"after":["長阿含〈遊行經〉與四分律都記下了這句話；四分律作跋難陀釋子說「我等今者便得自任，欲作便作，欲不作便不作」。律中說，大迦葉就是因為這件事，決意召集比丘結集法與毘尼。"],"source":"<em>出處：《長阿含經》卷四〈遊行經〉（T01, 28c）；《四分律》卷五十四（T22, 966b）；巴利律〈小品〉<\/em>","vol":6},{"n":37,"num":"三十七","title":"七葉窟","era":"世尊入滅後第一個雨安居・王舍城七葉窟","body":[{"h":"大迦葉選了五百位阿羅漢，在王舍城外的七葉窟結集。阿難直到結集前一夜才證得阿羅漢，及時趕上。"},{"h":"優波離誦出律，第一條就是「在毘舍離，須提那迦蘭陀子初犯」。阿難誦出經，每一部經都以「如是我聞」開頭。"},{"h":"阿難說，世尊入滅前允許捨小小戒，但他沒有問哪些是小小戒。比丘們各說各話：有人說除了四波羅夷都是，有人說除了十三僧殘都是……大迦葉最後說：佛所不制的，不應妄制；佛已制的，不應違背。"},{"h":"結集快結束時，長老富羅那（富蘭那）帶著五百比丘從南方趕來。他聽完後說：我都同意，只有八件事除外，「我親從佛聞，憶持不忘」。"},{"h":"這是你一生中的最後一個選擇。"}],"options":[{"k":"A","t":"我在窟內，和大家一起誦出我記得的每一句話。","s":{"多聞":2},"f":"窟"},{"k":"B","t":"我在窟外，守著洞口，不讓任何人打擾。","s":{"持戒":1,"苦行":1},"f":"窟"},{"k":"C","t":"我站在富羅那這一邊：我也有自己親耳聽到的話，我要照我聽到的去做。","s":{"智慧":1,"精進":1},"f":"聞"},{"k":"D","t":"結集完，我就上路。四方的村落，還有很多人沒聽過這些話。","s":{"說法":2},"f":"遊"},{"k":"E","t":"我回到林間。世尊的話已經有人記下，我要用剩下的日子把它活出來。","s":{"禪定":2},"f":"林"}],"after":["四分律記載，這次結集把法與律分別集出，後世稱為「五百結集」或「第一次結集」。大迦葉回答富羅那：世尊在饑荒時開許了那八件事，豐年時又制止了。富羅那說，世尊是一切知見，不應制了又開、開了又制；大迦葉說：正因為世尊一切知見，所以能制了又開、開了又制。這番對話記在律中，各部派的律也各有記載。佛滅百年後，毘舍離的跋闍比丘行「十事」，又引起了第二次結集，那是下一部的故事了。"],"source":"<em>出處：《四分律》卷五十四〈集法毘尼五百人〉（T22, 966a–968c）；《五分律》卷三十（T22, 190b–191c）；巴利律〈小品〉<\/em>","vol":6}],"schools":{"智慧":{"tag":"看清因緣","text":"你遇到事情，先想它從哪裡來、往哪裡去。舍利弗聽阿說示幾句因緣法就開悟（第 5 幕），世尊對伽藍人說「汝等自無淨智」（第 18 幕），都是要人自己看清楚，而不是跟著別人信。你的長處是不容易被說服，也不容易被騙；要小心的是，看得清楚之後，還要有溫度地說出來。","modern":""},"禪定":{"tag":"安住於心","text":"你常選擇坐下來，回到自己的身心。世尊在閻浮樹下入初禪的往事（第 6 幕），臨終前一層層入定再出定（第 34 幕），都說明定是一切修行的地基。你的長處是穩；要小心的是，安靜不是逃避，坐下來之後，還要站起來面對人。","modern":""},"持戒":{"tag":"守護和合","text":"你重視規矩，也重視規矩背後的道理。須提那的事讓世尊說出制戒的「十句義」（第 12 幕），億耳的事讓世尊為邊地開許五人受戒（第 23 幕）：戒是為了讓僧團和合、正法久住。你的長處是可靠；要小心的是，不要讓規矩比人重要。","modern":""},"多聞":{"tag":"記得佛語","text":"你像阿難一樣，想把聽到的每一句都記住。第一次結集時，經就是靠這樣的記憶傳下來的（第 37 幕）。你的長處是讓法不失傳；要小心的是，記得很多，還要真的做到一兩句。","modern":""},"說法":{"tag":"把法帶給別人","text":"你常選擇上路，把聽到的說給還沒聽過的人。世尊說「汝等當行人間，多所過度，多所饒益」（第 2 幕），富樓那要去兇悍的輸盧那（第 24 幕）。你的長處是有勇氣、能感染人；要小心的是，說給別人聽之前，先說給自己聽。","modern":""},"苦行":{"tag":"少欲知足","text":"你願意過最簡單的日子：乞食、糞掃衣、樹下坐。大迦葉以頭陀聞名，世尊卻不許把五法定為人人必守（第 25 幕）。你的長處是不被物質綁住；要小心的是，苦行是工具，不是比較誰更苦。","modern":""},"慈悲":{"tag":"照顧身邊的人","text":"你看見的常是眼前那個人：病倒的比丘、哭泣的大愛道、被石頭丟的鴦掘魔。世尊說「若有欲供養我者，當供養病人」（第 16 幕）。你的長處是溫暖；要小心的是，照顧別人時，也要照顧自己的心。","modern":""},"精進":{"tag":"不放逸","text":"你不輕易停下來。世尊最後的話是「比丘！無為放逸，我以不放逸故，自致正覺」（第 34 幕）。你的長處是有耐力；要小心的是，精進不是急，是每天都不放棄。","modern":""}},"fates":{"窟":{"name":"七葉窟內","text":"第一次結集那天，你在七葉窟裡，和五百位比丘一起誦出佛語、律條。你最在意的是：世尊說過的話要一字一句傳下去，僧團要和合，大家照同一部經、同一部律修行。後來的上座部、說一切有部與各部派，都從這次結集開始。"},"聞":{"name":"親聞不忘","text":"你像長老富羅那：結集時你也在，但你說「我親從佛聞，憶持不忘」。你尊重大家的結集，但更相信自己親身聽到、親身體會的東西。這樣的聲音，在佛滅後一次次出現，讓佛教有了不同的部派，也有了更多元的理解。"},"遊":{"name":"遊行四方","text":"結集那天，你還在遠方的村落說法。你記得世尊最早的那句話：「汝等當行人間，多所過度，多所饒益。」佛法後來能傳到阿槃提、傳到海外，靠的就是你這樣的人。"},"林":{"name":"林間獨坐","text":"結集那天，你在阿蘭若的樹下。世尊的話已經有人記下了，你要用剩下的日子把它活出來。佛教每一代都有這樣的人，不在名冊上，卻讓法真正活著。"}},"combosLead":"","combos":{},"roles":{},"rolesLead":[],"mix":{},"masters":[{"name":"舍利弗","s":{"智慧":3,"說法":1,"多聞":1},"f":{"窟":1,"遊":1},"k":[[5,"A"],[18,"A"],[33,"C"]],"bal":false,"text":"世尊說他「智慧無窮，決了諸疑」。他原本是王舍城外有名的修行人，聽阿說示說了幾句因緣法就開悟，帶著同門投入世尊座下，後來被稱為「智慧第一」，先於世尊入滅。你像他：你一聽就想弄懂背後的道理，懂了就想告訴別人。他會提醒你：智慧不是用來贏的；他在伽耶山說法，沒有罵提婆達多一句。","id":"世尊說他「智慧無窮，決了諸疑」。","era":"佛陀時代","yrs":"生卒年不詳","b":0.12},{"name":"大目揵連","s":{"精進":2,"說法":1,"慈悲":1},"f":{"遊":1,"窟":1},"k":[[26,"C"],[28,"A"]],"bal":false,"text":"世尊說他「神足輕舉，飛到十方」。他與舍利弗一起出家，常奉世尊之命到各處度人，也曾和舍利弗一起到伽耶山，把跟隨提婆達多的比丘帶回來。你像他：你行動快，願意為別人跑一趟遠路。他會提醒你：再大的能力，也轉不動已經成熟的業；能做的是陪伴，不是勉強。","id":"世尊說他「神足輕舉，飛到十方」。","era":"佛陀時代","yrs":"生卒年不詳","b":0.12},{"name":"大迦葉","s":{"苦行":3,"持戒":2},"f":{"窟":2,"林":1},"k":[[25,"B"],[36,"A"],[37,"B"]],"bal":false,"text":"世尊說他「十二頭陀，難得之行」。他一生乞食、穿糞掃衣、住在塚間樹下，世尊入滅後，是他聽見拔難陀那句話，決意召集五百比丘結集。你像他：你不在意舒不舒服，只在意法能不能傳下去。他會提醒你：嚴格要先對自己；對別人，要給他們時間。","id":"世尊說他「十二頭陀，難得之行」。","era":"佛陀時代","yrs":"生卒年不詳","b":0.1073},{"name":"阿那律","s":{"禪定":2,"精進":2},"f":{"林":2},"k":[[22,"B"],[34,"C"]],"bal":false,"text":"世尊說他「天眼第一，見十方域」。他是釋迦族出身，曾因精進不眠而失明，卻因此得天眼。世尊在拘舍彌離開吵架的比丘後，去找的就是他和難提、金毘羅，三人和睦如水乳。你像他：你不爭，只是默默把自己的路走好。他會提醒你：和睦不是不說話，是每個人都先放下自己的一點。","id":"世尊說他「天眼第一，見十方域」。","era":"佛陀時代","yrs":"生卒年不詳","b":-0.0815},{"name":"大迦旃延","s":{"說法":2,"智慧":2},"f":{"遊":2},"k":[[23,"C"],[4,"C"]],"bal":false,"text":"世尊說他「善分別義，敷演道教」。他在遙遠的阿槃提弘法，替弟子億耳帶話，請世尊為邊地放寬受戒的人數。你像他：你擅長把簡短的話講清楚，也願意去法還沒到的地方。他會提醒你：到了遠方，要記得那裡的人和這裡不一樣，先聽懂他們。","id":"世尊說他「善分別義，敷演道教」。","era":"佛陀時代","yrs":"生卒年不詳","b":0.12},{"name":"優波離","s":{"持戒":3,"多聞":1},"f":{"窟":2},"k":[[12,"B"],[23,"B"],[37,"A"]],"bal":false,"text":"世尊說他「奉持戒律，無所觸犯」。他出身理髮師，與釋迦族王子們一起出家；第一次結集時，由他誦出律藏。你像他：你相信規矩能保護人，也願意把每一條的來龍去脈弄清楚。他會提醒你：每一條戒都有一個人的故事，記住那個人，就不會把戒用錯。","id":"世尊說他「奉持戒律，無所觸犯」。","era":"佛陀時代","yrs":"生卒年不詳","b":-0.12},{"name":"須菩提","s":{"智慧":2,"禪定":2},"f":{"林":2},"k":[[3,"C"],[35,"C"]],"bal":false,"text":"世尊說他「恒樂空定，分別空義」。後來的般若經典，常以他為問答的主角。你像他：你喜歡安靜地把一件事想到底，不急著下結論。他會提醒你：看見了空，更要溫和地待人，因為別人還在苦裡。","id":"世尊說他「恒樂空定，分別空義」。","era":"佛陀時代","yrs":"生卒年不詳","b":-0.0724},{"name":"阿難","s":{"多聞":3,"慈悲":2},"f":{"窟":2},"k":[[8,"B"],[21,"A"],[30,"A"]],"bal":false,"text":"世尊說他「知時明物，所至無疑，所憶不忘，多聞廣遠，堪任奉上」。他做了世尊多年的侍者，替大愛道向世尊請求，第一次結集時誦出經藏，每一部經都從「如是我聞」開始。你像他：你記得住，也放不下身邊的人。他會提醒你：記得很多，要在結集前一夜真的放下，才能證得。","id":"世尊說他「知時明物，所至無疑，所憶不忘，多聞廣遠，堪任奉上」。","era":"佛陀時代","yrs":"生卒年不詳","b":-0.12},{"name":"羅雲","s":{"持戒":2,"精進":2},"f":{"窟":1,"林":1},"k":[[10,"A"],[29,"C"]],"bal":false,"text":"世尊說他「不毀禁戒，誦讀不懈」。他是世尊的兒子、僧團第一位沙彌，世尊用一面鏡子教他照見自己的身口意。你像他：你願意天天檢查自己，一點一點改。他會提醒你：鏡子是用來看清楚的，不是用來責備自己的。","id":"世尊說他「不毀禁戒，誦讀不懈」。","era":"佛陀時代","yrs":"生卒年不詳","b":0.12},{"name":"周利般兔","s":{"精進":2,"苦行":1,"禪定":1},"f":{"林":1,"聞":1},"k":[[17,"A"],[17,"C"]],"bal":false,"text":"世尊說他「能化形體，作若干變」。他曾連一首偈都背不起來，世尊教他念「掃㨹」二字，他由此想通「縛結是垢，智慧是除」。你像他：你不聰明的時候也不放棄。他會提醒你：一件事真的想透，就夠了。","id":"世尊說他「能化形體，作若干變」。","era":"佛陀時代","yrs":"生卒年不詳","b":0.12},{"name":"鴦掘魔","s":{"精進":2,"智慧":1,"禪定":1},"f":{"聞":2},"k":[[20,"C"],[27,"A"]],"bal":false,"text":"世尊說他「體性利根，智慧淵遠」。他曾殺人無數，聽到世尊一句「我自住耳，汝自不住」，放下刀出家，證得阿羅漢。你像他：你相信一個人可以徹底轉身。他會提醒你：轉身之後，還要承擔別人丟來的石頭。","id":"世尊說他「體性利根，智慧淵遠」。","era":"佛陀時代","yrs":"生卒年不詳","b":0.12},{"name":"滿願子（富樓那）","s":{"說法":3,"慈悲":1,"精進":1},"f":{"遊":2},"k":[[2,"A"],[24,"A"]],"bal":false,"text":"世尊說他「能廣說法，分別義理」。他要去兇悍的輸盧那說法，世尊一層層問他被罵、被打、被殺時怎麼想，他都往好處想。你像他：你不怕去難去的地方。他會提醒你：先把心準備好，再上路。","id":"世尊說他「能廣說法，分別義理」。","era":"佛陀時代","yrs":"生卒年不詳","b":-0.12},{"name":"大愛道瞿曇彌","s":{"慈悲":2,"精進":2,"持戒":1},"f":{"窟":1,"聞":1},"k":[[14,"A"],[14,"D"]],"bal":false,"text":"世尊說她「久出家學，國王所敬」。她是世尊的姨母，三次請求出家都被勸止，仍赤腳走到那摩提，成為第一位比丘尼。你像她：你認定是對的事，就不怕被拒絕。她會提醒你：門打開之後，還要照顧進門的人。","id":"世尊說她「久出家學，國王所敬」。","era":"佛陀時代","yrs":"生卒年不詳","b":0.0468},{"name":"讖摩","s":{"智慧":3},"f":{"聞":2},"k":[[33,"C"],[18,"B"]],"bal":false,"text":"世尊說她「智慧聰明」。她被稱為比丘尼中的智慧第一。你像她：你看事情一針見血。她會提醒你：說出真相之前，先想想對方能不能接得住。","id":"世尊說她「智慧聰明」。","era":"佛陀時代","yrs":"生卒年不詳","b":-0.12},{"name":"優鉢華色","s":{"精進":2,"禪定":2},"f":{"林":1,"遊":1},"k":[[16,"C"],[31,"C"]],"bal":false,"text":"世尊說她「神足第一，感致諸神」。她出家前經歷過很大的苦難，出家後精進修行，證得阿羅漢。你像她：你從苦裡走出來，變得更強。她會提醒你：自己走過的苦，可以成為照亮別人的燈。","id":"世尊說她「神足第一，感致諸神」。","era":"佛陀時代","yrs":"生卒年不詳","b":0.0545},{"name":"須達長者","s":{"慈悲":3,"說法":1},"f":{"遊":1,"窟":1},"k":[[11,"B"],[16,"A"]],"bal":false,"text":"世尊說他是「大檀越主」。他在王舍城寒林初見世尊，回到舍衛城買下祇陀太子的園林，建起祇樹給孤獨園。你像他：你願意為不認識的人付出。他會提醒你：給出去的東西，要讓它屬於大家，就像世尊說的「施佛及四方僧」。","id":"世尊說他是「大檀越主」。","era":"佛陀時代","yrs":"生卒年不詳","b":-0.12},{"name":"質多長者","s":{"智慧":2,"說法":2},"f":{"聞":1,"遊":1},"k":[[18,"C"],[5,"D"]],"bal":false,"text":"世尊說他是「第一智慧」的優婆塞。他是在家居士，卻能和比丘們討論深奧的法義。你像他：你不必出家，也能把法想得很深。他會提醒你：在家修行，最要緊的是把法用在每天的生活裡。","id":"世尊說他是「第一智慧」的優婆塞。","era":"佛陀時代","yrs":"生卒年不詳","b":0.1149}],"mastersLead":["下面這些弟子，都是《增壹阿含經》卷三〈弟子品〉〈比丘尼品〉〈清信士品〉中，世尊親口稱為「第一」的人。系統比對你三十七幕的選擇，找出和你最接近的三位。"],"mastersSrc":"<em>出處：《增壹阿含經》卷三〈弟子品〉〈比丘尼品〉〈清信士品〉（T02, 557a–560a）；各人事蹟見各幕出處<\/em>","places":[{"n":1,"year":0,"name":"波羅㮈仙人鹿苑","now":"印度瓦拉納西鹿野苑","ll":[83.02,25.38],"xy":[599.6,309.6]},{"n":2,"year":0,"name":"鹿野苑","now":"印度瓦拉納西鹿野苑","ll":[83.02,25.38],"xy":[599.6,309.6]},{"n":3,"year":0,"name":"伽耶尸利沙","now":"印度伽耶附近","ll":[84.99,24.75],"xy":[737.9,356.2]},{"n":4,"year":0,"name":"王舍城竹園","now":"印度拉杰吉爾","ll":[85.42,25.03],"xy":[767.4,333.8]},{"n":5,"year":0,"name":"王舍城","now":"印度拉杰吉爾","ll":[85.42,25.03],"xy":[767.4,333.8]},{"n":6,"year":0,"name":"舍衛城祇樹給孤獨園","now":"印度舍衛城遺址","ll":[82.04,27.51],"xy":[531.3,144.9]},{"n":7,"year":0,"name":"舍衛城東園鹿子母堂","now":"印度舍衛城遺址","ll":[82.04,27.51],"xy":[531.3,144.9]},{"n":8,"year":0,"name":"舍衛城祇樹給孤獨園","now":"印度舍衛城遺址","ll":[82.04,27.51],"xy":[531.3,144.9]},{"n":9,"year":0,"name":"迦毘羅衛","now":"尼泊爾提勞拉科特一帶","ll":[83.05,27.57],"xy":[600.3,139.9]},{"n":10,"year":0,"name":"王舍城竹林","now":"印度拉杰吉爾","ll":[85.42,25.03],"xy":[767.4,333.8]},{"n":11,"year":0,"name":"舍衛城祇樹給孤獨園","now":"印度舍衛城遺址","ll":[82.04,27.51],"xy":[531.3,144.9]},{"n":12,"year":0,"name":"迦蘭陀村","now":"印度毘舍離一帶","ll":[85.13,25.99],"xy":[745.4,260]},{"n":13,"year":0,"name":"舍衛城","now":"印度舍衛城遺址","ll":[82.04,27.51],"xy":[531.3,144.9]},{"n":14,"year":0,"name":"那摩提","now":"印度毘舍離一帶","ll":[85.15,25.95],"xy":[746.8,263.1]},{"n":15,"year":0,"name":"舍衛城東園","now":"印度舍衛城遺址","ll":[82.04,27.51],"xy":[531.3,144.9]},{"n":16,"year":0,"name":"精舍","now":"印度舍衛城遺址","ll":[82.04,27.51],"xy":[531.3,144.9]},{"n":17,"year":0,"name":"舍衛城","now":"印度舍衛城遺址","ll":[82.04,27.51],"xy":[531.3,144.9]},{"n":18,"year":0,"name":"羇舍子村","now":"印度比哈爾邦凱薩里亞一帶（一說）","ll":[84.85,26.33],"xy":[725.4,234.1]},{"n":19,"year":0,"name":"舍衛城祇樹給孤獨園","now":"印度舍衛城遺址","ll":[82.04,27.51],"xy":[531.3,144.9]},{"n":20,"year":0,"name":"憍薩羅國","now":"印度舍衛城一帶","ll":[82.1,27.4],"xy":[535.4,153.4]},{"n":21,"year":0,"name":"王舍城","now":"印度拉杰吉爾","ll":[85.42,25.03],"xy":[767.4,333.8]},{"n":22,"year":0,"name":"拘舍彌瞿師羅園","now":"印度柯桑","ll":[81.38,25.34],"xy":[485.4,312.8]},{"n":23,"year":0,"name":"阿槃提","now":"印度烏賈因一帶","ll":[75.78,23.18],"xy":[87.4,469.7]},{"n":24,"year":0,"name":"舍衛城祇樹給孤獨園","now":"印度舍衛城遺址","ll":[82.04,27.51],"xy":[531.3,144.9]},{"n":25,"year":0,"name":"王舍城","now":"印度拉杰吉爾","ll":[85.42,25.03],"xy":[767.4,333.8]},{"n":26,"year":0,"name":"伽耶山","now":"印度伽耶附近","ll":[84.99,24.75],"xy":[737.9,356.2]},{"n":27,"year":0,"name":"王舍城耆舊童子菴婆園","now":"印度拉杰吉爾","ll":[85.43,25.02],"xy":[768.1,334.6]},{"n":28,"year":0,"name":"迦毘羅衛郊外","now":"尼泊爾提勞拉科特一帶","ll":[83.05,27.57],"xy":[600.3,139.9]},{"n":29,"year":0,"name":"耆闍崛山","now":"印度拉杰吉爾靈鷲山","ll":[85.44,25.01],"xy":[768.8,335.3]},{"n":30,"year":0,"name":"王舍城迦蘭陀竹園","now":"印度拉杰吉爾","ll":[85.42,25.03],"xy":[767.4,333.8]},{"n":31,"year":0,"name":"毘舍離竹林村","now":"印度毘舍離一帶","ll":[85.13,25.99],"xy":[745.4,260]},{"n":32,"year":0,"name":"波婆城","now":"印度北方邦法齊爾納加爾一帶（一說）","ll":[84,26.75],"xy":[666.2,202.7]},{"n":33,"year":0,"name":"拘尸那羅娑羅雙樹","now":"印度拘尸那揭羅","ll":[83.89,26.74],"xy":[658.6,203.6]},{"n":34,"year":0,"name":"拘尸那羅娑羅雙樹","now":"印度拘尸那揭羅","ll":[83.89,26.74],"xy":[658.6,203.6]},{"n":35,"year":0,"name":"拘尸那羅","now":"印度拘尸那揭羅","ll":[83.89,26.74],"xy":[658.6,203.6]},{"n":36,"year":0,"name":"往拘尸那羅的路上","now":"印度拘尸那揭羅附近","ll":[83.95,26.75],"xy":[662.8,202.7]},{"n":37,"year":0,"name":"王舍城七葉窟","now":"印度拉杰吉爾","ll":[85.4,24.99],"xy":[766.1,337]}],"timeline":[],"mapLead":[],"baseline":{"s":[0.1282,0.141,0.1338,0.1133,0.1575,0.0602,0.1855,0.0805],"f":[0.2801,0.2422,0.2287,0.249],"balance":0.984,"wS":0.65,"wF":0.35,"wK":0.08},"notesHtml":"<p>本部依漢譯阿含與《四分律》寫成，並對照巴利經典；年代、地點與佛陀的話，都附出處。佛陀一生的事件，經律多半沒有記年，先後依律藏敘事與一般佛傳的順序排列。<\/p><h4>學界有爭議或屬傳說的內容<\/h4><div class=\"tblwrap\"><table><tr><th>幕<\/th><th>爭議點<\/th><th>說明<\/th><\/tr><tr><td>全篇<\/td><td>佛陀的年代<\/td><td>佛陀生卒年學界有數說：上座部傳統以西元前 544 年為佛滅；學者依阿育王年代、《眾聖點記》等推算，另有數種說法。本部不標年份，只寫成道後、晚年等相對時間。<\/td><\/tr><tr><td>11<\/td><td>祇園以金錢鋪地<\/td><td>律藏與後來的傳記記載詳略不同，本部只寫律中所說的買園建寺。<\/td><\/tr><tr><td>14<\/td><td>八尊師法與大愛道出家的時間<\/td><td>八尊師法的內容與成立年代，學界與教界看法不一；阿難在此時代為請求，與他何時任侍者，各書記載不同。本部只依經律原文。<\/td><\/tr><tr><td>21<\/td><td>阿難任侍者的時間<\/td><td>中阿含〈侍者經〉說世尊「年老」才選侍者；後世傳說作成道後二十年。各書不同。<\/td><\/tr><tr><td>28<\/td><td>釋迦族被滅<\/td><td>增壹阿含將此事說成往昔業報；歷史細節只見於佛典，本部依經文。<\/td><\/tr><tr><td>30<\/td><td>舍利弗入滅的地點與時間<\/td><td>雜阿含作世尊住王舍城時；巴利註釋書置於世尊最後一次遊行途中。<\/td><\/tr><tr><td>32<\/td><td>「栴檀樹耳」是什麼食物<\/td><td>巴利本作 sūkaramaddava，有菌類、豬肉等不同解釋，至今沒有定論。<\/td><\/tr><tr><td>37<\/td><td>小小戒與富羅那所持的八事<\/td><td>各部派律藏記載的內容與數目不同，本部依四分律。<\/td><\/tr><\/table><\/div><h4>主要參考<\/h4><p class=\"ref\">《長阿含經》《中阿含經》《雜阿含經》《增壹阿含經》（T01、T02）、《四分律》《五分律》（T22），依 CBETA 電子佛典。<\/p><p class=\"ref\">巴利經典依元亨寺版《漢譯南傳大藏經》與 SuttaCentral 經號對照。<\/p><p class=\"ref\">印順導師《原始佛教聖典之集成》《印度佛教思想史》；聖嚴法師《印度佛教史》；星雲大師《佛光教科書》與《星雲大師全集》中講佛陀與十大弟子的文章；平川彰《印度佛教史》（莊崑木譯）。<\/p>","cfg":{"key":"chuandeng-p1-v1","dims":["智慧","禪定","持戒","多聞","說法","苦行","慈悲","精進"],"fates":["窟","聞","遊","林"],"tie":["窟","林","遊","聞"],"flabel":{"窟":"守護佛語","聞":"親身體會","遊":"遊行教化","林":"獨處修行"},"years":null,"ticks":null,"trEnd":"四十多年的行腳","mapLegend":"實線：一幕一幕走過的路。河道依今日地形，只示方位；許多古地名今地有不同說法。","mapAria":"三十七幕的地點地圖","endTitle":"如是我聞","endLead":"三十七幕走完了。下面是和你最像的佛弟子、你最突出的修行特質，以及第一次結集那天，你在哪裡。","masterLabel":"和你最像的佛弟子","dimLabel":"你最突出的修行特質","dimSuffix":"","fateLabel":"結集那天，你在哪裡","journeyLabel":"四十多年的行腳","journeyBig":"恆河兩岸的地圖","scoreBig":"八種特質與四種去處","dimBarLabel":"修行特質","fateBarLabel":"結集那天","exploreBig":"八種特質 × 四種去處","allLabel":"佛弟子總覽","allUnit":"位佛弟子","allNote":"以下都是《增壹阿含經》卷三中，世尊親口稱為「第一」的弟子。","memLabel":"往事","links":[{"t":"回到三部曲首頁","u":"../"},{"t":"二部曲：法流三道","u":"../2/"},{"t":"三部曲：漢傳八宗一千五百年","u":"../3/"}]},"map":{"w":1000,"h":548,"land":"M971.9 548.0L963.2 544.5L962.9 542.7L960.6 544.1L958.0 542.9L955.3 539.8L953.1 531.2L951.7 529.0L950.2 529.6L952.4 534.3L953.5 540.2L954.9 542.8L958.1 545.7L964.3 546.4L968.0 548.0","rivers":"M986.0 483.9L982.5 493.2L980.3 503.6L980.5 511.8L977.0 518.1L969.7 522.7L965.2 529.5L963.7 544.4M986.0 483.9L1000.0 484.8M977.6 375.6L986.0 385.1L987.9 389.1L987.6 392.4L989.7 395.2L994.1 397.3L996.2 400.2L995.9 404.0L1000.0 407.2M977.6 375.6L984.9 378.5L995.1 379.6L1000.0 382.7M942.6 343.5L944.6 355.7L950.5 365.0L962.0 376.4L967.0 388.1L965.6 400.2L965.8 410.6L967.7 419.3L967.3 426.4L965.2 429.6L967.5 434.4L974.2 441.4L977.2 442.2L978.6 447.5L978.4 457.4L980.4 463.3L984.3 465.3L987.1 468.3L988.7 472.3L986.0 483.9M942.6 343.5L948.8 355.9L954.7 364.2L959.6 369.0L965.3 370.6L969.6 369.0L973.2 370.8L977.6 375.6M265.1 0.0L266.1 11.7L264.3 22.5L264.9 34.7L269.6 55.1L273.9 62.9L275.6 69.0L276.3 76.1L279.7 83.8L285.8 92.3L297.3 101.9L314.2 112.6L325.7 118.2L331.6 118.7L335.3 121.4L336.9 126.3L341.1 129.7L348.1 131.6L354.1 134.6L359.0 138.8L373.1 166.2L380.2 171.9L386.0 173.5L391.1 181.4L397.4 196.1L407.1 210.8L420.2 225.6L427.9 236.7L430.3 244.1L435.3 250.6L442.7 256.3L450.2 258.6L457.8 257.4L467.8 262.5L480.2 273.7L486.5 281.4L486.7 285.6L490.9 289.2L504.1 295.6L506.7 299.1L511.5 300.6L518.6 300.0L522.1 301.5L521.8 307.3L531.5 315.1L536.9 317.2L541.3 316.3L543.5 318.1L544.3 320.4L547.7 319.0L549.4 319.1L550.7 321.4L552.6 321.7L555.0 319.9L558.9 321.0L564.3 325.0L567.1 324.9L569.3 322.3L571.8 322.1L583.4 327.9L589.9 328.1L595.9 324.5L599.4 320.5L600.6 316.1L603.4 313.4L607.9 312.3L609.3 309.7L607.6 305.9L607.8 302.4L609.9 299.4L614.9 298.7L622.7 300.2L632.2 304.3L633.9 302.9L634.1 297.3L639.7 293.3L644.6 291.5L647.6 292.8L650.4 296.5L654.0 298.2L658.4 297.9L664.7 293.6L673.2 285.2L679.3 282.1L683.2 284.2L687.1 283.6L691.2 280.2L697.1 279.8L704.9 282.5L711.5 282.6L716.8 280.1L724.8 279.3L735.5 280.0L745.2 283.8L753.7 290.7L760.7 294.2L765.9 294.8L775.8 293.8L780.2 297.5L785.8 298.9L791.9 297.2L798.5 299.5L805.6 305.9L814.0 309.7L823.7 311.0L833.0 307.8L841.7 300.0L846.6 299.0L847.8 304.8L850.2 309.2L853.9 312.1L859.1 311.6L865.8 307.7L874.4 307.9L885.1 312.1L892.2 311.3L896.0 305.5L901.1 302.0L907.5 300.9L912.7 302.8L916.7 307.8L921.9 310.9L928.2 312.1L931.5 315.4L931.9 320.7L935.1 325.2L941.4 328.9L943.7 333.3L942.3 338.2L942.6 343.5M201.6 0.0L200.9 8.7L201.8 18.4L204.4 26.3L205.6 34.6L205.4 43.4L206.9 51.1L211.9 61.1L220.2 68.7L222.4 72.7L221.3 75.7L221.9 79.8L224.1 85.1L224.0 90.3L221.4 95.4L221.9 102.9L225.3 112.6L228.9 117.6L232.7 117.7L233.9 121.5L232.6 132.9L234.3 133.7L234.7 135.4L233.9 138.2L235.2 143.4L242.3 156.2L246.3 159.1L249.0 159.6L252.2 157.7L254.1 159.0L255.7 164.6L259.0 166.1L265.0 165.9L268.2 167.8L268.5 171.9L271.2 173.2L274.1 172.5L276.4 176.0L280.3 176.4L283.9 179.1L287.3 184.1L291.1 184.5L295.5 188.3L299.2 189.6L302.2 188.4L307.1 190.9L318.5 200.3L321.1 200.4L323.7 203.6L326.3 210.0L331.1 214.8L338.3 217.8L339.7 220.2L338.9 223.3L340.8 226.3L349.2 226.2L354.1 227.9L355.5 231.4L358.4 232.7L358.4 236.5L362.1 241.4L370.3 248.4L376.6 252.2L381.0 252.9L386.5 251.0L387.1 253.3L389.3 255.2L393.5 255.3L395.6 256.8L395.6 259.5L397.8 262.5L404.5 267.1L426.2 271.3L426.9 272.7L423.7 275.2L426.1 278.2L433.4 282.8L439.4 284.4L444.1 283.1L448.3 283.3L451.9 285.0L454.2 287.2L455.2 290.0L456.9 291.2L459.4 290.8L460.5 292.2L460.3 295.4L463.1 297.9L468.9 299.8L471.6 303.0L471.2 307.5L474.3 310.7L485.2 314.5L486.6 316.8L491.8 316.4L500.5 313.1L507.2 312.0L511.9 313.1L514.9 312.0L516.0 308.7L517.9 307.0L521.8 307.1","lakes":"","riverLabels":[{"t":"恆河","p":[688.2,279.8]},{"t":"閻牟那河","p":[362.4,252.5]}]}}</script>
+<script>
+(function(){
+const D = JSON.parse(document.getElementById('data').textContent);
+const C = D.cfg;
+const SCH = C.dims;
+const FATES = C.fates;
+const TIE = C.tie;
+const FLABEL = C.flabel;
+const N = D.scenes.length;
+const PART = '1';
+const TKEY = 'chuandeng-trilogy-v1';
+function tload(){ try { const v = JSON.parse(localStorage.getItem(TKEY) || '{}'); return v && typeof v === 'object' ? v : {}; } catch(e) { return {}; } }
+const TS = tload();
+function tsave(res){
+  try {
+    const t = tload(), me = t[PART] || {};
+    me.l = picks.map((p, i) => { const o = D.scenes[i] && D.scenes[i].options[p]; return o ? o.k : '-'; }).join('');
+    me.pos = pos; me.n = N;
+    if (res) me.res = res; else if (pos < N) delete me.res;
+    t[PART] = me; localStorage.setItem(TKEY, JSON.stringify(t));
+  } catch(e) {}
+}
+function xpick(c){ const t = TS[String(c.p)]; if (!t || !t.l) return false; const L = t.l[c.n - 1]; if (!L || L === '-') return false; return !c.k || c.k.indexOf(L) >= 0; }
+
+const KEY = C.key;
+const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let picks = [], pos = 0;
+
+const $ = (s, r) => (r || document).querySelector(s);
+const story = $('#story');
+
+const CN = ['零','一','二','三','四','五','六','七','八','九'];
+function cnum(n){ if (n < 10) return CN[n]; const t = Math.floor(n/10), u = n%10; return (t > 1 ? CN[t] : '') + '十' + (u ? CN[u] : ''); }
+function letterOf(i){ const p = picks[i]; const o = D.scenes[i].options[p]; return o ? o.k : null; }
+function evalCond(c, upto){
+  if (!c) return true;
+  switch (c.t){
+    case 'xpick': return xpick(c);
+    case 'pick': { const i = c.n - 1; return i < upto && i < picks.length && c.k.indexOf(letterOf(i)) >= 0; }
+    case 'or': return c.items.some(x => evalCond(x, upto));
+    case 'atleast': return c.items.filter(x => evalCond(x, upto)).length >= c.v;
+    case 'fate': {
+      let n = 0; for (let i = 0; i < Math.min(upto, picks.length); i++){ const o = D.scenes[i].options[picks[i]]; if (o && o.f === c.f) n++; }
+      return c.op === '>=' ? n >= c.v : c.op === '<=' ? n <= c.v : n === c.v;
+    }
+    case 'ecount': { let n = 0; for (let i = 0; i < Math.min(upto, picks.length); i++){ const o = D.scenes[i].options[picks[i]]; if (o && o.c) n++; } return n >= c.v; }
+  }
+  return false;
+}
+function save(){ try { localStorage.setItem(KEY, JSON.stringify({picks, pos})); } catch(e) {} tsave(); }
+function load(){ try { return JSON.parse(localStorage.getItem(KEY) || 'null'); } catch(e) { return null; } }
+function valid(st){
+  if (!st || !Array.isArray(st.picks) || !Number.isInteger(st.pos)) return false;
+  if (st.pos < 0 || st.pos > N || st.picks.length > N) return false;
+  if (st.picks.length < st.pos || st.picks.length > st.pos + 1) return false;
+  return st.picks.every((p, i) => Number.isInteger(p) && p >= 0 && p < D.scenes[i].options.length);
+}
+
+/* ---------- pieces ---------- */
+function narrHTML(sc, idx){
+  let h = '', inList = false;
+  for (const b of sc.body){
+    if (b.c && !evalCond(b.c, idx)) continue;
+    if (b.h.startsWith('<li>')) { if (!inList) { h += '<ul>'; inList = true; } h += b.h; continue; }
+    if (inList) { h += '</ul>'; inList = false; }
+    if (b.kind) h += '<div class="memory"><b>' + (b.kind === '轉生' ? '上一世' : (C.memLabel || '宿緣')) + '</b><p>' + b.h + '</p></div>';
+    else h += '<p>' + b.h + '</p>';
+  }
+  if (inList) h += '</ul>';
+  return h;
+}
+function srcFold(h, extra){ return '<details class="srcf"><summary>出處資料：</summary><p class="src">' + String(h || '').replace(/^(<em>)?出處：/, '$1') + '</p>' + (extra ? '<p class="src">' + extra + '</p>' : '') + '</details>'; }
+const YRS = m => m.era ? '<span class="md"><span class="seg">' + m.era + '｜</span>' + m.yrs.split('、').map((y, i, a) => '<span class="seg">' + y + (i < a.length - 1 ? '、' : '') + '</span>').join('') + '</span>' : '';
+/* era lines break only at the ・ between phrases (a phrase longer than the line still wraps inside) */
+const ERA = t => String(t).split('・').map((x, i, a) => '<span class="seg">' + x + (i < a.length - 1 ? '・' : '') + '</span>').join('');
+/* tidy(): runs after every render. Glues the last three characters of a block (with trailing punctuation) so no
+   line ends up holding a single character; keeps 「——」 with the character before it; keeps page and year ranges whole. */
+const CLOSEP = '，。、；：？！」』）》〉…,.;:?!)', OPENP = '「『（《〈(';
+const GLUE = /[^\s—]——|(?:pp?\. ?)?(?:約|前)?\d+[a-c]?–(?:約|前)?\d+[a-c]?|pp?\. \d+[a-c]?|《[^《》]{1,7}》|〈[^〈〉]{1,7}〉|「[^「」]{1,4}」|[元正一二三四五六七八九十]{1,4}年(?:（[^（）]{1,12}）)?|[一-鿿]{2}(?= [一-鿿])|(?:[第約前]\s?)?\d[\d,]*\s[年月日歲卷冊部位人種幕次天多萬]|[第約前]\s\d[\d,]*/g;
+/* titles and headings break after ：，、； rather than mid-phrase */
+const PH = t => String(t).split(/(?<=[：，、；])/).map(x => '<span class="seg">' + x + '</span>').join('');
+function glueRanges(t){
+  const s = t.nodeValue; GLUE.lastIndex = 0; const ms = []; let m;
+  while ((m = GLUE.exec(s))) ms.push([m.index, m[0].length]);
+  for (let j = ms.length - 1; j >= 0; j--){
+    const [i, len] = ms[j]; const mid = t.splitText(i); mid.splitText(len);
+    const sp = document.createElement('span'); sp.className = 'nb'; mid.replaceWith(sp); sp.appendChild(mid);
+  }
+}
+const SKIPT = '.nb,.seg,.k,.tg,.chips,.lk,.bars,.tl-key,.tr-card,summary';
+/* word boundaries (where the browser supports it), so the glued tail does not cut a word such as 不會 in two */
+const WSEG = (() => { try { return new Intl.Segmenter('zh-Hant', {granularity: 'word'}); } catch(e) { return null; } })();
+function tidy(root){
+  if (!root) return;
+  try { tidyIn(root); } catch(e) {}
+}
+function tidyIn(root){
+  const plan = [], seen = new Set();
+  /* read phase (no DOM writes, so styles are computed once) */
+  root.querySelectorAll('p,li,dd,td,th,.choice .t,.sid,.recap li>span:last-child').forEach(el => {
+    if (el.dataset.td || el.closest(SKIPT)) return;
+    el.dataset.td = '1';
+    const all = [], ok = []; const tw = document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n;
+    while ((n = tw.nextNode())){
+      if (!/\S/.test(n.nodeValue)) continue; all.push(n);
+      if (seen.has(n)) continue; seen.add(n);
+      const pe = n.parentElement;
+      if (!pe.closest(SKIPT) && !/flex|grid/.test(getComputedStyle(pe).display)) ok.push(n);
+    }
+    let cut = null; const t = all[all.length - 1];
+    if (t && ok.indexOf(t) >= 0){
+      const s = t.nodeValue; let j = s.length;
+      while (j > 0 && (CLOSEP.includes(s[j - 1]) || /\s/.test(s[j - 1]))) j--;
+      let k = j, c = 0;
+      while (k > 0 && c < 3 && !/\s/.test(s[k - 1])){ if (!OPENP.includes(s[k - 1])) c++; k--; }
+      while (k > 0 && OPENP.includes(s[k - 1])) k--;
+      if (WSEG && k > 0 && k < j){ const from = Math.max(0, k - 6);
+        for (const g of WSEG.segment(s.slice(from, j))){ const a = from + g.index, b = a + g.segment.length;
+          if (a < k && b > k){ if (k - a <= 3 && /[\u4e00-\u9fff]/.test(g.segment)) k = a; break; } if (a >= k) break; } }
+      const ob = Math.max(s.lastIndexOf('《', k - 1), s.lastIndexOf('「', k - 1));
+      if (ob >= 0 && k - ob <= 6 && s.indexOf(s[ob] === '《' ? '》' : '」', ob) >= k) k = ob;
+      if (k > 1 && /\s/.test(s[k - 1]) && /\d/.test(s[k - 2])){ k--; while (k > 0 && /[\d,]/.test(s[k - 1])) k--; }
+      if (c >= 2 && !(k === 0 && all.length === 1)) cut = [t, k];
+    }
+    plan.push([ok, cut]);
+  });
+  /* write phase */
+  for (const [ok, cut] of plan){
+    try {
+      if (cut){ const [t, k] = cut; if (k < t.nodeValue.length){ const tail = t.splitText(k); const sp = document.createElement('span'); sp.className = 'nb'; tail.replaceWith(sp); sp.appendChild(tail); } }
+      ok.forEach(glueRanges);
+    } catch(e) {}
+  }
+}
+
+/* founders of the eight schools: a name button opens a white card */
+const FKEY = s => (s === '臨濟' || s === '曹洞') ? '禪' : String(s).replace(/宗$/, '');
+function founderRow(key){
+  const items = (D.founders && D.founders.items) || [];
+  const fs = items.map((f, i) => [f, i]).filter(x => x[0].k === key);
+  if (!fs.length) return '';
+  return '<p class="fdrow">' + fs.map(x => '<span class="fdi"><span class="fdl" aria-hidden="true">' + x[0].role + '</span><button type="button" class="fd" data-f="' + x[1] + '" aria-haspopup="dialog" aria-label="' + x[0].role + '：' + x[0].n + '（' + x[0].title + '），看介紹">' +
+    x[0].n + '<small>' + x[0].title + '</small></button></span>').join('') + '</p>';
+}
+let fdLast = null, fdInert = [], fdDown = null;
+function openFounder(i, btn){
+  const f = D.founders && D.founders.items[i]; if (!f) return;
+  let m = document.getElementById('fmask');
+  if (!m){ m = document.createElement('div'); m.id = 'fmask'; m.className = 'fmask'; m.hidden = true;
+    m.innerHTML = '<div class="fbox" role="dialog" aria-modal="true" aria-labelledby="fbox-h"><button type="button" class="fx" aria-label="關閉">×</button><div class="fin"></div></div>';
+    document.body.appendChild(m); }
+  m.querySelector('.fin').innerHTML = '<p class="frole"><span class="seg">' + f.role + '</span></p><h3 id="fbox-h">' + f.n + '</h3><p class="fmeta">' + ERA(f.title + '・' + f.dates) + '</p>' +
+    '<p class="ftext">' + f.text + '</p>' + srcFold(f.src) +
+    ((D.founders.intro && D.founders.intro.length) ? '<details class="srcf"><summary>為什麼是這幾位：</summary><p class="src">' + D.founders.intro.join('') + '</p></details>' : '');
+  tidy(m.querySelector('.fin'));
+  fdLast = btn || document.activeElement;
+  const sbw = window.innerWidth - document.documentElement.clientWidth;
+  if (sbw > 0) document.body.style.paddingRight = sbw + 'px';
+  fdInert = [...document.body.children].filter(el => el !== m && !el.inert);
+  fdInert.forEach(el => { el.inert = true; });
+  m.hidden = false; document.body.classList.add('modal-open');
+  m.querySelector('.fin').scrollTop = 0; m.querySelector('.fx').focus({preventScroll: true});
+}
+function closeFounder(){
+  const m = document.getElementById('fmask'); if (!m || m.hidden) return;
+  m.hidden = true; document.body.classList.remove('modal-open'); document.body.style.paddingRight = '';
+  fdInert.forEach(el => { el.inert = false; }); fdInert = [];
+  if (fdLast && fdLast.focus) fdLast.focus({preventScroll: true});
+}
+const fdVisible = x => x.checkVisibility ? x.checkVisibility() : x.getClientRects().length > 0;
+document.addEventListener('pointerdown', e => { fdDown = e.target; }, true);
+document.addEventListener('click', e => {
+  const fb = e.target.closest('.fd'); if (fb){ e.preventDefault(); openFounder(+fb.dataset.f, fb); return; }
+  if (e.target.closest('.fx')){ closeFounder(); return; }
+  if (e.target.id === 'fmask' && (!fdDown || fdDown.id === 'fmask')) closeFounder();
+});
+document.addEventListener('keydown', e => {
+  const m = document.getElementById('fmask'); if (!m || m.hidden) return;
+  if (e.key === 'Escape'){ e.preventDefault(); closeFounder(); return; }
+  if (e.key === 'Tab'){
+    const f = [...m.querySelectorAll('button, a[href], summary')].filter(fdVisible); if (!f.length) return;
+    const a = f[0], z = f[f.length - 1], cur = document.activeElement;
+    if (!m.contains(cur)){ e.preventDefault(); (e.shiftKey ? z : a).focus(); }
+    else if (e.shiftKey && cur === a){ e.preventDefault(); z.focus(); }
+    else if (!e.shiftKey && cur === z){ e.preventDefault(); a.focus(); }
+  }
+});
+function choicesHTML(sc, picked, idx){
+  return '<div class="choices" role="group" aria-label="你的選擇">' + sc.options.map((o, i) => (o.c && !evalCond(o.c, idx)) ? '' :
+    '<button type="button" class="choice' + (o.c ? ' extra' : '') + (picked === i ? ' picked' : '') + '" data-i="' + i + '"' + (o.c ? ' title="宿緣選項"' : '') +
+    (picked != null ? ' disabled' : '') + ' aria-pressed="' + (picked === i) + '">' +
+    '<span class="k">' + o.k + '</span><span class="t">' + o.t + '</span></button>').join('') + '</div>';
+}
+function afterHTML(sc, i, withNext, fresh){
+  let h = '<section class="after' + (fresh ? ' fresh' : '') + '" id="after-' + i + '" tabindex="-1">' +
+    '<p class="after-label">後來</p><div class="hist">' + sc.after.map(p => '<p>' + p + '</p>').join('') + '</div>' +
+    srcFold(sc.source);
+  if (withNext) h += '<button type="button" class="next" data-act="next">' + (i === N - 1 ? '看看你的結局' : '往下一幕') + '</button>';
+  return h + '</section>';
+}
+function headHTML(sc){
+  return '<div><p class="no">第' + sc.num + '幕</p><h2>' + PH(sc.title) + '</h2><p class="era">' + ERA(sc.era) + '</p></div>';
+}
+function volumeHTML(v){
+  return '<div class="vol"><span class="slip">' + v.label + '</span><div><h3>' + PH(v.title) + '</h3><p>' + v.intro + '</p></div></div>';
+}
+function activeHTML(i, fresh){
+  const sc = D.scenes[i];
+  const picked = picks.length > i ? picks[i] : null;
+  let h = '<article class="scene' + (fresh ? ' fresh' : '') + '" id="scene-' + i + '">' + headHTML(sc) +
+    '<div class="narr">' + narrHTML(sc, i) + '</div>' + choicesHTML(sc, picked, i);
+  if (picked != null) h += afterHTML(sc, i, true, false);
+  return h + '</article>';
+}
+function doneHTML(i){
+  const sc = D.scenes[i];
+  return '<details class="done" id="scene-' + i + '"><summary><span class="no">第' + sc.num + '幕</span><span class="st">' + sc.title +
+    '</span><span class="mine">你選了 ' + sc.options[picks[i]].k + '</span></summary><div class="body">' +
+    '<p class="era">' + ERA(sc.era) + '</p><div class="narr">' + narrHTML(sc, i) + '</div>' + choicesHTML(sc, picks[i], i) +
+    afterHTML(sc, i, false, false) + '</div></details>';
+}
+
+/* ---------- result ---------- */
+function compute(){
+  const s = {}, last = {};
+  SCH.forEach(k => { s[k] = 0; last[k] = -1; });
+  const f = {}; FATES.forEach(k => { f[k] = 0; });
+  picks.forEach((p, i) => {
+    const o = D.scenes[i].options[p];
+    for (const k in o.s) { s[k] += o.s[k]; last[k] = i; }
+    f[o.f] += 1;
+  });
+  const order = SCH.slice().sort((a, b) => (s[b] - s[a]) || (last[b] - last[a]));
+  const mf = Math.max.apply(null, FATES.map(k => f[k]));
+  const fate = TIE.find(k => f[k] === mf);
+  return {s, f, order, school: order[0], fate};
+}
+function normv(v){ const n = Math.sqrt(v.reduce((a, x) => a + x * x, 0)) || 1; return v.map(x => x / n); }
+function sumv(o){ let t = 0; for (const k in o) t += o[k]; return t; }
+D.masters.forEach(m => {
+  if (m.bal) return;
+  const ts = sumv(m.s), tf = sumv(m.f);
+  m.sv = normv(SCH.map((k, i) => (m.s[k] || 0) / ts - D.baseline.s[i]));
+  m.fv = normv(FATES.map((k, i) => (m.f[k] || 0) / tf - D.baseline.f[i]));
+});
+function entropy(s){
+  const t = SCH.reduce((a, k) => a + s[k], 0); let h = 0;
+  SCH.forEach(k => { if (s[k] > 0) { const p = s[k] / t; h -= p * Math.log(p); } });
+  return h / Math.log(SCH.length);
+}
+function matchMasters(r){
+  const B = D.baseline, t = SCH.reduce((a, k) => a + r.s[k], 0), tf = FATES.reduce((a, k) => a + r.f[k], 0);
+  const sv = normv(SCH.map((k, i) => r.s[k] / t - B.s[i])), fv = normv(FATES.map((k, i) => r.f[k] / tf - B.f[i]));
+  const sc = D.masters.filter(m => !m.bal).map(m => {
+    const hit = m.k.filter(x => letterOf(x[0] - 1) === x[1]).length;
+    const raw = B.wS * m.sv.reduce((a, x, i) => a + x * sv[i], 0) + B.wF * m.fv.reduce((a, x, i) => a + x * fv[i], 0) + B.wK * Math.min(hit, 3);
+    return {m, raw, v: raw + (m.b || 0)};
+  });
+  /* the calibration bias reorders, but the closest raw match is always among the three shown */
+  const best = sc.reduce((a, x) => x.raw > a.raw ? x : a, sc[0]).m;
+  const rk = sc.sort((a, b) => b.v - a.v).map(x => x.m);
+  const keep = (list) => { if (list.indexOf(best) < 0){ const i = rk.indexOf(best); rk.splice(i, 1); rk.splice(list.length - 1, 0, best); } };
+  const bal = D.masters.find(m => m.bal);
+  if (bal && entropy(r.s) >= B.balance){ keep(rk.slice(0, 2)); return {top: [bal].concat(rk.slice(0, 2)), also: rk.slice(2, 4)}; }
+  keep(rk.slice(0, 3));
+  return {top: rk.slice(0, 3), also: rk.slice(3, 5)};
+}
+function naturalRoles(r){
+  const o = r.order, out = [o[0], o[1]];
+  if (r.s[o[2]] > 0 && r.s[o[2]] >= 0.8 * r.s[o[1]]) out.push(o[2]);
+  return out;
+}
+function mixKey(roles){
+  const main = D.roles[roles[0]].cat;
+  const others = Array.from(new Set(roles.slice(1).map(k => D.roles[k].cat).filter(c => c !== main)));
+  return others.length === 0 ? main : others.length === 1 ? main + '+' + others[0] : 'all';
+}
+function comboHTML(c){
+  return '<p class="txt">' + c.lead + '</p><dl class="four">' + c.parts.map(p =>
+    '<div' + (p.k === '在人群裡' ? ' class="ctx"' : '') + '><dt>' + p.k + '</dt><dd>' + p.t + '</dd></div>').join('') + '</dl>';
+}
+function masterText(t){
+  return t.split(/(?=你像(?:他們|他|她)：)|(?=(?:他們|他|她)會提醒你：)/).map(x => {
+    const m = x.match(/^(你像(?:他們|他|她)|(?:他們|他|她)會提醒你)：(.*)$/);
+    return '<p>' + (m ? '<b>' + m[1] + '</b>　' + m[2] : x) + '</p>';
+  }).join('');
+}
+function rolesHTML(roles){
+  const mix = D.mix[mixKey(roles)];
+  const chips = roles.map((k, i) => {
+    const ro = D.roles[k];
+    return '<span class="chip' + (i === 0 ? ' main' : '') + '"><small>' + (i === 0 ? '主角色' : '副角色') + '</small><b>' + ro.name + '</b><small>' + k + '・' + ro.cat + '型</small></span>';
+  }).join('');
+  const cards = roles.map(k => { const ro = D.roles[k]; return '<div class="rcard"><h4>' + ro.name + '<small>' + k + '・' + ro.cat + '型</small></h4><p>' + ro.text + '</p></div>'; }).join('');
+  return '<section class="res"><p class="label">你在人群裡的角色</p><p class="big sm">' + roles.map(k => D.roles[k].name).join('・') + '</p>' +
+    '<div class="chips">' + chips + '</div>' +
+    '<div class="mixcard"><h4>' + mix.name + '</h4><p>' + mix.text + '</p></div>' +
+    '<div class="rcards">' + cards + '</div>' +
+    '<details class="lead"><summary><b style="display:inline">這一節怎麼讀</b></summary>' + D.rolesLead.map(p => '<p>' + p + '</p>').join('') + '</details></section>';
+}
+function masterHTML(mm){
+  return '<section class="res master"><p class="label">' + C.masterLabel + '</p><p class="big sm">' + mm.top.map(m => m.name).join('・') + '</p>' +
+    '<div class="mcards">' + mm.top.map((m, i) => '<div class="mcard' + (i === 0 ? ' first' : '') + '"><h4>' + m.name + '<small>' + (i === 0 ? '最像' : '也很像') + '</small></h4>' + YRS(m) +
+      '<div class="txt">' + masterText(m.text) + '</div></div>').join('') + '</div>' +
+    '<div class="also"><b>也有幾分像</b>' + mm.also.map(m => '<p><strong>' + m.name + '</strong>' + YRS(m) + '<br>' + m.id + '</p>').join('') + '</div>' +
+    srcFold(D.mastersSrc, D.mastersYrsSrc) + '</section>';
+}
+/* a collapsed result section: label + one-line title, opens in place */
+function foldSec(cls, id, label, big, inner){
+  return '<section class="res' + (cls ? ' ' + cls : '') + '"' + (id ? ' id="' + id + '"' : '') + '><details class="rfold"><summary><span class="label">' + label + '</span><span class="big sm">' + big +
+    '</span><span class="chev" aria-hidden="true"></span><span class="hint">點一下展開</span></summary><div class="mbody"><div class="fin2">' + inner + '</div></div></details></section>';
+}
+function allMastersHTML(mm){
+  const tops = mm.top.map(m => m.name), near = mm.also.map(m => m.name);
+  return foldSec('allm', 'all-masters', C.allLabel, cnum(D.masters.length) + C.allUnit,
+    '<p class="note">' + C.allNote + '</p>' +
+    '<div class="tbar"><button type="button" class="ghost" data-act="allm">全部展開</button></div>' +
+    '<div class="mlist">' + D.masters.map((m, i) => {
+      const me = tops.indexOf(m.name) >= 0, nr = near.indexOf(m.name) >= 0;
+      return '<details class="mi' + (me ? ' me' : nr ? ' near' : '') + '"><summary><span class="n">' + (i + 1) + '</span><span class="nm">' + m.name +
+        (me ? '<em>和你最像</em>' : nr ? '<em>也有幾分像</em>' : '') + YRS(m) + '</span><span class="chev" aria-hidden="true"></span><span class="sid">' + m.id + '</span></summary>' +
+        '<div class="mbody">' + masterText(m.text) + '</div></details>';
+    }).join('') + '</div>');
+}
+const COLL = {T: '大正藏', B: '大藏經補編', Y: '印順法師佛學著作集', X: '卍續藏'};
+function sutrasHTML(){
+  const S = D.sutras; if (!S || !S.groups) return '';
+  const total = S.groups.reduce((a, g) => a + g.items.length, 0);
+  const ext = ' target="_blank" rel="noopener"';
+  return foldSec('sut', 'sutras', '各宗修持經典', cnum(total) + '部經典，依宗派歸類',
+    S.intro.map(p => '<p class="note">' + p + '</p>').join('') +
+    '<div class="gnav" role="navigation" aria-label="經典分類">' + S.groups.map((g, i) => '<button type="button" data-act="sjump" data-g="' + i + '">' + g.name + '<small>' + g.items.length + '</small></button>').join('') + '</div>' +
+    '<div class="tbar"><button type="button" class="ghost" data-act="allsut">全部展開</button></div>' +
+    S.groups.map((g, gi) => '<div class="sgroup" id="sg-' + gi + '"><h4 tabindex="-1">' + g.name + '<small>' + g.items.length + ' 部</small></h4>' + founderRow(FKEY(g.name)) + '<p class="gintro">' + g.intro + '</p><div class="mlist">' +
+      g.items.map((it, i) => '<details class="mi su"><summary><span class="n">' + (i + 1) + '</span><span class="nm">《' + it.n + '》</span><span class="chev" aria-hidden="true"></span>' +
+        '<span class="sid">' + it.id + (it.j ? '・卷' + it.j : '') + '<span class="tg">' + it.tags.map(t => '<span>' + t + '</span>').join('') + '</span></span></summary>' +
+        '<div class="mbody"><p class="cat">CBETA ' + it.id + '｜' + (COLL[it.coll] || it.coll) + '第 ' + it.vol + ' 冊' + (it.j ? '・卷 ' + it.j : '') + '｜' + it.cat + '</p>' +
+        '<p><b>在說什麼</b>　' + it.c + '</p><p><b>怎麼修</b>　' + it.p + '</p>' +
+        '<p class="lk"><a class="pri" href="' + it.cb + '"' + ext + '>在 CBETA 開啟' + (it.j ? '（卷 ' + it.j + '）' : '') + '</a>' +
+          it.links.map(l => '<a href="' + l.u + '"' + ext + '>' + l.t + '</a>').join('') + '</p></div></details>').join('') + '</div></div>').join(''));
+}
+/* smooth open/close for the master cards; the arrow turns with it */
+function toggleCard(d, open, animate){
+  const body = d.querySelector('.mbody');
+  if (d._anim){ d._anim.cancel(); d._anim = null; d.classList.remove('closing'); }
+  if (!animate || reduce || !body.animate){ d.open = open; return; }
+  if (open){
+    d.open = true;
+    const h = body.offsetHeight;
+    d._anim = body.animate([{height: '0px', opacity: 0}, {height: h + 'px', opacity: 1}], {duration: 300, easing: 'cubic-bezier(.3,.7,.3,1)'});
+    d._anim.onfinish = () => { d._anim = null; };
+  } else {
+    const h = body.offsetHeight;
+    d.classList.add('closing');
+    d._anim = body.animate([{height: h + 'px', opacity: 1}, {height: '0px', opacity: 0}], {duration: 240, easing: 'cubic-bezier(.4,0,.7,.4)'});
+    d._anim.onfinish = () => { d.open = false; d.classList.remove('closing'); d._anim = null; };
+  }
+}
+function barsHTML(keys, vals, top, labelFn){
+  const mx = Math.max(1, Math.max.apply(null, keys.map(k => vals[k])));
+  return '<div class="bars">' + keys.map(k =>
+    '<div class="brow' + (k === top ? ' top' : '') + '"><span>' + labelFn(k) + '</span><div class="track"><div class="fill" style="width:' +
+    Math.round(vals[k] / mx * 100) + '%"></div></div><span class="n">' + vals[k] + '</span></div>').join('') + '</div>';
+}
+function comboBlock(sk, fk){
+  const sc = D.schools[sk], fa = D.fates[fk];
+  return '<h4>' + sk + '宗：' + sc.tag + '</h4>' + founderRow(FKEY(sk)) + '<p>' + sc.text + '</p>' +
+    (sc.modern ? '<p class="modern"><b>近代知音</b><span>' + sc.modern + '</span></p>' : '') +
+    '<h4>' + fa.name + '</h4><p>' + fa.text + '</p>' +
+    '<h4>' + sk + '宗 × ' + fa.name + '</h4>' + comboHTML(D.combos[sk][fa.name]);
+}
+function endingHTML(fresh){
+  const r = compute();
+  const sc = D.schools[r.school], fa = D.fates[r.fate];
+  const mm = matchMasters(r);
+  tsave({a: r.school + (C.dimSuffix || ''), b: fa.name, m: mm.top.map(m => m.name)});
+  const recap = D.scenes.map((s, i) => {
+    const o = s.options[picks[i]];
+    return '<li><span class="no">第' + s.num + '幕</span><span><b>' + s.title + '</b>　' + o.k + '．' + o.t + '</span></li>';
+  }).join('');
+  const parts = (C.links || []).map(l => '<a href="' + l.u + '">' + l.t + '</a>').join('');
+  return '<article class="ending' + (fresh ? ' fresh' : '') + '" id="ending" tabindex="-1">' +
+    '<div class="head"><p class="no">終章</p><h2>' + C.endTitle + '</h2><p class="era">' + C.endLead + '</p></div>' +
+    masterHTML(mm) +
+    '<section class="res"><p class="label">' + C.dimLabel + '</p><p class="big">' + r.school + (C.dimSuffix || '') + '</p><p class="tagline">' + sc.tag + '</p>' +
+      '<p class="txt">' + sc.text + '</p>' + (sc.modern ? '<p class="modern"><b>' + (C.modernLabel || '延伸') + '</b><span>' + sc.modern + '</span></p>' : '') + '</section>' +
+    '<section class="res"><details class="rfold"><summary><span class="label">' + C.fateLabel + '</span><span class="big">' + fa.name + '</span><span class="chev" aria-hidden="true"></span>' +
+      '<span class="hint">點一下展開</span></summary><div class="mbody"><p class="txt">' + fa.text + '</p></div></details></section>' +
+    ((D.places && D.places.length) ? foldSec('journey', '', C.journeyLabel, C.journeyBig, journeyHTML()) : '') +
+    foldSec('', '', '得分', C.scoreBig, '<div class="scores"><div><p class="label">' + C.dimBarLabel + '</p>' + barsHTML(r.order, r.s, r.school, k => k) + '</div>' +
+      '<div><p class="label">' + C.fateBarLabel + '</p>' + barsHTML(FATES, r.f, r.fate, k => k + '<small style="color:var(--ink-2);font-weight:400">・' + FLABEL[k] + '</small>') + '</div></div>') +
+    foldSec('', '', '回顧', '你的' + cnum(N) + '個選擇', '<ol class="recap">' + recap + '</ol>') +
+    foldSec('', '', '看看其他結局', C.exploreBig, '<div class="explore">' + SCH.map(k => '<h4>' + k + (C.dimSuffix || '') + '：' + D.schools[k].tag + '</h4><p>' + D.schools[k].text + '</p>').join('') +
+      FATES.map(k => '<h4>' + D.fates[k].name + '</h4><p>' + D.fates[k].text + '</p>').join('') + '</div>') +
+    allMastersHTML(mm) +
+    (parts ? '<section class="res"><p class="label">三部曲</p><p class="parts">' + parts + '</p></section>' : '') +
+    '<div class="actions"><button type="button" class="ghost" data-act="restart">重新開始</button><button type="button" class="ghost" data-act="top">回到開頭</button></div>' +
+    '</article>';
+}
+
+/* ---------- map & timeline ---------- */
+const MAP = D.map;
+const PL = {}; (D.places || []).forEach(p => { PL[p.n] = p; });
+const YEAR0 = C.years ? C.years[0] : 0, YEAR1 = C.years ? C.years[1] : 1;
+const yearPct = y => !C.years ? 0 : Math.max(0, Math.min(100, (y - YEAR0) / (YEAR1 - YEAR0) * 100));
+const shortNow = s => s.replace(/（.*?）/g, '');
+const ease = t => t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+function curve(a, b, bend){
+  const mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2, dx = b[0] - a[0], dy = b[1] - a[1];
+  const k = bend == null ? .14 : bend;
+  return 'M' + a[0] + ' ' + a[1] + 'Q' + (mx - dy * k).toFixed(1) + ' ' + (my + dx * k).toFixed(1) + ' ' + b[0] + ' ' + b[1];
+}
+function travelPath(a, b, via){
+  const pts = [a].concat((via || []).map(v => v.xy)).concat([b]);
+  let d = '';
+  for (let i = 0; i < pts.length - 1; i++){
+    const seg = curve(pts[i], pts[i + 1], .1);
+    d += i ? seg.replace(/^M[^Q]+/, '') : seg;
+  }
+  return d;
+}
+function baseMap(){
+  return '<path class="m-land" d="' + MAP.land + '"/><path class="m-river" d="' + MAP.rivers + '"/><path class="m-lake" d="' + MAP.lakes + '"/>';
+}
+function fitBox(pts, aspect, minW){
+  let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+  pts.forEach(p => { x0 = Math.min(x0, p[0]); y0 = Math.min(y0, p[1]); x1 = Math.max(x1, p[0]); y1 = Math.max(y1, p[1]); });
+  const pad = 90; x0 -= pad; y0 -= pad; x1 += pad; y1 += pad;
+  let w = x1 - x0, h = y1 - y0;
+  if (w < minW){ x0 -= (minW - w) / 2; w = minW; }
+  if (w / h < aspect){ const nw = h * aspect; x0 -= (nw - w) / 2; w = nw; } else { const nh = w / aspect; y0 -= (nh - h) / 2; h = nh; }
+  if (w >= MAP.w){ x0 = (MAP.w - w) / 2; } else { x0 = Math.max(0, Math.min(x0, MAP.w - w)); }
+  if (h >= MAP.h){ y0 = (MAP.h - h) / 2; } else { y0 = Math.max(0, Math.min(y0, MAP.h - h)); }
+  return [x0, y0, w, h];
+}
+function timeStrip(upto){
+  if (!C.years) return '';
+  let h = '<div class="tl"><div class="tl-line"></div>';
+  for (let y = C.ticks[0]; y <= C.ticks[1]; y += C.ticks[2]) h += '<span class="tl-tick" style="left:' + yearPct(y) + '%"><i></i><b>' + (y < 0 ? '前' + (-y) : y) + '</b></span>';
+  for (let i = 0; i < upto; i++){ const p = PL[i + 1]; if (p) h += '<span class="tl-seen" style="left:' + yearPct(p.year) + '%"></span>'; }
+  return h + '<span class="tl-now"></span></div>';
+}
+
+const Tr = {
+  el: null, vb: null, busy: false,
+  build(){
+    const el = document.createElement('div');
+    el.className = 'tr'; el.setAttribute('role', 'status'); el.setAttribute('aria-live', 'polite');
+    el.innerHTML = '<div class="tr-card"><div class="tr-head"><p class="tr-no"></p><p class="tr-place"></p><p class="tr-now"></p></div>' +
+      '<div class="mapbox"><svg class="tr-map" viewBox="0 0 ' + MAP.w + ' ' + MAP.h + '" preserveAspectRatio="xMidYMid meet" aria-hidden="true">' + baseMap() +
+      '<g class="m-rl"></g><path class="m-trail"/><g class="m-olds"></g><path class="m-go"/><path class="m-sea"/><g class="m-pts"></g><g class="m-lbls"></g></svg></div>' +
+      '<div class="tr-time"></div></div>';
+    const stop = e => { if (this.busy) e.preventDefault(); };
+    el.addEventListener('wheel', stop, { passive: false });
+    el.addEventListener('touchmove', stop, { passive: false });
+    document.addEventListener('keydown', e => { if (this.busy && [' ', 'PageDown', 'PageUp', 'ArrowDown', 'ArrowUp', 'Home', 'End', 'Enter', 'Tab'].indexOf(e.key) >= 0) e.preventDefault(); }, true);
+    document.body.appendChild(el);
+    this.el = el;
+  },
+  q(s){ return this.el.querySelector(s); },
+  setVB(v){ this.q('.tr-map').setAttribute('viewBox', v.map(n => n.toFixed(1)).join(' ')); },
+  unit(){ const w = this.q('.tr-map').clientWidth || 600; return this.vbW / w; },
+  label(g, xy, text, cls, px, dx, dy, anchor){
+    const k = this.unit();
+    const t = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    t.setAttribute('x', xy[0] + dx * k); t.setAttribute('y', xy[1] + dy * k);
+    t.setAttribute('font-size', px * k); t.setAttribute('stroke-width', 4 * k);
+    t.setAttribute('text-anchor', anchor || 'start'); t.setAttribute('class', cls); t.textContent = text;
+    g.appendChild(t); return t;
+  },
+  dot(g, xy, r, cls){
+    const k = this.unit();
+    const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    c.setAttribute('cx', xy[0]); c.setAttribute('cy', xy[1]); c.setAttribute('r', r * k); c.setAttribute('class', cls);
+    g.appendChild(c); return c;
+  },
+  /* from: scene index just finished (0-based); to: next index, or N for the ending */
+  play(from, to, mid){
+    if (this.busy) return;
+    if (!this.el) this.build();
+    this.busy = true;
+    const el = this.el, svg = this.q('.tr-map');
+    const A = PL[from + 1], end = to >= N, B = end ? null : PL[to + 1];
+    const sc = end ? null : D.scenes[to];
+    this.q('.tr-no').textContent = end ? '終章' : '第' + sc.num + '幕　' + sc.title;
+    this.q('.tr-place').textContent = end ? C.trEnd : B.name;
+    this.q('.tr-now').textContent = end ? cnum(N) + '幕，你走過的地方' : '今' + shortNow(B.now) + (!C.years ? '' : '・' + (B.year < 0 ? '西元前 ' + (-B.year) : '西元 ' + B.year) + ' 年');
+    this.q('.tr-time').innerHTML = timeStrip(from + 1);
+    ['.m-olds', '.m-pts', '.m-lbls', '.m-rl'].forEach(s => { this.q(s).innerHTML = ''; });
+    const go = this.q('.m-go'), sea = this.q('.m-sea'), trail = this.q('.m-trail');
+    go.setAttribute('d', ''); sea.setAttribute('d', '');
+    el.classList.add('on');
+    // geometry for the view
+    const aspect = (svg.clientWidth || 16) / (svg.clientHeight || 10);
+    let target, travel = '', route = null, pts;
+    if (end){
+      pts = D.places.map(p => p.xy);
+      target = [0, 0, MAP.w, MAP.h];
+      if (MAP.w / MAP.h < aspect){ const w = MAP.h * aspect; target = [(MAP.w - w) / 2, 0, w, MAP.h]; } else { const h = MAP.w / aspect; target = [0, (MAP.h - h) / 2, MAP.w, h]; }
+      travel = D.places.map((p, i) => i ? curve(D.places[i - 1].xy, p.xy, .1).replace(/^M[^Q]+/, '') : 'M' + p.xy[0] + ' ' + p.xy[1]).join('');
+    } else {
+      pts = [A.xy, B.xy].concat((B.viaXY || []).map(v => v.xy)).concat((B.alsoXY || []).map(v => v.xy));
+      if (B.routeXY){ pts.push(B.routeXY.xy); if (B.routeXY.fromXY) pts.push(B.routeXY.fromXY); }
+      target = fitBox(pts, aspect, 600);
+      const same = Math.hypot(A.xy[0] - B.xy[0], A.xy[1] - B.xy[1]) < 4;
+      if (!same) travel = travelPath(A.xy, B.xy, B.viaXY);
+      if (B.routeXY) route = seaPath(B);
+    }
+    const start = this.vb || target.slice();
+    this.vbW = target[2];
+    this.setVB(target);
+    // static layers drawn at the target scale
+    const seen = D.places.slice(0, end ? N : from + 1);
+    trail.setAttribute('d', '');
+    go.classList.toggle('end', end);
+    const olds = this.q('.m-olds'), pg = this.q('.m-pts'), lg = this.q('.m-lbls'), rl = this.q('.m-rl');
+    MAP.riverLabels.forEach(r => this.label(rl, r.p, r.t, 'm-riverlabel', 12, 0, 0, 'middle'));
+    seen.forEach(p => this.dot(olds, p.xy, 2.6, 'm-old'));
+    let labelB = null, ring = null, routeLbl = null;
+    if (!end){
+      const left = B.xy[0] > target[0] + target[2] * .72;
+      const sameA = Math.hypot(A.xy[0] - B.xy[0], A.xy[1] - B.xy[1]) < 4;
+      if (!sameA) this.label(lg, A.xy, A.name, 'm-small m-faint', 12, 0, 18, 'middle');
+      (B.viaXY || []).forEach(v => { this.dot(pg, v.xy, 2.6, 'm-old'); this.label(lg, v.xy, v.t, 'm-small m-faint', 12, 0, -9, 'middle'); });
+      (B.alsoXY || []).forEach(v => { this.dot(pg, v.xy, 3, 'm-dot m-fade'); this.label(lg, v.xy, v.t, 'm-small m-fade', 13, 8, 4); });
+      ring = this.dot(pg, B.xy, 9, 'm-ring');
+      this.dot(pg, B.xy, 4.2, 'm-dot');
+      labelB = this.label(lg, B.xy, B.name, 'm-label m-fade', 17, left ? -13 : 13, 6, left ? 'end' : 'start');
+      if (B.routeXY){
+        const rx = B.routeXY.xy;
+        this.dot(pg, rx, 2.6, 'm-old');
+        if (B.routeXY.fromXY){ this.dot(pg, B.routeXY.fromXY, 2.6, 'm-old'); if (B.routeXY.ft) this.label(lg, B.routeXY.fromXY, B.routeXY.ft, 'm-small m-fade', 12, 0, 18, 'middle'); }
+        if (B.routeXY.dir === 'to'){
+          // above-right of the far shore, clear of the incoming line; shift left if it would leave the view
+          const k = this.unit(), w = B.routeXY.t.length * 13 * k, right = target[0] + target[2] - 6 * k;
+          routeLbl = rx[0] + 8 * k + w < right ? this.label(lg, rx, B.routeXY.t, 'm-small m-fade', 13, 8, -10, 'start')
+            : rx[0] + w / 2 < right ? this.label(lg, rx, B.routeXY.t, 'm-small m-fade', 13, 0, -12, 'middle')
+            : this.label(lg, rx, B.routeXY.t, 'm-small m-fade', 13, -6, -12, 'end');
+        } else routeLbl = this.label(lg, rx, B.routeXY.t, 'm-small m-fade', 13, 0, -12, 'middle');
+      }
+    } else {
+      D.places.forEach(p => this.dot(pg, p.xy, 2.8, 'm-dot m-fade'));
+    }
+    go.setAttribute('d', travel);
+    sea.setAttribute('d', route || '');
+    const goLen = travel ? go.getTotalLength() : 0, seaLen = route ? sea.getTotalLength() : 0;
+    // the line keeps a fixed screen width (non-scaling stroke), so its dashes are measured in screen pixels
+    const pxLen = v => goLen * Math.min((svg.clientWidth || 600) / v[2], (svg.clientHeight || 400) / v[3]) + 4;
+    const L0 = pxLen(target);
+    go.style.strokeDasharray = L0 * 4 + ' ' + L0 * 4; go.style.strokeDashoffset = L0 * 4;
+    sea.style.opacity = 0;
+    const fades = Array.from(el.querySelectorAll('.m-fade'));
+    fades.forEach(f => { f.style.opacity = 0; });
+    if (ring) ring.style.opacity = 0;
+    const now = this.q('.tl-now') || {style: {}};
+    const y0 = end ? (PL[1] ? PL[1].year : YEAR0) : A.year, y1 = end ? PL[N].year : B.year;
+    now.style.left = yearPct(y0) + '%';
+    const T = reduce ? { inn: 150, draw: 0, hold: 1150, out: 200 } : { inn: 300, draw: end ? 1400 : (goLen ? 1000 : 450), hold: (route ? 800 : 550) + (innerWidth < 600 ? 150 : 0), out: 320 };
+    const total = T.inn + T.draw + T.hold + T.out;
+    let midDone = false; const t0 = performance.now();
+    const step = now2 => {
+      const t = now2 - t0;
+      if (!midDone && t >= T.inn){ midDone = true; try { mid(); } catch (e) {} }
+      const pd = T.draw ? Math.min(1, Math.max(0, (t - T.inn * .6) / T.draw)) : 1, e = ease(pd);
+      // camera glides from the previous view to the new one
+      const v = start.map((s, i) => s + (target[i] - s) * e);
+      this.setVB(v);
+      const L = pxLen(v); go.style.strokeDasharray = L + ' ' + L; go.style.strokeDashoffset = L * (1 - e);
+      now.style.left = yearPct(y0 + (y1 - y0) * e) + '%';
+      const pf = Math.min(1, Math.max(0, (t - T.inn - T.draw * .7) / 380));
+      fades.forEach(f => { f.style.opacity = pf; });
+      if (ring){ const pr = Math.min(1, Math.max(0, (t - T.inn - T.draw * .8) / 700)); ring.style.opacity = pr < 1 ? (1 - pr) * .9 : 0; ring.setAttribute('r', (5 + pr * 10) * this.unit()); }
+      if (route) sea.style.opacity = Math.min(1, Math.max(0, (t - T.inn - T.draw * .85) / 500));
+      if (t >= T.inn + T.draw + T.hold) el.classList.remove('on');
+      if (t < total) requestAnimationFrame(step);
+      else {
+        this.vb = target; this.busy = false;
+      }
+    };
+    requestAnimationFrame(step);
+  }
+};
+
+/* sea route: from the scene place (or a named port) to the far shore, or back */
+function seaPath(p){
+  const r = p.routeXY, a = r.fromXY || p.xy;
+  return r.dir === 'to' ? curve(a, r.xy, .22) : curve(r.xy, a, .22);
+}
+/* the full journey and the timeline, shown in the ending */
+function placeGroups(){
+  const groups = [];
+  D.places.forEach(p => {
+    const g = groups.find(g => Math.hypot(g.xy[0] - p.xy[0], g.xy[1] - p.xy[1]) < 9);
+    if (g){ if (g.names.indexOf(p.name) < 0) g.names.push(p.name); g.ns.push(p.n); g.minor = false; }
+    else groups.push({ xy: p.xy, names: [p.name], ns: [p.n] });
+    (p.alsoXY || []).concat(p.viaXY || []).forEach(v => {
+      if (!groups.find(g => Math.hypot(g.xy[0] - v.xy[0], g.xy[1] - v.xy[1]) < 9)) groups.push({ xy: v.xy, names: [v.t], ns: [], minor: true });
+    });
+  });
+  return groups;
+}
+function journeyHTML(){
+  const groups = placeGroups(), FS = 19, boxes = [];
+  const fits = b => b[0] > 2 && b[1] > 2 && b[2] < MAP.w - 2 && b[3] < MAP.h - 2 &&
+    !boxes.some(o => b[0] < o[2] && b[2] > o[0] && b[1] < o[3] && b[3] > o[1]) &&
+    !groups.some(g => g.xy[0] > b[0] - 3 && g.xy[0] < b[2] + 3 && g.xy[1] > b[1] - 3 && g.xy[1] < b[3] + 3);
+  let labels = '';
+  MAP.riverLabels.forEach(r => boxes.push([r.p[0] - 17, r.p[1] - 14, r.p[0] + 17, r.p[1] + 4]));
+  groups.slice().sort((a, b) => b.ns.length - a.ns.length || a.xy[1] - b.xy[1]).forEach(g => {
+    const text = g.names.slice(0, 2).join('・'), w = text.length * FS, h = FS;
+    const [x, y] = g.xy;
+    const cand = [[x + 8, y + 6, 'start'], [x - 8, y + 6, 'end'], [x, y - 10, 'middle'], [x, y + 24, 'middle'], [x + 7, y - 8, 'start'], [x - 7, y - 8, 'end'], [x + 7, y + 21, 'start'], [x - 7, y + 21, 'end'],
+      [x + 10, y + 26, 'start'], [x - 10, y + 26, 'end'], [x + 10, y - 13, 'start'], [x - 10, y - 13, 'end'], [x, y + 44, 'middle'], [x, y - 28, 'middle'], [x + 24, y + 6, 'start'], [x - 24, y + 6, 'end']];
+    for (const [lx, ly, an] of cand){
+      const x0 = an === 'start' ? lx : an === 'end' ? lx - w : lx - w / 2;
+      const b = [x0, ly - h * .85, x0 + w, ly + h * .2];
+      if (fits(b)){ boxes.push(b); labels += '<text class="m-small' + (g.minor ? ' m-faint' : '') + '" x="' + lx + '" y="' + ly + '" font-size="' + FS + '" stroke-width="5" text-anchor="' + an + '">' + text + '</text>'; return; }
+    }
+  });
+  const route = D.places.map((p, i) => i ? curve(D.places[i - 1].xy, p.xy, .1).replace(/^M[^Q]+/, '') : 'M' + p.xy[0] + ' ' + p.xy[1]).join('');
+  const seas = D.places.filter(p => p.routeXY).map(seaPath).join('');
+  const seaLbls = D.places.filter(p => p.routeXY).map(p => [p.routeXY.xy].concat(p.routeXY.fromXY ? [p.routeXY.fromXY] : []).map(xy => '<circle class="m-old" cx="' + xy[0] + '" cy="' + xy[1] + '" r="3"/>').join('')).join('');
+  const dots = groups.map(g => '<circle class="' + (g.minor ? 'm-old' : 'm-dot') + '" cx="' + g.xy[0] + '" cy="' + g.xy[1] + '" r="' + (g.minor ? 3 : 4.2) + '"/>').join('');
+  const rl = MAP.riverLabels.map(r => '<text class="m-riverlabel" x="' + r.p[0] + '" y="' + r.p[1] + '" font-size="15" text-anchor="middle">' + r.t + '</text>').join('');
+  return '<p class="swipe">左右滑動，看全圖</p><div class="mapscroll"><div class="mapbox"><svg viewBox="0 0 ' + MAP.w + ' ' + MAP.h + '" role="img" aria-label="' + C.mapAria + '">' + baseMap() + rl +
+    '<path class="m-path" d="' + route + '"/><path class="m-sea" d="' + seas + '"/>' + dots + seaLbls + labels + '</svg></div></div>' +
+    '<p class="maplegend">' + C.mapLegend + '</p>';
+}
+const TL_ORDER = ['三論', '法相', '天台', '華嚴', '律', '淨土', '臨濟', '曹洞', '密', '涅槃師', '地論', '攝論', '三階'];
+const TL_STYLE = { 興盛: 'tl-s', 延續: 'tl-m', 衰微: 'tl-w', 萌芽: 'tl-b', 典籍: 'tl-d' };
+function timelineHTML(){
+  const L = 118, R = 988, top = 26, rowH = 30, gap = 18;
+  const X = y => L + (y - YEAR0) / (YEAR1 - YEAR0) * (R - L);
+  const rowY = i => top + i * rowH + (i >= 9 ? gap : 0);
+  const H = rowY(TL_ORDER.length - 1) + 64;
+  let s = '<svg viewBox="0 0 1000 ' + H + '" role="img" aria-label="八宗興衰時間軸">';
+  for (let y = 400; y <= 2000; y += 200) s += '<line class="tl-grid" x1="' + X(y) + '" x2="' + X(y) + '" y1="' + (top - 14) + '" y2="' + (H - 40) + '"/><text class="tl-yr" x="' + X(y) + '" y="' + (H - 18) + '" text-anchor="middle">' + y + '</text>';
+  TL_ORDER.forEach((name, i) => {
+    const y = rowY(i), lost = i >= 9;
+    s += '<text class="tl-name' + (lost ? ' lost' : '') + '" x="' + (L - 14) + '" y="' + (y + 6) + '" text-anchor="end">' + name + '</text>';
+    (D.timeline || []).forEach((seg, j) => {
+      if (seg.s !== name) return;
+      s += '<line class="tl-seg ' + TL_STYLE[seg.st] + (lost ? ' lost' : '') + '" x1="' + X(seg.a) + '" x2="' + X(seg.b) + '" y1="' + y + '" y2="' + y + '"/>' +
+        '<line class="tl-hit" data-tl="' + j + '" x1="' + X(seg.a) + '" x2="' + X(seg.b) + '" y1="' + y + '" y2="' + y + '"><title>' + name + '　' + seg.a + '–' + seg.b + '　' + seg.st + '</title></line>';
+    });
+  });
+  const ay = H - 40;
+  s += '<line class="tl-axis" x1="' + L + '" x2="' + R + '" y1="' + ay + '" y2="' + ay + '"/>';
+  D.places.forEach(p => { const x = X(p.year); s += '<path class="tl-you" d="M' + x + ' ' + (ay - 1) + 'l-4 -7h8z"/>'; });
+  s += '</svg>';
+  const key = '<p class="tl-key"><span><i class="k tl-s"></i>興盛</span><span><i class="k tl-m"></i>延續</span><span><i class="k tl-w"></i>衰微</span><span><i class="k tl-b"></i>萌芽</span><span><i class="k tl-d"></i>只在典籍或海外</span><span><i class="k you"></i>你走過的年代</span></p>';
+  return '<p class="swipe">左右滑動，看完整的時間軸</p><div class="mapscroll"><div class="tlbox">' + s + '</div></div>' + key + '<p class="tl-cap" id="tl-cap">點一段線，看那一段的興衰。灰色四列，是後來沒有列進八宗、併入他宗或失傳的學派。</p>';
+}
+function journeySectionHTML(){
+  return foldSec('journey', '', '一千五百年的行腳', '地圖與八宗興衰', journeyHTML() +
+    '<p class="label" style="margin-top:14px">八宗興衰</p>' + timelineHTML());
+}
+
+/* ---------- render ---------- */
+function introHTML(){
+  let h = D.intro.slice(0, 4).map(p => '<p>' + p + '</p>').join('');
+  if (pos > 0 && pos < N) h += '<button type="button" class="resume" data-act="resume">接著讀第' + D.scenes[pos].num + '幕</button>';
+  else if (pos >= N) h += '<button type="button" class="resume" data-act="resume">看你的結局</button>';
+  return h;
+}
+function progress(){
+  const lamps = $('#lamps');
+  if (!lamps.children.length){
+    lamps.innerHTML = D.scenes.map((s, i) => '<i' + (i > 0 && D.volumes[s.vol].first === i + 1 ? ' class="v"' : '') + '></i>').join('');
+  }
+  Array.from(lamps.children).forEach((el, i) => {
+    el.classList.toggle('lit', i < pos || (i === pos && picks.length > pos));
+    el.classList.toggle('now', i === pos && picks.length <= pos);
+  });
+  if (pos < N){
+    const sc = D.scenes[pos];
+    $('#where').textContent = '第 ' + (pos + 1) + '／' + N + ' 幕';
+    $('#vol-now').textContent = D.volumes[sc.vol].label + '・' + D.volumes[sc.vol].title.split('：')[0];
+  } else {
+    $('#where').textContent = cnum(N) + '幕走完了';
+    $('#vol-now').textContent = '終章';
+  }
+}
+function render(freshIdx){
+  let h = '';
+  const upto = Math.min(pos, N - 1);
+  for (let i = 0; i <= upto; i++){
+    const sc = D.scenes[i];
+    if (D.volumes[sc.vol].first === i + 1) h += volumeHTML(D.volumes[sc.vol]);
+    h += (i < pos) ? doneHTML(i) : activeHTML(i, freshIdx === i);
+  }
+  if (pos >= N) h += endingHTML(freshIdx === N);
+  story.innerHTML = h;
+  $('#intro').innerHTML = introHTML();
+  tidy(story); tidy($('#intro'));
+  progress();
+}
+function goTo(el){
+  if (!el) return;
+  el.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block: 'start'});
+}
+
+/* ---------- actions ---------- */
+function choose(i){
+  if (pos >= N || picks.length > pos) return;
+  picks[pos] = i; picks.length = pos + 1;
+  save();
+  const art = $('#scene-' + pos);
+  const tmp = document.createElement('div');
+  tmp.innerHTML = activeHTML(pos, false);
+  const fresh = tmp.firstChild;
+  const after = fresh.querySelector('.after'); if (after) after.classList.add('fresh');
+  art.replaceWith(fresh); tidy(fresh);
+  progress();
+  const a = $('#after-' + pos);
+  if (a){ a.focus({preventScroll: true}); a.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block: 'nearest'}); }
+}
+function next(){
+  if (picks.length <= pos) return;
+  pos += 1; save();
+  render(pos);
+  const el = pos >= N ? $('#ending') : $('#scene-' + pos);
+  const vol = el && el.previousElementSibling && el.previousElementSibling.classList.contains('vol') ? el.previousElementSibling : el;
+  goTo(vol);
+  if (pos >= N && el) el.focus({preventScroll: true});
+}
+let armTimer = null;
+function restart(btn){
+  if (!btn.hasAttribute('data-armed')){
+    document.querySelectorAll('[data-armed]').forEach(b => { b.removeAttribute('data-armed'); b.textContent = '重新開始'; });
+    btn.setAttribute('data-armed', ''); btn.textContent = '再按一次，確定重新開始';
+    clearTimeout(armTimer);
+    armTimer = setTimeout(() => { btn.removeAttribute('data-armed'); btn.textContent = '重新開始'; }, 4000);
+    return;
+  }
+  clearTimeout(armTimer);
+  picks = []; pos = 0; save();
+  render(0);
+  const b = $('#bar-restart'); b.removeAttribute('data-armed'); b.textContent = '重新開始';
+  window.scrollTo({top: 0, behavior: reduce ? 'auto' : 'smooth'});
+}
+
+document.addEventListener('click', e => {
+  const h = e.target.closest('.tl-hit');
+  if (h){ const seg = D.timeline[+h.dataset.tl]; const cap = $('#tl-cap'); if (seg && cap) cap.innerHTML = '<b>' + seg.s + '　' + seg.a + '–' + seg.b + '　' + seg.st + '</b>　' + seg.t; return; }
+  const ms = e.target.closest('.mi>summary, .rfold>summary');
+  if (ms){ e.preventDefault(); const d = ms.parentElement, want = !d.open || d.classList.contains('closing'); toggleCard(d, want, true);
+    const sec = d.closest('.allm, #sutras'); if (sec){ const btn = sec.querySelector('[data-act="allm"], [data-act="allsut"]');
+      if (btn) btn.textContent = [...sec.querySelectorAll('.mi')].some(x => x === d ? !want : (!x.open || x.classList.contains('closing'))) ? '全部展開' : '全部收起'; }
+    return; }
+  const c = e.target.closest('.choice');
+  if (c && !c.disabled && c.closest('.scene')) { choose(+c.dataset.i); return; }
+  const b = e.target.closest('[data-act]');
+  if (!b) return;
+  const act = b.dataset.act;
+  if (act === 'next'){ if (Tr.busy || picks.length <= pos) return; if (D.places && D.places.length === N) Tr.play(pos, pos + 1, next); else next(); }
+  else if (act === 'restart') restart(b);
+  else if (act === 'allm'){ const cards = [...document.querySelectorAll('.allm .mi')]; const open = cards.some(d => !d.open);
+    cards.forEach(d => toggleCard(d, open, false)); b.textContent = open ? '全部收起' : '全部展開'; }
+  else if (act === 'allsut'){ const cards = [...document.querySelectorAll('#sutras .mi')]; const open = cards.some(d => !d.open);
+    cards.forEach(d => toggleCard(d, open, false)); b.textContent = open ? '全部收起' : '全部展開'; }
+  else if (act === 'sjump'){ const g = document.getElementById('sg-' + b.dataset.g); if (!g) return;
+    const top = document.querySelector('.bar'), off = top ? top.getBoundingClientRect().height + 8 : 12;
+    window.scrollTo({top: g.getBoundingClientRect().top + window.scrollY - off, behavior: reduce ? 'auto' : 'smooth'});
+    const h = g.querySelector('h4'); if (h) h.focus({preventScroll: true}); }
+  else if (act === 'top') window.scrollTo({top: 0, behavior: reduce ? 'auto' : 'smooth'});
+  else if (act === 'resume') goTo(pos >= N ? $('#ending') : $('#scene-' + pos));
+});
+story.addEventListener('change', e => {
+  if (e.target.id === 'ex-school' || e.target.id === 'ex-fate'){
+    $('#exout').innerHTML = comboBlock($('#ex-school').value, $('#ex-fate').value); tidy($('#exout'));
+  }
+});
+
+/* back-to-top button: shows after scrolling down about one and a half screens */
+(function(){
+  const tb = $('.totop'); if (!tb) return; let on = false, tick = false;
+  const upd = () => { tick = false; const v = window.scrollY > window.innerHeight * 1.5; if (v !== on){ on = v; tb.classList.toggle('show', v); tb.tabIndex = v ? 0 : -1; } };
+  window.addEventListener('scroll', () => { if (!tick){ tick = true; requestAnimationFrame(upd); } }, {passive: true});
+  upd();
+})();
+
+/* ---------- boot ---------- */
+$('#notes').innerHTML = D.notesHtml; tidy($('#notes'));
+function start(data){
+  const st = valid(data) ? data : load();
+  if (valid(st)) { picks = st.picks.slice(); pos = st.pos; }
+  render(-1);
+}
+try { window.claude && window.claude.hot && window.claude.hot.snapshot && window.claude.hot.snapshot(() => ({picks: picks.slice(), pos})); } catch(e) {}
+if (window.claude && window.claude.hot && window.claude.hot.ready) window.claude.hot.ready(start);
+else start((window.claude && window.claude.hot && window.claude.hot.data) || {});
+})();
+</script>
+
+<script>
+if ('serviceWorker' in navigator && location.protocol === 'https:') {
+  window.addEventListener('load', () => navigator.serviceWorker.register('../sw.js', {scope: '../'}).catch(() => {}));
+}
+</script>
+</html>
