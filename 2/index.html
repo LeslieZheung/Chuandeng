@@ -424,6 +424,11 @@ button,summary,select{touch-action:manipulation}
 .home::before{content:"";width:6px;height:6px;border-left:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg)}
 .parts{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
 .parts a{font-size:.9rem;color:var(--lapis)}
+
+/* 中文排版：自然斷行、避頭尾、左右對齊 */
+p,li,dd,.choice .t{text-wrap:pretty;line-break:strict;overflow-wrap:break-word;text-align:justify;text-justify:inter-character}
+.choice .t,.center p,[style*="text-align:center"]{text-align:start}
+.seg{display:inline}
 </style>
 
 <div class="wrap">
@@ -550,6 +555,7 @@ const SKIPT = '.nb,.seg,.k,.tg,.chips,.lk,.bars,.tl-key,.tr-card,summary';
 /* word boundaries (where the browser supports it), so the glued tail does not cut a word such as 不會 in two */
 const WSEG = (() => { try { return new Intl.Segmenter('zh-Hant', {granularity: 'word'}); } catch(e) { return null; } })();
 function tidy(root){
+  return; /* 改用瀏覽器的中文斷行 */
   if (!root) return;
   try { tidyIn(root); } catch(e) {}
 }
