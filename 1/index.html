@@ -429,6 +429,55 @@ button,summary,select{touch-action:manipulation}
 p,li,dd,.choice .t{text-wrap:pretty;line-break:strict;overflow-wrap:break-word;text-align:justify;text-justify:inter-character}
 .choice .t,.center p,[style*="text-align:center"]{text-align:start}
 .seg{display:inline}
+
+/* ===== transitions.dev — Texts reveal (18) ===== https://transitions.dev ===== */
+:root {
+  --stagger-dur: 500ms;
+  --stagger-distance: 12px;
+  --stagger-stagger: 40ms;
+  --stagger-blur: 3px;
+  --stagger-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+/* Lines start translated down + blurred + invisible; .is-shown
+   on the parent flips them to their resting state. The second
+   line's transition-delay holds it back by --stagger-stagger
+   so the eye lands on the headline first. */
+.t-stagger-line {
+  display: block;
+  opacity: 0;
+  transform: translateY(var(--stagger-distance));
+  filter: blur(var(--stagger-blur));
+  transition:
+    opacity   var(--stagger-dur) var(--stagger-ease),
+    transform var(--stagger-dur) var(--stagger-ease),
+    filter    var(--stagger-dur) var(--stagger-ease);
+  will-change: transform, opacity, filter;
+}
+.t-stagger-line--2 { transition-delay: var(--stagger-stagger); }
+
+.t-stagger.is-shown .t-stagger-line {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+/* Exit decouples from the stagger: same fade for every line,
+   no Y return, no blur — so the disappearance reads as a
+   single quiet fade instead of a reverse reveal. */
+.t-stagger.is-hiding .t-stagger-line {
+  opacity: 0;
+  transform: translateY(0);
+  filter: blur(0);
+  transition:
+    opacity 200ms ease,
+    transform 0s linear,
+    filter 0s linear;
+  transition-delay: 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-stagger-line { transition: none !important; }
+}
+/* game hook (t-stagger-game): each line keeps its own display, set inline by the script */
 </style>
 
 <div class="wrap">
@@ -1257,6 +1306,76 @@ if (window.claude && window.claude.hot && window.claude.hot.ready) window.claude
 else start((window.claude && window.claude.hot && window.claude.hot.data) || {});
 })();
 </script>
+<script>
+/* ===== transitions.dev — Texts reveal (18) ===== https://transitions.dev =====
+   Game wiring (t-stagger-game): a new scene, the "後來" section after a choice,
+   and the ending rise in line by line once the map overlay has gone.
+   It only watches the page and adds/removes classes; if anything here fails,
+   the game runs exactly as before and nothing stays hidden. */
+(() => {
+  try {
+    const story = document.getElementById('story');
+    if (!story || !window.MutationObserver) return;
+    const root = document.documentElement;
+    const ms = name => parseFloat(getComputedStyle(root).getPropertyValue(name)) || 0;
+    const MAXN = 8;            // lines after the 8th share the last delay
+    const WAIT_MAX = 6000;     // never keep content hidden longer than this
+
+    function prep(block){
+      const lines = [...block.children].filter(el => el.nodeType === 1 && el.getClientRects().length);
+      if (!lines.length) return null;
+      block.classList.remove('fresh');
+      block.classList.add('t-stagger');
+      lines.forEach((el, i) => {
+        el._tsDisplay = el.style.display;
+        el._tsDelay = el.style.transitionDelay;
+        el.style.display = getComputedStyle(el).display;   // keep grid / flex layouts
+        el.style.transitionDelay = 'calc(var(--stagger-stagger) * ' + Math.min(i, MAXN) + ')';
+        el.classList.add('t-stagger-line');
+      });
+      return {block, lines};
+    }
+    function cleanup(job){
+      job.block.classList.remove('t-stagger', 'is-shown');
+      job.lines.forEach(el => {
+        el.classList.remove('t-stagger-line');
+        el.style.display = el._tsDisplay || '';
+        el.style.transitionDelay = el._tsDelay || '';
+      });
+    }
+    function show(job){
+      if (job.done) return; job.done = true;
+      void job.block.offsetHeight;
+      job.block.classList.add('is-shown');
+      const total = ms('--stagger-dur') + ms('--stagger-stagger') * MAXN + 120;
+      setTimeout(() => { try { cleanup(job); } catch (e) {} }, total);
+    }
+    function overlayOn(){ const t = document.querySelector('.tr'); return !!(t && t.classList.contains('on')); }
+    function whenClear(job){
+      if (!overlayOn()) { requestAnimationFrame(() => show(job)); return; }
+      const t0 = performance.now();
+      const tick = () => {
+        if (job.done) return;
+        if (!overlayOn() || performance.now() - t0 > WAIT_MAX) show(job);
+        else setTimeout(tick, 60);
+      };
+      setTimeout(tick, 60);
+    }
+    function reveal(block){
+      try { const job = prep(block); if (job) whenClear(job); }
+      catch (e) { try { block.classList.remove('t-stagger', 'is-shown'); block.querySelectorAll('.t-stagger-line').forEach(el => el.classList.remove('t-stagger-line')); } catch (e2) {} }
+    }
+    new MutationObserver(recs => {
+      for (const r of recs) for (const n of r.addedNodes) {
+        if (n.nodeType !== 1) continue;
+        if (n.matches('.scene.fresh, .ending.fresh')) reveal(n);
+        n.querySelectorAll('.after.fresh').forEach(reveal);
+      }
+    }).observe(story, {childList: true});
+  } catch (e) {}
+})();
+</script>
+
 
 <script>
 if ('serviceWorker' in navigator && location.protocol === 'https:') {

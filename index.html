@@ -99,6 +99,55 @@ footer{margin-top:48px;padding-top:18px;border-top:1px solid var(--rule);font-si
 @media (min-width:640px){ .part{padding:24px 24px 22px;gap:20px} }
 p{text-wrap:pretty;line-break:strict;text-align:justify;text-justify:inter-character}
 .status,.span,.tl-note{text-align:start}
+
+/* ===== transitions.dev — Texts reveal (18) ===== https://transitions.dev ===== */
+:root {
+  --stagger-dur: 500ms;
+  --stagger-distance: 12px;
+  --stagger-stagger: 40ms;
+  --stagger-blur: 3px;
+  --stagger-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+/* Lines start translated down + blurred + invisible; .is-shown
+   on the parent flips them to their resting state. The second
+   line's transition-delay holds it back by --stagger-stagger
+   so the eye lands on the headline first. */
+.t-stagger-line {
+  display: block;
+  opacity: 0;
+  transform: translateY(var(--stagger-distance));
+  filter: blur(var(--stagger-blur));
+  transition:
+    opacity   var(--stagger-dur) var(--stagger-ease),
+    transform var(--stagger-dur) var(--stagger-ease),
+    filter    var(--stagger-dur) var(--stagger-ease);
+  will-change: transform, opacity, filter;
+}
+.t-stagger-line--2 { transition-delay: var(--stagger-stagger); }
+
+.t-stagger.is-shown .t-stagger-line {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+/* Exit decouples from the stagger: same fade for every line,
+   no Y return, no blur — so the disappearance reads as a
+   single quiet fade instead of a reverse reveal. */
+.t-stagger.is-hiding .t-stagger-line {
+  opacity: 0;
+  transform: translateY(0);
+  filter: blur(0);
+  transition:
+    opacity 200ms ease,
+    transform 0s linear,
+    filter 0s linear;
+  transition-delay: 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-stagger-line { transition: none !important; }
+}
+/* homepage hook (t-stagger-home): each line keeps its own display, set inline by the script */
 </style>
 </head>
 <body>
@@ -238,5 +287,39 @@ if ('serviceWorker' in navigator && location.protocol === 'https:') {
   window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
 }
 </script>
+<script>
+/* ===== transitions.dev — Texts reveal (18) ===== https://transitions.dev =====
+   Homepage wiring (t-stagger-home): the title and the three part cards rise in
+   once on load. Only classes are added and removed; on any error nothing is hidden. */
+(() => {
+  try {
+    const ms = name => parseFloat(getComputedStyle(document.documentElement).getPropertyValue(name)) || 0;
+    const groups = [document.querySelector('main > header'), document.querySelector('.parts')].filter(Boolean);
+    let k = 0; const jobs = [];
+    groups.forEach(block => {
+      const lines = [...block.children].filter(el => el.getClientRects().length);
+      block.classList.add('t-stagger');
+      lines.forEach(el => {
+        el.style.display = getComputedStyle(el).display;
+        el.style.transitionDelay = 'calc(var(--stagger-stagger) * ' + Math.min(k++, 8) * 2 + ')';
+        el.classList.add('t-stagger-line');
+      });
+      jobs.push([block, lines]);
+    });
+    void document.body.offsetHeight;
+    requestAnimationFrame(() => {
+      jobs.forEach(([b]) => b.classList.add('is-shown'));
+      setTimeout(() => jobs.forEach(([b, lines]) => {
+        b.classList.remove('t-stagger', 'is-shown');
+        lines.forEach(el => { el.classList.remove('t-stagger-line'); el.style.display = ''; el.style.transitionDelay = ''; });
+      }), ms('--stagger-dur') + ms('--stagger-stagger') * 16 + 150);
+    });
+  } catch (e) {
+    document.querySelectorAll('.t-stagger').forEach(b => b.classList.remove('t-stagger'));
+    document.querySelectorAll('.t-stagger-line').forEach(el => el.classList.remove('t-stagger-line'));
+  }
+})();
+</script>
+
 </body>
 </html>
